@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -39,6 +39,10 @@ export const metadata: Metadata = {
   },
   description:
     'Energetski gelovi, izotonični napitci i whey proteini na bazi meda. Bez sukraloze, bez umjetnih aditiva.',
+}
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }))
 }
 
 interface LocaleLayoutProps {

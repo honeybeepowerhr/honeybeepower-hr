@@ -5,6 +5,7 @@
 // ============================================================
 
 import { useState, useId, useCallback, type ChangeEvent, type FormEvent } from 'react'
+import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -165,7 +166,7 @@ export default function CheckoutForm({ onSubmit }: CheckoutFormProps) {
 
   const [values, setValues] = useState<CheckoutFormValues>(defaultCheckoutValues)
   const [errors, setErrors] = useState<CheckoutFieldErrors>({})
-  const [touched, setTouched] = useState<Partial<Record<keyof CheckoutFormValues, boolean>>>({})
+  const [, setTouched] = useState<Partial<Record<keyof CheckoutFormValues, boolean>>>({})
   const [promoStatus, setPromoStatus] = useState<'idle' | 'valid' | 'invalid'>('idle')
   const [promoLabel, setPromoLabel] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -630,13 +631,13 @@ export default function CheckoutForm({ onSubmit }: CheckoutFormProps) {
 
       <p className="text-center text-xs text-gray-400">
         Slanjem narudžbe prihvaćate naše{' '}
-        <a href="/uvjeti-koristenja" className="underline hover:text-amber-600">
+        <Link href="/uvjeti-koristenja" className="underline hover:text-amber-600">
           Uvjete korištenja
-        </a>{' '}
+        </Link>{' '}
         i{' '}
-        <a href="/privatnost" className="underline hover:text-amber-600">
+        <Link href="/politika-privatnosti" className="underline hover:text-amber-600">
           Politiku privatnosti
-        </a>
+        </Link>
         .
       </p>
     </form>

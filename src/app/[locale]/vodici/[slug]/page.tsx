@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params
+  await params
   const title = 'Zašto je med bolji od malto-dekstrina na maratonu?'
 
   const articleSchema = {
@@ -92,7 +92,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
           </h2>
 
           <p>
-            Većina industrijskih energetskih gelova oslanja se na sintetički malto-dekstrin. Iako malto-dekstrin ima visoki glikemijski indeks, on brzo povlači vodu u crijeva, uzrokujući nadutost i poznati &quot;runner's stomach&quot;.
+            Većina industrijskih energetskih gelova oslanja se na sintetički malto-dekstrin. Iako malto-dekstrin ima visoki glikemijski indeks, on brzo povlači vodu u crijeva, uzrokujući nadutost i poznati &quot;runner&apos;s stomach&quot;.
           </p>
 
           <p>
