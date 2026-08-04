@@ -3,6 +3,9 @@
 	"main": ".open-next/worker.js",
 	"name": "honeybeepower-hr",
 	"compatibility_date": "2026-08-04",
+	"build": {
+		"command": "npx opennextjs-cloudflare build"
+	},
 	"compatibility_flags": [
 		"global_fetch_strictly_public"
 	],
