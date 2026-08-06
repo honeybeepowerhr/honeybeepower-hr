@@ -5,7 +5,7 @@ import { sanityServerClient } from '@/lib/sanity/client'
 import { saveInquiryToBackup } from '@/lib/inquiries-backup'
 import type { InquiryItem, InquiryRequestBody } from '@/types'
 
-const INQUIRY_RECIPIENT = 'honeybeepower.hr@gmail.com'
+const INQUIRY_RECIPIENT = 'srdanrebic2101@gmail.com'
 
 function isInquiryItem(value: unknown): value is InquiryItem {
   if (typeof value !== 'object' || value === null) return false
