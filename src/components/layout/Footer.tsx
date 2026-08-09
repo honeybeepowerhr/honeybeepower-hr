@@ -11,11 +11,11 @@ import { HexDivider } from '@/components/ui/HexDivider'
 function BeeLogoSmall() {
   return (
     <Image
-      src="/images/logo.png"
-      alt="Honey Bee Power Logo"
-      width={36}
-      height={36}
-      className="w-9 h-9 rounded-lg object-contain shrink-0"
+      src="/images/logo-white.png"
+      alt="Honey Bee Power"
+      width={131}
+      height={32}
+      className="h-8 w-auto object-contain shrink-0"
     />
   )
 }
@@ -66,9 +66,6 @@ export default function Footer() {
               className="flex items-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded"
             >
               <BeeLogoSmall />
-              <span className="font-heading font-black text-lg text-white">
-                Honey Bee Power
-              </span>
             </Link>
 
             <p className="text-sm text-gray-400 leading-relaxed max-w-xs">

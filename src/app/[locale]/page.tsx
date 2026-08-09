@@ -31,7 +31,7 @@ export default async function HomePage() {
     name: 'Honey Bee Power',
     legalName: 'Planet Bio d.o.o.',
     url: 'https://honeybeepower.hr',
-    logo: 'https://honeybeepower.hr/logo.png',
+    logo: 'https://honeybeepower.hr/images/logo.png',
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+385 977 097 962',

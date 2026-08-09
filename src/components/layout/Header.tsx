@@ -18,10 +18,11 @@ function BeeLogo() {
   return (
     <Image
       src="/images/logo.png"
-      alt="Honey Bee Power Logo"
-      width={44}
-      height={44}
-      className="w-11 h-11 rounded-xl object-contain shrink-0"
+      alt="Honey Bee Power"
+      width={163}
+      height={40}
+      priority
+      className="h-9 w-auto object-contain shrink-0"
     />
   )
 }
@@ -162,7 +163,6 @@ function MobileMenu({ isOpen, onClose, locale }: MobileMenuProps) {
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
           <div className="flex items-center gap-2">
             <BeeLogo />
-            <span className="font-heading font-bold text-lg text-charcoal">Honey Bee Power</span>
           </div>
           <button
             onClick={onClose}
@@ -318,9 +318,6 @@ export default function Header({ cartItemCount = 0 }: HeaderClientProps) {
             className="flex items-center gap-2 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg"
           >
             <BeeLogo />
-            <span className="font-heading font-black text-xl text-charcoal hidden sm:block">
-              Honey Bee Power
-            </span>
           </Link>
 
           {/* Desktop nav */}
