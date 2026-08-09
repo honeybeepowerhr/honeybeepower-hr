@@ -35,7 +35,7 @@ export async function sendEmail({ to, subject, html, text }: EmailParams): Promi
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: process.env.RESEND_FROM_EMAIL || 'Honey Bee Power <info@planetbio.hr>',
+        from: process.env.RESEND_FROM_EMAIL || 'Honey Bee Power <onboarding@resend.dev>',
         to: [to],
         subject,
         html,
