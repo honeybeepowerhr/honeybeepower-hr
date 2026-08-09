@@ -43,7 +43,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     ],
     variants: [
       { _key: 'v1', flavour: 'Limun', size: '40g sachet', sku: 'HBP-GEL-LIM-40', price: 249, stockLevel: 100, minQuantity: 50 },
-      { _key: 'v2', flavour: 'Limun', size: 'Paket 10x40g', sku: 'HBP-GEL-LIM-10', price: 1999, stockLevel: 45, minQuantity: 5 },
+      { _key: 'v2', flavour: 'Limun', size: 'Paket 10x40g', sku: 'HBP-GEL-LIM-10', price: 3000, stockLevel: 45, minQuantity: 5 },
     ],
     averageRating: 4.9,
     reviewCount: 38,
@@ -67,7 +67,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       sl: 'Paket 10 naravnih energijskih gelov na osnovi cvetličnega medu in limoninega soka.',
       pl: 'Zestaw 10 naturalnych żeli energetycznych na bazie miodu kwiatowego i soku z cytryny.',
     },
-    basePrice: 1999,
+    basePrice: 3000,
     mainImage: {
       _type: 'image',
       asset: {
@@ -89,7 +89,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Limun', size: 'Paket 10x40g', sku: 'HBP-GEL-LIM-10P', price: 1999, stockLevel: 80, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Limun', size: 'Paket 10x40g', sku: 'HBP-GEL-LIM-10P', price: 3000, stockLevel: 80, minQuantity: 5 },
     ],
     averageRating: 4.9,
     reviewCount: 24,
@@ -136,7 +136,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     ],
     variants: [
       { _key: 'v1', flavour: 'Naranča', size: '40g sachet', sku: 'HBP-GEL-NAR-40', price: 249, stockLevel: 120, minQuantity: 50 },
-      { _key: 'v2', flavour: 'Naranča', size: 'Paket 10x40g', sku: 'HBP-GEL-NAR-10', price: 1999, stockLevel: 50, minQuantity: 5 },
+      { _key: 'v2', flavour: 'Naranča', size: 'Paket 10x40g', sku: 'HBP-GEL-NAR-10', price: 3000, stockLevel: 50, minQuantity: 5 },
     ],
     averageRating: 5.0,
     reviewCount: 42,
@@ -160,7 +160,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       sl: 'Paket 10 naravnih energijskih gelov z medom in pomarančo.',
       pl: 'Zestaw 10 naturalnych żeli energetycznych z miodem i pomarańczą.',
     },
-    basePrice: 1999,
+    basePrice: 3000,
     mainImage: {
       _type: 'image',
       asset: {
@@ -182,7 +182,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Naranča', size: 'Paket 10x40g', sku: 'HBP-GEL-NAR-10P', price: 1999, stockLevel: 80, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Naranča', size: 'Paket 10x40g', sku: 'HBP-GEL-NAR-10P', price: 3000, stockLevel: 80, minQuantity: 5 },
     ],
     averageRating: 5.0,
     reviewCount: 31,
@@ -229,7 +229,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     ],
     variants: [
       { _key: 'v1', flavour: 'Malina', size: '40g sachet', sku: 'HBP-GEL-MAL-40', price: 249, stockLevel: 90, minQuantity: 50 },
-      { _key: 'v2', flavour: 'Malina', size: 'Paket 10x40g', sku: 'HBP-GEL-MAL-10', price: 1999, stockLevel: 40, minQuantity: 5 },
+      { _key: 'v2', flavour: 'Malina', size: 'Paket 10x40g', sku: 'HBP-GEL-MAL-10', price: 3000, stockLevel: 40, minQuantity: 5 },
     ],
     averageRating: 4.8,
     reviewCount: 29,
@@ -253,7 +253,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       sl: 'Paket 10 naravnih energijskih gelov z liofiliziranimi malinami.',
       pl: 'Zestaw 10 naturalnych żeli energetycznych z liofilizowaną maliną leśną.',
     },
-    basePrice: 1999,
+    basePrice: 3000,
     mainImage: {
       _type: 'image',
       asset: {
@@ -275,7 +275,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Malina', size: 'Paket 10x40g', sku: 'HBP-GEL-MAL-10P', price: 1999, stockLevel: 80, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Malina', size: 'Paket 10x40g', sku: 'HBP-GEL-MAL-10P', price: 3000, stockLevel: 80, minQuantity: 5 },
     ],
     averageRating: 4.8,
     reviewCount: 19,
@@ -299,7 +299,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       sl: 'Izotonični napitek z medom v prahu in limono.',
       pl: 'Naturalny napój izotoniczny z miodem w proszku, cytryną i solą morską.',
     },
-    basePrice: 999,
+    basePrice: 1199,
     mainImage: {
       _type: 'image',
       asset: {
@@ -316,7 +316,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Limun', size: '500g posuda', sku: 'HBP-ISO-LIM-500', price: 999, stockLevel: 60, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Limun', size: '500g posuda', sku: 'HBP-ISO-LIM-500', price: 1199, stockLevel: 60, minQuantity: 5 },
     ],
     averageRating: 4.9,
     reviewCount: 33,
@@ -340,7 +340,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       sl: 'Izotonični napitek z medom in pomarančo.',
       pl: 'Naturalny napój izotoniczny z miodem i soczystą pomarańczą.',
     },
-    basePrice: 999,
+    basePrice: 1199,
     mainImage: {
       _type: 'image',
       asset: {
@@ -357,7 +357,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Naranča', size: '500g posuda', sku: 'HBP-ISO-NAR-500', price: 999, stockLevel: 75, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Naranča', size: '500g posuda', sku: 'HBP-ISO-NAR-500', price: 1199, stockLevel: 75, minQuantity: 5 },
     ],
     averageRating: 5.0,
     reviewCount: 26,
