@@ -22,23 +22,19 @@ export default function ProductAddToCartButton({ product, variant }: ProductAddT
   const prodName = product.name[locale] ?? product.name.hr
   const moq = variant.minQuantity ?? product.minQuantity ?? 5
 
-  const [quantity, setQuantity] = useState(moq)
+  const [quantity, setQuantity] = useState(1)
 
-  // Update quantity whenever variant changes
+  // Reset quantity whenever variant changes
   useEffect(() => {
-    setQuantity(moq)
+    setQuantity(1)
   }, [moq])
 
-  const step = moq >= 100 ? 50 : 5
-
   const handleDecrease = () => {
-    if (quantity > moq) {
-      setQuantity((prev) => Math.max(moq, prev - step))
-    }
+    setQuantity((prev) => Math.max(1, prev - 1))
   }
 
   const handleIncrease = () => {
-    setQuantity((prev) => prev + step)
+    setQuantity((prev) => prev + 1)
   }
 
   const handleAdd = () => {
@@ -63,6 +59,14 @@ export default function ProductAddToCartButton({ product, variant }: ProductAddT
         <span>{tShop('minOrderNotice', { min: moq })}</span>
       </div>
 
+      {/* Below-MOQ surcharge notice */}
+      {quantity < moq && (
+        <div className="p-3.5 rounded-2xl bg-red-500/10 border border-red-500/30 text-xs font-semibold text-red-900 flex items-center gap-2">
+          <Building2 className="w-4 h-4 text-red-600 shrink-0" />
+          <span>{tShop('belowMoqNotice', { min: moq })}</span>
+        </div>
+      )}
+
       {/* Quantity & Add to Cart Controls */}
       <div className="flex flex-col sm:flex-row items-stretch gap-3">
         {/* Quantity selector */}
@@ -70,7 +74,7 @@ export default function ProductAddToCartButton({ product, variant }: ProductAddT
           <button
             type="button"
             onClick={handleDecrease}
-            disabled={quantity <= moq}
+            disabled={quantity <= 1}
             className="p-1 text-gray-600 hover:text-amber-600 disabled:opacity-40 disabled:hover:text-gray-600 transition-colors"
             aria-label="Smanji količinu"
           >

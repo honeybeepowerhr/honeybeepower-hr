@@ -111,13 +111,9 @@ export const useCartStore = create<CartStore>()(
           return
         }
 
-        const targetItem = get().items.find((i) => matchItem(i, productId, variantId))
-        const moq = targetItem?.minQuantity ?? 5
-        const finalQty = get().shopMode === 'wholesale' && qty < moq ? moq : qty
-
         set((state) => ({
           items: state.items.map((i) =>
-            matchItem(i, productId, variantId) ? { ...i, quantity: finalQty } : i,
+            matchItem(i, productId, variantId) ? { ...i, quantity: qty } : i,
           ),
         }))
       },
