@@ -8,7 +8,7 @@ import { saveInquiryToBackup } from '@/lib/inquiries-backup'
  * POST /api/b2b
  *
  * Receives B2B partner application form data, validates it, stores it in Sanity
- * as an `inquiry` document (inquiryType: 'b2b'), and emails info@planetbio.hr.
+ * as an `inquiry` document (inquiryType: 'b2b'), and emails the shop inbox.
  */
 export async function POST(request: NextRequest): Promise<NextResponse> {
   let body: unknown
@@ -70,9 +70,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     console.error('[b2b] Failed to save B2B inquiry to Sanity:', err)
   }
 
-  // Send notification email to info@planetbio.hr
+  // Send notification email to the shop inbox
   const emailResult = await sendEmail({
-    to: 'info@planetbio.hr',
+    to: 'honeybeepower.hr@gmail.com',
     subject: `[B2B Upit] Nova prijava za suradnju: ${companyName} (${orderNumber})`,
     html: `
       <h2>Novi B2B zahtjev za suradnju</h2>

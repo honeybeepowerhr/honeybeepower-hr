@@ -3,7 +3,7 @@ import { sendEmail } from '@/lib/resend/client'
 import { sanityServerClient } from '@/lib/sanity/client'
 import { saveInquiryToBackup } from '@/lib/inquiries-backup'
 
-const INQUIRY_RECIPIENT = 'info@planetbio.hr'
+const INQUIRY_RECIPIENT = 'honeybeepower.hr@gmail.com'
 
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
