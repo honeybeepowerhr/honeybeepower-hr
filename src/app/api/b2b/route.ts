@@ -70,9 +70,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     console.error('[b2b] Failed to save B2B inquiry to Sanity:', err)
   }
 
-  // Send notification email to the shop inbox
+  // Send notification email to the partner/B2B recipients
   const emailResult = await sendEmail({
-    to: 'honeybeepower.hr@gmail.com',
+    to: ['srdanrebic2101@gmail.com', 'info@planetbio.hr'],
     subject: `[B2B Upit] Nova prijava za suradnju: ${companyName} (${orderNumber})`,
     html: `
       <h2>Novi B2B zahtjev za suradnju</h2>

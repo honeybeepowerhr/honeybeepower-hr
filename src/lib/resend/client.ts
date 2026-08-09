@@ -3,7 +3,7 @@
  */
 
 export interface EmailParams {
-  to: string
+  to: string | string[]
   subject: string
   html: string
   text?: string
@@ -36,7 +36,7 @@ export async function sendEmail({ to, subject, html, text }: EmailParams): Promi
       },
       body: JSON.stringify({
         from: process.env.RESEND_FROM_EMAIL || 'Honey Bee Power <onboarding@resend.dev>',
-        to: [to],
+        to: Array.isArray(to) ? to : [to],
         subject,
         html,
         text,
