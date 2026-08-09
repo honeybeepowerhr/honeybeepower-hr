@@ -24,7 +24,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     mainImage: {
       _type: 'image',
       asset: {
-        _ref: '/images/products/energygellimun.png',
+        _ref: '/images/products/gellimun-prednja.png',
         _type: 'reference',
       },
       alt: 'Honey Bee Power Energy Gel Limun',
@@ -32,13 +32,13 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     imageGallery: [
       {
         _type: 'image',
-        asset: { _ref: '/images/products/energygellimun.png', _type: 'reference' },
-        alt: 'Honey Bee Power Energy Gel Limun — pakiranje',
+        asset: { _ref: '/images/products/gellimun-prednja.png', _type: 'reference' },
+        alt: 'Honey Bee Power Energy Gel Limun — prednja strana',
       },
       {
         _type: 'image',
-        asset: { _ref: '/images/products/energygellimun-detail-1.jpg', _type: 'reference' },
-        alt: 'Honey Bee Power Energy Gel Limun — detalj',
+        asset: { _ref: '/images/products/gellimun-zadnja.png', _type: 'reference' },
+        alt: 'Honey Bee Power Energy Gel Limun — zadnja strana',
       },
     ],
     variants: [
@@ -71,7 +71,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     mainImage: {
       _type: 'image',
       asset: {
-        _ref: '/images/products/energygelpaketlimun.png',
+        _ref: '/images/products/paketgellimun-new.png',
         _type: 'reference',
       },
       alt: 'Honey Bee Power Energy Gel Limun (Paket 10 kom)',
@@ -79,13 +79,8 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     imageGallery: [
       {
         _type: 'image',
-        asset: { _ref: '/images/products/energygelpaketlimun.png', _type: 'reference' },
+        asset: { _ref: '/images/products/paketgellimun-new.png', _type: 'reference' },
         alt: 'Honey Bee Power Energy Gel Limun — paket 10 kom',
-      },
-      {
-        _type: 'image',
-        asset: { _ref: '/images/products/energygellimun-detail-1.jpg', _type: 'reference' },
-        alt: 'Honey Bee Power Energy Gel Limun — detalj',
       },
     ],
     variants: [
@@ -117,7 +112,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     mainImage: {
       _type: 'image',
       asset: {
-        _ref: '/images/products/energygelnaranca.png',
+        _ref: '/images/products/gelnaranca-prednja.png',
         _type: 'reference',
       },
       alt: 'Honey Bee Power Energy Gel Naranča',
@@ -125,13 +120,13 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     imageGallery: [
       {
         _type: 'image',
-        asset: { _ref: '/images/products/energygelnaranca.png', _type: 'reference' },
-        alt: 'Honey Bee Power Energy Gel Naranča — pakiranje',
+        asset: { _ref: '/images/products/gelnaranca-prednja.png', _type: 'reference' },
+        alt: 'Honey Bee Power Energy Gel Naranča — prednja strana',
       },
       {
         _type: 'image',
-        asset: { _ref: '/images/products/energygelnaranca-detail-1.png', _type: 'reference' },
-        alt: 'Honey Bee Power Energy Gel Naranča — detalj',
+        asset: { _ref: '/images/products/gelnaranca-zadnja.png', _type: 'reference' },
+        alt: 'Honey Bee Power Energy Gel Naranča — zadnja strana',
       },
     ],
     variants: [
@@ -164,7 +159,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     mainImage: {
       _type: 'image',
       asset: {
-        _ref: '/images/products/energygelpaketorange.png',
+        _ref: '/images/products/paketgelnaranca-new.png',
         _type: 'reference',
       },
       alt: 'Honey Bee Power Energy Gel Naranča (Paket 10 kom)',
@@ -172,13 +167,8 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     imageGallery: [
       {
         _type: 'image',
-        asset: { _ref: '/images/products/energygelpaketorange.png', _type: 'reference' },
+        asset: { _ref: '/images/products/paketgelnaranca-new.png', _type: 'reference' },
         alt: 'Honey Bee Power Energy Gel Naranča — paket 10 kom',
-      },
-      {
-        _type: 'image',
-        asset: { _ref: '/images/products/energygelnaranca-detail-1.png', _type: 'reference' },
-        alt: 'Honey Bee Power Energy Gel Naranča — detalj',
       },
     ],
     variants: [
@@ -210,7 +200,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     mainImage: {
       _type: 'image',
       asset: {
-        _ref: '/images/products/energygelmalina.png',
+        _ref: '/images/products/gelmalina-prednja.png',
         _type: 'reference',
       },
       alt: 'Honey Bee Power Energy Gel Malina',
@@ -218,13 +208,13 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     imageGallery: [
       {
         _type: 'image',
-        asset: { _ref: '/images/products/energygelmalina.png', _type: 'reference' },
-        alt: 'Honey Bee Power Energy Gel Malina — pakiranje',
+        asset: { _ref: '/images/products/gelmalina-prednja.png', _type: 'reference' },
+        alt: 'Honey Bee Power Energy Gel Malina — prednja strana',
       },
       {
         _type: 'image',
-        asset: { _ref: '/images/products/energygelmalina-detail-1.jpg', _type: 'reference' },
-        alt: 'Honey Bee Power Energy Gel Malina — detalj',
+        asset: { _ref: '/images/products/gelmalina-zadnja.png', _type: 'reference' },
+        alt: 'Honey Bee Power Energy Gel Malina — zadnja strana',
       },
     ],
     variants: [
@@ -257,7 +247,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     mainImage: {
       _type: 'image',
       asset: {
-        _ref: '/images/products/energygelpaketmalina.png',
+        _ref: '/images/products/paketgelmalina-new.png',
         _type: 'reference',
       },
       alt: 'Honey Bee Power Energy Gel Malina (Paket 10 kom)',
@@ -265,13 +255,8 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     imageGallery: [
       {
         _type: 'image',
-        asset: { _ref: '/images/products/energygelpaketmalina.png', _type: 'reference' },
+        asset: { _ref: '/images/products/paketgelmalina-new.png', _type: 'reference' },
         alt: 'Honey Bee Power Energy Gel Malina — paket 10 kom',
-      },
-      {
-        _type: 'image',
-        asset: { _ref: '/images/products/energygelmalina-detail-1.jpg', _type: 'reference' },
-        alt: 'Honey Bee Power Energy Gel Malina — detalj',
       },
     ],
     variants: [
@@ -303,7 +288,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     mainImage: {
       _type: 'image',
       asset: {
-        _ref: '/images/products/isodrinklimun.png',
+        _ref: '/images/products/isolimun-prednja.png',
         _type: 'reference',
       },
       alt: 'Honey Bee Power Izotonični Napitak Limun',
@@ -311,8 +296,13 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     imageGallery: [
       {
         _type: 'image',
-        asset: { _ref: '/images/products/isodrinklimun.png', _type: 'reference' },
-        alt: 'Honey Bee Power Izotonični Napitak Limun — pakiranje',
+        asset: { _ref: '/images/products/isolimun-prednja.png', _type: 'reference' },
+        alt: 'Honey Bee Power Izotonični Napitak Limun — prednja strana',
+      },
+      {
+        _type: 'image',
+        asset: { _ref: '/images/products/isolimun-zadnja.png', _type: 'reference' },
+        alt: 'Honey Bee Power Izotonični Napitak Limun — zadnja strana',
       },
     ],
     variants: [
@@ -344,7 +334,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     mainImage: {
       _type: 'image',
       asset: {
-        _ref: '/images/products/isodrinknaranca.png',
+        _ref: '/images/products/isonaranca-prednja.png',
         _type: 'reference',
       },
       alt: 'Honey Bee Power Izotonični Napitak Naranča',
@@ -352,8 +342,13 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     imageGallery: [
       {
         _type: 'image',
-        asset: { _ref: '/images/products/isodrinknaranca.png', _type: 'reference' },
-        alt: 'Honey Bee Power Izotonični Napitak Naranča — pakiranje',
+        asset: { _ref: '/images/products/isonaranca-prednja.png', _type: 'reference' },
+        alt: 'Honey Bee Power Izotonični Napitak Naranča — prednja strana',
+      },
+      {
+        _type: 'image',
+        asset: { _ref: '/images/products/isonaranca-zadnja.png', _type: 'reference' },
+        alt: 'Honey Bee Power Izotonični Napitak Naranča — zadnja strana',
       },
     ],
     variants: [
