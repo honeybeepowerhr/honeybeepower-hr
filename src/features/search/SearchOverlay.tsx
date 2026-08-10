@@ -72,12 +72,6 @@ export function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
       category: t('page'),
       url: `/${locale}/gdje-kupiti`,
     },
-    {
-      id: 'athletes',
-      title: tNav('athletes'),
-      category: t('page'),
-      url: `/${locale}/sportasi`,
-    },
   ]
 
   const results = query.trim()

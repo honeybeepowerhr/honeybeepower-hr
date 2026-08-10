@@ -13,7 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/vodici',
     '/b2b',
     '/gdje-kupiti',
-    '/sportasi',
     '/aktivnosti',
     '/kontakt',
     '/o-nama',

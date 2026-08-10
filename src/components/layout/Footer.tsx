@@ -44,7 +44,6 @@ export default function Footer() {
   ]
 
   const companyLinks = [
-    { label: tNav('athletes'), href: `${prefix}/sportasi` },
     { label: tNav('guides'),   href: `${prefix}/vodici` },
     { label: tNav('b2b'),      href: `${prefix}/b2b` },
     { label: tNav('contact'),  href: `${prefix}/kontakt` },

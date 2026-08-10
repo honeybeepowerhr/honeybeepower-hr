@@ -123,7 +123,6 @@ function MobileMenu({ isOpen, onClose, locale }: MobileMenuProps) {
   const navLinks = [
     { key: 'products',   label: t('products'),   href: `${prefix}/proizvodi` },
     { key: 'whereToBuy', label: t('whereToBuy'), href: `${prefix}/gdje-kupiti` },
-    { key: 'athletes',   label: t('athletes'),   href: `${prefix}/sportasi` },
     { key: 'guides',     label: t('guides'),     href: `${prefix}/vodici` },
     { key: 'contact',    label: t('contact'),    href: `${prefix}/kontakt` },
     { key: 'b2b',        label: t('b2b'),        href: `${prefix}/b2b` },
@@ -284,7 +283,6 @@ export default function Header({ cartItemCount = 0 }: HeaderClientProps) {
 
   const desktopNavLinks = [
     { key: 'whereToBuy', label: t('whereToBuy'), href: `${prefix}/gdje-kupiti` },
-    { key: 'athletes',   label: t('athletes'),   href: `${prefix}/sportasi` },
     { key: 'guides',     label: t('guides'),     href: `${prefix}/vodici` },
     { key: 'b2b',        label: t('b2b'),        href: `${prefix}/b2b` },
   ]

@@ -135,23 +135,22 @@ export default function WhereToBuyPage() {
                   <span>{t('mapTitle')}</span>
                 </h2>
 
-                <div className="w-full aspect-square max-h-[450px] rounded-2xl bg-amber-50/60 border border-amber-200 relative overflow-hidden flex flex-col items-center justify-center p-6 text-center">
-                  <div className="w-16 h-16 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-bold shadow-lg mb-4 animate-bounce">
-                    <MapPin className="w-8 h-8" />
-                  </div>
-
+                <div className="w-full aspect-square max-h-[450px] rounded-2xl border border-amber-200 relative overflow-hidden">
                   {selectedRetailer ? (
-                    <div className="bg-white p-4 rounded-xl shadow-xl border border-gray-200 max-w-sm">
-                      <div className="font-bold text-gray-900">{selectedRetailer.name}</div>
-                      <div className="text-xs text-gray-600 mt-1">
-                        {selectedRetailer.address}, {selectedRetailer.city}
-                      </div>
-                      <div className="text-xs text-amber-600 font-semibold mt-2">
-                        {selectedRetailer.lat}, {selectedRetailer.lng}
-                      </div>
-                    </div>
+                    <iframe
+                      key={selectedRetailer.id}
+                      title={`Karta — ${selectedRetailer.name}`}
+                      className="absolute inset-0 w-full h-full border-0"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      src={`https://www.google.com/maps?q=${encodeURIComponent(
+                        `${selectedRetailer.address}, ${selectedRetailer.postalCode} ${selectedRetailer.city}`,
+                      )}&output=embed`}
+                    />
                   ) : (
-                    <p className="text-sm font-medium text-gray-600">{t('mapSelectNotice')}</p>
+                    <div className="w-full h-full bg-amber-50/60 flex items-center justify-center p-6 text-center">
+                      <p className="text-sm font-medium text-gray-600">{t('mapSelectNotice')}</p>
+                    </div>
                   )}
                 </div>
               </div>
