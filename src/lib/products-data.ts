@@ -43,7 +43,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     ],
     variants: [
       { _key: 'v1', flavour: 'Limun', size: '40g sachet', sku: 'HBP-GEL-LIM-40', price: 249, stockLevel: 100, minQuantity: 50 },
-      { _key: 'v2', flavour: 'Limun', size: 'Paket 10x40g', sku: 'HBP-GEL-LIM-10', price: 3000, stockLevel: 45, minQuantity: 5 },
+      { _key: 'v2', flavour: 'Limun', size: 'Paket 10x40g', sku: 'HBP-GEL-LIM-10', price: 2999, stockLevel: 45, minQuantity: 5 },
     ],
     averageRating: 4.9,
     reviewCount: 38,
@@ -67,7 +67,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       sl: 'Paket 10 naravnih energijskih gelov na osnovi cvetličnega medu in limoninega soka.',
       pl: 'Zestaw 10 naturalnych żeli energetycznych na bazie miodu kwiatowego i soku z cytryny.',
     },
-    basePrice: 3000,
+    basePrice: 2999,
     mainImage: {
       _type: 'image',
       asset: {
@@ -84,7 +84,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Limun', size: 'Paket 10x40g', sku: 'HBP-GEL-LIM-10P', price: 3000, stockLevel: 80, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Limun', size: 'Paket 10x40g', sku: 'HBP-GEL-LIM-10P', price: 2999, stockLevel: 80, minQuantity: 5 },
     ],
     averageRating: 4.9,
     reviewCount: 24,
@@ -131,7 +131,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     ],
     variants: [
       { _key: 'v1', flavour: 'Naranča', size: '40g sachet', sku: 'HBP-GEL-NAR-40', price: 249, stockLevel: 120, minQuantity: 50 },
-      { _key: 'v2', flavour: 'Naranča', size: 'Paket 10x40g', sku: 'HBP-GEL-NAR-10', price: 3000, stockLevel: 50, minQuantity: 5 },
+      { _key: 'v2', flavour: 'Naranča', size: 'Paket 10x40g', sku: 'HBP-GEL-NAR-10', price: 2999, stockLevel: 50, minQuantity: 5 },
     ],
     averageRating: 5.0,
     reviewCount: 42,
@@ -155,7 +155,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       sl: 'Paket 10 naravnih energijskih gelov z medom in pomarančo.',
       pl: 'Zestaw 10 naturalnych żeli energetycznych z miodem i pomarańczą.',
     },
-    basePrice: 3000,
+    basePrice: 2999,
     mainImage: {
       _type: 'image',
       asset: {
@@ -172,7 +172,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Naranča', size: 'Paket 10x40g', sku: 'HBP-GEL-NAR-10P', price: 3000, stockLevel: 80, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Naranča', size: 'Paket 10x40g', sku: 'HBP-GEL-NAR-10P', price: 2999, stockLevel: 80, minQuantity: 5 },
     ],
     averageRating: 5.0,
     reviewCount: 31,
@@ -219,7 +219,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     ],
     variants: [
       { _key: 'v1', flavour: 'Malina', size: '40g sachet', sku: 'HBP-GEL-MAL-40', price: 249, stockLevel: 90, minQuantity: 50 },
-      { _key: 'v2', flavour: 'Malina', size: 'Paket 10x40g', sku: 'HBP-GEL-MAL-10', price: 3000, stockLevel: 40, minQuantity: 5 },
+      { _key: 'v2', flavour: 'Malina', size: 'Paket 10x40g', sku: 'HBP-GEL-MAL-10', price: 2999, stockLevel: 40, minQuantity: 5 },
     ],
     averageRating: 4.8,
     reviewCount: 29,
@@ -243,7 +243,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       sl: 'Paket 10 naravnih energijskih gelov z liofiliziranimi malinami.',
       pl: 'Zestaw 10 naturalnych żeli energetycznych z liofilizowaną maliną leśną.',
     },
-    basePrice: 3000,
+    basePrice: 2999,
     mainImage: {
       _type: 'image',
       asset: {
@@ -260,7 +260,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Malina', size: 'Paket 10x40g', sku: 'HBP-GEL-MAL-10P', price: 3000, stockLevel: 80, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Malina', size: 'Paket 10x40g', sku: 'HBP-GEL-MAL-10P', price: 2999, stockLevel: 80, minQuantity: 5 },
     ],
     averageRating: 4.8,
     reviewCount: 19,
@@ -356,5 +356,46 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     ],
     averageRating: 5.0,
     reviewCount: 26,
+  },
+  {
+    _id: 'hbp-iso-duo-shaker',
+    name: {
+      hr: 'Honey Bee Power Izotonični Napitak – Paket Limun & Naranča + Shaker',
+      en: 'Honey Bee Power Isotonic Drink – Lemon & Orange Pack + Shaker',
+      de: 'Honey Bee Power Isotonisches Getränk – Zitrone & Orange Paket + Shaker',
+      sl: 'Honey Bee Power Izotonični Napitek – Paket Limona & Pomaranča + Shaker',
+      pl: 'Honey Bee Power Napój Izotoniczny – Zestaw Cytryna & Pomarańcza + Shaker',
+    },
+    slug: 'honey-bee-power-izotonicki-napitak-paket-limun-naranca-shaker',
+    category: 'izotonicki-napitci',
+    minQuantity: 5,
+    shortDescription: {
+      hr: 'Paket dva okusa prirodnog izotoničnog napitka (limun i naranča) uz Honey Bee Power shaker. Idealno za brzu nadoknadu elektrolita i hidraciju.',
+      en: 'Pack of two natural isotonic drink flavours (lemon and orange) with a Honey Bee Power shaker included. Ideal for rapid electrolyte replenishment and hydration.',
+      de: 'Paket aus zwei natürlichen isotonischen Getränken (Zitrone und Orange) inklusive Honey Bee Power Shaker.',
+      sl: 'Paket dveh okusov naravnega izotoničnega napitka (limona in pomaranča) s Honey Bee Power shakerjem.',
+      pl: 'Zestaw dwóch smaków naturalnego napoju izotonicznego (cytryna i pomarańcza) z shakerem Honey Bee Power.',
+    },
+    basePrice: 3199,
+    mainImage: {
+      _type: 'image',
+      asset: {
+        _ref: '/images/products/paketizolimunnaranca-shaker.png',
+        _type: 'reference',
+      },
+      alt: 'Honey Bee Power Izotonični Napitak — paket Limun & Naranča + Shaker',
+    },
+    imageGallery: [
+      {
+        _type: 'image',
+        asset: { _ref: '/images/products/paketizolimunnaranca-shaker.png', _type: 'reference' },
+        alt: 'Honey Bee Power Izotonični Napitak — paket Limun & Naranča + Shaker',
+      },
+    ],
+    variants: [
+      { _key: 'v1', flavour: 'Limun & Naranča', size: '2x500g posuda + Shaker', sku: 'HBP-ISO-DUO-SHK', price: 3199, stockLevel: 40, minQuantity: 5 },
+    ],
+    averageRating: 5.0,
+    reviewCount: 12,
   },
 ]
