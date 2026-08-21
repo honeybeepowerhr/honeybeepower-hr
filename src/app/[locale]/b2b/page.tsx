@@ -194,7 +194,6 @@ export default function B2BPage() {
                     className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     <option value="maloprodaja">{t('typeRetail')}</option>
-                    <option value="distributer">{t('typeDistributor')}</option>
                     <option value="klub">{t('typeClub')}</option>
                     <option value="teretana">{t('typeGym')}</option>
                     <option value="ostalo">{t('typeOther')}</option>
