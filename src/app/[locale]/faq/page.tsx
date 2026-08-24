@@ -1,47 +1,60 @@
-'use client'
+import type { Metadata } from 'next'
+import type { Locale } from '@/types'
+import { pageMetadata, localeUrl } from '@/lib/seo/site'
+import { buildBreadcrumbSchema } from '@/lib/seo/schemas'
+import { JsonLd } from '@/components/seo/JsonLd'
+import { FAQS } from './faq-data'
+import FAQClient from './FAQClient'
 
-import React from 'react'
-import { useTranslations } from 'next-intl'
+const TITLES: Record<Locale, string> = {
+  hr: 'Često Postavljana Pitanja',
+  en: 'Frequently Asked Questions',
+  de: 'Häufig Gestellte Fragen',
+  sl: 'Pogosta Vprašanja',
+  pl: 'Najczęściej Zadawane Pytania',
+}
 
-const FAQS = [
-  {
-    q: 'Zašto je med bolji od kemijskih gelova?',
-    a: 'Med pruža prirodnu kombinaciju glukoze i fruktoze koja omogucava maksimalnu apsorpciju energije bez teškog osjećaja i grčeva u želucu.',
-  },
-  {
-    q: 'Sadrže li proizvodi umjetne zaslađivače poput sukraloze?',
-    a: 'Apsolutno ne! Svi Honey Bee Power proizvodi su 100% prirodni, zaslađeni isključivo prirodnim cvjetnim medom.',
-  },
-  {
-    q: 'Koliko traje dostava?',
-    a: 'Uobičajeni rok dostave unutar Hrvatske je 1-3 radna dana.',
-  },
-  {
-    q: 'Kako se koristi Honey Power Energy Gel?',
-    a: 'Preporučujemo uzimanje 1 gela 15 minuta prije početka aktivnosti te po 1 gel svakih 30-45 minuta tijekom jakog napora.',
-  },
-]
+const DESCRIPTIONS: Record<Locale, string> = {
+  hr: 'Odgovori na najčešća pitanja o Honey Bee Power proizvodima — sastojcima, dostavi i korištenju energetskih gelova i izotoničnih napitaka.',
+  en: 'Answers to frequently asked questions about Honey Bee Power products — ingredients, delivery, and how to use our energy gels and isotonic drinks.',
+  de: 'Antworten auf häufig gestellte Fragen zu Honey Bee Power Produkten — Zutaten, Lieferung und Anwendung unserer Energiegels und isotonischen Getränke.',
+  sl: 'Odgovori na pogosta vprašanja o izdelkih Honey Bee Power — sestavinah, dostavi in uporabi energijskih gelov ter izotoničnih napitkov.',
+  pl: 'Odpowiedzi na najczęstsze pytania o produktach Honey Bee Power — składnikach, dostawie i sposobie użycia żeli energetycznych i napojów izotonicznych.',
+}
 
-export default function FAQPage() {
-  const t = useTranslations('legal')
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
+  const { locale } = await params
+  return pageMetadata({
+    locale,
+    path: '/faq',
+    title: TITLES[locale] ?? TITLES.hr,
+    description: DESCRIPTIONS[locale] ?? DESCRIPTIONS.hr,
+  })
+}
+
+export default async function FAQPage({ params }: { params: Promise<{ locale: Locale }> }) {
+  const { locale } = await params
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a },
+    })),
+  }
+
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Početna', url: localeUrl(locale, '/') },
+    { name: 'FAQ', url: localeUrl(locale, '/faq') },
+  ])
 
   return (
-    <div className="py-12 md:py-16 bg-gray-50/50">
-      <div className="container mx-auto px-4 max-w-3xl">
-        <div className="text-center mb-12">
-          <span className="text-amber-600 font-bold text-sm uppercase tracking-wider">{t('faqBadge')}</span>
-          <h1 className="text-4xl font-extrabold text-gray-900 mt-1">{t('faqTitle')}</h1>
-        </div>
-
-        <div className="space-y-4">
-          {FAQS.map((faq, idx) => (
-            <div key={idx} className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm space-y-2">
-              <h2 className="font-bold text-gray-900 text-lg">{faq.q}</h2>
-              <p className="text-sm text-gray-600 leading-relaxed">{faq.a}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+    <>
+      <JsonLd schema={faqSchema} />
+      <JsonLd schema={breadcrumbSchema} />
+      <FAQClient />
+    </>
   )
 }

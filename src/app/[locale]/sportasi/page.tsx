@@ -2,6 +2,36 @@ import React from 'react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { Trophy, Quote } from 'lucide-react'
+import type { Metadata } from 'next'
+import type { Locale } from '@/types'
+import { pageMetadata } from '@/lib/seo/site'
+
+const TITLES: Record<Locale, string> = {
+  hr: 'Naši Sportaši i Ambasadori',
+  en: 'Our Athletes & Ambassadors',
+  de: 'Unsere Athleten & Botschafter',
+  sl: 'Naši Športniki in Ambasadorji',
+  pl: 'Nasi Sportowcy i Ambasadorzy',
+}
+
+const DESCRIPTIONS: Record<Locale, string> = {
+  hr: 'Upoznajte Honey Bee Power ambasadore — maratonce, bicikliste i triatlonce koji svoje performanse grade uz prirodnu energiju meda.',
+  en: 'Meet the Honey Bee Power ambassadors — marathon runners, cyclists and triathletes who fuel their performance with natural honey energy.',
+  de: 'Lernen Sie die Honey Bee Power Markenbotschafter kennen — Marathonläufer, Radfahrer und Triathleten, die mit natürlicher Honigenergie trainieren.',
+  sl: 'Spoznajte ambasadorje Honey Bee Power — maratonce, kolesarje in triatlonce, ki svoje rezultate gradijo z naravno energijo medu.',
+  pl: 'Poznaj ambasadorów Honey Bee Power — maratończyków, kolarzy i triatlonistów, którzy budują formę dzięki naturalnej energii miodu.',
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
+  const { locale } = await params
+  return pageMetadata({
+    locale,
+    path: '/sportasi',
+    title: TITLES[locale] ?? TITLES.hr,
+    description: DESCRIPTIONS[locale] ?? DESCRIPTIONS.hr,
+    image: '/images/events/event-2.jpg',
+  })
+}
 
 const ATHLETES = [
   {

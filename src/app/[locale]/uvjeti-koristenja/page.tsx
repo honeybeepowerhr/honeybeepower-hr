@@ -1,8 +1,32 @@
 import React from 'react'
+import type { Metadata } from 'next'
+import type { Locale } from '@/types'
+import { pageMetadata } from '@/lib/seo/site'
 
-export const metadata = {
-  title: 'Uvjeti Korištenja — Honey Bee Power',
-  description: 'Opći uvjeti poslovanja i korištenja web trgovine Honey Bee Power.',
+const TITLES: Record<Locale, string> = {
+  hr: 'Uvjeti Korištenja',
+  en: 'Terms of Use',
+  de: 'Nutzungsbedingungen',
+  sl: 'Pogoji Uporabe',
+  pl: 'Warunki Użytkowania',
+}
+
+const DESCRIPTIONS: Record<Locale, string> = {
+  hr: 'Opći uvjeti poslovanja i korištenja web trgovine Honey Bee Power — plaćanje, dostava i odnos s kupcima.',
+  en: 'General terms of business and use of the Honey Bee Power webshop — payment, delivery and customer relations.',
+  de: 'Allgemeine Geschäftsbedingungen des Honey Bee Power Webshops — Zahlung, Lieferung und Kundenbeziehungen.',
+  sl: 'Splošni pogoji poslovanja in uporabe spletne trgovine Honey Bee Power — plačilo, dostava in odnos s kupci.',
+  pl: 'Ogólne warunki handlowe sklepu internetowego Honey Bee Power — płatność, dostawa i relacje z klientami.',
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
+  const { locale } = await params
+  return pageMetadata({
+    locale,
+    path: '/uvjeti-koristenja',
+    title: TITLES[locale] ?? TITLES.hr,
+    description: DESCRIPTIONS[locale] ?? DESCRIPTIONS.hr,
+  })
 }
 
 export default function TermsPage() {

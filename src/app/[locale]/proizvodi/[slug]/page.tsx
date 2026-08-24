@@ -3,27 +3,32 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { Star, Check, ArrowLeft } from 'lucide-react'
-import { REAL_PRODUCTS } from '@/lib/products-data'
+import { REAL_PRODUCTS, PRODUCT_CATEGORIES } from '@/lib/products-data'
 import type { Locale } from '@/types'
 import ProductAddToCartButton from './ProductAddToCartButton'
 import ProductImageGallery from './ProductImageGallery'
+import { JsonLd } from '@/components/seo/JsonLd'
+import { buildProductSchema, buildBreadcrumbSchema } from '@/lib/seo/schemas'
+import { pageMetadata, localeUrl } from '@/lib/seo/site'
 
 export const revalidate = 60
 
-const KNOWN_CATEGORIES: Record<string, Record<Locale, string>> = {
+const KNOWN_CATEGORIES = PRODUCT_CATEGORIES
+
+const CATEGORY_DESCRIPTIONS: Record<string, Record<Locale, string>> = {
   'energetski-gelovi': {
-    hr: 'Energetski Gelovi',
-    en: 'Energy Gels',
-    de: 'Energie-Gels',
-    sl: 'Energetski geli',
-    pl: 'Żele energetyczne',
+    hr: 'Energetski gelovi na bazi 100% prirodnog cvjetnog meda — bez sukraloze i umjetnih boja. Idealni za maraton, biciklizam i triatlon.',
+    en: 'Energy gels made with 100% natural flower honey — no sucralose, no artificial colours. Ideal for marathons, cycling and triathlon.',
+    de: 'Energiegels auf Basis von 100% natürlichem Blütenhonig — ohne Sucralose, ohne künstliche Farbstoffe. Ideal für Marathon und Radsport.',
+    sl: 'Energijski geli na osnovi 100 % naravnega cvetličnega medu — brez sukraloze in umetnih barvil. Idealni za maraton in kolesarjenje.',
+    pl: 'Żele energetyczne na bazie 100% naturalnego miodu kwiatowego — bez sukralozy i sztucznych barwników. Idealne na maraton i kolarstwo.',
   },
   'izotonicki-napitci': {
-    hr: 'Izotonični Napitci',
-    en: 'Isotonic Drinks',
-    de: 'Isotonische Getränke',
-    sl: 'Izotonični napitki',
-    pl: 'Napoje izotoniczne',
+    hr: 'Izotonični napitci s medom i morskom solju za brzu nadoknadu elektrolita i hidrataciju tijekom treninga i utrka.',
+    en: 'Isotonic drinks with honey and sea salt for fast electrolyte replenishment and hydration during training and races.',
+    de: 'Isotonische Getränke mit Honig und Meersalz für schnellen Elektrolytausgleich beim Training und Wettkampf.',
+    sl: 'Izotonični napitki z medom in morsko soljo za hitro nadomeščanje elektrolitov med treningom in tekmami.',
+    pl: 'Napoje izotoniczne z miodem i solą morską do szybkiego uzupełniania elektrolitów podczas treningu i zawodów.',
   },
 }
 
@@ -43,26 +48,35 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (KNOWN_CATEGORIES[slug]) {
     const catName = KNOWN_CATEGORIES[slug][currentLocale] ?? KNOWN_CATEGORIES[slug].hr
-    return {
-      title: `${catName} | Honey Bee Power`,
-      description: `${catName} — 100% natural honey-based sports nutrition.`,
-    }
+    const catDesc = CATEGORY_DESCRIPTIONS[slug]?.[currentLocale] ?? CATEGORY_DESCRIPTIONS[slug]?.hr ?? catName
+    return pageMetadata({
+      locale: currentLocale,
+      path: `/proizvodi/${slug}`,
+      title: catName,
+      description: catDesc,
+    })
   }
 
   const product = REAL_PRODUCTS.find((p) => p.slug === slug)
   if (product) {
     const prodName = product.name[currentLocale] ?? product.name.hr
     const prodDesc = product.shortDescription[currentLocale] ?? product.shortDescription.hr
-    return {
-      title: `${prodName} | Honey Bee Power`,
+    return pageMetadata({
+      locale: currentLocale,
+      path: `/proizvodi/${slug}`,
+      title: prodName,
       description: prodDesc,
-    }
+      image: product.mainImage.asset._ref,
+    })
   }
 
-  return {
-    title: 'Proizvodi | Honey Bee Power',
+  return pageMetadata({
+    locale: currentLocale,
+    path: `/proizvodi/${slug}`,
+    title: 'Proizvod nije pronađen',
     description: 'Honey Bee Power — natural honey-based sports nutrition.',
-  }
+    noIndex: true,
+  })
 }
 
 export default async function ProductOrCategoryPage({ params }: PageProps) {
@@ -141,9 +155,15 @@ export default async function ProductOrCategoryPage({ params }: PageProps) {
   if (KNOWN_CATEGORIES[slug]) {
     const categoryName = KNOWN_CATEGORIES[slug][currentLocale] ?? KNOWN_CATEGORIES[slug].hr
     const categoryProducts = REAL_PRODUCTS.filter((p) => p.category === slug)
+    const breadcrumbSchema = buildBreadcrumbSchema([
+      { name: 'Početna', url: localeUrl(currentLocale, '/') },
+      { name: LABELS.allProducts[currentLocale], url: localeUrl(currentLocale, '/proizvodi') },
+      { name: categoryName, url: localeUrl(currentLocale, `/proizvodi/${slug}`) },
+    ])
 
     return (
       <div className="py-12 bg-white relative z-10">
+        <JsonLd schema={breadcrumbSchema} />
         <div className="container mx-auto px-4 max-w-7xl">
           <Link href={`${prefix}/proizvodi`} className="inline-flex items-center text-sm font-bold text-amber-600 hover:underline mb-4">
             <ArrowLeft className="w-4 h-4 mr-1" /> {LABELS.backToAll[currentLocale]}
@@ -193,8 +213,19 @@ export default async function ProductOrCategoryPage({ params }: PageProps) {
   const prodDesc = product.shortDescription[currentLocale] ?? product.shortDescription.hr
   const variant = product.variants[0]
 
+  const categoryName = KNOWN_CATEGORIES[product.category]?.[currentLocale] ?? product.category
+  const productSchema = buildProductSchema(product, currentLocale)
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Početna', url: localeUrl(currentLocale, '/') },
+    { name: LABELS.allProducts[currentLocale], url: localeUrl(currentLocale, '/proizvodi') },
+    { name: categoryName, url: localeUrl(currentLocale, `/proizvodi/${product.category}`) },
+    { name: prodName, url: localeUrl(currentLocale, `/proizvodi/${product.slug}`) },
+  ])
+
   return (
     <div className="py-12 bg-white relative z-10">
+      <JsonLd schema={productSchema} />
+      <JsonLd schema={breadcrumbSchema} />
       <div className="container mx-auto px-4 max-w-6xl">
         <Link href={`${prefix}/proizvodi`} className="inline-flex items-center text-sm font-bold text-amber-600 hover:underline mb-6">
           <ArrowLeft className="w-4 h-4 mr-1.5" /> {LABELS.allProducts[currentLocale]}

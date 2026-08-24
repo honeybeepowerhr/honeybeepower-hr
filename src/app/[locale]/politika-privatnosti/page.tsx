@@ -1,8 +1,32 @@
 import React from 'react'
+import type { Metadata } from 'next'
+import type { Locale } from '@/types'
+import { pageMetadata } from '@/lib/seo/site'
 
-export const metadata = {
-  title: 'Politika Privatnosti — Honey Bee Power',
-  description: 'Informacije o obradi osobnih podataka i GDPR pravima kupaca.',
+const TITLES: Record<Locale, string> = {
+  hr: 'Politika Privatnosti',
+  en: 'Privacy Policy',
+  de: 'Datenschutzerklärung',
+  sl: 'Politika Zasebnosti',
+  pl: 'Polityka Prywatności',
+}
+
+const DESCRIPTIONS: Record<Locale, string> = {
+  hr: 'Informacije o obradi osobnih podataka i GDPR pravima kupaca Honey Bee Power webshopa.',
+  en: 'Information on personal data processing and GDPR rights for Honey Bee Power customers.',
+  de: 'Informationen zur Verarbeitung personenbezogener Daten und DSGVO-Rechten für Honey Bee Power Kunden.',
+  sl: 'Informacije o obdelavi osebnih podatkov in pravicah GDPR za kupce Honey Bee Power.',
+  pl: 'Informacje o przetwarzaniu danych osobowych i prawach RODO klientów Honey Bee Power.',
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
+  const { locale } = await params
+  return pageMetadata({
+    locale,
+    path: '/politika-privatnosti',
+    title: TITLES[locale] ?? TITLES.hr,
+    description: DESCRIPTIONS[locale] ?? DESCRIPTIONS.hr,
+  })
 }
 
 export default function PrivacyPolicyPage() {

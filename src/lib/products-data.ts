@@ -1,4 +1,22 @@
-import type { ProductSummary } from '@/types'
+import type { Locale, ProductSummary } from '@/types'
+
+/** Category taxonomy shared by the category/product route and the sitemap. */
+export const PRODUCT_CATEGORIES: Record<string, Record<Locale, string>> = {
+  'energetski-gelovi': {
+    hr: 'Energetski Gelovi',
+    en: 'Energy Gels',
+    de: 'Energie-Gels',
+    sl: 'Energetski geli',
+    pl: 'Żele energetyczne',
+  },
+  'izotonicki-napitci': {
+    hr: 'Izotonični Napitci',
+    en: 'Isotonic Drinks',
+    de: 'Isotonische Getränke',
+    sl: 'Izotonični napitki',
+    pl: 'Napoje izotoniczne',
+  },
+}
 
 export const REAL_PRODUCTS: ProductSummary[] = [
   {

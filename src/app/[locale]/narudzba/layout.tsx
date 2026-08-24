@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Upit | Honey Bee Power',
+  title: 'Upit',
   description: 'Pošaljite upit za ponudu — javit ćemo vam se s cijenom i načinom plaćanja.',
   robots: {
     index: false,

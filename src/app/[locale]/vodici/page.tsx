@@ -2,41 +2,38 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
+import type { Locale } from '@/types'
+import { pageMetadata } from '@/lib/seo/site'
+import { GUIDES } from '@/lib/guides-data'
 
 export const revalidate = 300 // ISR revalidate every 5 mins
 
-export const metadata = {
-  title: 'Vodiči i Savjeti za Sportske Performanse — Honey Bee Power',
-  description:
-    'Stručni članci o prehrani na maratonima, hidrataciji za bicikliste i oporavku mišića uz pomoć prirodnog meda.',
+const TITLES: Record<Locale, string> = {
+  hr: 'Vodiči i Savjeti za Sportske Performanse',
+  en: 'Guides & Tips for Sports Performance',
+  de: 'Ratgeber & Tipps für sportliche Leistung',
+  sl: 'Vodniki in Nasveti za Športne Dosežke',
+  pl: 'Poradniki i Porady dla Sportowców',
 }
 
-const ARTICLES = [
-  {
-    slug: 'zasto-je-med-bolji-od-malto-dekstrina-na-maratonu',
-    title: 'Zašto je med bolji od malto-dekstrina na maratonu?',
-    excerpt: 'Znanstvena usporedba prirodnog omjera fruktoze i glukoze u medu naspram sintetičkih ugljikovih hidrata.',
-    date: '20. svibnja 2025.',
-    readTime: '5 min čitanja',
-    imageUrl: '/images/events/event-1.jpg',
-  },
-  {
-    slug: 'kako-sprijeciti-grceve-u-misicima-tijekom-ljetnih-voznji',
-    title: 'Kako spriječiti grčeve u mišićima tijekom ljetnih vožnji biciklom',
-    excerpt: 'Prava strategija unos elektrolita i tekućine. Vodič za optimalnu hidrataciju.',
-    date: '12. lipnja 2025.',
-    readTime: '4 min čitanja',
-    imageUrl: '/images/events/event-8.jpg',
-  },
-  {
-    slug: 'uloga-bjelancevina-i-meda-u-brzem-oporavku-nakon-treninga',
-    title: 'Uloga bjelančevina i meda u bržem oporavku mišićnih vlakana',
-    excerpt: 'Kombinacija proteina sirutke i brzih prirodnih ugljikohidrata obnavlja zalihe glikogena u rekordnom roku.',
-    date: '04. srpnja 2025.',
-    readTime: '6 min čitanja',
-    imageUrl: '/images/events/event-11.jpg',
-  },
-]
+const DESCRIPTIONS: Record<Locale, string> = {
+  hr: 'Stručni članci o prehrani na maratonima, hidrataciji za bicikliste i oporavku mišića uz pomoć prirodnog meda.',
+  en: 'Expert articles on marathon fueling, cyclist hydration, and muscle recovery with the help of natural honey.',
+  de: 'Fachartikel über Marathon-Ernährung, Hydration für Radfahrer und Muskelregeneration mit natürlichem Honig.',
+  sl: 'Strokovni članki o prehrani na maratonih, hidraciji za kolesarje in okrevanju mišic z naravnim medom.',
+  pl: 'Eksperckie artykuły o odżywianiu na maratonie, nawodnieniu kolarzy i regeneracji mięśni dzięki naturalnemu miodowi.',
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }) {
+  const { locale } = await params
+  return pageMetadata({
+    locale,
+    path: '/vodici',
+    title: TITLES[locale] ?? TITLES.hr,
+    description: DESCRIPTIONS[locale] ?? DESCRIPTIONS.hr,
+    image: GUIDES[0]?.image,
+  })
+}
 
 export default function BlogListingPage() {
   const t = useTranslations('guidesPage')
@@ -63,7 +60,7 @@ export default function BlogListingPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {ARTICLES.map((article) => (
+          {GUIDES.map((article) => (
             <article
               key={article.slug}
               className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between"
@@ -71,7 +68,7 @@ export default function BlogListingPage() {
               <div>
                 <div className="relative aspect-video w-full bg-gray-100">
                   <Image
-                    src={article.imageUrl}
+                    src={article.image}
                     alt={article.title}
                     fill
                     className="object-cover"

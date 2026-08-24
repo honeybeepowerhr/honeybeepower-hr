@@ -1,45 +1,47 @@
-'use client'
+import type { Metadata } from 'next'
+import type { Locale } from '@/types'
+import { pageMetadata, localeUrl } from '@/lib/seo/site'
+import { buildBreadcrumbSchema } from '@/lib/seo/schemas'
+import { JsonLd } from '@/components/seo/JsonLd'
+import ImpressumClient from './ImpressumClient'
 
-import React from 'react'
-import { useTranslations } from 'next-intl'
+const TITLES: Record<Locale, string> = {
+  hr: 'Impressum',
+  en: 'Legal Notice',
+  de: 'Impressum',
+  sl: 'Impresum',
+  pl: 'Nota Prawna',
+}
 
-export default function ImpressumPage() {
-  const t = useTranslations('legal')
+const DESCRIPTIONS: Record<Locale, string> = {
+  hr: 'Impressum — podaci o trgovačkom društvu Planet Bio d.o.o., vlasniku brenda Honey Bee Power. Adresa, OIB i kontakt podaci.',
+  en: 'Legal notice — company details for Planet Bio d.o.o., owner of the Honey Bee Power brand. Registered address, tax ID and contact information.',
+  de: 'Impressum — Firmenangaben zu Planet Bio d.o.o., Inhaber der Marke Honey Bee Power. Anschrift, Steuernummer und Kontaktdaten.',
+  sl: 'Impresum — podatki o podjetju Planet Bio d.o.o., lastniku znamke Honey Bee Power. Naslov, davčna številka in kontaktni podatki.',
+  pl: 'Nota prawna — dane spółki Planet Bio d.o.o., właściciela marki Honey Bee Power. Adres, NIP i dane kontaktowe.',
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
+  const { locale } = await params
+  return pageMetadata({
+    locale,
+    path: '/impressum',
+    title: TITLES[locale] ?? TITLES.hr,
+    description: DESCRIPTIONS[locale] ?? DESCRIPTIONS.hr,
+  })
+}
+
+export default async function ImpressumPage({ params }: { params: Promise<{ locale: Locale }> }) {
+  const { locale } = await params
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Početna', url: localeUrl(locale, '/') },
+    { name: 'Impressum', url: localeUrl(locale, '/impressum') },
+  ])
 
   return (
-    <div className="py-12 md:py-16">
-      <div className="container mx-auto px-4 max-w-3xl space-y-6">
-        <h1 className="text-3xl font-black text-gray-900">{t('impressumTitle')}</h1>
-
-        <div className="p-6 bg-gray-50 rounded-2xl border border-gray-200 space-y-4 text-sm text-gray-700">
-          <div>
-            <strong className="text-gray-900 block text-base">{t('companyName')}</strong>
-            {t('companyNameVal')}
-          </div>
-
-          <div>
-            <strong className="text-gray-900 block">{t('address')}</strong>
-            {t('addressVal')}
-          </div>
-
-          <div>
-            <strong className="text-gray-900 block">{t('contactDetails')}</strong>
-            Email: info@planetbio.hr<br />
-            Telefon: +385 977 097 962
-          </div>
-
-          <div>
-            <strong className="text-gray-900 block">{t('idData')}</strong>
-            OIB: 12345678901<br />
-            MBS: 030123456<br />
-            Trgovački sud u Osijeku
-          </div>
-        </div>
-
-        <div className="p-4 bg-amber-50 rounded-xl border border-amber-200 text-xs text-amber-900 font-semibold">
-          {t('disclaimerNotice')}
-        </div>
-      </div>
-    </div>
+    <>
+      <JsonLd schema={breadcrumbSchema} />
+      <ImpressumClient />
+    </>
   )
 }

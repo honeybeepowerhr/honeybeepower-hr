@@ -1,8 +1,32 @@
 import React from 'react'
+import type { Metadata } from 'next'
+import type { Locale } from '@/types'
+import { pageMetadata } from '@/lib/seo/site'
 
-export const metadata = {
-  title: 'Pravo na Povrat i Reklamacije — Honey Bee Power',
-  description: 'Upute i uvjeti za jednostrani raskid ugovora i povrat robe u roku 14 dana.',
+const TITLES: Record<Locale, string> = {
+  hr: 'Pravo na Povrat i Reklamacije',
+  en: 'Returns & Refunds',
+  de: 'Widerruf & Rückgabe',
+  sl: 'Pravica do Vračila',
+  pl: 'Zwroty i Reklamacje',
+}
+
+const DESCRIPTIONS: Record<Locale, string> = {
+  hr: 'Upute i uvjeti za jednostrani raskid ugovora i povrat robe u roku 14 dana kod Honey Bee Power narudžbi.',
+  en: 'Instructions and terms for contract withdrawal and returns within 14 days for Honey Bee Power orders.',
+  de: 'Anleitung und Bedingungen für Widerruf und Rückgabe innerhalb von 14 Tagen bei Honey Bee Power Bestellungen.',
+  sl: 'Navodila in pogoji za odstop od pogodbe in vračilo blaga v 14 dneh za naročila Honey Bee Power.',
+  pl: 'Instrukcje i warunki odstąpienia od umowy oraz zwrotu towaru w ciągu 14 dni dla zamówień Honey Bee Power.',
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
+  const { locale } = await params
+  return pageMetadata({
+    locale,
+    path: '/pravo-na-povrat',
+    title: TITLES[locale] ?? TITLES.hr,
+    description: DESCRIPTIONS[locale] ?? DESCRIPTIONS.hr,
+  })
 }
 
 export default function ReturnsPage() {
