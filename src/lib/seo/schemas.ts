@@ -169,7 +169,11 @@ export function buildOrganizationSchema(
       postalCode: '31500',
       addressCountry: 'HR',
     },
-    sameAs: ['https://www.instagram.com/planet__bio/'],
+    sameAs: [
+      'https://www.instagram.com/planet__bio/',
+      'https://www.facebook.com/profile.php?id=61556227986574',
+      'https://www.tiktok.com/@honeybeepowerhrvatska',
+    ],
   }
 }
 

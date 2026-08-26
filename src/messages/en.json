@@ -74,10 +74,12 @@
   },
   "activities": {
     "badge": "Honey Bee Power in Action",
-    "title": "Events & Field Activities"
+    "title": "Events & Field Activities",
+    "viewAll": "View all photos"
   },
   "socialProof": {
-    "partnersBadge": "Trusted partner of leading sports clubs and races",
+    "partnersBadge": "Our partners and distributors",
+    "keyPartnerBadge": "Key partner",
     "badge": "Athlete Testimonials",
     "title": "What do those who win with us say?",
     "followInstagram": "Follow us on Instagram @planet__bio"
@@ -148,6 +150,8 @@
     "subtitle": "One hundred percent natural sports nutrition based on honey, freeze-dried fruit and electrolytes."
   },
   "footer": {
+    "partnersHeading": "Our partners",
+    "presentationLink": "Presentation (PDF)",
     "products": "Products",
     "info": "Information",
     "company": "Company",
@@ -164,6 +168,17 @@
     "terms": "Terms of Use",
     "impressum": "Impressum",
     "copyright": "© 2026 Honey Bee Power"
+  },
+  "contactPage": {
+    "badge": "Get in touch",
+    "title": "Contact us",
+    "subtitle": "Questions about products, partnerships or orders — we're here to help.",
+    "addressTitle": "Address",
+    "phoneTitle": "Phone",
+    "emailTitle": "Email",
+    "hoursTitle": "Working hours",
+    "emailB2BNote": "B2B & partnerships",
+    "socialTitle": "Follow us / message us"
   },
   "newsletter": {
     "title": "Subscribe to Our Newsletter",
@@ -236,6 +251,11 @@
     "mapTitle": "Location Map",
     "mapSelectNotice": "Select a store location from the list for details",
     "b2bNotice": "* To become a partner or list your store, contact us at info@planetbio.hr"
+  },
+  "presentation": {
+    "title": "Honey Bee Power presentation",
+    "subtitle": "Download the brand and product presentation as a PDF.",
+    "cta": "Download PDF"
   },
   "athletesPage": {
     "badge": "Team Strength",

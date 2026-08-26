@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { MapPin, Phone } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { PartnerLogos } from '@/components/common/PartnerLogos'
 
 interface Retailer {
   id: string
@@ -128,6 +129,10 @@ export default function WhereToBuyClient() {
             </div>
           </div>
 
+        </div>
+
+        <div className="mt-16">
+          <PartnerLogos />
         </div>
 
       </div>

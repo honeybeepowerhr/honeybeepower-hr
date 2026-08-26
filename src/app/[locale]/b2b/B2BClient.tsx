@@ -6,6 +6,8 @@ import { useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { PresentationDownload } from '@/components/common/PresentationDownload'
+import { PartnerLogos } from '@/components/common/PartnerLogos'
 import { validateB2BForm, type B2BFormErrors } from '@/features/b2b/schema'
 
 export default function B2BClient() {
@@ -108,6 +110,10 @@ export default function B2BClient() {
             </p>
           </div>
         </div>
+
+        <PartnerLogos className="mb-16" />
+
+        <PresentationDownload className="max-w-2xl mx-auto mb-16" />
 
         {/* Application Form */}
         <div className="max-w-2xl mx-auto bg-white p-8 sm:p-10 rounded-3xl border border-gray-200 shadow-xl">

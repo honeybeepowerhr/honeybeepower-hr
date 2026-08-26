@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { Star, Quote } from 'lucide-react'
 import { InstagramFeed } from './InstagramFeed'
+import { PartnerLogos } from '@/components/common/PartnerLogos'
 
 const TESTIMONIALS = [
   {
@@ -30,33 +31,15 @@ const TESTIMONIALS = [
   },
 ]
 
-const PARTNERS = [
-  'Zagrebački Maraton',
-  'BK Našice',
-  'Triatlon Klub Swibir',
-  'Hrvatski Atletski Savez',
-]
-
 export function SocialProofSection() {
   const t = useTranslations('socialProof')
 
   return (
     <section className="py-16 bg-white border-b border-gray-100">
       <div className="container mx-auto px-4 max-w-7xl space-y-16">
-        
+
         {/* Partner Logos */}
-        <div className="text-center">
-          <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">
-            {t('partnersBadge')}
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all">
-            {PARTNERS.map((name, i) => (
-              <span key={i} className="text-lg sm:text-xl font-black text-gray-700 tracking-wider">
-                {name}
-              </span>
-            ))}
-          </div>
-        </div>
+        <PartnerLogos />
 
         {/* Testimonials */}
         <div>

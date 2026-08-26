@@ -74,10 +74,12 @@
   },
   "activities": {
     "badge": "Honey Bee Power in Aktion",
-    "title": "Events & Feldaktivitäten"
+    "title": "Events & Feldaktivitäten",
+    "viewAll": "Alle Fotos ansehen"
   },
   "socialProof": {
-    "partnersBadge": "Verlässlicher Partner führender Sportvereine und Rennen",
+    "partnersBadge": "Unsere Partner und Vertriebspartner",
+    "keyPartnerBadge": "Schlüsselpartner",
     "badge": "Athleten-Erfahrungen",
     "title": "Was sagen diejenigen, die mit uns gewinnen?",
     "followInstagram": "Folge uns auf Instagram @planet__bio"
@@ -148,6 +150,8 @@
     "subtitle": "Hundert Prozent natürliche Sporternährung auf Basis von Honig, gefriergetrockneten Früchten und Elektrolyten."
   },
   "footer": {
+    "partnersHeading": "Unsere Partner",
+    "presentationLink": "Präsentation (PDF)",
     "products": "Produkte",
     "info": "Informationen",
     "company": "Unternehmen",
@@ -164,6 +168,17 @@
     "terms": "Nutzungsbedingungen",
     "impressum": "Impressum",
     "copyright": "© 2026 Honey Bee Power"
+  },
+  "contactPage": {
+    "badge": "Kontaktieren Sie uns",
+    "title": "Schreiben Sie uns",
+    "subtitle": "Fragen zu Produkten, Partnerschaften oder Bestellungen — wir sind für Sie da.",
+    "addressTitle": "Adresse",
+    "phoneTitle": "Telefon",
+    "emailTitle": "E-Mail",
+    "hoursTitle": "Öffnungszeiten",
+    "emailB2BNote": "B2B & Partnerschaften",
+    "socialTitle": "Folgen Sie uns / schreiben Sie uns"
   },
   "newsletter": {
     "title": "Unseren Newsletter abonnieren",
@@ -236,6 +251,11 @@
     "mapTitle": "Standortkarte",
     "mapSelectNotice": "Wählen Sie eine Verkaufsstelle aus der Liste für Details",
     "b2bNotice": "* Um Partner zu werden oder Ihr Geschäft zu listen, kontaktieren Sie uns unter info@planetbio.hr"
+  },
+  "presentation": {
+    "title": "Honey Bee Power Präsentation",
+    "subtitle": "Laden Sie die Marken- und Produktpräsentation als PDF herunter.",
+    "cta": "PDF herunterladen"
   },
   "athletesPage": {
     "badge": "Teamstärke",

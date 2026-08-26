@@ -2,8 +2,10 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
-import { useTranslations } from 'next-intl'
+import Link from 'next/link'
+import { useTranslations, useLocale } from 'next-intl'
 import { X, Maximize2 } from 'lucide-react'
+import type { Locale } from '@/types'
 
 const GALLERY_IMAGES = [
   { id: 1, src: '/images/events/event-1.jpg' },
@@ -18,11 +20,32 @@ const GALLERY_IMAGES = [
   { id: 10, src: '/images/events/event-10.jpg' },
   { id: 11, src: '/images/events/event-11.jpg' },
   { id: 12, src: '/images/events/event-12.jpg' },
+  { id: 13, src: '/images/events/event-13.jpg' },
+  { id: 14, src: '/images/events/event-14.jpg' },
+  { id: 15, src: '/images/events/event-15.jpg' },
+  { id: 16, src: '/images/events/event-16.jpg' },
+  { id: 17, src: '/images/events/event-17.jpg' },
+  { id: 18, src: '/images/events/event-18.jpg' },
+  { id: 19, src: '/images/events/event-19.jpg' },
+  { id: 20, src: '/images/events/event-20.jpg' },
+  { id: 21, src: '/images/events/event-21.jpg' },
+  { id: 22, src: '/images/events/event-22.jpg' },
+  { id: 23, src: '/images/events/event-23.jpg' },
+  { id: 24, src: '/images/events/event-24.jpg' },
+  { id: 25, src: '/images/events/event-25.jpg' },
 ]
 
-export function ActivitiesGallery() {
+interface ActivitiesGalleryProps {
+  /** Cap the number of photos shown (e.g. for a homepage teaser). Omit to show all. */
+  limit?: number
+}
+
+export function ActivitiesGallery({ limit }: ActivitiesGalleryProps = {}) {
   const [selectedImage, setSelectedImage] = useState<(typeof GALLERY_IMAGES)[0] | null>(null)
   const t = useTranslations('activities')
+  const locale = useLocale() as Locale
+  const prefix = locale === 'hr' ? '' : `/${locale}`
+  const images = limit ? GALLERY_IMAGES.slice(0, limit) : GALLERY_IMAGES
 
   return (
     <section className="py-16 bg-gray-50 border-b border-gray-100">
@@ -35,7 +58,7 @@ export function ActivitiesGallery() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {GALLERY_IMAGES.map((img) => (
+          {images.map((img) => (
             <button
               key={img.id}
               type="button"
@@ -55,6 +78,17 @@ export function ActivitiesGallery() {
             </button>
           ))}
         </div>
+
+        {limit && limit < GALLERY_IMAGES.length && (
+          <div className="text-center mt-8">
+            <Link
+              href={`${prefix}/aktivnosti`}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border border-gray-300 text-sm font-bold text-gray-800 hover:border-amber-400 hover:text-amber-700 transition-colors"
+            >
+              {t('viewAll')}
+            </Link>
+          </div>
+        )}
 
         {/* Lightbox Modal */}
         {selectedImage && (

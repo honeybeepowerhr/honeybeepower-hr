@@ -74,10 +74,12 @@
   },
   "activities": {
     "badge": "Honey Bee Power w Akcji",
-    "title": "Wydarzenia i Aktywności w Terenie"
+    "title": "Wydarzenia i Aktywności w Terenie",
+    "viewAll": "Zobacz wszystkie zdjęcia"
   },
   "socialProof": {
-    "partnersBadge": "Zaufany partner czołowych klubów sportowych i biegów",
+    "partnersBadge": "Nasi partnerzy i dystrybutorzy",
+    "keyPartnerBadge": "Kluczowy partner",
     "badge": "Opinie Sportowców",
     "title": "Co mówią ci, którzy wygrywają z nami?",
     "followInstagram": "Obserwuj nas na Instagramie @planet__bio"
@@ -148,6 +150,8 @@
     "subtitle": "W stu procentach naturalne odżywianie sportowe na bazie miodu, liofilizowanych owoców i elektrolitów."
   },
   "footer": {
+    "partnersHeading": "Nasi partnerzy",
+    "presentationLink": "Prezentacja (PDF)",
     "products": "Produkty",
     "info": "Informacje",
     "company": "Firma",
@@ -164,6 +168,17 @@
     "terms": "Regulamin",
     "impressum": "Nota prawna",
     "copyright": "© 2026 Honey Bee Power"
+  },
+  "contactPage": {
+    "badge": "Skontaktuj się z nami",
+    "title": "Napisz do nas",
+    "subtitle": "Pytania o produkty, współpracę lub zamówienia — jesteśmy tu, aby pomóc.",
+    "addressTitle": "Adres",
+    "phoneTitle": "Telefon",
+    "emailTitle": "E-mail",
+    "hoursTitle": "Godziny pracy",
+    "emailB2BNote": "B2B i partnerstwa",
+    "socialTitle": "Obserwuj nas / napisz do nas"
   },
   "newsletter": {
     "title": "Odbierz 10% rabatu na pierwsze zamówienie",
@@ -209,6 +224,11 @@
     "mapTitle": "Mapa Lokalizacji",
     "mapSelectNotice": "Wybierz punkt sprzedaży z listy, aby zobaczyć szczegóły",
     "b2bNotice": "* Aby zostać partnerem lub dodać Twój sklep, skontaktuj się z nami pod adresem info@planetbio.hr"
+  },
+  "presentation": {
+    "title": "Prezentacja Honey Bee Power",
+    "subtitle": "Pobierz prezentację marki i produktów w formacie PDF.",
+    "cta": "Pobierz PDF"
   },
   "b2bPage": {
     "badge": "Partnerstwo B2B",

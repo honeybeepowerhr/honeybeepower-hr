@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Camera } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useLocale } from 'next-intl'
 import type { Locale } from '@/types'
 import { HexDivider } from '@/components/ui/HexDivider'
+import { WhatsAppIcon, FacebookIcon, InstagramIcon, TikTokIcon } from '@/components/ui/SocialIcons'
+import { PartnerLogos } from '@/components/common/PartnerLogos'
 
 // ─── Bee wordmark (Logo Image) ────────────────────────────────────────────────
 
@@ -49,6 +50,15 @@ export default function Footer() {
     { label: tNav('contact'),  href: `${prefix}/kontakt` },
   ]
 
+  const PRESENTATION_FILES: Record<Locale, string> = {
+    hr: '/presentations/Honey-Bee-Power-HR.pdf',
+    en: '/presentations/Honey-Bee-Power-EN.pdf',
+    de: '/presentations/Honey-Bee-Power-DE.pdf',
+    sl: '/presentations/Honey-Bee-Power-SI.pdf',
+    pl: '/presentations/Honey-Bee-Power-EN.pdf',
+  }
+  const presentationHref = PRESENTATION_FILES[locale] ?? PRESENTATION_FILES.hr
+
   const currentYear = new Date().getFullYear()
 
   return (
@@ -87,22 +97,58 @@ export default function Footer() {
                 info@planetbio.hr
               </a>
               <a
+                href="mailto:srdanrebic2101@gmail.com"
+                className="block hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded"
+                aria-label="Pošalji e-mail za B2B upite na srdanrebic2101@gmail.com"
+              >
+                srdanrebic2101@gmail.com
+              </a>
+              <a
                 href="tel:+385977097962"
                 className="block hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded"
                 aria-label="Pozovi +385 977 097 962"
               >
                 +385 977 097 962
               </a>
-              <a
-                href="https://www.instagram.com/planet__bio/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 pt-2 text-amber-400 hover:text-amber-300 font-semibold text-xs transition-colors"
-                aria-label="Pratite nas na Instagramu @planet__bio"
-              >
-                <Camera className="w-4 h-4" />
-                <span>@planet__bio</span>
-              </a>
+
+              <div className="flex items-center gap-3 pt-3">
+                <a
+                  href="https://wa.me/385977097962"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded"
+                  aria-label="WhatsApp +385 97 709 7962"
+                >
+                  <WhatsAppIcon className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61556227986574"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded"
+                  aria-label="Pratite nas na Facebooku"
+                >
+                  <FacebookIcon className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/planet__bio/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded"
+                  aria-label="Pratite nas na Instagramu @planet__bio"
+                >
+                  <InstagramIcon className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.tiktok.com/@honeybeepowerhrvatska"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded"
+                  aria-label="Pratite nas na TikToku @honeybeepowerhrvatska"
+                >
+                  <TikTokIcon className="w-5 h-5" />
+                </a>
+              </div>
             </address>
           </div>
 
@@ -160,8 +206,25 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href={presentationHref}
+                  download
+                  className="text-sm text-gray-300 hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded"
+                >
+                  {t('presentationLink')}
+                </a>
+              </li>
             </ul>
           </nav>
+        </div>
+
+        {/* Partner logos */}
+        <div className="mt-12 pt-8 border-t border-white/10">
+          <p className="text-center text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-4">
+            {t('partnersHeading')}
+          </p>
+          <PartnerLogos variant="compact" />
         </div>
       </div>
 

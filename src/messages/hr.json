@@ -74,10 +74,12 @@
   },
   "activities": {
     "badge": "Honey Bee Power u Akciji",
-    "title": "Događaji i Terenske Aktivnosti"
+    "title": "Događaji i Terenske Aktivnosti",
+    "viewAll": "Pogledaj sve fotografije"
   },
   "socialProof": {
-    "partnersBadge": "Pouzdan partner vodećih sportskih klubova i utrka",
+    "partnersBadge": "Naši partneri i distributeri",
+    "keyPartnerBadge": "Ključni partner",
     "badge": "Iskustva Sportaša",
     "title": "Što kažu oni koji pobjeđuju uz nas?",
     "followInstagram": "Pratite nas na Instagramu @planet__bio"
@@ -148,6 +150,8 @@
     "subtitle": "Sto posto prirodna sportska prehrana na bazi meda, liofiliziranog voća i elektrolita."
   },
   "footer": {
+    "partnersHeading": "Naši partneri",
+    "presentationLink": "Prezentacija (PDF)",
     "products": "Proizvodi",
     "info": "Informacije",
     "company": "Tvrtka",
@@ -164,6 +168,17 @@
     "terms": "Uvjeti korištenja",
     "impressum": "Impressum",
     "copyright": "© 2026 Honey Bee Power"
+  },
+  "contactPage": {
+    "badge": "Kontaktirajte nas",
+    "title": "Javite nam se",
+    "subtitle": "Za pitanja o proizvodima, suradnji ili narudžbama, tu smo za vas.",
+    "addressTitle": "Adresa",
+    "phoneTitle": "Telefon",
+    "emailTitle": "E-mail",
+    "hoursTitle": "Radno vrijeme",
+    "emailB2BNote": "B2B i partnerstva",
+    "socialTitle": "Pratite nas / pišite nam"
   },
   "newsletter": {
     "title": "Prijavi se na naš Newsletter",
@@ -209,6 +224,11 @@
     "mapTitle": "Karta Lokacija",
     "mapSelectNotice": "Odaberite prodajno mjesto s popisa za detalje",
     "b2bNotice": "* Za postati partner ili uvrstiti vaše prodajno mjesto kontaktirajte nas na info@planetbio.hr"
+  },
+  "presentation": {
+    "title": "Honey Bee Power prezentacija",
+    "subtitle": "Preuzmite predstavljanje brenda i proizvoda u PDF formatu.",
+    "cta": "Preuzmi PDF"
   },
   "b2bPage": {
     "badge": "B2B Partner Program",
