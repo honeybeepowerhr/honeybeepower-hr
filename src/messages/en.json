@@ -252,6 +252,10 @@
     "mapSelectNotice": "Select a store location from the list for details",
     "b2bNotice": "* To become a partner or list your store, contact us at info@planetbio.hr"
   },
+  "wordBand": {
+    "word1": "Honey",
+    "word2": "Energy"
+  },
   "presentation": {
     "title": "Honey Bee Power presentation",
     "subtitle": "Download the brand and product presentation as a PDF.",

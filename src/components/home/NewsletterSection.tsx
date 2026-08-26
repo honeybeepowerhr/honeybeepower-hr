@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { validateNewsletterEmail } from '@/features/newsletter/schema'
 import { HexagonGrid } from '@/components/ui/HexagonGrid'
+import { Reveal } from '@/components/motion/Reveal'
+import { Spotlight } from '@/components/motion/Spotlight'
 
 export function NewsletterSection() {
   const t = useTranslations('newsletter')
@@ -52,8 +54,9 @@ export function NewsletterSection() {
   return (
     <section className="relative py-16 sm:py-20 bg-gradient-to-r from-red-600 via-orange-500 to-amber-500 text-white overflow-hidden shadow-2xl">
       <HexagonGrid className="opacity-30" />
+      <Spotlight />
 
-      <div className="container mx-auto px-4 max-w-4xl text-center relative z-10">
+      <Reveal className="container mx-auto px-4 max-w-4xl text-center relative z-10">
         <div className="inline-flex items-center justify-center w-14 h-14 clip-hexagon bg-white/20 mb-4 backdrop-blur-md shadow-lg">
           <Mail className="w-7 h-7 text-white" />
         </div>
@@ -106,7 +109,7 @@ export function NewsletterSection() {
             </p>
           </form>
         )}
-      </div>
+      </Reveal>
     </section>
   )
 }

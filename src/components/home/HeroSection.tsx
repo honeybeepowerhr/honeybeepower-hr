@@ -6,6 +6,10 @@ import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import { ArrowRight, Sparkles, CheckCircle2, ShieldCheck, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { Reveal } from '@/components/motion/Reveal'
+import { Spotlight } from '@/components/motion/Spotlight'
+import { useTilt } from '@/components/motion/useTilt'
+import { useMagnetic } from '@/components/motion/useMagnetic'
 
 interface HeroSectionProps {
   onOpenQuiz?: () => void
@@ -13,6 +17,8 @@ interface HeroSectionProps {
 
 export function HeroSection({ onOpenQuiz }: HeroSectionProps) {
   const t = useTranslations('hero')
+  const tiltRef = useTilt<HTMLDivElement>(0.6)
+  const magnetRef = useMagnetic<HTMLAnchorElement>()
 
   const handleOpenQuiz = () => {
     if (onOpenQuiz) {
@@ -24,72 +30,83 @@ export function HeroSection({ onOpenQuiz }: HeroSectionProps) {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-amber-50/70 via-white to-white py-12 md:py-24 border-b border-amber-100">
+      <Spotlight />
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
+
           {/* Left Column: Headlines & CTAs */}
           <div className="lg:col-span-7 space-y-6">
-            
+
             {/* Hexagon Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-gradient-to-r from-red-600 via-orange-500 to-amber-500 text-white text-xs sm:text-sm font-extrabold shadow-lg">
-              <Sparkles className="w-4 h-4 text-yellow-200" />
-              <span>{t('trustHoney')}</span>
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-gray-900 leading-[1.1] font-heading">
-              {t('heading')}
-            </h1>
-
-            <p className="text-lg text-gray-700 max-w-2xl leading-relaxed font-sans font-medium">
-              {t('subtitle')}
-            </p>
-
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
-              <Button
-                asChild
-                size="lg"
-                className="bg-gradient-to-r from-red-600 via-orange-500 to-amber-500 hover:from-red-700 hover:to-amber-600 text-white font-extrabold px-8 h-13 rounded-2xl text-base shadow-xl shadow-orange-500/25 transition-all hover:scale-[1.03]"
-              >
-                <Link href="/proizvodi">
-                  {t('ctaPrimary')}
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </Button>
-
-              <Button
-                type="button"
-                variant="outline"
-                size="lg"
-                onClick={handleOpenQuiz}
-                className="border-2 border-orange-400 text-orange-950 hover:bg-orange-100/60 font-extrabold px-8 h-13 rounded-2xl text-base bg-white/80 backdrop-blur-sm"
-              >
-                {t('ctaSecondary')}
-              </Button>
-            </div>
-
-            {/* Trust Bar */}
-            <div className="pt-8 border-t border-amber-200/60 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-800 font-semibold">
-              <div className="flex items-center gap-2.5">
-                <CheckCircle2 className="w-5 h-5 text-orange-500 flex-shrink-0" />
+            <Reveal>
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-gradient-to-r from-red-600 via-orange-500 to-amber-500 text-white text-xs sm:text-sm font-extrabold shadow-lg">
+                <Sparkles className="w-4 h-4 text-yellow-200" />
                 <span>{t('trustHoney')}</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <ShieldCheck className="w-5 h-5 text-red-600 flex-shrink-0" />
-                <span>{t('trustNoSucralose')}</span>
+            </Reveal>
+
+            <Reveal delay={90}>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-gray-900 leading-[1.1] font-heading">
+                {t('heading')}
+              </h1>
+            </Reveal>
+
+            <Reveal delay={180}>
+              <p className="text-lg text-gray-700 max-w-2xl leading-relaxed font-sans font-medium">
+                {t('subtitle')}
+              </p>
+            </Reveal>
+
+            {/* CTAs */}
+            <Reveal delay={270}>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-gradient-to-r from-red-600 via-orange-500 to-amber-500 hover:from-red-700 hover:to-amber-600 text-white font-extrabold px-8 h-13 rounded-2xl text-base shadow-xl shadow-orange-500/25 transition-all hover:scale-[1.03]"
+                >
+                  <Link ref={magnetRef} href="/proizvodi" className="motion-magnet">
+                    {t('ctaPrimary')}
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Link>
+                </Button>
+
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="lg"
+                  onClick={handleOpenQuiz}
+                  className="border-2 border-orange-400 text-orange-950 hover:bg-orange-100/60 font-extrabold px-8 h-13 rounded-2xl text-base bg-white/80 backdrop-blur-sm"
+                >
+                  {t('ctaSecondary')}
+                </Button>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Zap className="w-5 h-5 text-amber-500 flex-shrink-0" />
-                <span>{t('trustFruit')}</span>
+            </Reveal>
+
+            {/* Trust Bar */}
+            <Reveal delay={360}>
+              <div className="pt-8 border-t border-amber-200/60 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-800 font-semibold">
+                <div className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-5 h-5 text-orange-500 flex-shrink-0" />
+                  <span>{t('trustHoney')}</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <ShieldCheck className="w-5 h-5 text-red-600 flex-shrink-0" />
+                  <span>{t('trustNoSucralose')}</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <Zap className="w-5 h-5 text-amber-500 flex-shrink-0" />
+                  <span>{t('trustFruit')}</span>
+                </div>
               </div>
-            </div>
+            </Reveal>
 
           </div>
 
           {/* Right Column: Hero Visual Image with 3D Hexagon Frame */}
-          <div className="lg:col-span-5 relative flex justify-center">
-            <div className="relative w-full max-w-md aspect-square rounded-3xl bg-gradient-to-tr from-red-500/20 via-orange-400/20 to-amber-300/20 p-6 border-2 border-orange-300/60 shadow-2xl flex items-center justify-center backdrop-blur-sm">
-              
+          <Reveal delay={150} variant="scale" className="lg:col-span-5 relative flex justify-center">
+            <div ref={tiltRef} className="motion-tilt relative w-full max-w-md aspect-square rounded-3xl bg-gradient-to-tr from-red-500/20 via-orange-400/20 to-amber-300/20 p-6 border-2 border-orange-300/60 shadow-2xl flex items-center justify-center backdrop-blur-sm">
+
               {/* Decorative Floating 3D Hexagon Badge */}
               <div className="absolute -top-4 -right-2 sm:-top-6 sm:-right-6 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-red-500 via-orange-500 to-amber-400 text-white flex flex-col items-center justify-center text-center clip-hexagon shadow-2xl p-1.5 transform rotate-12 animate-float-3d select-none">
                 <span className="font-black text-xs sm:text-sm text-yellow-200 leading-none">100%</span>
@@ -117,7 +134,7 @@ export function HeroSection({ onOpenQuiz }: HeroSectionProps) {
                 </div>
               </div>
             </div>
-          </div>
+          </Reveal>
 
         </div>
       </div>

@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl'
 import { Star, Quote } from 'lucide-react'
 import { InstagramFeed } from './InstagramFeed'
 import { PartnerLogos } from '@/components/common/PartnerLogos'
+import { Reveal } from '@/components/motion/Reveal'
 
 const TESTIMONIALS = [
   {
@@ -43,53 +44,54 @@ export function SocialProofSection() {
 
         {/* Testimonials */}
         <div>
-          <div className="text-center max-w-2xl mx-auto mb-10">
+          <Reveal className="text-center max-w-2xl mx-auto mb-10">
             <span className="text-amber-600 font-bold text-sm uppercase tracking-wider">
               {t('badge')}
             </span>
             <h2 className="text-3xl font-extrabold text-gray-900 mt-1">
               {t('title')}
             </h2>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {TESTIMONIALS.map((t, idx) => (
-              <div
-                key={idx}
-                className="bg-amber-50/40 p-6 rounded-2xl border border-amber-100 flex flex-col justify-between relative shadow-sm"
-              >
-                <Quote className="w-8 h-8 text-amber-300 absolute top-4 right-4" />
-                <div>
-                  <div className="flex items-center gap-1 mb-4 text-amber-500">
-                    {Array.from({ length: t.rating }).map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400" />
-                    ))}
-                  </div>
-                  <p className="text-gray-700 text-sm italic leading-relaxed mb-6">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                </div>
-
-                <div className="flex items-center gap-3 pt-4 border-t border-amber-200/50">
-                  <Image
-                    src={t.avatar}
-                    alt={t.name}
-                    width={48}
-                    height={48}
-                    className="w-12 h-12 rounded-full object-cover border border-amber-300"
-                  />
+              <Reveal key={idx} delay={idx * 100} variant="scale">
+                <div className="bg-amber-50/40 p-6 rounded-2xl border border-amber-100 flex flex-col justify-between relative shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md h-full">
+                  <Quote className="w-8 h-8 text-amber-300 absolute top-4 right-4" />
                   <div>
-                    <div className="font-bold text-gray-900 text-sm">{t.name}</div>
-                    <div className="text-xs text-amber-700 font-medium">{t.sport}</div>
+                    <div className="flex items-center gap-1 mb-4 text-amber-500">
+                      {Array.from({ length: t.rating }).map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-amber-400" />
+                      ))}
+                    </div>
+                    <p className="text-gray-700 text-sm italic leading-relaxed mb-6">
+                      &ldquo;{t.quote}&rdquo;
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-3 pt-4 border-t border-amber-200/50">
+                    <Image
+                      src={t.avatar}
+                      alt={t.name}
+                      width={48}
+                      height={48}
+                      className="w-12 h-12 rounded-full object-cover border border-amber-300"
+                    />
+                    <div>
+                      <div className="font-bold text-gray-900 text-sm">{t.name}</div>
+                      <div className="text-xs text-amber-700 font-medium">{t.sport}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
 
         {/* Instagram Feed */}
-        <InstagramFeed />
+        <Reveal>
+          <InstagramFeed />
+        </Reveal>
       </div>
     </section>
   )

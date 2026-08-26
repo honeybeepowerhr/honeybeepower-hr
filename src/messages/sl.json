@@ -252,6 +252,10 @@
     "mapSelectNotice": "Izberite prodajno mesto s seznama za podrobnosti",
     "b2bNotice": "* Če želite postati partner ali uvrstiti vaše prodajno mesto, nas kontaktirajte na info@planetbio.hr"
   },
+  "wordBand": {
+    "word1": "Med",
+    "word2": "Energija"
+  },
   "presentation": {
     "title": "Predstavitev Honey Bee Power",
     "subtitle": "Prenesite predstavitev znamke in izdelkov v obliki PDF.",

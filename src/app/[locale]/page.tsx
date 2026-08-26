@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { HeroSection } from '@/components/home/HeroSection'
+import { WordBand } from '@/components/home/WordBand'
 import { ProductLineSection } from '@/components/home/ProductLineSection'
 import { WhyHBPSection } from '@/components/home/WhyHBPSection'
 import { SocialProofSection } from '@/components/home/SocialProofSection'
@@ -77,6 +78,7 @@ export default async function HomePage() {
       <JsonLd schema={websiteSchema} />
 
       <HeroSection />
+      <WordBand />
       <HexDivider className="py-6 bg-white" />
       <QuizSection />
       <ProductLineSection />

@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { QUIZ_QUESTIONS, recommendProducts, type QuizRecommendation } from '@/features/quiz/engine'
 import { useCartStore } from '@/features/cart/store'
 import { REAL_PRODUCTS } from '@/lib/products-data'
+import { Reveal } from '@/components/motion/Reveal'
 import type { Locale } from '@/types'
 
 interface QuizSectionProps {
@@ -66,7 +67,7 @@ export function QuizSection({ onClose }: QuizSectionProps) {
 
   return (
     <section id="quiz-section" className="py-16 md:py-24 bg-gradient-to-b from-amber-50/60 via-white to-amber-50/40 border-b border-amber-100 relative z-10">
-      <div className="container mx-auto px-4 max-w-4xl">
+      <Reveal variant="scale" className="container mx-auto px-4 max-w-4xl">
         <div className="bg-white rounded-3xl p-6 sm:p-10 border border-amber-200 shadow-2xl relative overflow-hidden">
           
           {/* Top Decorative Amber Line */}
@@ -214,7 +215,7 @@ export function QuizSection({ onClose }: QuizSectionProps) {
             </div>
           )}
         </div>
-      </div>
+      </Reveal>
     </section>
   )
 }

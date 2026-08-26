@@ -8,6 +8,8 @@ import { Star, ShoppingCart, ArrowRight } from 'lucide-react'
 import { useCartStore } from '@/features/cart/store'
 import { Button } from '@/components/ui/button'
 import { REAL_PRODUCTS } from '@/lib/products-data'
+import { Reveal } from '@/components/motion/Reveal'
+import { TiltCard } from '@/components/motion/TiltCard'
 import type { Locale } from '@/types'
 
 export function ProductLineSection() {
@@ -19,7 +21,7 @@ export function ProductLineSection() {
   return (
     <section className="py-16 md:py-24 bg-white border-b border-amber-100 relative z-10">
       <div className="container mx-auto px-4 max-w-7xl">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <Reveal className="flex flex-col md:flex-row md:items-end justify-between mb-12">
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100 text-amber-800 font-extrabold text-xs uppercase tracking-wider mb-3">
               {t('badge')}
@@ -39,11 +41,11 @@ export function ProductLineSection() {
             {t('viewAll')}
             <ArrowRight className="w-5 h-5" />
           </Link>
-        </div>
+        </Reveal>
 
         {/* 5 Real Product Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {REAL_PRODUCTS.map((prod) => {
+          {REAL_PRODUCTS.map((prod, prodIdx) => {
             const variant = prod.variants[0]
 
             const prodName = prod.name[locale] ?? prod.name.hr
@@ -64,9 +66,10 @@ export function ProductLineSection() {
             }
 
             return (
-              <div
-                key={prod._id}
-                className="group relative bg-white rounded-3xl border border-amber-200/80 p-5 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              <Reveal key={prod._id} delay={(prodIdx % 3) * 90} variant="scale">
+              <TiltCard
+                strength={0.4}
+                className="group relative bg-white rounded-3xl border border-amber-200/80 p-5 shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between h-full"
               >
                 {/* Full-card link — click anywhere to open the product. Sits
                     above the visuals but below the "Dodaj" button (z-20). */}
@@ -116,7 +119,8 @@ export function ProductLineSection() {
                     {t('addToCart')}
                   </Button>
                 </div>
-              </div>
+              </TiltCard>
+              </Reveal>
             )
           })}
         </div>

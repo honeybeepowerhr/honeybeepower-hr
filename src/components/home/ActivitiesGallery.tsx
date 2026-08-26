@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useTranslations, useLocale } from 'next-intl'
 import { X, Maximize2 } from 'lucide-react'
+import { Reveal } from '@/components/motion/Reveal'
 import type { Locale } from '@/types'
 
 const GALLERY_IMAGES = [
@@ -50,32 +51,33 @@ export function ActivitiesGallery({ limit }: ActivitiesGalleryProps = {}) {
   return (
     <section className="py-16 bg-gray-50 border-b border-gray-100">
       <div className="container mx-auto px-4 max-w-7xl">
-        <div className="text-center max-w-2xl mx-auto mb-10">
+        <Reveal className="text-center max-w-2xl mx-auto mb-10">
           <span className="text-amber-600 font-bold text-sm uppercase tracking-wider">
             {t('badge')}
           </span>
           <h2 className="text-3xl font-extrabold text-gray-900 mt-1">{t('title')}</h2>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {images.map((img) => (
-            <button
-              key={img.id}
-              type="button"
-              onClick={() => setSelectedImage(img)}
-              className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-gray-200 border border-gray-200 text-left focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-sm"
-            >
-              <Image
-                src={img.src}
-                alt="Honey Bee Power događaj"
-                width={600}
-                height={450}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
-                <Maximize2 className="w-6 h-6 drop-shadow-md" />
-              </div>
-            </button>
+          {images.map((img, idx) => (
+            <Reveal key={img.id} delay={(idx % 8) * 55}>
+              <button
+                type="button"
+                onClick={() => setSelectedImage(img)}
+                className="group relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-gray-200 border border-gray-200 text-left focus:outline-none focus:ring-2 focus:ring-amber-500 shadow-sm"
+              >
+                <Image
+                  src={img.src}
+                  alt="Honey Bee Power događaj"
+                  width={600}
+                  height={450}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                  <Maximize2 className="w-6 h-6 drop-shadow-md" />
+                </div>
+              </button>
+            </Reveal>
           ))}
         </div>
 

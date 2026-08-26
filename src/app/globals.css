@@ -18,6 +18,13 @@
   --color-gray-600: #525252;
   --color-gray-800: #262626;
 
+  /* Deep ink + rich honey — used for bold, high-contrast sections */
+  --color-ink: #14110c;
+  --color-ink-raised: #211a10;
+  --color-honey-rich: #f2a91f;
+  --color-honey-deep: #a86a10;
+  --color-cream: #faf5e7;
+
   /* Typography */
   --font-heading: var(--font-barlow-condensed), "Barlow Condensed", sans-serif;
   --font-inter: var(--font-inter), "Inter", sans-serif;
@@ -120,5 +127,153 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   .animate-float-3d-slow,
   .animate-float-3d-reverse {
     animation: none;
+  }
+}
+
+/* ─── Scroll-reveal (used by <Reveal>) ──────────────────────────────────── */
+
+.motion-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.motion-reveal.motion-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.motion-reveal-scale {
+  transform: translateY(20px) scale(0.95);
+}
+.motion-reveal-scale.motion-in-view {
+  transform: translateY(0) scale(1);
+}
+
+/* ─── Marquee (used by <Marquee>) ───────────────────────────────────────── */
+
+.motion-marquee {
+  overflow: hidden;
+}
+.motion-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: motion-marquee-scroll var(--marquee-duration, 24s) linear infinite;
+}
+.motion-marquee:hover .motion-marquee-track,
+.motion-marquee:focus-within .motion-marquee-track {
+  animation-play-state: paused;
+}
+@keyframes motion-marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ─── Giant word band ────────────────────────────────────────────────────── */
+
+.motion-wordband {
+  background: var(--color-ink);
+  overflow: hidden;
+  transform-origin: center;
+  will-change: transform;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.motion-wordband-word {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  -webkit-text-stroke: 1.5px var(--color-honey-rich);
+  color: transparent;
+}
+.motion-wordband-word.is-fill {
+  -webkit-text-stroke: 0;
+  color: var(--color-honey-rich);
+}
+
+/* ─── 3D tilt + magnetic hover (transform applied inline via JS) ───────── */
+
+.motion-tilt {
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.motion-magnet {
+  transition: transform 0.2s ease;
+  display: inline-flex;
+}
+
+/* ─── Cursor spotlight (custom props set inline via JS) ─────────────────── */
+
+.motion-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 40%), rgba(242, 169, 31, 0.16), transparent 68%);
+}
+
+/* ─── Scroll progress bar ────────────────────────────────────────────────── */
+
+.motion-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--color-honey-rich);
+  width: 0%;
+  z-index: 60;
+  transition: width 0.08s linear;
+}
+
+/* ─── Page intro curtain ─────────────────────────────────────────────────── */
+
+.motion-curtain {
+  position: fixed;
+  inset: 0;
+  background: var(--color-ink);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  transform: translateY(0);
+  transition: transform 0.7s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.motion-curtain.is-go {
+  transform: translateY(-100%);
+}
+.motion-curtain .motion-curtain-label {
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(250, 245, 231, 0.55);
+}
+.motion-curtain .motion-curtain-pct {
+  font-family: var(--font-heading);
+  font-size: clamp(48px, 12vw, 120px);
+  font-weight: 900;
+  color: var(--color-honey-rich);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-reveal,
+  .motion-reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .motion-marquee-track,
+  .motion-wordband {
+    animation: none !important;
+    transform: none !important;
+  }
+  .motion-tilt,
+  .motion-magnet {
+    transform: none !important;
+  }
+  .motion-curtain {
+    display: none !important;
   }
 }

@@ -9,6 +9,8 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { CartPanel } from '@/components/cart/CartPanel'
 import { AmbientBackground } from '@/components/ui/AmbientBackground'
+import { PageIntro } from '@/components/motion/PageIntro'
+import { ScrollProgress } from '@/components/motion/ScrollProgress'
 import '../globals.css'
 
 const barlowCondensed = Barlow_Condensed({
@@ -97,6 +99,10 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       </head>
       <body className="font-inter bg-[#fffaf0] text-charcoal antialiased relative">
         <NextIntlClientProvider messages={messages}>
+          {/* One-time brand intro on first load this session */}
+          <PageIntro />
+          {/* Scroll progress bar */}
+          <ScrollProgress />
           {/* Global soft ambient background */}
           <AmbientBackground />
           {/* Sticky header */}

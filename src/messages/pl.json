@@ -225,6 +225,10 @@
     "mapSelectNotice": "Wybierz punkt sprzedaży z listy, aby zobaczyć szczegóły",
     "b2bNotice": "* Aby zostać partnerem lub dodać Twój sklep, skontaktuj się z nami pod adresem info@planetbio.hr"
   },
+  "wordBand": {
+    "word1": "Miód",
+    "word2": "Energia"
+  },
   "presentation": {
     "title": "Prezentacja Honey Bee Power",
     "subtitle": "Pobierz prezentację marki i produktów w formacie PDF.",

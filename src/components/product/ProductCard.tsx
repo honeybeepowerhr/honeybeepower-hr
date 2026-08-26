@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils'
 import { useCartStore } from '@/features/cart/store'
 import { useTranslations } from 'next-intl'
 import VariantSelectModal from './VariantSelectModal'
+import { useTilt } from '@/components/motion/useTilt'
 import type { Locale, ProductSummary, Variant } from '@/types'
 
 // ─── Sanity CDN image URL helper ─────────────────────────────────────────────
@@ -104,6 +105,7 @@ export default function ProductCard({ product, locale = 'hr' }: ProductCardProps
   const tShop = useTranslations('shopMode')
 
   const [modalOpen, setModalOpen] = useState(false)
+  const tiltRef = useTilt<HTMLElement>(0.5)
 
   // Localised text with hr fallback
   const name = product.name[locale] ?? product.name.hr
@@ -174,11 +176,13 @@ export default function ProductCard({ product, locale = 'hr' }: ProductCardProps
   return (
     <>
       <article
+        ref={tiltRef}
         className={cn(
-          'group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-200',
+          'motion-tilt group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-200',
           'transition-shadow duration-200',
-          'hover:shadow-lg',
+          'hover:shadow-xl',
         )}
+        style={{ perspective: '1000px' }}
       >
         {/* Full-card link — click anywhere on the card to open the product.
             Sits above the visuals but below the action buttons (z-20). */}

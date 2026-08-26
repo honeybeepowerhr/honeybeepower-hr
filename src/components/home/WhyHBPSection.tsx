@@ -4,6 +4,7 @@ import React from 'react'
 import { useTranslations } from 'next-intl'
 import { Sun, HeartPulse, ShieldCheck, Flame } from 'lucide-react'
 import { ComparisonTable } from './ComparisonTable'
+import { Reveal } from '@/components/motion/Reveal'
 
 export function WhyHBPSection() {
   const t = useTranslations('whyHbp')
@@ -38,7 +39,7 @@ export function WhyHBPSection() {
   return (
     <section className="relative py-16 md:py-24 bg-white border-b border-amber-100 overflow-hidden">
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <Reveal className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-red-600 via-orange-500 to-amber-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-md">
             {t('badge')}
           </div>
@@ -48,32 +49,31 @@ export function WhyHBPSection() {
           <p className="text-gray-700 text-base sm:text-lg font-sans font-medium">
             {t('subtitle')}
           </p>
-        </div>
+        </Reveal>
 
         {/* 4 Ingredient Feature Cards with 3D Hexagon Icon Frames */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {ingredients.map((item, idx) => {
             const Icon = item.icon
             return (
-              <div
-                key={idx}
-                className="relative group bg-white p-6 rounded-3xl border border-orange-200/70 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
-              >
-                {/* 3D Hexagon Icon Frame */}
-                <div className={`w-16 h-16 clip-hexagon bg-gradient-to-br ${item.accentColor} text-white flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon className="w-8 h-8" />
+              <Reveal key={idx} delay={idx * 90} variant="scale">
+                <div className="relative group bg-white p-6 rounded-3xl border border-orange-200/70 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden h-full">
+                  {/* 3D Hexagon Icon Frame */}
+                  <div className={`w-16 h-16 clip-hexagon bg-gradient-to-br ${item.accentColor} text-white flex items-center justify-center mb-5 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-xl font-extrabold text-gray-900 mb-2 font-heading">{item.title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed font-sans font-medium">{item.description}</p>
                 </div>
-                <h3 className="text-xl font-extrabold text-gray-900 mb-2 font-heading">{item.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed font-sans font-medium">{item.description}</p>
-              </div>
+              </Reveal>
             )
           })}
         </div>
 
         {/* Comparison Table Section */}
-        <div className="max-w-4xl mx-auto">
+        <Reveal className="max-w-4xl mx-auto">
           <ComparisonTable />
-        </div>
+        </Reveal>
       </div>
     </section>
   )
