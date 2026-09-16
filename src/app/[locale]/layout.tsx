@@ -33,7 +33,7 @@ export const viewport: Viewport = {
   maximumScale: 5,
 }
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://honeybeepower.hr'
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://honeybeepowerhr.com'
 const DEFAULT_DESCRIPTION =
   'Energetski gelovi i izotonični napitci na bazi 100% prirodnog cvjetnog meda. Bez sukraloze, bez umjetnih aditiva.'
 

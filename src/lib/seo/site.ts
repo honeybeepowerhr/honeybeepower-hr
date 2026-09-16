@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import type { Locale } from '@/types'
 import { locales, defaultLocale } from '@/features/i18n/config'
 
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://honeybeepower.hr').replace(/\/$/, '')
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://honeybeepowerhr.com').replace(/\/$/, '')
 
 export const SITE_NAME = 'Honey Bee Power'
 

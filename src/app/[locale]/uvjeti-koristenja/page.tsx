@@ -38,7 +38,7 @@ export default function TermsPage() {
 
         <h2 className="text-lg font-bold text-gray-900 pt-4">1. Opće odredbe</h2>
         <p>
-          Ovi Opći uvjeti poslovanja uređuju odnos između kupca i trgovačkog društva Planet Bio d.o.o., Krndijska ulica 4, 31500 Našice za kupovinu putem webshopa honeybeepower.hr.
+          Ovi Opći uvjeti poslovanja uređuju odnos između kupca i trgovačkog društva Planet Bio d.o.o., Krndijska ulica 4, 31500 Našice za kupovinu putem webshopa honeybeepowerhr.com.
         </p>
 
         <h2 className="text-lg font-bold text-gray-900 pt-4">2. Ponuda i plaćanje</h2>
