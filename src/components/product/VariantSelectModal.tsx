@@ -33,7 +33,7 @@ export default function VariantSelectModal({
 
   return (
     <Dialog open={open} onOpenChange={(isOpen) => { if (!isOpen) onClose() }}>
-      <DialogContent className="max-w-md">
+      <DialogContent className="max-w-md bg-white border-amber-200">
         <DialogHeader>
           <DialogTitle className="font-heading text-xl text-charcoal">
             Odaberi varijantu
