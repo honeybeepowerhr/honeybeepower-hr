@@ -1,7 +1,6 @@
 'use client'
 
-import React from 'react'
-import Image from 'next/image'
+import React, { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import { ArrowRight, Sparkles, CheckCircle2, ShieldCheck, Zap } from 'lucide-react'
@@ -19,6 +18,17 @@ export function HeroSection({ onOpenQuiz }: HeroSectionProps) {
   const t = useTranslations('hero')
   const tiltRef = useTilt<HTMLDivElement>(0.6)
   const magnetRef = useMagnetic<HTMLAnchorElement>()
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  // Some mobile browsers ignore the `muted` JSX attribute at hydration time
+  // and silently refuse to autoplay — setting it imperatively before play()
+  // is the reliable fix across iOS Safari / Android Chrome.
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+    video.muted = true
+    video.play().catch(() => {})
+  }, [])
 
   const handleOpenQuiz = () => {
     if (onOpenQuiz) {
@@ -115,14 +125,20 @@ export function HeroSection({ onOpenQuiz }: HeroSectionProps) {
                 </span>
               </div>
 
-              <Image
-                src="/images/products/energygelmalina.png"
-                alt="Honey Bee Power Energetski Gel Malina"
-                width={600}
-                height={600}
-                priority
-                className="w-full h-full object-contain drop-shadow-2xl p-2"
-              />
+              <video
+                ref={videoRef}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                poster="/images/hero/product-showcase-poster.jpg"
+                aria-hidden="true"
+                className="w-full h-full object-cover rounded-xl shadow-xl"
+              >
+                <source src="/videos/product-showcase.webm" type="video/webm" />
+                <source src="/videos/product-showcase.mp4" type="video/mp4" />
+              </video>
 
               <div className="absolute -bottom-4 -left-2 sm:-bottom-6 sm:-left-6 bg-white/95 backdrop-blur-md p-3 sm:p-4 rounded-2xl shadow-2xl border border-orange-200 flex items-center gap-3">
                 <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-gradient-to-r from-red-500 via-orange-500 to-amber-500 text-white font-black flex items-center justify-center text-xs sm:text-sm shadow">
