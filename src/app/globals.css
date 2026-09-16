@@ -167,28 +167,6 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   to { transform: translateX(-50%); }
 }
 
-/* ─── Giant word band ────────────────────────────────────────────────────── */
-
-.motion-wordband {
-  background: var(--color-ink);
-  overflow: hidden;
-  transform-origin: center;
-  will-change: transform;
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-.motion-wordband-word {
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  white-space: nowrap;
-  -webkit-text-stroke: 1.5px var(--color-honey-rich);
-  color: transparent;
-}
-.motion-wordband-word.is-fill {
-  -webkit-text-stroke: 0;
-  color: var(--color-honey-rich);
-}
-
 /* ─── 3D tilt + magnetic hover (transform applied inline via JS) ───────── */
 
 .motion-tilt {
@@ -230,8 +208,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
     transform: none !important;
     transition: none !important;
   }
-  .motion-marquee-track,
-  .motion-wordband {
+  .motion-marquee-track {
     animation: none !important;
     transform: none !important;
   }
