@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useCallback } from 'react'
-import { Star, ShieldCheck, Truck, RefreshCcw, Package } from 'lucide-react'
+import { Star, ShieldCheck, Truck, Clock, Package } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useCartStore } from '@/features/cart/store'
 import VariantSwitcher from './VariantSwitcher'
@@ -10,20 +10,11 @@ import type { ProductFull, Locale, Variant } from '@/types'
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
-function formatPrice(cents: number): string {
-  return (cents / 100).toFixed(2)
-}
-
-/** Price-per-gram for gel/energy products — shown when size ends with 'g' */
-function pricePerGram(cents: number, size: string): string | null {
-  const match = /^(\d+(?:\.\d+)?)\s*g$/i.exec(size.trim())
-  if (!match) return null
-  const grams = parseFloat(match[1])
-  if (!grams) return null
-  return (cents / 100 / grams).toFixed(2)
-}
-
-/** Resolve the effective price for a variant: variant.price overrides basePrice */
+/**
+ * Resolve the effective price for a variant: variant.price overrides basePrice.
+ * Kept as the cart's internal unitPrice (owner reference) — never shown to
+ * the customer, who requests a quote instead of seeing a fixed price.
+ */
 function effectivePrice(variant: Variant, basePrice: number): number {
   return variant.price > 0 ? variant.price : basePrice
 }
@@ -82,9 +73,9 @@ function StarRating({ rating, count }: StarRatingProps) {
 
 const TRUST_ITEMS = [
   { icon: Package,    label: 'Na zalihi' },
-  { icon: Truck,      label: 'Dostava 1-2 dana' },
-  { icon: ShieldCheck,label: 'Sigurno plaćanje' },
-  { icon: RefreshCcw, label: 'Povrat 14 dana' },
+  { icon: Truck,      label: 'Dostava dogovorena osobno' },
+  { icon: ShieldCheck,label: 'Plaćanje dogovaramo osobno' },
+  { icon: Clock,      label: 'Odgovor unutar 24h' },
 ] as const
 
 function TrustBar() {
@@ -131,19 +122,11 @@ export default function ProductInfo({ product, locale }: ProductInfoProps) {
     (v) => v._key === selectedVariantKey,
   )
 
+  // Indicative price — kept only as the cart's internal reference for the
+  // owner, never rendered to the customer (request-a-quote model).
   const price = selectedVariant
     ? effectivePrice(selectedVariant, product.basePrice)
     : product.basePrice
-
-  const compareAt =
-    selectedVariant?.compareAtPrice !== undefined
-      ? selectedVariant.compareAtPrice
-      : product.compareAtPrice
-
-  const showCompareAt =
-    compareAt !== null && compareAt !== undefined && compareAt > price
-
-  const ppg = selectedVariant ? pricePerGram(price, selectedVariant.size) : null
 
   const isOutOfStock = selectedVariant ? selectedVariant.stockLevel === 0 : false
 
@@ -201,53 +184,6 @@ export default function ProductInfo({ product, locale }: ProductInfoProps) {
           />
         )}
 
-      {/* ── Price block ─────────────────────────────────────────────────── */}
-      <div className="flex items-baseline gap-3 flex-wrap">
-        {/* Current price */}
-        <span
-          className="text-3xl font-black text-charcoal"
-          aria-label={`Cijena ${formatPrice(price)} eura s PDV-om`}
-        >
-          {formatPrice(price)}&nbsp;€
-        </span>
-
-        {/* Crossed-out compare-at price */}
-        {showCompareAt && (
-          <span
-            className="text-lg text-gray-400 line-through"
-            aria-label={`Stara cijena ${formatPrice(compareAt!)} eura`}
-          >
-            {formatPrice(compareAt!)}&nbsp;€
-          </span>
-        )}
-
-        {/* Discount badge */}
-        {showCompareAt && (
-          <span
-            className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-bold bg-red-100 text-red-700"
-            aria-hidden="true"
-          >
-            -
-            {Math.round(
-              ((compareAt! - price) / compareAt!) * 100,
-            )}
-            %
-          </span>
-        )}
-      </div>
-
-      {/* Price per gram */}
-      {ppg && (
-        <p className="text-sm text-gray-500 -mt-3">
-          {ppg}&nbsp;€/g
-        </p>
-      )}
-
-      {/* VAT note */}
-      <p className="text-xs text-gray-400 -mt-4">
-        Cijena uključuje PDV
-      </p>
-
       {/* ── Variant switcher ─────────────────────────────────────────────── */}
       {product.variants.length > 0 && (
         <VariantSwitcher
@@ -289,13 +225,12 @@ export default function ProductInfo({ product, locale }: ProductInfoProps) {
         </button>
       </div>
 
-      {/* ── Bulk discount ────────────────────────────────────────────────── */}
+      {/* ── Quote hint ───────────────────────────────────────────────────── */}
       <div
         className="flex items-center gap-2 px-4 py-3 bg-amber-50 border border-amber-200 rounded-xl text-sm font-medium text-amber-800"
         role="note"
-        aria-label="Akcija za kupnju na veliko"
       >
-        🍯 <span>Kupi 10, uštedi 15%</span>
+        🍯 <span>Pošaljite upit za količinu i cijenu — javljamo se osobno s ponudom.</span>
       </div>
 
       {/* ── Trust signals ────────────────────────────────────────────────── */}

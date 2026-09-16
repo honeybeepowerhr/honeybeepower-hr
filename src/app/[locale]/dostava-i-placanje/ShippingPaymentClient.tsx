@@ -16,15 +16,17 @@ export default function ShippingPaymentClient() {
         </div>
 
         <h2 className="text-lg font-bold text-gray-900 pt-4">{t('paymentMethodsTitle')}</h2>
+        <p>
+          Način plaćanja dogovaramo osobno nakon vašeg upita — najčešće:
+        </p>
         <ul className="list-disc pl-5 space-y-1">
-          <li><strong>Kreditne i debitne kartice:</strong> Visa, Mastercard, Maestro putem sigurne Stripe platforme.</li>
-          <li><strong>Plaćanje pouzećem:</strong> Gotovinom pri preuzimanju paketa od kurira.</li>
-          <li><strong>Bankovna doznaka (Transakcijski račun):</strong> Uplata na račun Planet Bio d.o.o.</li>
+          <li><strong>Plaćanje pouzećem:</strong> gotovinom pri preuzimanju paketa od kurira.</li>
+          <li><strong>Bankovna doznaka:</strong> uplata na račun Planet Bio d.o.o. prije slanja.</li>
         </ul>
 
         <h2 className="text-lg font-bold text-gray-900 pt-4">{t('deliveryTermsTitle')}</h2>
         <p>
-          Sve narudžbe zaprimljene do 13:00h radnim danom šalju se isti dan. Uobičajeno vrijeme dostave je 1-3 radna dana.
+          Nakon što pošaljete upit iz košarice (WhatsApp ili e-mail), javljamo se osobno u roku od 24h s rokom dostave, cijenom i načinom plaćanja. Uobičajeno vrijeme dostave nakon dogovora je 1-3 radna dana.
         </p>
       </div>
     </div>

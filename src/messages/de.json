@@ -111,39 +111,11 @@
     "empty": "Ihr Warenkorb ist leer",
     "emptySub": "Fügen Sie natürliche Gels oder isotonische Getränke für maximale Energie hinzu.",
     "viewProducts": "Produkte ansehen",
-    "freeShippingReached": "🎉 Sie haben kostenlosen Versand erhalten!",
-    "freeShippingProgress": "Noch {amount} bis zum kostenlosen Versand",
-    "total": "Gesamtsumme:",
-    "checkoutBtn": "Anfrage senden",
     "noImage": "Kein Bild",
-    "perPiece": "€ / Stk",
-    "remove": "Entfernen"
-  },
-  "checkout": {
-    "title": "Anfrage senden",
-    "subtitle": "Füllen Sie Ihre Lieferdaten aus — wir kontaktieren Sie mit einem Angebot, Preis und Zahlungsbedingungen.",
-    "summaryTitle": "Anfrageübersicht",
-    "subtotal": "Unverbindlicher Zwischensumme",
-    "disclaimer": "Der Preis dient nur zur Information. Das finale Angebot und die Versandkosten werden persönlich vereinbart.",
-    "replyNotice": "Wir antworten in der Regel innerhalb von 24 Std.",
-    "noObligation": "Keine Zahlungsverpflichtung bis zur Bestätigung des Angebots",
-    "personalData": "Persönliche Daten",
-    "fullName": "Vor- und Nachname",
-    "email": "E-Mail",
-    "phone": "Telefon (optional)",
-    "shippingAddress": "Lieferadresse",
-    "address": "Straße und Hausnummer",
-    "city": "Stadt",
-    "postalCode": "Postleitzahl",
-    "country": "Land",
-    "notesTitle": "Anmerkung zur Anfrage",
-    "notesLabel": "Besondere Anmerkungen (optional)",
-    "infoBanner": "Dies ist keine Zahlung. Nach Absenden der Anfrage senden wir Ihnen ein persönliches Angebot.",
-    "submitBtn": "Anfrage senden",
-    "submittingBtn": "Anfrage wird gesendet…",
-    "successTitle": "Anfrage eingegangen!",
-    "successMessage": "Wir werden uns in Kürze unter {email} mit einem Angebot bei Ihnen melden.",
-    "termsAccept": "Mit dem Absenden stimmen Sie unseren Nutzungsbedingungen und Datenschutzbestimmungen zu."
+    "remove": "Entfernen",
+    "whatsappBtn": "Per WhatsApp melden",
+    "emailBtn": "Anfrage per E-Mail senden",
+    "inquiryHint": "Jetzt keine Zahlung — wir melden uns persönlich mit einem Angebot."
   },
   "catalogue": {
     "heading": "Alle Produkte",
@@ -163,11 +135,12 @@
     "whereToBuy": "Wo kaufen",
     "faq": "FAQ",
     "shippingPayment": "Lieferung & Zahlung",
-    "returns": "Rückgaberecht",
+    "returns": "Rückgabe & Reklamationen",
     "privacy": "Datenschutz-Bestimmungen",
     "terms": "Nutzungsbedingungen",
     "impressum": "Impressum",
-    "copyright": "© 2026 Honey Bee Power"
+    "copyright": "© 2026 Honey Bee Power",
+    "cookieSettings": "Cookie-Einstellungen"
   },
   "contactPage": {
     "badge": "Kontaktieren Sie uns",
@@ -251,10 +224,6 @@
     "mapTitle": "Standortkarte",
     "mapSelectNotice": "Wählen Sie eine Verkaufsstelle aus der Liste für Details",
     "b2bNotice": "* Um Partner zu werden oder Ihr Geschäft zu listen, kontaktieren Sie uns unter info@planetbio.hr"
-  },
-  "wordBand": {
-    "word1": "Honig",
-    "word2": "Energie"
   },
   "presentation": {
     "title": "Honey Bee Power Präsentation",
@@ -373,5 +342,20 @@
         }
       }
     }
+  },
+  "quickInquiry": {
+    "titleWhatsapp": "WhatsApp-Anfrage",
+    "titleEmail": "E-Mail-Anfrage",
+    "introWhatsapp": "Geben Sie Name und Telefonnummer ein — wir öffnen WhatsApp mit Ihrer versandbereiten Anfrage.",
+    "introEmail": "Geben Sie Name und Telefonnummer ein — wir melden uns bald mit einem Angebot.",
+    "fullNameLabel": "Vor- und Nachname",
+    "phoneLabel": "Telefonnummer",
+    "submitWhatsapp": "WhatsApp öffnen",
+    "submitEmail": "Anfrage senden",
+    "sending": "Wird gesendet…",
+    "successTitle": "Anfrage gesendet!",
+    "successMessageWhatsapp": "Wir haben WhatsApp in einem neuen Tab geöffnet — senden Sie die Nachricht, um Ihre Anfrage abzuschließen.",
+    "successMessageEmail": "Wir melden uns in Kürze unter {phone} bei Ihnen.",
+    "close": "Schließen"
   }
 }

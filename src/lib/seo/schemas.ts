@@ -1,5 +1,5 @@
 import type { FAQ, Locale, ProductSummary } from '@/types'
-import { absoluteUrl, localeUrl } from './site'
+import { absoluteUrl } from './site'
 
 // ---------------------------------------------------------------------------
 // Product schema
@@ -8,21 +8,15 @@ import { absoluteUrl, localeUrl } from './site'
 /**
  * Builds a schema.org Product JSON-LD object for a given product and locale.
  *
- * Prices are stored as integer cents; the schema emits decimal EUR values.
+ * No `offers`/price here on purpose — the site no longer shows a fixed
+ * price to customers (request-a-quote model), and Google penalises
+ * structured data that promises a price the page doesn't display.
  */
 export function buildProductSchema(
   product: ProductSummary,
   locale: Locale,
 ): Record<string, unknown> {
   const firstVariant = product.variants[0]
-  const priceInEur = (firstVariant?.price ?? product.basePrice) / 100
-
-  const availability =
-    (firstVariant?.stockLevel ?? 0) > 0
-      ? 'https://schema.org/InStock'
-      : 'https://schema.org/OutOfStock'
-
-  const productUrl = localeUrl(locale, `/proizvodi/${product.slug}`)
 
   const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
@@ -33,13 +27,6 @@ export function buildProductSchema(
     brand: {
       '@type': 'Brand',
       name: 'Honey Bee Power',
-    },
-    offers: {
-      '@type': 'Offer',
-      price: priceInEur.toFixed(2),
-      priceCurrency: 'EUR',
-      availability,
-      url: productUrl,
     },
   }
 

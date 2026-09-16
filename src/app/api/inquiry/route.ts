@@ -3,7 +3,7 @@ import { validateInquiryForm } from '@/features/inquiry/schema'
 import { sendEmail } from '@/lib/resend/client'
 import { sanityServerClient } from '@/lib/sanity/client'
 import { saveInquiryToBackup } from '@/lib/inquiries-backup'
-import type { InquiryItem, InquiryRequestBody } from '@/types'
+import type { InquiryChannel, InquiryItem, InquiryRequestBody } from '@/types'
 
 const INQUIRY_RECIPIENT = ['honeybeepower.hr@gmail.com', 'srdanrebic2101@gmail.com']
 
@@ -28,18 +28,12 @@ function validateBody(raw: unknown): { data: InquiryRequestBody } | { error: str
   }
   const body = raw as Record<string, unknown>
 
+  const channel: InquiryChannel = body.channel === 'whatsapp' ? 'whatsapp' : 'email'
   const customer = body.customer as Record<string, unknown> | undefined
-  const shippingAddress = body.shippingAddress as Record<string, unknown> | undefined
 
   const formErrors = validateInquiryForm({
     fullName: customer?.fullName as string | undefined,
-    email: customer?.email as string | undefined,
     phone: customer?.phone as string | undefined,
-    address: shippingAddress?.address as string | undefined,
-    city: shippingAddress?.city as string | undefined,
-    postalCode: shippingAddress?.postalCode as string | undefined,
-    country: shippingAddress?.country as string | undefined,
-    notes: body.notes as string | undefined,
   })
 
   if (Object.keys(formErrors).length > 0) {
@@ -57,16 +51,10 @@ function validateBody(raw: unknown): { data: InquiryRequestBody } | { error: str
 
   return {
     data: {
+      channel,
       customer: {
         fullName: (customer!.fullName as string).trim(),
-        email: (customer!.email as string).trim().toLowerCase(),
-        phone: customer?.phone ? (customer.phone as string).trim() : undefined,
-      },
-      shippingAddress: {
-        address: (shippingAddress!.address as string).trim(),
-        city: (shippingAddress!.city as string).trim(),
-        postalCode: (shippingAddress!.postalCode as string).trim(),
-        country: (shippingAddress!.country as string).trim().toUpperCase(),
+        phone: (customer!.phone as string).trim(),
       },
       notes: typeof body.notes === 'string' ? body.notes.trim() : undefined,
       items: body.items as InquiryItem[],
@@ -74,16 +62,14 @@ function validateBody(raw: unknown): { data: InquiryRequestBody } | { error: str
   }
 }
 
-function formatEur(cents: number): string {
-  return (cents / 100).toFixed(2).replace('.', ',') + ' €'
-}
-
 /**
  * POST /api/inquiry
  *
- * Receives a cart + customer/delivery details as a request for a quote
- * (no payment collected). Stores it as a Sanity `inquiry` document and
- * emails the owner so they can reply with final pricing and payment info.
+ * Receives a cart + customer name/phone as a request for a quote (no
+ * payment, no address collected). Stores it as a Sanity `inquiry` document
+ * so the owner can see it in Studio, and emails the owner when the customer
+ * chose the e-mail channel — a WhatsApp inquiry already reaches them
+ * directly via the pre-filled wa.me message, so no duplicate e-mail is sent.
  */
 export async function POST(request: NextRequest): Promise<NextResponse> {
   let rawBody: unknown
@@ -98,7 +84,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     return NextResponse.json({ success: false, error: validation.error }, { status: 400 })
   }
 
-  const { customer, shippingAddress, notes, items } = validation.data
+  const { channel, customer, notes, items } = validation.data
 
   const orderNumber = `HBP-${Date.now()}`
   const createdAt = new Date().toISOString()
@@ -108,8 +94,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     inquiryType: 'narudzba',
     orderNumber,
     status: 'novo',
+    channel,
     customer,
-    shippingAddress,
     items,
     notes,
     createdAt,
@@ -133,8 +119,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       inquiryType: 'narudzba',
       orderNumber,
       status: 'novo',
+      channel,
       customer,
-      shippingAddress,
       items: itemsWithKeys,
       notes,
       createdAt,
@@ -144,31 +130,30 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     console.error('[inquiry] Failed to save inquiry to Sanity:', err)
   }
 
+  // A WhatsApp inquiry already reached the owner as a chat message — this
+  // Sanity/backup write is just a record for the dashboard, no email needed.
+  if (channel === 'whatsapp') {
+    return NextResponse.json({ success: true, orderNumber })
+  }
+
   const itemsHtml = items
-    .map(
-      (item) =>
-        `<li>${item.name} — ${item.variantLabel} × ${item.quantity} (${formatEur(item.unitPrice * item.quantity)})</li>`,
-    )
+    .map((item) => `<li>${item.name} — ${item.variantLabel} × ${item.quantity}</li>`)
     .join('')
 
   const ownerEmailResult = await sendEmail({
     to: INQUIRY_RECIPIENT,
     subject: `[Upit] Novi upit za ponudu — ${orderNumber}`,
     html: `
-      <h2>Novi upit za ponudu</h2>
+      <h2>Novi upit za ponudu (e-mail)</h2>
       <p><strong>Broj upita:</strong> ${orderNumber}</p>
       <p><strong>Ime i prezime:</strong> ${customer.fullName}</p>
-      <p><strong>Email:</strong> ${customer.email}</p>
-      <p><strong>Telefon:</strong> ${customer.phone ?? '—'}</p>
-      <p><strong>Adresa:</strong> ${shippingAddress.address}, ${shippingAddress.postalCode} ${shippingAddress.city}, ${shippingAddress.country}</p>
+      <p><strong>Telefon:</strong> ${customer.phone}</p>
       <p><strong>Stavke:</strong></p>
       <ul>${itemsHtml}</ul>
       ${notes ? `<p><strong>Napomena:</strong></p><blockquote style="background:#f9f9f9;padding:12px;border-left:4px solid #f59e0b;">${notes}</blockquote>` : ''}
     `,
   })
 
-  // Owner confirmation email is the one channel that must not silently fail —
-  // if both the Sanity write and this email failed, the inquiry never reached anyone.
   if (!savedToSanity && !ownerEmailResult.success) {
     console.error('[inquiry] Both Sanity save and owner email failed:', ownerEmailResult.error)
     return NextResponse.json(
@@ -176,17 +161,6 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       { status: 500 },
     )
   }
-
-  // Customer confirmation is best-effort — its failure shouldn't fail the request.
-  await sendEmail({
-    to: customer.email,
-    subject: `Primili smo vaš upit — ${orderNumber}`,
-    html: `
-      <p>Bok ${customer.fullName},</p>
-      <p>Primili smo vaš upit (${orderNumber}). Javit ćemo vam se uskoro s ponudom, konačnom cijenom i načinom plaćanja.</p>
-      <p>Hvala!</p>
-    `,
-  })
 
   return NextResponse.json({ success: true, orderNumber })
 }

@@ -8,9 +8,10 @@ export interface BackupInquiry {
   inquiryType: 'kontakt' | 'narudzba' | 'b2b'
   orderNumber: string
   status: string
+  channel?: 'whatsapp' | 'email'
   customer: {
     fullName: string
-    email: string
+    email?: string
     phone?: string
   }
   shippingAddress?: {

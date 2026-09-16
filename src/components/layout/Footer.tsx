@@ -6,6 +6,7 @@ import type { Locale } from '@/types'
 import { HexDivider } from '@/components/ui/HexDivider'
 import { WhatsAppIcon, FacebookIcon, InstagramIcon, TikTokIcon } from '@/components/ui/SocialIcons'
 import { PartnerLogos } from '@/components/common/PartnerLogos'
+import { CookieSettingsLink } from '@/components/analytics/CookieSettingsLink'
 
 // ─── Bee wordmark (Logo Image) ────────────────────────────────────────────────
 
@@ -253,6 +254,10 @@ export default function Footer() {
             >
               {t('terms')}
             </Link>
+            <CookieSettingsLink
+              label={t('cookieSettings')}
+              className="hover:text-gray-300 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded"
+            />
           </div>
         </div>
       </div>

@@ -4,19 +4,19 @@ import type { Locale } from '@/types'
 import { pageMetadata } from '@/lib/seo/site'
 
 const TITLES: Record<Locale, string> = {
-  hr: 'Pravo na Povrat i Reklamacije',
-  en: 'Returns & Refunds',
-  de: 'Widerruf & Rückgabe',
-  sl: 'Pravica do Vračila',
+  hr: 'Povrat i Reklamacije',
+  en: 'Returns & Complaints',
+  de: 'Rückgabe & Reklamationen',
+  sl: 'Vračila in Reklamacije',
   pl: 'Zwroty i Reklamacje',
 }
 
 const DESCRIPTIONS: Record<Locale, string> = {
-  hr: 'Upute i uvjeti za jednostrani raskid ugovora i povrat robe u roku 14 dana kod Honey Bee Power narudžbi.',
-  en: 'Instructions and terms for contract withdrawal and returns within 14 days for Honey Bee Power orders.',
-  de: 'Anleitung und Bedingungen für Widerruf und Rückgabe innerhalb von 14 Tagen bei Honey Bee Power Bestellungen.',
-  sl: 'Navodila in pogoji za odstop od pogodbe in vračilo blaga v 14 dneh za naročila Honey Bee Power.',
-  pl: 'Instrukcje i warunki odstąpienia od umowy oraz zwrotu towaru w ciągu 14 dni dla zamówień Honey Bee Power.',
+  hr: 'Informacije o povratu i reklamacijama za Honey Bee Power proizvode — zbog prirode prehrambenih proizvoda povrat nakon otvaranja nije moguć.',
+  en: 'Returns and complaints information for Honey Bee Power products — due to the nature of food products, returns are not possible once opened.',
+  de: 'Informationen zu Rückgabe und Reklamationen für Honey Bee Power Produkte — aufgrund der Art der Lebensmittel ist eine Rückgabe nach dem Öffnen nicht möglich.',
+  sl: 'Informacije o vračilu in reklamacijah za izdelke Honey Bee Power — zaradi narave živilskih izdelkov vračilo po odprtju ni mogoče.',
+  pl: 'Informacje o zwrotach i reklamacjach produktów Honey Bee Power — ze względu na charakter produktów spożywczych zwrot po otwarciu nie jest możliwy.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
@@ -33,23 +33,22 @@ export default function ReturnsPage() {
   return (
     <div className="py-12 md:py-16">
       <div className="container mx-auto px-4 max-w-3xl space-y-6 text-gray-700 text-sm leading-relaxed">
-        <h1 className="text-3xl font-black text-gray-900">Pravo na Povrat i Reklamacije</h1>
+        <h1 className="text-3xl font-black text-gray-900">Povrat i Reklamacije</h1>
 
         <p>
-          Sukladno Zakonu o zaštiti potrošača, kupac ima pravo na jednostrani raskid ugovora u roku od 14 dana od dana preuzimanja paketa, bez navođenja razloga.
+          Narudžbe na ovoj stranici nisu klasična online kupnja s trenutnim plaćanjem — nakon vašeg upita iz košarice (putem WhatsAppa ili e-maila) osobno vas kontaktiramo s ponudom, konačnom cijenom i dogovorom oko dostave i plaćanja.
         </p>
 
-        <h2 className="text-lg font-bold text-gray-900 pt-4">Uvjeti za Povrat</h2>
+        <h2 className="text-lg font-bold text-gray-900 pt-4">Povrat robe nije moguć</h2>
         <p>
-          Proizvod mora biti u originalnoj, neoštećenoj ambalaži i neotvoren (zbog zdravstvenih i higijenskih razloga prehrambenih artikala).
+          Naši proizvodi su prehrambeni dodaci prehrani koji se, zbog zdravstvenih i higijenskih razloga, ne mogu vratiti niti zamijeniti nakon što je pakiranje otvoreno. Povrat neotvorenog i neoštećenog proizvoda moguć je isključivo uz prethodni dogovor s nama.
         </p>
 
-        <h2 className="text-lg font-bold text-gray-900 pt-4">Postupak Povrata</h2>
-        <ol className="list-decimal pl-5 space-y-1">
-          <li>Pošaljite obavijest o povratu na email: info@planetbio.hr</li>
-          <li>Zakirajte artikl i pošaljite ga na adresu: Planet Bio d.o.o., Krndijska ulica 4, 31500 Našice</li>
-          <li>Nakon zaprimanja i pregleda artikla, izvršit ćemo povrat sredstava u roku od 7 radnih dana.</li>
-        </ol>
+        <h2 className="text-lg font-bold text-gray-900 pt-4">Reklamacije</h2>
+        <p>
+          Ako ste zaprimili oštećen, neispravan ili pogrešno isporučen proizvod, javite nam se odmah po primitku na{' '}
+          <a href="mailto:info@planetbio.hr" className="text-amber-600 hover:underline">info@planetbio.hr</a> ili putem WhatsAppa, uz fotografiju proizvoda i broj upita. Rješavamo reklamacije o našem trošku u najkraćem mogućem roku.
+        </p>
       </div>
     </div>
   )

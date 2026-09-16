@@ -111,39 +111,11 @@
     "empty": "Vaša košarica je prazna",
     "emptySub": "Dodajte naravne gele ali izotonične napitke za maksimalno energijo.",
     "viewProducts": "Ogled izdelkov",
-    "freeShippingReached": "🎉 Pridobili ste brezplačno dostavo!",
-    "freeShippingProgress": "Še {amount} do brezplačne dostave",
-    "total": "Skupaj:",
-    "checkoutBtn": "Pošlji povpraševanje",
     "noImage": "Ni slike",
-    "perPiece": "€ / kos",
-    "remove": "Odstrani"
-  },
-  "checkout": {
-    "title": "Pošljite povpraševanje",
-    "subtitle": "Izpolnite podatke za dostavo — kontaktirali vas bomo s ponudbo, ceno in načinom plačila.",
-    "summaryTitle": "Povzetek povpraševanja",
-    "subtotal": "Informativni vmesni znesek",
-    "disclaimer": "Cena je informativna. Končno ponudbo, ceno dostave in način plačila se dogovorimo po prejemu povpraševanja.",
-    "replyNotice": "Običajno odgovorimo v 24 urah",
-    "noObligation": "Brez obveznosti plačila, dokler ne potrdite ponudbe",
-    "personalData": "Osebni podatki",
-    "fullName": "Ime in priimek",
-    "email": "E-pošta",
-    "phone": "Telefon (neobvezno)",
-    "shippingAddress": "Naslov za dostavo",
-    "address": "Ulica in hišna številka",
-    "city": "Mesto",
-    "postalCode": "Poštna številka",
-    "country": "Država",
-    "notesTitle": "Opomba ob povpraševanju",
-    "notesLabel": "Posebne opombe (neobvezno)",
-    "infoBanner": "To ni plačilo. Po posredovanju povpraševanja vas bomo kontaktirali s končno ponudbo.",
-    "submitBtn": "Pošlji povpraševanje",
-    "submittingBtn": "Pošiljam povpraševanje…",
-    "successTitle": "Povpraševanje prejeto!",
-    "successMessage": "Kmalu vas bomo kontaktirali na {email} s ponudbo.",
-    "termsAccept": "S posredovanjem povpraševanja sprejemate naše Pogoje uporabe in Politiko zasebnosti."
+    "remove": "Odstrani",
+    "whatsappBtn": "Sporočite se na WhatsApp",
+    "emailBtn": "Pošlji povpraševanje po e-pošti",
+    "inquiryHint": "Brez plačila zdaj — javimo se osebno s ponudbo."
   },
   "catalogue": {
     "heading": "Vsi izdelki",
@@ -163,11 +135,12 @@
     "whereToBuy": "Kje kupiti",
     "faq": "Pogosta vprašanja",
     "shippingPayment": "Dostava in plačilo",
-    "returns": "Pravica do vračila",
+    "returns": "Vračila in reklamacije",
     "privacy": "Politika zasebnosti",
     "terms": "Pogoji uporabe",
     "impressum": "Impresum",
-    "copyright": "© 2026 Honey Bee Power"
+    "copyright": "© 2026 Honey Bee Power",
+    "cookieSettings": "Nastavitve piškotkov"
   },
   "contactPage": {
     "badge": "Kontaktirajte nas",
@@ -251,10 +224,6 @@
     "mapTitle": "Zemljevid Lokacij",
     "mapSelectNotice": "Izberite prodajno mesto s seznama za podrobnosti",
     "b2bNotice": "* Če želite postati partner ali uvrstiti vaše prodajno mesto, nas kontaktirajte na info@planetbio.hr"
-  },
-  "wordBand": {
-    "word1": "Med",
-    "word2": "Energija"
   },
   "presentation": {
     "title": "Predstavitev Honey Bee Power",
@@ -373,5 +342,20 @@
         }
       }
     }
+  },
+  "quickInquiry": {
+    "titleWhatsapp": "Povpraševanje po WhatsAppu",
+    "titleEmail": "Povpraševanje po e-pošti",
+    "introWhatsapp": "Pustite ime in telefonsko številko — odprli bomo WhatsApp s pripravljenim povpraševanjem.",
+    "introEmail": "Pustite ime in telefonsko številko — kmalu se javimo s ponudbo.",
+    "fullNameLabel": "Ime in priimek",
+    "phoneLabel": "Telefonska številka",
+    "submitWhatsapp": "Odpri WhatsApp",
+    "submitEmail": "Pošlji povpraševanje",
+    "sending": "Pošiljam…",
+    "successTitle": "Povpraševanje poslano!",
+    "successMessageWhatsapp": "WhatsApp smo odprli v novem zavihku — pošljite sporočilo, da dokončate povpraševanje.",
+    "successMessageEmail": "Kmalu vas kontaktiramo na {phone}.",
+    "close": "Zapri"
   }
 }

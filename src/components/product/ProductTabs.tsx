@@ -187,22 +187,16 @@ function ShippingContent() {
       <section>
         <h3 className="font-semibold mb-1">Dostava</h3>
         <p className="text-gray-700">
-          Standardna dostava: <strong>1–2 radna dana</strong>. Narudžbe primljene do 14:00
-          šaljemo isti dan (radnim danom).
-        </p>
-        <p className="mt-1 text-gray-700">
-          Besplatna dostava za narudžbe iznad <strong>50&nbsp;€</strong>.
+          Pošaljite upit iz košarice (WhatsApp ili e-mail) — javljamo se osobno u roku od{' '}
+          <strong>24h</strong> s rokom dostave i cijenom.
         </p>
       </section>
       <section>
         <h3 className="font-semibold mb-1">Povrat i zamjena</h3>
         <p className="text-gray-700">
-          Imate pravo na povrat u roku od <strong>14 dana</strong> od primitka pošiljke, bez
-          navođenja razloga, u skladu s važećim propisima o zaštiti potrošača.
-        </p>
-        <p className="mt-1 text-gray-700">
-          Povrat je moguć isključivo za neotvorene i neoštećene proizvode. Troškove povrata
-          snosi kupac, osim u slučaju pogrešno isporučenog ili oštećenog proizvoda.
+          Zbog prirode proizvoda (prehrambeni dodaci) povrat nakon otvaranja pakiranja nije
+          moguć iz zdravstvenih i higijenskih razloga. Za reklamacije oštećenog ili pogrešno
+          isporučenog proizvoda javite nam se odmah po primitku.
         </p>
       </section>
     </div>

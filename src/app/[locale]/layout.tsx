@@ -10,6 +10,8 @@ import Footer from '@/components/layout/Footer'
 import { CartPanel } from '@/components/cart/CartPanel'
 import { AmbientBackground } from '@/components/ui/AmbientBackground'
 import { ScrollProgress } from '@/components/motion/ScrollProgress'
+import { ConsentBanner } from '@/components/analytics/ConsentBanner'
+import { ConsentGatedScripts } from '@/components/analytics/ConsentGatedScripts'
 import '../globals.css'
 
 const barlowCondensed = Barlow_Condensed({
@@ -86,16 +88,6 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
 
   return (
     <html lang={locale} className={`${barlowCondensed.variable} ${inter.variable}`}>
-      <head>
-        {/* GTM placeholder — aktivira se u koraku 13 */}
-        {process.env.NEXT_PUBLIC_GTM_ID && (
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `<!-- GTM will be loaded here in step 13 -->`,
-            }}
-          />
-        )}
-      </head>
       <body className="font-inter bg-[#fffaf0] text-charcoal antialiased relative">
         <NextIntlClientProvider messages={messages}>
           {/* Scroll progress bar */}
@@ -112,6 +104,9 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
           <Footer />
           {/* Slide-over cart drawer */}
           <CartPanel />
+          {/* Cookie consent banner + consent-gated analytics */}
+          <ConsentBanner />
+          <ConsentGatedScripts />
         </NextIntlClientProvider>
       </body>
     </html>

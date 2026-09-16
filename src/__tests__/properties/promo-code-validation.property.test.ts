@@ -3,7 +3,7 @@
 
 import { describe, it, expect } from 'vitest'
 import * as fc from 'fast-check'
-import { validatePromoCode } from '@/features/checkout/schema'
+import { validatePromoCode } from '@/features/promo/schema'
 
 // ---------------------------------------------------------------------------
 // Arbitraries

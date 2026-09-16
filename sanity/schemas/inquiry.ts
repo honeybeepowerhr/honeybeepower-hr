@@ -46,13 +46,25 @@ export const inquiryType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'channel',
+      title: 'Kanal',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'WhatsApp', value: 'whatsapp' },
+          { title: 'E-mail', value: 'email' },
+        ],
+        layout: 'radio',
+      },
+    }),
+    defineField({
       name: 'customer',
       title: 'Kupac / Pošiljatelj',
       type: 'object',
       fields: [
         defineField({ name: 'fullName', title: 'Ime i prezime', type: 'string', validation: (Rule) => Rule.required() }),
-        defineField({ name: 'email', title: 'E-mail', type: 'string', validation: (Rule) => Rule.required() }),
-        defineField({ name: 'phone', title: 'Telefon', type: 'string' }),
+        defineField({ name: 'phone', title: 'Telefon', type: 'string', validation: (Rule) => Rule.required() }),
+        defineField({ name: 'email', title: 'E-mail', type: 'string' }),
       ],
     }),
     defineField({

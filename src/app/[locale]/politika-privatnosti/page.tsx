@@ -41,7 +41,20 @@ export default function PrivacyPolicyPage() {
 
         <h2 className="text-lg font-bold text-gray-900 pt-4">Prikupljanje podataka</h2>
         <p>
-          Prikupljamo samo podatke nužne za obradu narudžbe: ime, prezime, adresu dostave, email adresu i telefonski broj.
+          Kada nam pošaljete upit iz košarice (putem WhatsAppa ili e-maila), prikupljamo samo ime i prezime, broj telefona i sadržaj vaše košarice — dovoljno da vam se osobno javimo s ponudom. Ne prikupljamo podatke o plaćanju jer se plaćanje ne obavlja putem stranice.
+        </p>
+
+        <h2 className="text-lg font-bold text-gray-900 pt-4">Kolačići</h2>
+        <p>
+          Stranica koristi kolačiće u tri kategorije:
+        </p>
+        <ul className="list-disc pl-5 space-y-1">
+          <li><strong>Nužni:</strong> omogućuju osnovan rad stranice (npr. pamćenje sadržaja košarice i vašeg izbora oko kolačića). Ne mogu se isključiti.</li>
+          <li><strong>Analitički:</strong> pomažu nam razumjeti kako se stranica koristi (Google Tag Manager / Analytics, Microsoft Clarity). Učitavaju se samo uz vašu privolu.</li>
+          <li><strong>Marketinški:</strong> koriste se za mjerenje učinkovitosti oglasa (Meta Pixel). Učitavaju se samo uz vašu privolu.</li>
+        </ul>
+        <p>
+          Svoj izbor možete promijeniti u bilo kojem trenutku putem poveznice &quot;Postavke kolačića&quot; u podnožju stranice.
         </p>
 
         <h2 className="text-lg font-bold text-gray-900 pt-4">Vaša prava</h2>

@@ -1,23 +1,28 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
+import { Mail } from 'lucide-react'
 import { useTranslations, useLocale } from 'next-intl'
-import type { Locale } from '@/types'
+import type { InquiryChannel, Locale } from '@/types'
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
 } from '@/components/ui/sheet'
+import { WhatsAppIcon } from '@/components/ui/SocialIcons'
 import { useCartStore } from '@/features/cart'
 import { CartItem } from './CartItem'
+import { QuickInquiryModal } from './QuickInquiryModal'
 
 export function CartPanel() {
   const t = useTranslations('cart')
   const locale = useLocale() as Locale
   const prefix = locale === 'hr' ? '' : `/${locale}`
 
-  const { items, isOpen, closeCart, removeItem, updateQuantity } = useCartStore()
+  const { items, isOpen, closeCart, removeItem, updateQuantity, clearCart } = useCartStore()
+  const [inquiryChannel, setInquiryChannel] = useState<InquiryChannel | null>(null)
 
   return (
     <Sheet open={isOpen} onOpenChange={(open) => !open && closeCart()}>
@@ -89,19 +94,42 @@ export function CartPanel() {
               </ul>
             </div>
 
-            {/* Footer / Checkout */}
-            <div className="border-t border-amber-200 px-5 py-5 bg-white space-y-3">
-              <Link
-                href={`${prefix}/narudzba`}
-                onClick={closeCart}
-                className="flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-red-600 via-orange-500 to-amber-500 hover:from-red-700 hover:to-amber-600 px-5 py-3.5 text-base font-black text-white shadow-xl shadow-orange-500/25 transition-transform active:scale-98"
+            {/* Footer / Inquiry buttons */}
+            <div className="border-t border-amber-200 px-5 py-5 bg-white space-y-2.5">
+              <p className="text-xs text-gray-500 text-center">{t('inquiryHint')}</p>
+              <button
+                type="button"
+                onClick={() => setInquiryChannel('whatsapp')}
+                className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#25D366] hover:bg-[#1fbd5a] px-5 py-3.5 text-base font-black text-white shadow-lg shadow-green-900/10 transition-transform active:scale-98"
               >
-                {t('checkoutBtn')}
-              </Link>
+                <WhatsAppIcon className="w-5 h-5 shrink-0" />
+                {t('whatsappBtn')}
+              </button>
+              <button
+                type="button"
+                onClick={() => setInquiryChannel('email')}
+                className="flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-red-600 via-orange-500 to-amber-500 hover:from-red-700 hover:to-amber-600 px-5 py-3.5 text-base font-black text-white shadow-xl shadow-orange-500/25 transition-transform active:scale-98"
+              >
+                <Mail className="w-5 h-5 shrink-0" aria-hidden="true" />
+                {t('emailBtn')}
+              </button>
             </div>
           </>
         )}
       </SheetContent>
+
+      {inquiryChannel && (
+        <QuickInquiryModal
+          open={!!inquiryChannel}
+          channel={inquiryChannel}
+          items={items}
+          onClose={() => setInquiryChannel(null)}
+          onSuccess={() => {
+            clearCart()
+            closeCart()
+          }}
+        />
+      )}
     </Sheet>
   )
 }

@@ -111,39 +111,11 @@
     "empty": "Your cart is empty",
     "emptySub": "Add natural gels or isotonic drinks for maximum energy.",
     "viewProducts": "View products",
-    "freeShippingReached": "🎉 You earned free shipping!",
-    "freeShippingProgress": "{amount} more for free shipping",
-    "total": "Total:",
-    "checkoutBtn": "Send inquiry",
     "noImage": "No image",
-    "perPiece": "€ / pc",
-    "remove": "Remove"
-  },
-  "checkout": {
-    "title": "Send inquiry",
-    "subtitle": "Fill in your delivery details — we will contact you with an offer, price, and payment terms.",
-    "summaryTitle": "Inquiry summary",
-    "subtotal": "Estimated subtotal",
-    "disclaimer": "Price is for information only. Final offer, shipping cost, and payment method will be agreed after receiving inquiry.",
-    "replyNotice": "We usually reply within 24h",
-    "noObligation": "No payment obligation until you confirm the quote",
-    "personalData": "Personal information",
-    "fullName": "Full name",
-    "email": "Email",
-    "phone": "Phone (optional)",
-    "shippingAddress": "Shipping address",
-    "address": "Street & house number",
-    "city": "City",
-    "postalCode": "Postal code",
-    "country": "Country",
-    "notesTitle": "Inquiry notes",
-    "notesLabel": "Special notes (optional)",
-    "infoBanner": "This is not a payment. After submitting an inquiry, we will personally contact you with a final offer.",
-    "submitBtn": "Send inquiry",
-    "submittingBtn": "Sending inquiry…",
-    "successTitle": "Inquiry received!",
-    "successMessage": "We will contact you shortly at {email} with your quote.",
-    "termsAccept": "By submitting an inquiry you accept our Terms of Use and Privacy Policy."
+    "remove": "Remove",
+    "whatsappBtn": "Message us on WhatsApp",
+    "emailBtn": "Send inquiry by email",
+    "inquiryHint": "No payment now — we'll get back to you personally with a quote."
   },
   "catalogue": {
     "heading": "All products",
@@ -163,11 +135,12 @@
     "whereToBuy": "Where to Buy",
     "faq": "FAQ",
     "shippingPayment": "Shipping & Payment",
-    "returns": "Return Policy",
+    "returns": "Returns & Complaints",
     "privacy": "Privacy Policy",
     "terms": "Terms of Use",
     "impressum": "Impressum",
-    "copyright": "© 2026 Honey Bee Power"
+    "copyright": "© 2026 Honey Bee Power",
+    "cookieSettings": "Cookie settings"
   },
   "contactPage": {
     "badge": "Get in touch",
@@ -251,10 +224,6 @@
     "mapTitle": "Location Map",
     "mapSelectNotice": "Select a store location from the list for details",
     "b2bNotice": "* To become a partner or list your store, contact us at info@planetbio.hr"
-  },
-  "wordBand": {
-    "word1": "Honey",
-    "word2": "Energy"
   },
   "presentation": {
     "title": "Honey Bee Power presentation",
@@ -373,5 +342,20 @@
         }
       }
     }
+  },
+  "quickInquiry": {
+    "titleWhatsapp": "WhatsApp inquiry",
+    "titleEmail": "Email inquiry",
+    "introWhatsapp": "Leave your name and phone number — we'll open WhatsApp with your inquiry ready to send.",
+    "introEmail": "Leave your name and phone number — we'll get back to you shortly with a quote.",
+    "fullNameLabel": "Full name",
+    "phoneLabel": "Phone number",
+    "submitWhatsapp": "Open WhatsApp",
+    "submitEmail": "Send inquiry",
+    "sending": "Sending…",
+    "successTitle": "Inquiry sent!",
+    "successMessageWhatsapp": "We opened WhatsApp in a new tab — send the message to complete your inquiry.",
+    "successMessageEmail": "We'll contact you shortly at {phone}.",
+    "close": "Close"
   }
 }

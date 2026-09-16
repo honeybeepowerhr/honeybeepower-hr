@@ -111,39 +111,11 @@
     "empty": "Twój koszyk jest pusty",
     "emptySub": "Dodaj naturalne żele lub napoje izotoniczne dla maksymalnej energii.",
     "viewProducts": "Zobacz produkty",
-    "freeShippingReached": "🎉 Osiągnięto darmową dostawę!",
-    "freeShippingProgress": "Jeszcze {amount} do darmowej dostawy",
-    "total": "Razem:",
-    "checkoutBtn": "Wyślij zapytanie",
     "noImage": "Brak zdjęcia",
-    "perPiece": "€ / szt.",
-    "remove": "Usuń"
-  },
-  "checkout": {
-    "title": "Wyślij zapytanie",
-    "subtitle": "Wypełnij dane dostawy — skontaktujemy się z Tobą z ofertą, ceną i warunkami płatności.",
-    "summaryTitle": "Podsumowanie zapytania",
-    "subtotal": "Szacunkowa suma częściowa",
-    "disclaimer": "Cena ma charakter informacyjny. Ostateczna oferta i koszty dostawy zostaną uzgodnione po otrzymaniu zapytania.",
-    "replyNotice": "Odpowiadamy zazwyczaj w ciągu 24h",
-    "noObligation": "Brak obowiązku zapłaty do momentu potwierdzenia oferty",
-    "personalData": "Dane osobowe",
-    "fullName": "Imię i nazwisko",
-    "email": "E-mail",
-    "phone": "Telefon (opcjonalnie)",
-    "shippingAddress": "Adres dostawy",
-    "address": "Ulica i numer domu",
-    "city": "Miasto",
-    "postalCode": "Kod pocztowy",
-    "country": "Kraj",
-    "notesTitle": "Uwagi do zapytania",
-    "notesLabel": "Uwagi specjalne (opcjonalnie)",
-    "infoBanner": "To nie jest płatność. Po wysłaniu zapytania skontaktujemy się z Tobą osobiście z ostateczną ofertą.",
-    "submitBtn": "Wyślij zapytanie",
-    "submittingBtn": "Wysyłanie zapytania…",
-    "successTitle": "Zapytanie otrzymane!",
-    "successMessage": "Skontaktujemy się z Tobą wkrótce pod adresem {email} z ofertą.",
-    "termsAccept": "Wysyłajući zapytanie akceptujesz nasz Regulamin i Politykę prywatności."
+    "remove": "Usuń",
+    "whatsappBtn": "Napisz na WhatsApp",
+    "emailBtn": "Wyślij zapytanie e-mailem",
+    "inquiryHint": "Bez płatności teraz — skontaktujemy się osobiście z ofertą."
   },
   "catalogue": {
     "heading": "Wszystkie produkty",
@@ -163,11 +135,12 @@
     "whereToBuy": "Gdzie kupić",
     "faq": "FAQ",
     "shippingPayment": "Dostawa i płatność",
-    "returns": "Zwroty",
+    "returns": "Zwroty i reklamacje",
     "privacy": "Polityka prywatności",
     "terms": "Regulamin",
     "impressum": "Nota prawna",
-    "copyright": "© 2026 Honey Bee Power"
+    "copyright": "© 2026 Honey Bee Power",
+    "cookieSettings": "Ustawienia plików cookie"
   },
   "contactPage": {
     "badge": "Skontaktuj się z nami",
@@ -224,10 +197,6 @@
     "mapTitle": "Mapa Lokalizacji",
     "mapSelectNotice": "Wybierz punkt sprzedaży z listy, aby zobaczyć szczegóły",
     "b2bNotice": "* Aby zostać partnerem lub dodać Twój sklep, skontaktuj się z nami pod adresem info@planetbio.hr"
-  },
-  "wordBand": {
-    "word1": "Miód",
-    "word2": "Energia"
   },
   "presentation": {
     "title": "Prezentacja Honey Bee Power",
@@ -372,5 +341,20 @@
         }
       }
     }
+  },
+  "quickInquiry": {
+    "titleWhatsapp": "Zapytanie przez WhatsApp",
+    "titleEmail": "Zapytanie e-mailem",
+    "introWhatsapp": "Podaj imię i numer telefonu — otworzymy WhatsApp z gotowym zapytaniem.",
+    "introEmail": "Podaj imię i numer telefonu — wkrótce skontaktujemy się z ofertą.",
+    "fullNameLabel": "Imię i nazwisko",
+    "phoneLabel": "Numer telefonu",
+    "submitWhatsapp": "Otwórz WhatsApp",
+    "submitEmail": "Wyślij zapytanie",
+    "sending": "Wysyłanie…",
+    "successTitle": "Zapytanie wysłane!",
+    "successMessageWhatsapp": "Otworzyliśmy WhatsApp w nowej karcie — wyślij wiadomość, aby zakończyć zapytanie.",
+    "successMessageEmail": "Skontaktujemy się wkrótce pod numerem {phone}.",
+    "close": "Zamknij"
   }
 }

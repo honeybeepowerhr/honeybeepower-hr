@@ -265,38 +265,28 @@ export interface CheckoutFormValues {
 // Inquiry (request-a-quote) — replaces online checkout
 // ----------------------------------------------------------
 
-/** Form values collected on the "send inquiry" page — no payment info. */
+export type InquiryChannel = 'whatsapp' | 'email'
+
+/** Form values collected in the cart's quick inquiry modal — name + phone only. */
 export interface InquiryFormValues {
   fullName: string
-  email: string
-  phone?: string
-  address: string
-  city: string
-  postalCode: string
-  country: string              // ISO-3166 alpha-2
-  notes?: string
+  phone: string
 }
 
 export interface InquiryItem {
   name: string
   variantLabel: string
   quantity: number
-  unitPrice: number             // in cents — indicative only
+  unitPrice: number             // in cents — indicative only, owner reference
   imageSrc: string
 }
 
 /** Payload sent to POST /api/inquiry. */
 export interface InquiryRequestBody {
+  channel: InquiryChannel
   customer: {
     fullName: string
-    email: string
-    phone?: string
-  }
-  shippingAddress: {
-    address: string
-    city: string
-    postalCode: string
-    country: string
+    phone: string
   }
   notes?: string
   items: InquiryItem[]

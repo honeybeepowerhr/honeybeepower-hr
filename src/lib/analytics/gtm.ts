@@ -82,3 +82,13 @@ export function trackPurchase(orderId: string, totalValue: number, items: Array<
     },
   })
 }
+
+/** Fired when a customer opens the WhatsApp inquiry link from the cart. */
+export function trackWhatsAppClick(source: string = 'cart'): void {
+  pushToDataLayer('whatsapp_click', { source })
+}
+
+/** Fired when a customer taps a tel: link (e.g. footer phone number). */
+export function trackPhoneClick(source: string = 'footer'): void {
+  pushToDataLayer('phone_click', { source })
+}

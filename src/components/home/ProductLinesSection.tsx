@@ -6,8 +6,6 @@ interface ProductLine {
   category: string
   name: string
   tagline: string
-  price: string
-  unit: string
   rating: number
   reviews: number
   color: string
@@ -23,8 +21,6 @@ const productLines: ProductLine[] = [
     category: 'Energetski gelovi',
     name: 'Energy Gel',
     tagline: 'Brza energija. Bez maltodekstrina.',
-    price: '2,90',
-    unit: '/ 40g sašet',
     rating: 4.9,
     reviews: 128,
     color: 'text-amber-700',
@@ -38,8 +34,6 @@ const productLines: ProductLine[] = [
     category: 'Izotonični napitci',
     name: 'Isotonic Drink',
     tagline: 'Hidratacija i elektroliti bez kemije.',
-    price: '14,90',
-    unit: '/ 500g kanta',
     rating: 4.8,
     reviews: 84,
     color: 'text-green-700',
@@ -53,8 +47,6 @@ const productLines: ProductLine[] = [
     category: 'Whey proteini',
     name: 'Whey Protein',
     tagline: '91% proteina. Nema ničeg suvišnog.',
-    price: '44,90',
-    unit: '/ 700g PET',
     rating: 4.9,
     reviews: 212,
     color: 'text-terracotta',
@@ -135,18 +127,11 @@ export default function ProductLinesSection() {
                 <StarRating rating={p.rating} count={p.reviews} />
               </div>
 
-              {/* Price + CTA */}
-              <div className="flex items-end justify-between mt-auto">
-                <div>
-                  <p className="text-xs text-gray-400 font-medium">od</p>
-                  <p className={`font-heading font-black text-2xl ${p.color}`}>
-                    {p.price} €{' '}
-                    <span className="text-sm font-normal text-gray-400">{p.unit}</span>
-                  </p>
-                </div>
+              {/* CTA */}
+              <div className="mt-auto">
                 <Link
                   href={p.href}
-                  className={`inline-flex items-center gap-1.5 px-4 py-2.5 bg-amber-500 hover:bg-amber-600 text-white text-sm font-bold rounded-xl transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2`}
+                  className={`inline-flex items-center justify-center gap-1.5 w-full px-4 py-2.5 bg-amber-500 hover:bg-amber-600 text-white text-sm font-bold rounded-xl transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2`}
                   aria-label={`Pogledaj ${p.name}`}
                 >
                   Pogledaj
