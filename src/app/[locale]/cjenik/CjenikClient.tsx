@@ -272,6 +272,7 @@ export function CjenikClient() {
                   <th scope="col" className="py-4 px-3 w-20 text-center print:hidden">Slika</th>
                   <th scope="col" className="py-4 px-4">Vrsta Proizvoda</th>
                   <th scope="col" className="py-4 px-4">Okus Proizvoda</th>
+                  <th scope="col" className="py-4 px-4">Pakiranje</th>
                   <th scope="col" className="py-4 px-4 font-mono">Barkod Proizvoda</th>
                   <th scope="col" className="py-4 px-4 text-right">
                     Aktualna Cijena <br />
@@ -287,7 +288,7 @@ export function CjenikClient() {
               <tbody className="divide-y divide-slate-700/60 text-sm print:divide-slate-200 print:text-slate-900">
                 {filteredItems.length === 0 ? (
                   <tr>
-                    <td colSpan={8} className="py-12 text-center text-slate-400">
+                    <td colSpan={9} className="py-12 text-center text-slate-400">
                       Nije pronađen nijedan proizvod koji odgovara pretrazi &quot;{searchQuery}&quot;.
                     </td>
                   </tr>
@@ -330,6 +331,11 @@ export function CjenikClient() {
                       {/* Okus */}
                       <td className="py-4 px-4 text-slate-300 font-medium print:text-slate-800">
                         {item.okus}
+                      </td>
+
+                      {/* Pakiranje */}
+                      <td className="py-4 px-4 text-slate-400 font-medium text-xs print:text-slate-700">
+                        {item.pakiranje}
                       </td>
 
                       {/* Barkod */}
