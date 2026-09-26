@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import type { Locale } from '@/types'
 import { pageMetadata } from '@/lib/seo/site'
 import { getGuides } from '@/lib/guides-data'
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 
 export default async function BlogListingPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params
-  const t = useTranslations('guidesPage')
+  const t = await getTranslations({ locale, namespace: 'guidesPage' })
   const guides = getGuides(locale)
   const prefix = locale === 'hr' ? '' : `/${locale}`
 

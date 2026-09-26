@@ -479,7 +479,7 @@ const BASE_METADATA = [
 ]
 
 export const GUIDES: Guide[] = BASE_METADATA.map((meta) => {
-  const content = GUIDES_MULTILINGUAL[meta.slug]?.hr!
+  const content = GUIDES_MULTILINGUAL[meta.slug].hr
   return {
     slug: meta.slug,
     isoDate: meta.isoDate,
@@ -491,7 +491,7 @@ export const GUIDES: Guide[] = BASE_METADATA.map((meta) => {
 export function getGuides(locale: Locale = 'hr'): Guide[] {
   return BASE_METADATA.map((meta) => {
     const langDict = GUIDES_MULTILINGUAL[meta.slug]
-    const content = langDict?.[locale] ?? langDict?.hr!
+    const content = langDict ? (langDict[locale] || langDict.hr) : GUIDES_MULTILINGUAL['zasto-je-med-bolji-od-malto-dekstrina-na-maratonu'].hr
     return {
       slug: meta.slug,
       isoDate: meta.isoDate,
@@ -505,7 +505,8 @@ export function getGuideBySlug(slug: string, locale: Locale = 'hr'): Guide | und
   const meta = BASE_METADATA.find((m) => m.slug === slug)
   if (!meta) return undefined
   const langDict = GUIDES_MULTILINGUAL[slug]
-  const content = langDict?.[locale] ?? langDict?.hr!
+  if (!langDict) return undefined
+  const content = langDict[locale] || langDict.hr
   return {
     slug: meta.slug,
     isoDate: meta.isoDate,
