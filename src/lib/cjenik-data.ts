@@ -95,7 +95,7 @@ export const CJENIK_ITEMS: CjenikItem[] = [
   {
     rb: 6,
     naziv: 'HONEY BEE POWER INSTANT IZOTONIK DRINK LEMON 15g',
-    slika: '/images/products/isolimun-prednja.png',
+    slika: '/images/products/izotoniklimun15g.png',
     vrsta: 'Instant izotonik',
     okus: 'LIMUN',
     pakiranje: '15 g',
@@ -106,7 +106,7 @@ export const CJENIK_ITEMS: CjenikItem[] = [
   {
     rb: 7,
     naziv: 'HONEY BEE POWER INSTANT IZOTONIK DRINK ORANGE 15g',
-    slika: '/images/products/isonaranca-prednja.png',
+    slika: '/images/products/izotoniknaranca15g.png',
     vrsta: 'Instant izotonik',
     okus: 'NARANČA',
     pakiranje: '15 g',
@@ -117,7 +117,7 @@ export const CJENIK_ITEMS: CjenikItem[] = [
   {
     rb: 8,
     naziv: 'HONEY BEE POWER WHEY PROTEIN 700g',
-    slika: '/images/products/paketizolimunnaranca-shaker.png',
+    slika: '/images/products/proteincokolada700g.png',
     vrsta: 'Proteinski prah',
     okus: 'LJEŠNJAK-ČOKOLADA',
     pakiranje: '700 g',
@@ -128,7 +128,7 @@ export const CJENIK_ITEMS: CjenikItem[] = [
   {
     rb: 9,
     naziv: 'HONEY BEE POWER WHEY PROTEIN 700g',
-    slika: '/images/products/paketizolimunnaranca-shaker.png',
+    slika: '/images/products/proteinbanana700g.png',
     vrsta: 'Proteinski prah',
     okus: 'BANANA-VANILIJA',
     pakiranje: '700 g',
@@ -139,7 +139,7 @@ export const CJENIK_ITEMS: CjenikItem[] = [
   {
     rb: 10,
     naziv: 'HONEY BEE POWER WHEY PROTEIN 700g',
-    slika: '/images/products/paketizolimunnaranca-shaker.png',
+    slika: '/images/products/proteinjagodaslag700g.png',
     vrsta: 'Proteinski prah',
     okus: 'JAGODA-ŠLAG',
     pakiranje: '700 g',
@@ -150,7 +150,7 @@ export const CJENIK_ITEMS: CjenikItem[] = [
   {
     rb: 11,
     naziv: 'HONEY BEE POWER WHEY PROTEIN 33g',
-    slika: '/images/products/paketizolimunnaranca-shaker.png',
+    slika: '/images/products/proteincokolada33g.png',
     vrsta: 'Proteinski prah',
     okus: 'LJEŠNJAK-ČOKOLADA',
     pakiranje: '33 g',
@@ -161,7 +161,7 @@ export const CJENIK_ITEMS: CjenikItem[] = [
   {
     rb: 12,
     naziv: 'HONEY BEE POWER WHEY PROTEIN 33g',
-    slika: '/images/products/paketizolimunnaranca-shaker.png',
+    slika: '/images/products/proteinbanana33g.png',
     vrsta: 'Proteinski prah',
     okus: 'BANANA-VANILIJA',
     pakiranje: '33 g',
@@ -172,7 +172,7 @@ export const CJENIK_ITEMS: CjenikItem[] = [
   {
     rb: 13,
     naziv: 'HONEY BEE POWER WHEY PROTEIN 33g',
-    slika: '/images/products/paketizolimunnaranca-shaker.png',
+    slika: '/images/products/proteinjagoda33g.png',
     vrsta: 'Proteinski prah',
     okus: 'JAGODA-ŠLAG',
     pakiranje: '33 g',
@@ -183,7 +183,7 @@ export const CJENIK_ITEMS: CjenikItem[] = [
   {
     rb: 14,
     naziv: 'SHAKER 700ml',
-    slika: '/images/products/paketizolimunnaranca-shaker.png',
+    slika: '/images/products/shaker.png',
     vrsta: 'Shaker',
     okus: '-',
     pakiranje: '700 ml',
