@@ -30,14 +30,15 @@ function BeeLogo() {
 // ─── Navigation data ──────────────────────────────────────────────────────────
 
 interface NavCategory {
-  labelKey: string
+  key: 'allProducts' | 'energyGels' | 'isotonicDrinks' | 'wheyProteins'
   href: string
 }
 
 const PRODUCT_CATEGORIES: NavCategory[] = [
-  { labelKey: 'Svi proizvodi',     href: '/proizvodi' },
-  { labelKey: 'Energetski gelovi', href: '/proizvodi/energetski-gelovi' },
-  { labelKey: 'Izotonični napitci', href: '/proizvodi/izotonicki-napitci' },
+  { key: 'allProducts',     href: '/proizvodi' },
+  { key: 'energyGels',     href: '/proizvodi/energetski-gelovi' },
+  { key: 'isotonicDrinks', href: '/proizvodi/izotonicki-napitci' },
+  { key: 'wheyProteins',   href: '/proizvodi/whey-proteini' },
 ]
 
 // ─── MegaMenu ─────────────────────────────────────────────────────────────────
@@ -74,7 +75,7 @@ function MegaMenu({ isOpen, onClose, locale }: MegaMenuProps) {
               onClick={onClose}
               className="block px-3 py-2 rounded-lg text-sm text-charcoal hover:bg-amber-50 hover:text-amber-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
             >
-              {cat.labelKey}
+              {t(cat.key)}
             </Link>
           </li>
         ))}
@@ -191,7 +192,7 @@ function MobileMenu({ isOpen, onClose, locale }: MobileMenuProps) {
         {/* Categories */}
         <div className="px-5 py-4 border-t border-gray-100">
           <p className="text-xs font-semibold uppercase tracking-widest text-charcoal-muted mb-2">
-            Kategorije
+            {t('categories')}
           </p>
           <ul role="list" className="space-y-1">
             {PRODUCT_CATEGORIES.map((cat) => (
@@ -201,7 +202,7 @@ function MobileMenu({ isOpen, onClose, locale }: MobileMenuProps) {
                   onClick={onClose}
                   className="block px-3 py-2 text-sm text-charcoal rounded-lg hover:bg-amber-50 hover:text-amber-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
                 >
-                  {cat.labelKey}
+                  {t(cat.key)}
                 </Link>
               </li>
             ))}

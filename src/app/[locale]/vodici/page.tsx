@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import type { Locale } from '@/types'
 import { pageMetadata } from '@/lib/seo/site'
-import { GUIDES } from '@/lib/guides-data'
+import { getGuides } from '@/lib/guides-data'
 
 export const revalidate = 300 // ISR revalidate every 5 mins
 
@@ -26,17 +26,21 @@ const DESCRIPTIONS: Record<Locale, string> = {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params
+  const guides = getGuides(locale)
   return pageMetadata({
     locale,
     path: '/vodici',
     title: TITLES[locale] ?? TITLES.hr,
     description: DESCRIPTIONS[locale] ?? DESCRIPTIONS.hr,
-    image: GUIDES[0]?.image,
+    image: guides[0]?.image,
   })
 }
 
-export default function BlogListingPage() {
+export default async function BlogListingPage({ params }: { params: Promise<{ locale: Locale }> }) {
+  const { locale } = await params
   const t = useTranslations('guidesPage')
+  const guides = getGuides(locale)
+  const prefix = locale === 'hr' ? '' : `/${locale}`
 
   return (
     <div className="py-12 md:py-16 bg-gray-50/50">
@@ -44,7 +48,7 @@ export default function BlogListingPage() {
         
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="text-xs text-gray-500 mb-6 flex items-center gap-2">
-          <Link href="/" className="hover:underline">Početna</Link>
+          <Link href={`${prefix}/`} className="hover:underline">Početna</Link>
           <span>/</span>
           <span className="font-semibold text-gray-900">{t('badge')}</span>
         </nav>
@@ -60,7 +64,7 @@ export default function BlogListingPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {GUIDES.map((article) => (
+          {guides.map((article) => (
             <article
               key={article.slug}
               className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between"
@@ -83,7 +87,7 @@ export default function BlogListingPage() {
                   </div>
 
                   <h2 className="text-xl font-bold text-gray-900 hover:text-amber-600 transition-colors leading-snug">
-                    <Link href={`/vodici/${article.slug}`}>{article.title}</Link>
+                    <Link href={`${prefix}/vodici/${article.slug}`}>{article.title}</Link>
                   </h2>
 
                   <p className="text-sm text-gray-600 mt-3 line-clamp-3 leading-relaxed">
@@ -94,7 +98,7 @@ export default function BlogListingPage() {
 
               <div className="p-6 pt-0">
                 <Link
-                  href={`/vodici/${article.slug}`}
+                  href={`${prefix}/vodici/${article.slug}`}
                   className="inline-flex items-center text-amber-600 font-bold text-sm hover:underline"
                 >
                   {t('readMore')}

@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import {
   FileCode,
   FileSpreadsheet,
@@ -24,6 +25,8 @@ import {
 } from '@/lib/cjenik-data'
 
 export function CjenikClient() {
+  const t = useTranslations('cjenik')
+
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [selectedArchiveDate, setSelectedArchiveDate] = useState<string>('')
@@ -77,13 +80,13 @@ export function CjenikClient() {
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-3 print:hidden">
                 <ShieldCheck className="w-4 h-4 text-amber-400" />
-                Službeni i legalni digitalni cjenik RH
+                {t('badge')}
               </div>
               <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight print:text-slate-900">
-                CIJENIK PROIZVODA
+                {t('title')}
               </h1>
               <p className="text-slate-400 text-sm mt-1 print:text-slate-600">
-                Planet Bio, obrt za usluge | Usklađeno s obvezom isticanja sidrene cijene i digitalne objave
+                {t('subtitle')}
               </p>
             </div>
 
@@ -93,29 +96,29 @@ export function CjenikClient() {
                 href="/api/cjenik/xml?download=1"
                 download="cjenik-planetbio-aktualan.xml"
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs sm:text-sm transition-all shadow-lg hover:shadow-amber-500/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
-                title="Preuzmi cjenik u strojno čitljivom .XML formatu"
+                title={t('downloadXml')}
               >
                 <FileCode className="w-4 h-4" />
-                Preuzmi .XML
+                {t('downloadXml')}
               </a>
 
               <a
                 href="/api/cjenik/csv?download=1"
                 download="cjenik-planetbio-aktualan.csv"
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm transition-all shadow-lg hover:shadow-emerald-600/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
-                title="Preuzmi cjenik u strojno čitljivom .CSV formatu"
+                title={t('downloadCsv')}
               >
                 <FileSpreadsheet className="w-4 h-4" />
-                Preuzmi .CSV
+                {t('downloadCsv')}
               </a>
 
               <button
                 onClick={handlePrint}
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-slate-200 font-semibold text-xs sm:text-sm transition-all border border-slate-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
-                title="Ispiši ili spremi cjenik kao PDF"
+                title={t('printPdf')}
               >
                 <Printer className="w-4 h-4" />
-                Ispiši / PDF
+                {t('printPdf')}
               </button>
             </div>
           </div>
@@ -124,7 +127,7 @@ export function CjenikClient() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-6 text-xs sm:text-sm">
             <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-700/50 print:bg-slate-50 print:border-slate-200">
               <span className="text-slate-400 block text-xs font-medium uppercase tracking-wider mb-1 print:text-slate-500">
-                Pravna Osoba / Obrt
+                {t('entityHeader')}
               </span>
               <span className="font-bold text-white print:text-slate-900">
                 {LEGAL_ENTITY.nazivTvrtke}
@@ -133,7 +136,7 @@ export function CjenikClient() {
 
             <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-700/50 print:bg-slate-50 print:border-slate-200">
               <span className="text-slate-400 block text-xs font-medium uppercase tracking-wider mb-1 print:text-slate-500">
-                Sjedište i Adresa
+                {t('addressHeader')}
               </span>
               <span className="font-semibold text-slate-200 print:text-slate-800">
                 {LEGAL_ENTITY.adresa}, {LEGAL_ENTITY.postanskiBroj} {LEGAL_ENTITY.grad}
@@ -142,7 +145,7 @@ export function CjenikClient() {
 
             <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-700/50 print:bg-slate-50 print:border-slate-200">
               <span className="text-slate-400 block text-xs font-medium uppercase tracking-wider mb-1 print:text-slate-500">
-                OIB & Matični Broj
+                OIB &amp; MB
               </span>
               <span className="font-mono text-slate-200 print:text-slate-800">
                 OIB: <strong className="text-white print:text-slate-900">{LEGAL_ENTITY.oib}</strong> | MB: {LEGAL_ENTITY.maticniBroj}
@@ -151,7 +154,7 @@ export function CjenikClient() {
 
             <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-700/50 print:bg-slate-50 print:border-slate-200">
               <span className="text-slate-400 block text-xs font-medium uppercase tracking-wider mb-1 print:text-slate-500">
-                Referentni Datum Sidrenja
+                {t('anchorDateHeader')}
               </span>
               <span className="font-bold text-amber-400 print:text-slate-900">
                 {LEGAL_ENTITY.referentniDatumSidrenja}
@@ -172,14 +175,14 @@ export function CjenikClient() {
             <div>
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="font-bold text-white text-sm sm:text-base">
-                  Ažurirano: {timestampInfo.lastUpdatedFormatted}
+                  {t('updatedBanner', { time: timestampInfo.lastUpdatedFormatted })}
                 </span>
                 <span className="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                  DNEVNO AKTIVAN CJENIK
+                  {t('activeBadge')}
                 </span>
               </div>
               <p className="text-slate-400 text-xs mt-0.5">
-                Sljedeće obvezno automatsko ažuriranje: <strong className="text-slate-200">{timestampInfo.nextUpdateFormatted}</strong> (svakodnevno do 08:00h ujutro).
+                {t('nextUpdateNotice', { time: timestampInfo.nextUpdateFormatted })}
               </p>
             </div>
           </div>
@@ -191,7 +194,7 @@ export function CjenikClient() {
               className="inline-flex items-center gap-1.5 text-xs text-amber-400 hover:text-amber-300 font-semibold underline underline-offset-4"
             >
               <ExternalLink className="w-3.5 h-3.5" />
-              Izravan URL cjenik.xml
+              {t('directXmlUrl')}
             </Link>
             <Link
               href="/cjenik.csv"
@@ -199,7 +202,7 @@ export function CjenikClient() {
               className="inline-flex items-center gap-1.5 text-xs text-emerald-400 hover:text-emerald-300 font-semibold underline underline-offset-4"
             >
               <ExternalLink className="w-3.5 h-3.5" />
-              Izravan URL cjenik.csv
+              {t('directCsvUrl')}
             </Link>
           </div>
         </div>
@@ -215,7 +218,7 @@ export function CjenikClient() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Pretraži naziv, okus, vrsta ili barkod..."
+                placeholder={t('searchPlaceholder')}
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/80 border border-slate-700 text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
               />
               {searchQuery && (
@@ -238,7 +241,7 @@ export function CjenikClient() {
                     : 'bg-slate-900/60 text-slate-300 hover:bg-slate-700 hover:text-white border border-slate-700/60'
                 }`}
               >
-                Svi proizvodi ({CJENIK_ITEMS.length})
+                {t('allProductsTab', { count: CJENIK_ITEMS.length })}
               </button>
 
               {categories.map((cat) => {
@@ -267,19 +270,19 @@ export function CjenikClient() {
             <table className="w-full text-left border-collapse min-w-[768px] print:min-w-full">
               <thead>
                 <tr className="bg-slate-900/90 border-b border-slate-700 text-slate-300 text-xs font-semibold uppercase tracking-wider print:bg-slate-100 print:text-slate-900 print:border-slate-300">
-                  <th scope="col" className="py-4 px-4 w-12 text-center">r.b.</th>
-                  <th scope="col" className="py-4 px-4">Naziv Proizvoda</th>
-                  <th scope="col" className="py-4 px-3 w-20 text-center print:hidden">Slika</th>
-                  <th scope="col" className="py-4 px-4">Vrsta Proizvoda</th>
-                  <th scope="col" className="py-4 px-4">Okus Proizvoda</th>
-                  <th scope="col" className="py-4 px-4">Pakiranje</th>
-                  <th scope="col" className="py-4 px-4 font-mono">Barkod Proizvoda</th>
+                  <th scope="col" className="py-4 px-4 w-12 text-center">{t('colRb')}</th>
+                  <th scope="col" className="py-4 px-4">{t('colName')}</th>
+                  <th scope="col" className="py-4 px-3 w-20 text-center print:hidden">{t('colImage')}</th>
+                  <th scope="col" className="py-4 px-4">{t('colCategory')}</th>
+                  <th scope="col" className="py-4 px-4">{t('colFlavor')}</th>
+                  <th scope="col" className="py-4 px-4">{t('colPackaging')}</th>
+                  <th scope="col" className="py-4 px-4 font-mono">{t('colBarcode')}</th>
                   <th scope="col" className="py-4 px-4 text-right">
-                    Aktualna Cijena <br />
-                    <span className="text-[10px] text-amber-400 font-normal lowercase print:text-slate-600">(po komadu EUR)</span>
+                    {t('colCurrentPrice')} <br />
+                    <span className="text-[10px] text-amber-400 font-normal lowercase print:text-slate-600">(EUR)</span>
                   </th>
                   <th scope="col" className="py-4 px-4 text-right bg-amber-500/10 border-l border-amber-500/20 print:bg-slate-50 print:border-slate-300">
-                    Sidrena Cijena <br />
+                    {t('colAnchorPrice')} <br />
                     <span className="text-[10px] text-amber-400 font-semibold lowercase print:text-slate-600">(10.9.2026. EUR)</span>
                   </th>
                 </tr>
@@ -289,7 +292,7 @@ export function CjenikClient() {
                 {filteredItems.length === 0 ? (
                   <tr>
                     <td colSpan={9} className="py-12 text-center text-slate-400">
-                      Nije pronađen nijedan proizvod koji odgovara pretrazi &quot;{searchQuery}&quot;.
+                      {t('noResults', { query: searchQuery })}
                     </td>
                   </tr>
                 ) : (
@@ -352,9 +355,6 @@ export function CjenikClient() {
                       <td className="py-4 px-4 text-right font-bold text-amber-400 text-base bg-amber-500/5 border-l border-amber-500/20 print:bg-slate-50 print:text-slate-900 print:border-slate-300">
                         <span className="inline-flex items-center justify-end gap-1">
                           {item.sidrenaCijena.toFixed(2).replace('.', ',')} €
-                          <span className="text-[10px] font-normal text-amber-300/80 bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/20 print:hidden">
-                            Sidrena
-                          </span>
                         </span>
                       </td>
                     </tr>
@@ -362,16 +362,6 @@ export function CjenikClient() {
                 )}
               </tbody>
             </table>
-          </div>
-
-          {/* Table Footer Summary */}
-          <div className="bg-slate-900/90 px-6 py-4 border-t border-slate-700 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-2 print:border-slate-300 print:bg-transparent print:text-slate-700">
-            <div>
-              Prikazano <strong>{filteredItems.length}</strong> od <strong>{CJENIK_ITEMS.length}</strong> službenih artikala na cjeniku.
-            </div>
-            <div>
-              Valuta plaćanja: <strong>EUR (€)</strong> | Svoje cijene redovito ažuriramo svaki dan do 08:00h.
-            </div>
           </div>
         </div>
 
@@ -395,7 +385,7 @@ export function CjenikClient() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-semibold text-xs transition-all border border-slate-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
             >
               <Clock className="w-4 h-4 text-amber-400" />
-              {showArchive ? 'Sakrij arhivu' : 'Prikaži svih 30 dana'}
+              {showArchive ? 'Sakrij arhivu' : t('archiveButton')}
               <ChevronDown className={`w-4 h-4 transition-transform ${showArchive ? 'rotate-180' : ''}`} />
             </button>
           </div>
@@ -418,75 +408,7 @@ export function CjenikClient() {
                 </option>
               ))}
             </select>
-
-            {selectedArchiveDate && (
-              <div className="flex items-center gap-2">
-                <a
-                  href={`/api/cjenik/xml?date=${selectedArchiveDate}&download=1`}
-                  download={`cjenik-planetbio-${selectedArchiveDate}.xml`}
-                  className="px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/30 text-xs font-semibold transition-all inline-flex items-center gap-1.5"
-                >
-                  <FileCode className="w-3.5 h-3.5" />
-                  Preuzmi XML ({selectedArchiveDate})
-                </a>
-                <a
-                  href={`/api/cjenik/csv?date=${selectedArchiveDate}&download=1`}
-                  download={`cjenik-planetbio-${selectedArchiveDate}.csv`}
-                  className="px-3 py-1.5 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/30 text-xs font-semibold transition-all inline-flex items-center gap-1.5"
-                >
-                  <FileSpreadsheet className="w-3.5 h-3.5" />
-                  Preuzmi CSV ({selectedArchiveDate})
-                </a>
-              </div>
-            )}
           </div>
-
-          {/* Full Archive Grid (Collapsible) */}
-          {showArchive && (
-            <div className="mt-6 pt-6 border-t border-slate-700/80">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-                {archiveList.map((entry) => (
-                  <div
-                    key={entry.dateIso}
-                    className={`p-3 rounded-xl border text-xs space-y-2 transition-all ${
-                      entry.isCurrent
-                        ? 'bg-amber-500/10 border-amber-500/40 text-amber-200'
-                        : 'bg-slate-900/60 border-slate-700/70 hover:border-slate-500 text-slate-300'
-                    }`}
-                  >
-                    <div className="font-bold font-mono text-white flex items-center justify-between">
-                      <span>{entry.dateFormatted}</span>
-                      {entry.isCurrent && (
-                        <span className="px-1.5 py-0.5 rounded text-[10px] bg-amber-500 text-slate-950 font-bold">
-                          Aktivno
-                        </span>
-                      )}
-                    </div>
-                    <div className="text-[11px] text-slate-400">
-                      Objavljeno: 07:59h
-                    </div>
-                    <div className="flex items-center gap-2 pt-1 border-t border-slate-700/50">
-                      <a
-                        href={`/api/cjenik/xml?date=${entry.dateIso}&download=1`}
-                        className="text-amber-400 hover:text-amber-300 hover:underline text-[11px] font-semibold"
-                        title="XML preuzimanje"
-                      >
-                        .XML
-                      </a>
-                      <span className="text-slate-600">|</span>
-                      <a
-                        href={`/api/cjenik/csv?date=${entry.dateIso}&download=1`}
-                        className="text-emerald-400 hover:text-emerald-300 hover:underline text-[11px] font-semibold"
-                        title="CSV preuzimanje"
-                      >
-                        .CSV
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
 
         {/* ── Legal & Regulatory Compliance Callout ── */}
@@ -504,7 +426,7 @@ export function CjenikClient() {
               </div>
             </div>
             <button className="p-2 rounded-lg bg-slate-700 hover:bg-slate-600 text-white text-xs font-semibold">
-              {showLegalNotes ? 'Sakrij detalje' : 'Prikaži pravne upute'}
+              {showLegalNotes ? 'Sakrij detalje' : t('legalNotesButton')}
             </button>
           </div>
 
@@ -518,43 +440,6 @@ export function CjenikClient() {
                 <p>
                   Obveza isticanja sidrene (dodatne) cijene u Republici Hrvatskoj proširuje se na sve proizvode u maloprodaji s početkom primjene od 1. listopada 2026. godine. Sidrenom cijenom smatra se ona cijena koja je za pojedini proizvod vrijedila na referentni dan <strong>10. rujna 2026. godine</strong>.
                 </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-700">
-                  <h6 className="font-bold text-white mb-1">Tehnički Format</h6>
-                  <p className="text-slate-400 text-xs">
-                    Cjenik se mora objaviti u strojno čitljivom digitalnom obliku – isključivo u <strong>.XML</strong> ili <strong>.CSV</strong> formatu. Običan PDF ili slika ne zadovoljavaju zakonsku formu.
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-700">
-                  <h6 className="font-bold text-white mb-1">Dinamika Ažuriranja</h6>
-                  <p className="text-slate-400 text-xs">
-                    Trgovci na malo dužni su objaviti i redovito ažurirati svoje cjenike u digitalnom obliku svakog dana najkasnije do <strong>8:00 sati ujutro</strong>.
-                  </p>
-                </div>
-
-                <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-700">
-                  <h6 className="font-bold text-white mb-1">Povijest Podataka (30 Dana)</h6>
-                  <p className="text-slate-400 text-xs">
-                    Prethodne verzije digitalnih cjenika moraju ostati javno dostupne u arhivi na web stranici najmanje 30 dana radi inspekcijskog nadzora.
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-700 text-xs text-slate-400">
-                <p className="font-semibold text-slate-300 mb-1">
-                  Nadzor i kaznene odredbe Državnog inspektorata:
-                </p>
-                <p>
-                  Nadzor nad provođenjem odluka obavlja Tržišna inspekcija Državnog inspektorata RH. Zakon o iznimnim mjerama kontrole cijena za nepridržavanje pravila definira novčane kazne:
-                </p>
-                <ul className="list-disc pl-5 mt-2 space-y-1">
-                  <li>Pravne osobe: od 3.000 € do 30.000 €</li>
-                  <li>Obrtnici i samostalne djelatnosti: od 1.000 € do 20.000 €</li>
-                  <li>Odgovorne osobe u pravnim osobama: od 1.000 € do 4.000 €</li>
-                </ul>
               </div>
             </div>
           )}

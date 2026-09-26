@@ -21,7 +21,7 @@ export function generateStaticParams(): { slug: string }[] {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale, slug } = await params
-  const guide = getGuideBySlug(slug)
+  const guide = getGuideBySlug(slug, locale)
 
   if (!guide) {
     return pageMetadata({
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   })
 }
 
-function GuideBlockRenderer({ block }: { block: GuideBlock }) {
+function GuideBlockRenderer({ block, prefix }: { block: GuideBlock; prefix: string }) {
   switch (block.type) {
     case 'lead':
       return <p className="text-lg font-medium text-gray-900">{block.text}</p>
@@ -56,7 +56,7 @@ function GuideBlockRenderer({ block }: { block: GuideBlock }) {
           <h3 className="text-lg font-bold text-amber-900 mb-2">{block.title}</h3>
           <p className="text-sm text-amber-800 mb-4">{block.text}</p>
           <Link
-            href={block.ctaHref}
+            href={`${prefix}${block.ctaHref}`}
             className="inline-flex items-center px-4 py-2 bg-amber-500 text-slate-950 font-bold rounded-xl text-xs hover:bg-amber-600 transition"
           >
             {block.ctaLabel}
@@ -70,7 +70,7 @@ function GuideBlockRenderer({ block }: { block: GuideBlock }) {
 
 export default async function GuideDetailPage({ params }: PageProps) {
   const { locale, slug } = await params
-  const guide = getGuideBySlug(slug)
+  const guide = getGuideBySlug(slug, locale)
 
   if (!guide) {
     notFound()
@@ -141,7 +141,7 @@ export default async function GuideDetailPage({ params }: PageProps) {
 
         <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-6 font-sans">
           {guide.body.map((block, i) => (
-            <GuideBlockRenderer key={i} block={block} />
+            <GuideBlockRenderer key={i} block={block} prefix={prefix} />
           ))}
         </div>
 
