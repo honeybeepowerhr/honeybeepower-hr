@@ -95,9 +95,6 @@ export default function QuantityInput({
         onChange={handleInput}
         onBlur={handleBlur}
         aria-label="Količina"
-        aria-valuenow={value}
-        aria-valuemin={min}
-        aria-valuemax={max}
         className={cn(
           'w-12 h-10 text-center text-sm font-semibold text-charcoal bg-white',
           'border-x border-gray-300',

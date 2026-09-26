@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Star, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 interface ProductLine {
   slug: string
@@ -57,21 +57,6 @@ const productLines: ProductLine[] = [
   },
 ]
 
-function StarRating({ rating, count }: { rating: number; count: number }) {
-  return (
-    <div className="flex items-center gap-1.5" aria-label={`Ocjena ${rating} od 5, ${count} recenzija`}>
-      <div className="flex" aria-hidden="true">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <Star
-            key={i}
-            className={`w-3.5 h-3.5 ${i < Math.floor(rating) ? 'fill-amber-400 text-amber-400' : 'text-gray-200'}`}
-          />
-        ))}
-      </div>
-      <span className="text-xs text-gray-500 font-medium">{rating} ({count})</span>
-    </div>
-  )
-}
 
 export default function ProductLinesSection() {
   return (

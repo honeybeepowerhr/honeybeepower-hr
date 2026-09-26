@@ -6,27 +6,21 @@ import Link from 'next/link'
 import {
   FileCode,
   FileSpreadsheet,
-  Download,
   Printer,
   Search,
-  CheckCircle2,
   Clock,
   Calendar,
   AlertTriangle,
-  Info,
   ShieldCheck,
-  Building2,
   FileText,
   ExternalLink,
   ChevronDown,
-  RefreshCw,
 } from 'lucide-react'
 import {
   LEGAL_ENTITY,
   CJENIK_ITEMS,
   getLatestUpdateTimestamp,
   get30DayArchiveList,
-  CjenikItem,
 } from '@/lib/cjenik-data'
 
 export function CjenikClient() {
@@ -294,7 +288,7 @@ export function CjenikClient() {
                 {filteredItems.length === 0 ? (
                   <tr>
                     <td colSpan={8} className="py-12 text-center text-slate-400">
-                      Nije pronađen nijedan proizvod koji odgovara pretrazi "{searchQuery}".
+                      Nije pronađen nijedan proizvod koji odgovara pretrazi &quot;{searchQuery}&quot;.
                     </td>
                   </tr>
                 ) : (
@@ -513,7 +507,7 @@ export function CjenikClient() {
               <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-200">
                 <h5 className="font-bold mb-1 text-amber-300 flex items-center gap-2">
                   <AlertTriangle className="w-4 h-4" />
-                  Obveza isticanja "sidrene" cijene u RH od 1. listopada 2026.
+                  Obveza isticanja &quot;sidrene&quot; cijene u RH od 1. listopada 2026.
                 </h5>
                 <p>
                   Obveza isticanja sidrene (dodatne) cijene u Republici Hrvatskoj proširuje se na sve proizvode u maloprodaji s početkom primjene od 1. listopada 2026. godine. Sidrenom cijenom smatra se ona cijena koja je za pojedini proizvod vrijedila na referentni dan <strong>10. rujna 2026. godine</strong>.

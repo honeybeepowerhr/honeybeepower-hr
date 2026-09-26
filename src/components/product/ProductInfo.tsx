@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useCallback } from 'react'
-import { Star, ShieldCheck, Truck, Clock, Package } from 'lucide-react'
+import { ShieldCheck, Truck, Clock, Package } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useCartStore } from '@/features/cart/store'
 import VariantSwitcher from './VariantSwitcher'
@@ -19,55 +19,6 @@ function effectivePrice(variant: Variant, basePrice: number): number {
   return variant.price > 0 ? variant.price : basePrice
 }
 
-// ─── Star rating ──────────────────────────────────────────────────────────────
-
-interface StarRatingProps {
-  rating: number   // 0–5
-  count: number
-}
-
-function StarRating({ rating, count }: StarRatingProps) {
-  const full = Math.floor(rating)
-  const partial = rating - full
-
-  return (
-    <div className="flex items-center gap-1.5" aria-label={`Ocjena ${rating.toFixed(1)} od 5, ${count} recenzija`}>
-      <span className="flex items-center gap-0.5" aria-hidden="true">
-        {Array.from({ length: 5 }, (_, i) => {
-          if (i < full) {
-            return (
-              <Star
-                key={i}
-                className="w-4 h-4 fill-amber-400 text-amber-400"
-                aria-hidden="true"
-              />
-            )
-          }
-          if (i === full && partial >= 0.25) {
-            return (
-              <span key={i} className="relative inline-flex w-4 h-4">
-                <Star className="absolute inset-0 w-4 h-4 text-gray-300" aria-hidden="true" />
-                <span
-                  className="absolute inset-0 overflow-hidden"
-                  style={{ width: `${partial * 100}%` }}
-                >
-                  <Star className="w-4 h-4 fill-amber-400 text-amber-400" aria-hidden="true" />
-                </span>
-              </span>
-            )
-          }
-          return (
-            <Star key={i} className="w-4 h-4 text-gray-300" aria-hidden="true" />
-          )
-        })}
-      </span>
-      <span className="text-sm text-gray-500">
-        <span className="font-semibold text-charcoal">{rating.toFixed(1)}</span>
-        {' '}({count} {count === 1 ? 'recenzija' : count < 5 ? 'recenzije' : 'recenzija'})
-      </span>
-    </div>
-  )
-}
 
 // ─── Trust signals ────────────────────────────────────────────────────────────
 

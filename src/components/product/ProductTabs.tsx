@@ -203,13 +203,6 @@ function ShippingContent() {
   )
 }
 
-function ReviewsPlaceholder() {
-  return (
-    <p className="text-sm text-gray-500 italic py-2">
-      Recenzije se učitavaju…
-    </p>
-  )
-}
 
 // ─── Tab definitions ──────────────────────────────────────────────────────────
 

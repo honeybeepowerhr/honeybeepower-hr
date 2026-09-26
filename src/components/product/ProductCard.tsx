@@ -3,7 +3,7 @@
 import { useState, useCallback } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ShoppingCart, Star } from 'lucide-react'
+import { ShoppingCart } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { useCartStore } from '@/features/cart/store'
@@ -29,51 +29,6 @@ function sanityImageUrl(assetRef: string, width = 400, height = 400): string {
   return `https://cdn.sanity.io/images/${projectId}/${dataset}/${idAndDims}.${ext}?w=${width}&h=${height}&fit=crop&auto=format`
 }
 
-// ─── Star rating ──────────────────────────────────────────────────────────────
-
-interface StarRatingProps {
-  rating: number
-  reviewCount: number
-}
-
-function StarRating({ rating, reviewCount }: StarRatingProps) {
-  const full = Math.floor(rating)
-  const hasHalf = rating - full >= 0.5
-  const empty = 5 - full - (hasHalf ? 1 : 0)
-
-  return (
-    <div
-      className="flex items-center gap-1.5"
-      aria-label={`Ocjena: ${rating.toFixed(1)} od 5 (${reviewCount} recenzija)`}
-    >
-      <span className="flex items-center gap-0.5" aria-hidden="true">
-        {Array.from({ length: full }).map((_, i) => (
-          <Star
-            key={`full-${i}`}
-            className="w-3.5 h-3.5 fill-amber-400 text-amber-400"
-          />
-        ))}
-        {hasHalf && (
-          <span className="relative w-3.5 h-3.5">
-            <Star className="absolute inset-0 w-3.5 h-3.5 text-amber-400" />
-            <span
-              className="absolute inset-0 overflow-hidden w-[50%]"
-              style={{ width: '50%' }}
-            >
-              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-            </span>
-          </span>
-        )}
-        {Array.from({ length: empty }).map((_, i) => (
-          <Star key={`empty-${i}`} className="w-3.5 h-3.5 text-gray-300" />
-        ))}
-      </span>
-      <span className="text-xs text-gray-500 font-medium">
-        {rating.toFixed(1)} ({reviewCount})
-      </span>
-    </div>
-  )
-}
 
 // ─── Placeholder ──────────────────────────────────────────────────────────────
 
@@ -117,11 +72,6 @@ export default function ProductCard({ product, locale = 'hr' }: ProductCardProps
 
   const basePrice = product.basePrice
 
-  // Rating
-  const hasRating =
-    product.averageRating !== undefined &&
-    product.reviewCount !== undefined &&
-    product.reviewCount > 0
 
   const defaultVariant = product.variants[0]
   const moq = defaultVariant?.minQuantity ?? product.minQuantity ?? 5
