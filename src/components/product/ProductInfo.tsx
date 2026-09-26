@@ -174,15 +174,7 @@ export default function ProductInfo({ product, locale }: ProductInfoProps) {
         {productName}
       </h1>
 
-      {/* ── Rating ──────────────────────────────────────────────────────── */}
-      {product.reviewCount != null &&
-        product.reviewCount > 0 &&
-        product.averageRating != null && (
-          <StarRating
-            rating={product.averageRating}
-            count={product.reviewCount}
-          />
-        )}
+
 
       {/* ── Variant switcher ─────────────────────────────────────────────── */}
       {product.variants.length > 0 && (

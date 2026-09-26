@@ -217,7 +217,6 @@ const TAB_VALUES = [
   'opis',
   'nutritivne-vrijednosti',
   'kako-koristiti',
-  'recenzije',
   'dostava',
 ] as const
 
@@ -227,7 +226,6 @@ const TAB_LABELS: Record<TabValue, string> = {
   'opis':                  'Opis',
   'nutritivne-vrijednosti':'Nutritivne vrijednosti',
   'kako-koristiti':        'Kako koristiti',
-  'recenzije':             'Recenzije',
   'dostava':               'Dostava i povrat',
 }
 
@@ -283,11 +281,6 @@ export default function ProductTabs({ product, locale }: ProductTabsProps) {
       {/* ── Kako koristiti ─────────────────────────────────────────── */}
       <TabsContent value="kako-koristiti" className="pt-5">
         <HowToUseContent />
-      </TabsContent>
-
-      {/* ── Recenzije ──────────────────────────────────────────────── */}
-      <TabsContent value="recenzije" className="pt-5">
-        <ReviewsPlaceholder />
       </TabsContent>
 
       {/* ── Dostava i povrat ────────────────────────────────────────── */}

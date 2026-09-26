@@ -235,13 +235,7 @@ export default function ProductCard({ product, locale = 'hr' }: ProductCardProps
             </p>
           )}
 
-          {/* Rating */}
-          {hasRating && (
-            <StarRating
-              rating={product.averageRating!}
-              reviewCount={product.reviewCount!}
-            />
-          )}
+
 
           {/* Actions — relative z-20 keeps this above the full-card link overlay */}
           <div className="relative z-20 flex gap-2 mt-auto pt-1">

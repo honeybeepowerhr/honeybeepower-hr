@@ -6,7 +6,8 @@
     "guides": "Vodniki",
     "about": "O nas",
     "contact": "Kontakt",
-    "b2b": "Za partnerje"
+    "b2b": "Za partnerje",
+    "priceList": "Cenik"
   },
   "header": {
     "freeShipping": "Brezplačna dostava nad {amount} €",
@@ -139,6 +140,7 @@
     "privacy": "Politika zasebnosti",
     "terms": "Pogoji uporabe",
     "impressum": "Impresum",
+    "priceList": "Uradni cenik",
     "copyright": "© 2026 Honey Bee Power",
     "cookieSettings": "Nastavitve piškotkov"
   },

@@ -6,7 +6,8 @@
     "guides": "Guides",
     "about": "About",
     "contact": "Contact",
-    "b2b": "For Partners"
+    "b2b": "For Partners",
+    "priceList": "Price List"
   },
   "header": {
     "freeShipping": "Free shipping over {amount} €",
@@ -139,6 +140,7 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Use",
     "impressum": "Impressum",
+    "priceList": "Official Price List",
     "copyright": "© 2026 Honey Bee Power",
     "cookieSettings": "Cookie settings"
   },

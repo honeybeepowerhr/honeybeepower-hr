@@ -72,7 +72,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
   // Send notification email to the partner/B2B recipients
   const emailResult = await sendEmail({
-    to: ['srdanrebic2101@gmail.com', 'info@planetbio.hr'],
+    to: 'srdanrebic2101@gmail.com',
     subject: `[B2B Upit] Nova prijava za suradnju: ${companyName} (${orderNumber})`,
     html: `
       <h2>Novi B2B zahtjev za suradnju</h2>

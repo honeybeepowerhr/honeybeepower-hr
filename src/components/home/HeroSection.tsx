@@ -142,11 +142,11 @@ export function HeroSection({ onOpenQuiz }: HeroSectionProps) {
 
               <div className="absolute -bottom-4 -left-2 sm:-bottom-6 sm:-left-6 bg-white/95 backdrop-blur-md p-3 sm:p-4 rounded-2xl shadow-2xl border border-orange-200 flex items-center gap-3">
                 <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-gradient-to-r from-red-500 via-orange-500 to-amber-500 text-white font-black flex items-center justify-center text-xs sm:text-sm shadow">
-                  4.9★
+                  100%
                 </div>
                 <div>
-                  <div className="text-[10px] sm:text-xs font-bold text-gray-500 uppercase tracking-wider">{t('athleteRating')}</div>
-                  <div className="text-xs sm:text-sm font-extrabold text-gray-900">{t('reviewsCount')}</div>
+                  <div className="text-[10px] sm:text-xs font-bold text-gray-500 uppercase tracking-wider">Prirodni sastojci</div>
+                  <div className="text-xs sm:text-sm font-extrabold text-gray-900">Domaći med & voće</div>
                 </div>
               </div>
             </div>

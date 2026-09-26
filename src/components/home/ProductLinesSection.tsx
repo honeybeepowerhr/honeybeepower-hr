@@ -122,10 +122,7 @@ export default function ProductLinesSection() {
                 ))}
               </ul>
 
-              {/* Rating */}
-              <div className="mb-4">
-                <StarRating rating={p.rating} count={p.reviews} />
-              </div>
+
 
               {/* CTA */}
               <div className="mt-auto">

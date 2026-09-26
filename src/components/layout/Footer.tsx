@@ -43,6 +43,7 @@ export default function Footer() {
     { label: t('privacy'),         href: `${prefix}/politika-privatnosti` },
     { label: t('terms'),           href: `${prefix}/uvjeti-koristenja` },
     { label: t('impressum'),       href: `${prefix}/impressum` },
+    { label: t('priceList'),       href: `${prefix}/cjenik` },
   ]
 
   const companyLinks = [

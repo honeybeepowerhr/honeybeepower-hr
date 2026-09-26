@@ -63,8 +63,6 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       { _key: 'v1', flavour: 'Limun', size: '40g sachet', sku: 'HBP-GEL-LIM-40', price: 249, stockLevel: 100, minQuantity: 50 },
       { _key: 'v2', flavour: 'Limun', size: 'Paket 10x40g', sku: 'HBP-GEL-LIM-10', price: 2999, stockLevel: 45, minQuantity: 5 },
     ],
-    averageRating: 4.9,
-    reviewCount: 38,
   },
   {
     _id: 'hbp-gel-lemon-pack10',

@@ -38,12 +38,12 @@ const staticRoutes: RouteDef[] = [
   { path: '/kontakt', changeFrequency: 'monthly', priority: 0.5 },
   { path: '/faq', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/aktivnosti', changeFrequency: 'weekly', priority: 0.5 },
-  { path: '/sportasi', changeFrequency: 'monthly', priority: 0.4 },
   { path: '/dostava-i-placanje', changeFrequency: 'monthly', priority: 0.4 },
   { path: '/pravo-na-povrat', changeFrequency: 'yearly', priority: 0.3 },
   { path: '/politika-privatnosti', changeFrequency: 'yearly', priority: 0.3 },
   { path: '/uvjeti-koristenja', changeFrequency: 'yearly', priority: 0.3 },
   { path: '/impressum', changeFrequency: 'yearly', priority: 0.3 },
+  { path: '/cjenik', changeFrequency: 'daily', priority: 0.8 },
 ]
 
 const allRoutes: RouteDef[] = [
