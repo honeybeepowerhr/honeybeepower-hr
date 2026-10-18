@@ -16,6 +16,13 @@ export const PRODUCT_CATEGORIES: Record<string, Record<Locale, string>> = {
     sl: 'Izotonični napitki',
     pl: 'Napoje izotoniczne',
   },
+  'whey-proteini': {
+    hr: 'Whey Proteini',
+    en: 'Whey Proteins',
+    de: 'Molkenprotein',
+    sl: 'Whey beljakovine',
+    pl: 'Białka serwatkowe',
+  },
 }
 
 export const REAL_PRODUCTS: ProductSummary[] = [
@@ -413,5 +420,122 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     ],
     averageRating: 5.0,
     reviewCount: 12,
+  },
+  {
+    _id: 'hbp-whey-choc-hazelnut-700',
+    name: {
+      hr: 'Honey Bee Power Whey Protein – Lješnjak-čokolada (700 g)',
+      en: 'Honey Bee Power Whey Protein – Hazelnut Chocolate (700 g)',
+      de: 'Honey Bee Power Whey Protein – Haselnuss-Schokolade (700 g)',
+      sl: 'Honey Bee Power Whey Protein – Lešnik-čokolada (700 g)',
+      pl: 'Honey Bee Power Whey Protein – Czekolada z orzechami laskowymi (700 g)',
+    },
+    slug: 'honey-bee-power-whey-protein-ljesnjak-cokolada-700g',
+    category: 'whey-proteini',
+    minQuantity: 5,
+    shortDescription: {
+      hr: 'Whey protein zaslađen medom, okus lješnjak-čokolada. Visok udio proteina, jednostavan za pripremu. Dodatak prehrani, posuda od 700 g.',
+      en: 'Honey-sweetened whey protein, hazelnut chocolate flavour. High protein content, easy to prepare. Food supplement, 700 g tub.',
+      de: 'Mit Honig gesüßtes Whey Protein, Geschmack Haselnuss-Schokolade. Hoher Proteingehalt, einfach zuzubereiten. Nahrungsergänzungsmittel, 700-g-Dose.',
+      sl: 'Z medom sladkan whey protein z okusom lešnik-čokolada. Visoka vsebnost beljakovin, enostaven za pripravo. Prehransko dopolnilo, embalaža 700 g.',
+      pl: 'Odżywka białkowa whey słodzona miodem, smak czekolady z orzechami laskowymi. Wysoka zawartość białka, łatwa w przygotowaniu. Suplement diety, opakowanie 700 g.',
+    },
+    basePrice: 3800,
+    mainImage: {
+      _type: 'image',
+      asset: {
+        _ref: '/images/products/proteincokolada700g.png',
+        _type: 'reference',
+      },
+      alt: 'Honey Bee Power Whey Protein Lješnjak-čokolada 700 g',
+    },
+    imageGallery: [
+      {
+        _type: 'image',
+        asset: { _ref: '/images/products/proteincokolada700g.png', _type: 'reference' },
+        alt: 'Honey Bee Power Whey Protein Lješnjak-čokolada 700 g',
+      },
+    ],
+    variants: [
+      { _key: 'v1', flavour: 'Lješnjak-čokolada', size: '700g posuda', sku: 'HBP-WHY-COK-700', gtin: '5904966072352', price: 3800, stockLevel: 50, minQuantity: 5 },
+    ],
+  },
+  {
+    _id: 'hbp-whey-banana-vanilla-700',
+    name: {
+      hr: 'Honey Bee Power Whey Protein – Banana-vanilija (700 g)',
+      en: 'Honey Bee Power Whey Protein – Banana Vanilla (700 g)',
+      de: 'Honey Bee Power Whey Protein – Banane-Vanille (700 g)',
+      sl: 'Honey Bee Power Whey Protein – Banana-vanilija (700 g)',
+      pl: 'Honey Bee Power Whey Protein – Banan z wanilią (700 g)',
+    },
+    slug: 'honey-bee-power-whey-protein-banana-vanilija-700g',
+    category: 'whey-proteini',
+    minQuantity: 5,
+    shortDescription: {
+      hr: 'Whey protein zaslađen medom, okus banana-vanilija. Visok udio proteina, jednostavan za pripremu. Dodatak prehrani, posuda od 700 g.',
+      en: 'Honey-sweetened whey protein, banana vanilla flavour. High protein content, easy to prepare. Food supplement, 700 g tub.',
+      de: 'Mit Honig gesüßtes Whey Protein, Geschmack Banane-Vanille. Hoher Proteingehalt, einfach zuzubereiten. Nahrungsergänzungsmittel, 700-g-Dose.',
+      sl: 'Z medom sladkan whey protein z okusom banana-vanilija. Visoka vsebnost beljakovin, enostaven za pripravo. Prehransko dopolnilo, embalaža 700 g.',
+      pl: 'Odżywka białkowa whey słodzona miodem, smak bananowy z wanilią. Wysoka zawartość białka, łatwa w przygotowaniu. Suplement diety, opakowanie 700 g.',
+    },
+    basePrice: 3800,
+    mainImage: {
+      _type: 'image',
+      asset: {
+        _ref: '/images/products/proteinbanana700g.png',
+        _type: 'reference',
+      },
+      alt: 'Honey Bee Power Whey Protein Banana-vanilija 700 g',
+    },
+    imageGallery: [
+      {
+        _type: 'image',
+        asset: { _ref: '/images/products/proteinbanana700g.png', _type: 'reference' },
+        alt: 'Honey Bee Power Whey Protein Banana-vanilija 700 g',
+      },
+    ],
+    variants: [
+      { _key: 'v1', flavour: 'Banana-vanilija', size: '700g posuda', sku: 'HBP-WHY-BAN-700', gtin: '5904966072345', price: 3800, stockLevel: 50, minQuantity: 5 },
+    ],
+  },
+  {
+    _id: 'hbp-whey-strawberry-cream-700',
+    name: {
+      hr: 'Honey Bee Power Whey Protein – Jagoda-šlag (700 g)',
+      en: 'Honey Bee Power Whey Protein – Strawberry Cream (700 g)',
+      de: 'Honey Bee Power Whey Protein – Erdbeere-Sahne (700 g)',
+      sl: 'Honey Bee Power Whey Protein – Jagoda-smetana (700 g)',
+      pl: 'Honey Bee Power Whey Protein – Truskawka ze śmietaną (700 g)',
+    },
+    slug: 'honey-bee-power-whey-protein-jagoda-slag-700g',
+    category: 'whey-proteini',
+    minQuantity: 5,
+    shortDescription: {
+      hr: 'Whey protein zaslađen medom, okus jagoda-šlag. Visok udio proteina, jednostavan za pripremu. Dodatak prehrani, posuda od 700 g.',
+      en: 'Honey-sweetened whey protein, strawberry and whipped cream flavour. High protein content, easy to prepare. Food supplement, 700 g tub.',
+      de: 'Mit Honig gesüßtes Whey Protein, Geschmack Erdbeere mit Schlagsahne. Hoher Proteingehalt, einfach zuzubereiten. Nahrungsergänzungsmittel, 700-g-Dose.',
+      sl: 'Z medom sladkan whey protein z okusom jagoda s stepeno smetano. Visoka vsebnost beljakovin, enostaven za pripravo. Prehransko dopolnilo, embalaža 700 g.',
+      pl: 'Odżywka białkowa whey słodzona miodem, smak truskawkowy z bitą śmietaną. Wysoka zawartość białka, łatwa w przygotowaniu. Suplement diety, opakowanie 700 g.',
+    },
+    basePrice: 3800,
+    mainImage: {
+      _type: 'image',
+      asset: {
+        _ref: '/images/products/proteinjagodaslag700g.png',
+        _type: 'reference',
+      },
+      alt: 'Honey Bee Power Whey Protein Jagoda-šlag 700 g',
+    },
+    imageGallery: [
+      {
+        _type: 'image',
+        asset: { _ref: '/images/products/proteinjagodaslag700g.png', _type: 'reference' },
+        alt: 'Honey Bee Power Whey Protein Jagoda-šlag 700 g',
+      },
+    ],
+    variants: [
+      { _key: 'v1', flavour: 'Jagoda-šlag', size: '700g posuda', sku: 'HBP-WHY-JAG-700', gtin: '5904966072369', price: 3800, stockLevel: 50, minQuantity: 5 },
+    ],
   },
 ]

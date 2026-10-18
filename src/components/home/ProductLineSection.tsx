@@ -50,6 +50,12 @@ export function ProductLineSection() {
 
             const prodName = prod.name[locale] ?? prod.name.hr
             const prodShortDesc = prod.shortDescription[locale] ?? prod.shortDescription.hr
+            const badgeLabel =
+              prod.category === 'energetski-gelovi'
+                ? t('gelBadge')
+                : prod.category === 'whey-proteini'
+                  ? t('wheyBadge')
+                  : t('isoBadge')
 
             const handleAddToCart = () => {
               addItem({
@@ -92,12 +98,14 @@ export function ProductLineSection() {
 
                   <div className="flex items-center justify-between text-xs text-amber-600 font-bold mb-2">
                     <span className="uppercase tracking-wider px-2.5 py-1 rounded-md bg-amber-50 border border-amber-200">
-                      {prod.category === 'energetski-gelovi' ? t('gelBadge') : t('isoBadge')}
+                      {badgeLabel}
                     </span>
-                    <div className="flex items-center gap-1 text-amber-500 font-bold">
-                      <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                      <span>{prod.averageRating} ({prod.reviewCount})</span>
-                    </div>
+                    {prod.averageRating !== undefined && prod.reviewCount ? (
+                      <div className="flex items-center gap-1 text-amber-500 font-bold">
+                        <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+                        <span>{prod.averageRating} ({prod.reviewCount})</span>
+                      </div>
+                    ) : null}
                   </div>
 
                   <h3 className="text-xl font-extrabold text-gray-900 group-hover:text-amber-600 transition-colors font-heading">

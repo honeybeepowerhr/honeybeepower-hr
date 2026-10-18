@@ -30,6 +30,13 @@ const CATEGORY_DESCRIPTIONS: Record<string, Record<Locale, string>> = {
     sl: 'Izotonični napitki z medom in morsko soljo za hitro nadomeščanje elektrolitov med treningom in tekmami.',
     pl: 'Napoje izotoniczne z miodem i solą morską do szybkiego uzupełniania elektrolitów podczas treningu i zawodów.',
   },
+  'whey-proteini': {
+    hr: 'Whey proteini zaslađeni medom u okusima lješnjak-čokolada, banana-vanilija i jagoda-šlag. Dodatak prehrani za sportaše i rekreativce, posuda od 700 g.',
+    en: 'Honey-sweetened whey proteins in hazelnut chocolate, banana vanilla and strawberry cream flavours. Food supplement for athletes and fitness enthusiasts, 700 g tubs.',
+    de: 'Mit Honig gesüßte Whey Proteine in den Geschmacksrichtungen Haselnuss-Schokolade, Banane-Vanille und Erdbeere-Sahne. Nahrungsergänzungsmittel für Sportler, 700-g-Dosen.',
+    sl: 'Z medom sladkane whey beljakovine z okusi lešnik-čokolada, banana-vanilija in jagoda-smetana. Prehransko dopolnilo za športnike in rekreativce, embalaža 700 g.',
+    pl: 'Odżywki białkowe whey słodzone miodem o smakach czekolada z orzechami laskowymi, banan z wanilią i truskawka ze śmietaną. Suplement diety dla sportowców, opakowania 700 g.',
+  },
 }
 
 interface PageProps {
@@ -149,6 +156,34 @@ export default async function ProductOrCategoryPage({ params }: PageProps) {
       sl: 'Izotonični napitek',
       pl: 'Napój izotoniczny',
     },
+    wheyBadge: {
+      hr: 'Whey Protein',
+      en: 'Whey Protein',
+      de: 'Molkenprotein',
+      sl: 'Whey beljakovina',
+      pl: 'Białko serwatkowe',
+    },
+    wheyFeature1: {
+      hr: 'Whey protein zaslađen medom',
+      en: 'Honey-sweetened whey protein',
+      de: 'Mit Honig gesüßtes Whey Protein',
+      sl: 'Z medom sladkan whey protein',
+      pl: 'Odżywka białkowa whey słodzona miodem',
+    },
+    wheyFeature2: {
+      hr: 'Visok udio proteina',
+      en: 'High protein content',
+      de: 'Hoher Proteingehalt',
+      sl: 'Visoka vsebnost beljakovin',
+      pl: 'Wysoka zawartość białka',
+    },
+    wheyFeature3: {
+      hr: 'Odličan okus, jednostavan za pripremu',
+      en: 'Great taste, easy to prepare',
+      de: 'Hervorragender Geschmack, einfach zuzubereiten',
+      sl: 'Odličen okus, enostaven za pripravo',
+      pl: 'Doskonały smak, łatwa w przygotowaniu',
+    },
   }
 
   // 1. If it's a category page
@@ -214,6 +249,16 @@ export default async function ProductOrCategoryPage({ params }: PageProps) {
   const variant = product.variants[0]
 
   const categoryName = KNOWN_CATEGORIES[product.category]?.[currentLocale] ?? product.category
+  const isWhey = product.category === 'whey-proteini'
+  const categoryBadge =
+    product.category === 'energetski-gelovi'
+      ? LABELS.gelBadge
+      : isWhey
+        ? LABELS.wheyBadge
+        : LABELS.isoBadge
+  const features = isWhey
+    ? [LABELS.wheyFeature1, LABELS.wheyFeature2, LABELS.wheyFeature3]
+    : [LABELS.feature1, LABELS.feature2, LABELS.feature3]
   const productSchema = buildProductSchema(product, currentLocale)
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: 'Početna', url: localeUrl(currentLocale, '/') },
@@ -247,9 +292,7 @@ export default async function ProductOrCategoryPage({ params }: PageProps) {
           {/* Details */}
           <div className="space-y-6">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider">
-              {product.category === 'energetski-gelovi'
-                ? LABELS.gelBadge[currentLocale]
-                : LABELS.isoBadge[currentLocale]}
+              {categoryBadge[currentLocale]}
             </div>
 
             <h1 className="text-3xl sm:text-4xl font-black text-gray-900 font-heading leading-tight">
@@ -263,18 +306,12 @@ export default async function ProductOrCategoryPage({ params }: PageProps) {
             </p>
 
             <div className="space-y-2 pt-2 border-t border-amber-100 text-sm font-semibold text-gray-800">
-              <div className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-emerald-600" />
-                <span>{LABELS.feature1[currentLocale]}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-emerald-600" />
-                <span>{LABELS.feature2[currentLocale]}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-emerald-600" />
-                <span>{LABELS.feature3[currentLocale]}</span>
-              </div>
+              {features.map((feature) => (
+                <div key={feature.en} className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-emerald-600" />
+                  <span>{feature[currentLocale]}</span>
+                </div>
+              ))}
             </div>
 
             <div className="pt-4">

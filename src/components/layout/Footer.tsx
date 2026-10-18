@@ -33,6 +33,7 @@ export default function Footer() {
   const productLinks = [
     { label: t('energyGels'),     href: `${prefix}/proizvodi/energetski-gelovi` },
     { label: t('isotonicDrinks'),  href: `${prefix}/proizvodi/izotonicki-napitci` },
+    { label: tNav('wheyProteins'), href: `${prefix}/proizvodi/whey-proteini` },
     { label: t('whereToBuy'),      href: `${prefix}/gdje-kupiti` },
   ]
 

@@ -77,8 +77,11 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   },
 ]
 
+/** The quiz only covers endurance fuel — other lines (e.g. whey proteins) have no match-reason copy. */
+const QUIZ_CATEGORIES = ['energetski-gelovi', 'izotonicki-napitci']
+
 function getAllProducts(locale: Locale, matchReasons: QuizMatchReasons): QuizRecommendation[] {
-  return REAL_PRODUCTS.map((p) => ({
+  return REAL_PRODUCTS.filter((p) => QUIZ_CATEGORIES.includes(p.category)).map((p) => ({
     productId: p._id,
     slug: p.slug,
     name: p.name[locale] ?? p.name.hr,

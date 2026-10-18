@@ -18,11 +18,11 @@ const TITLES: Record<Locale, string> = {
 }
 
 const DESCRIPTIONS: Record<Locale, string> = {
-  hr: 'Pregledaj kompletnu ponudu Honey Bee Power proizvoda — energetski gelovi i izotonični napitci na bazi 100% prirodnog cvjetnog meda, bez sukraloze.',
-  en: 'Browse the full Honey Bee Power range — energy gels and isotonic drinks made with 100% natural flower honey, no sucralose.',
-  de: 'Entdecke das gesamte Honey Bee Power Sortiment — Energiegels und isotonische Getränke aus 100% natürlichem Blütenhonig, ohne Sucralose.',
-  sl: 'Oglejte si celotno ponudbo Honey Bee Power — energijski geli in izotonični napitki na osnovi 100 % naravnega cvetličnega medu.',
-  pl: 'Zobacz pełną ofertę Honey Bee Power — żele energetyczne i napoje izotoniczne na bazie 100% naturalnego miodu kwiatowego.',
+  hr: 'Pregledaj kompletnu ponudu Honey Bee Power proizvoda — energetski gelovi i izotonični napitci na bazi 100% prirodnog cvjetnog meda, bez sukraloze, te whey proteini zaslađeni medom.',
+  en: 'Browse the full Honey Bee Power range — energy gels and isotonic drinks made with 100% natural flower honey, no sucralose, plus honey-sweetened whey proteins.',
+  de: 'Entdecke das gesamte Honey Bee Power Sortiment — Energiegels und isotonische Getränke aus 100% natürlichem Blütenhonig, ohne Sucralose, sowie mit Honig gesüßte Whey Proteine.',
+  sl: 'Oglejte si celotno ponudbo Honey Bee Power — energijski geli in izotonični napitki na osnovi 100 % naravnega cvetličnega medu ter z medom sladkane whey beljakovine.',
+  pl: 'Zobacz pełną ofertę Honey Bee Power — żele energetyczne i napoje izotoniczne na bazie 100% naturalnego miodu kwiatowego oraz odżywki białkowe whey słodzone miodem.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
