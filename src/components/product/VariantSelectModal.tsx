@@ -7,7 +7,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from '@/components/ui/dialog'
-import { cn, translateFlavour } from '@/lib/utils'
+import { cn, isVariantInStock, translateFlavour } from '@/lib/utils'
 import type { Locale, ProductSummary, Variant } from '@/types'
 
 // ─── Props ────────────────────────────────────────────────────────────────────
@@ -45,7 +45,7 @@ export default function VariantSelectModal({
 
         <ul role="list" className="mt-2 space-y-2">
           {product.variants.map((variant) => {
-            const outOfStock = variant.stockLevel <= 0
+            const outOfStock = !isVariantInStock(variant)
 
             const label = [translateFlavour(variant.flavour, locale), variant.size]
               .filter(Boolean)

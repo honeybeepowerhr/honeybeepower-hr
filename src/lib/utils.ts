@@ -1,6 +1,6 @@
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import type { Locale } from '@/types'
+import type { Locale, Variant } from '@/types'
 
 /**
  * Merges Tailwind CSS class names intelligently.
@@ -39,4 +39,12 @@ export function translateFlavour(flavour: string, locale: Locale = 'hr'): string
     return match[locale]
   }
   return flavour
+}
+
+/**
+ * The shop takes inquiries rather than orders, so variants don't need a stock
+ * count: an omitted `stockLevel` means "not tracked" and counts as in stock.
+ */
+export function isVariantInStock(variant: Pick<Variant, 'stockLevel'>): boolean {
+  return variant.stockLevel === undefined || variant.stockLevel > 0
 }

@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react'
 import { ShieldCheck, Truck, Clock, Package } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn, isVariantInStock } from '@/lib/utils'
 import { useCartStore } from '@/features/cart/store'
 import VariantSwitcher from './VariantSwitcher'
 import QuantityInput from './QuantityInput'
@@ -58,7 +58,7 @@ export interface ProductInfoProps {
 export default function ProductInfo({ product, locale }: ProductInfoProps) {
   // ── Initialise with first in-stock variant, or first overall ───────────────
   const firstVariant =
-    product.variants.find((v) => v.stockLevel > 0) ?? product.variants[0]
+    product.variants.find(isVariantInStock) ?? product.variants[0]
 
   const [selectedVariantKey, setSelectedVariantKey] = useState<string>(
     firstVariant?._key ?? '',

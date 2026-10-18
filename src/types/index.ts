@@ -71,7 +71,7 @@ export interface Variant {
   gtin?: string
   price: number              // in cents; overrides basePrice when set
   compareAtPrice?: number | null
-  stockLevel: number
+  stockLevel?: number        // omit when stock isn't tracked (inquiry-only shop) — counts as in stock
   imageOverride?: SanityImage | null
   minQuantity?: number       // MOQ for wholesale mode
 }

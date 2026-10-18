@@ -457,7 +457,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Lješnjak-čokolada', size: '700g posuda', sku: 'HBP-WHY-COK-700', gtin: '5904966072352', price: 3800, stockLevel: 50, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Lješnjak-čokolada', size: '700g posuda', sku: 'HBP-WHY-COK-700', gtin: '5904966072352', price: 3800, minQuantity: 5 },
     ],
   },
   {
@@ -496,7 +496,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Banana-vanilija', size: '700g posuda', sku: 'HBP-WHY-BAN-700', gtin: '5904966072345', price: 3800, stockLevel: 50, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Banana-vanilija', size: '700g posuda', sku: 'HBP-WHY-BAN-700', gtin: '5904966072345', price: 3800, minQuantity: 5 },
     ],
   },
   {
@@ -535,7 +535,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Jagoda-šlag', size: '700g posuda', sku: 'HBP-WHY-JAG-700', gtin: '5904966072369', price: 3800, stockLevel: 50, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Jagoda-šlag', size: '700g posuda', sku: 'HBP-WHY-JAG-700', gtin: '5904966072369', price: 3800, minQuantity: 5 },
     ],
   },
 ]

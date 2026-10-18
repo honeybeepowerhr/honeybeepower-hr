@@ -4,6 +4,7 @@ import { useCallback, useState } from 'react'
 import { ShoppingBasket, Check } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useCartStore } from '@/features/cart/store'
+import { isVariantInStock } from '@/lib/utils'
 import type { Locale, ProductSummary } from '@/types'
 
 // ─── Sanity CDN image URL helper ──────────────────────────────────────────────
@@ -37,7 +38,7 @@ export default function ClientAddAllButton({ products, locale }: ClientAddAllBut
     for (const product of products) {
       // Pick first available variant, or fall back to first variant
       const variant =
-        product.variants.find((v) => v.stockLevel > 0) ?? product.variants[0]
+        product.variants.find(isVariantInStock) ?? product.variants[0]
       if (!variant) continue
 
       const name = product.name[locale] ?? product.name.hr

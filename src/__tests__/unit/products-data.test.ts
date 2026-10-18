@@ -33,11 +33,10 @@ describe('REAL_PRODUCTS — catalogue integrity', () => {
     }
   })
 
-  it('gives every variant a positive price and stock level', () => {
+  it('gives every variant a positive price', () => {
     for (const product of REAL_PRODUCTS) {
       for (const variant of product.variants) {
         expect(variant.price, `${variant.sku} price`).toBeGreaterThan(0)
-        expect(variant.stockLevel, `${variant.sku} stock`).toBeGreaterThan(0)
       }
     }
   })
