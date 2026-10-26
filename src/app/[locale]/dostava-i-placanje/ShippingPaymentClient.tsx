@@ -21,7 +21,7 @@ export default function ShippingPaymentClient() {
         </p>
         <ul className="list-disc pl-5 space-y-1">
           <li><strong>Plaćanje pouzećem:</strong> gotovinom pri preuzimanju paketa od kurira.</li>
-          <li><strong>Bankovna doznaka:</strong> uplata na račun Planet Bio d.o.o. prije slanja.</li>
+          <li><strong>Bankovna doznaka:</strong> uplata na račun obrta Planet Bio prije slanja.</li>
         </ul>
 
         <h2 className="text-lg font-bold text-gray-900 pt-4">{t('deliveryTermsTitle')}</h2>

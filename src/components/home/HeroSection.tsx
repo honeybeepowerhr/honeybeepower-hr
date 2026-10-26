@@ -117,14 +117,6 @@ export function HeroSection({ onOpenQuiz }: HeroSectionProps) {
           <Reveal delay={150} variant="scale" className="lg:col-span-5 relative flex justify-center">
             <div ref={tiltRef} className="motion-tilt relative w-full max-w-md aspect-square rounded-3xl bg-gradient-to-tr from-red-500/20 via-orange-400/20 to-amber-300/20 p-6 border-2 border-orange-300/60 shadow-2xl flex items-center justify-center backdrop-blur-sm">
 
-              {/* Decorative Floating 3D Hexagon Badge */}
-              <div className="absolute -top-4 -right-2 sm:-top-6 sm:-right-6 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-red-500 via-orange-500 to-amber-400 text-white flex flex-col items-center justify-center text-center clip-hexagon shadow-2xl p-1.5 transform rotate-12 animate-float-3d select-none">
-                <span className="font-black text-xs sm:text-sm text-yellow-200 leading-none">100%</span>
-                <span className="font-black text-[9px] sm:text-[11px] text-white leading-tight uppercase tracking-wide">
-                  {t('badgeHoney').replace('100%', '').trim()}
-                </span>
-              </div>
-
               <video
                 ref={videoRef}
                 autoPlay
@@ -139,16 +131,6 @@ export function HeroSection({ onOpenQuiz }: HeroSectionProps) {
                 <source src="/videos/product-showcase.webm" type="video/webm" />
                 <source src="/videos/product-showcase.mp4" type="video/mp4" />
               </video>
-
-              <div className="absolute -bottom-4 -left-2 sm:-bottom-6 sm:-left-6 bg-white/95 backdrop-blur-md p-3 sm:p-4 rounded-2xl shadow-2xl border border-orange-200 flex items-center gap-3">
-                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-gradient-to-r from-red-500 via-orange-500 to-amber-500 text-white font-black flex items-center justify-center text-xs sm:text-sm shadow">
-                  100%
-                </div>
-                <div>
-                  <div className="text-[10px] sm:text-xs font-bold text-gray-500 uppercase tracking-wider">Prirodni sastojci</div>
-                  <div className="text-xs sm:text-sm font-extrabold text-gray-900">Domaći med & voće</div>
-                </div>
-              </div>
             </div>
           </Reveal>
 

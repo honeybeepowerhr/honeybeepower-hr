@@ -36,7 +36,7 @@ export default function PrivacyPolicyPage() {
         <h1 className="text-3xl font-black text-gray-900">Politika Privatnosti</h1>
 
         <p>
-          Planet Bio d.o.o. poštuje vašu privatnost i obvezuje se štititi vaše osobne podatke sukladno Općoj uredbi o zaštiti podataka (GDPR, EU 2016/679).
+          Planet Bio, obrt za usluge, vl. Srđan Rebić (Krndijska 4, 31500 Našice) poštuje vašu privatnost i obvezuje se štititi vaše osobne podatke sukladno Općoj uredbi o zaštiti podataka (GDPR, EU 2016/679).
         </p>
 
         <h2 className="text-lg font-bold text-gray-900 pt-4">Prikupljanje podataka</h2>

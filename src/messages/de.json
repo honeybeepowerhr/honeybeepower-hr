@@ -75,34 +75,32 @@
     "switchToWholesale": "Kaufen Sie in großen Mengen? Wechseln Sie zum Großhandel für Mindestbestellmengen."
   },
   "hero": {
-    "heading": "Kraft aus der Natur. Leistung ohne Kompromisse.",
-    "subtitle": "Innovative natürliche Energiegels und isotonische Getränke. Ohne künstliche Süßstoffe, ohne Sucralose — reiner Honig, gefriergetrocknete Früchte und natürliche Elektrolyte.",
-    "ctaPrimary": "Produktangebot durchstöbern",
+    "heading": "Ein Energiegel aus Honig. Drei oder vier Zutaten.",
+    "subtitle": "Energiegels, isotonische Getränke und Whey Protein von APIMAR aus Polen. Die Gels bestehen aus Mehrblütenhonig und gefriergetrockneten Früchten, ohne Sucralose und ohne künstliche Farbstoffe.",
+    "ctaPrimary": "Produkte ansehen",
     "ctaSecondary": "Finde dein Produkt in 5 Fragen",
     "trustNoSucralose": "Ohne Sucralose & Zusatzstoffe",
     "trustFruit": "Gefriergetrocknete Früchte",
-    "trustHoney": "100% Natürlicher Honig",
-    "badgeHoney": "100% HONIG",
-    "athleteRating": "Athleten-Bewertung",
-    "reviewsCount": "Über 1.500+ Bewertungen"
+    "trustHoney": "Mehrblütenhonig als Hauptzutat",
+    "badgeHoney": "HONIG"
   },
   "whyHbp": {
-    "badge": "Warum Honey Bee Power wählen?",
-    "title": "100% Reine Zutaten aus einheimischen Imkereien",
-    "subtitle": "Dein Körper verdient echte Nährstoffe, keine synthetischen Laborzucker und künstlichen Aromen.",
-    "reason1Title": "Heimischer Blütenhonig",
-    "reason1Desc": "Perfektes natürliches Verhältnis von Glukose und Fruktose für sofortige und anhaltende Energie ohne Blutzuckerabsturz.",
+    "badge": "Was im Gel steckt",
+    "title": "Drei oder vier Zutaten, sonst nichts",
+    "subtitle": "Hergestellt von APIMAR in Polen; Planet Bio ist der Vertriebspartner für Kroatien. Die Zutaten stehen auf der Rückseite jeder Packung.",
+    "reason1Title": "Mehrblütenhonig",
+    "reason1Desc": "Honig von polnischen Imkereien macht je nach Sorte 91–95,5 % des Gels aus.",
     "reason2Title": "Echte gefriergetrocknete Früchte",
-    "reason2Desc": "Gefriergetrocknet zur Erhaltung aller natürlichen Vitamine, Mineralien und frischen Geschmacks ohne künstliche Aromen.",
-    "reason3Title": "Magenschonend",
-    "reason3Desc": "Ohne Sucralose und aggressive Konservierungsstoffe formuliert. Verursacht keine Übelkeit oder Magenkrämpfe im Wettkampf.",
-    "reason4Title": "Natürliche Elektrolyte",
-    "reason4Desc": "Angereichert mit reinem Meersalz und natürlichem Natrium für maximale Hydratation und Krampfvorbeugung."
+    "reason2Desc": "Gefriergetrocknete Zitrone, Orange oder Himbeere sorgt für Geschmack und Farbe. Keine künstlichen Farbstoffe.",
+    "reason3Title": "Guarana",
+    "reason3Desc": "Guaranasamenextrakt (1 %) enthält Koffein. Nicht empfohlen für koffeinempfindliche Personen, Schwangere, Stillende und Kinder.",
+    "reason4Title": "Eine Prise Meersalz",
+    "reason4Desc": "Die Gels mit Zitrone und Orange enthalten 0,5 % Meersalz. Das Himbeergel ist ohne Salz."
   },
   "productOffer": {
     "badge": "Unser Produktangebot",
     "title": "Offizielle Honey Bee Power Produkte",
-    "subtitle": "100% natürliche Energiebrennstoffe auf Basis von Honig, gefriergetrockneten Früchten und natürlichen Elektrolyten.",
+    "subtitle": "Energiegels, isotonische Getränke und Whey Protein von APIMAR aus Polen.",
     "viewAll": "Alle Produkte anzeigen",
     "gelBadge": "Energiegel",
     "isoBadge": "Isotonisches Getränk",
@@ -128,10 +126,10 @@
     "cta": "Preisliste anfordern"
   },
   "trust": {
-    "natural": "100% natürlich",
+    "natural": "Keine Sucralose in den Gels",
     "noSucralose": "Ohne Sucralose",
     "delivery": "Lieferung 1–2 Tage",
-    "croatianBrand": "Kroatische Marke"
+    "croatianBrand": "Vertrieb in Kroatien: Planet Bio"
   },
   "product": {
     "addToCart": "In den Warenkorb",
@@ -228,13 +226,13 @@
   "b2bPage": {
     "badge": "B2B-Partnerprogramm",
     "title": "Werden Sie Honey Bee Power Partner",
-    "subtitle": "Bieten Sie Ihren Kunden, Sportlern und Vereinsmitgliedern 100% natürliche Sporternährung auf Honigbasis an. Wir bieten attraktive Mengenkonditionen und schnelle Lieferung.",
-    "benefit1Title": "Attraktive Mengenrabatte",
-    "benefit1Desc": "Spezielle Mengenrabatte für Geschäfte, Apotheken, Fitnessstudios und Sportvereine.",
-    "benefit2Title": "Schnelle Logistik & Lieferung",
-    "benefit2Desc": "Versand aus unserem Lager in Našice innerhalb von 24–48 Stunden für Kroatien und die Region.",
-    "benefit3Title": "Marketingunterstützung & POS",
-    "benefit3Desc": "Kostenlose Werbematerialien und Proben für Verkostungen.",
+    "subtitle": "Für Geschäfte, Apotheken, Fitnessstudios und Sportvereine. Senden Sie uns eine Anfrage, die Konditionen für Mengenbestellungen vereinbaren wir direkt.",
+    "benefit1Title": "Konditionen für Mengenbestellungen",
+    "benefit1Desc": "Die Konditionen richten sich nach Art der Zusammenarbeit und Menge.",
+    "benefit2Title": "Versand aus Našice",
+    "benefit2Desc": "Wir versenden aus unserem Lager in der Krndijska 4 in Našice, meist innerhalb von 1–3 Werktagen nach Bestätigung.",
+    "benefit3Title": "Direkter Kontakt",
+    "benefit3Desc": "Anfragen beantwortet der Vertriebspartner Planet Bio aus Našice.",
     "formTitle": "Antrag auf B2B-Zusammenarbeit",
     "companyLabel": "Firmen- oder Gewerbename *",
     "contactLabel": "Name der Kontaktperson *",
@@ -249,7 +247,7 @@
     "messageLabel": "Nachricht und Details zur Anfrage *",
     "submitBtn": "B2B-Anfrage senden",
     "successTitle": "Vielen Dank für Ihr Interesse!",
-    "successDesc": "Ihre B2B-Anfrage wurde erfolgreich empfangen. Unser Verkaufsteam wird Sie innerhalb von 24 Werktagen kontaktieren."
+    "successDesc": "Ihre B2B-Anfrage ist eingegangen. Wir melden uns so bald wie möglich."
   },
   "whereToBuyPage": {
     "badge": "Verkaufsstellen",
@@ -271,7 +269,7 @@
   "athletesPage": {
     "badge": "Teamstärke",
     "title": "Honey Bee Power Botschafter",
-    "subtitle": "Wir stellen Champions vor, die mit 100% natürlicher Honigenergie ihre Grenzen verschieben.",
+    "subtitle": "Honey Bee Power bei Rennen und Sportveranstaltungen.",
     "achievementsTitle": "Ergebnisse & Erfolge"
   },
   "guidesPage": {
@@ -300,8 +298,8 @@
   },
   "legal": {
     "impressumTitle": "Impressum",
-    "companyName": "Firmenname:",
-    "companyNameVal": "Planet Bio d.o.o. für Handel und Dienstleistungen",
+    "companyName": "Name des Gewerbebetriebs:",
+    "companyNameVal": "Planet Bio, obrt za usluge, vl. Srđan Rebić",
     "address": "Sitz und Adresse:",
     "addressVal": "Krndijska ulica 4, 31500 Našice, Kroatien",
     "contactDetails": "Kontaktdaten:",
@@ -312,12 +310,15 @@
     "shippingTitle": "Lieferung & Zahlung",
     "shippingNotice": "🚚 Versand: Lieferzeit und -kosten vereinbaren wir persönlich nach Bestätigung Ihrer Anfrage.",
     "paymentMethodsTitle": "Zahlungsarten",
-    "deliveryTermsTitle": "Lieferzeiten"
+    "deliveryTermsTitle": "Lieferzeiten",
+    "registrationNumber": "Registernummer des Gewerbes",
+    "manufacturer": "Hersteller der Honey Bee Power Produkte:",
+    "distributorNote": "Planet Bio ist der Vertriebspartner für Honey Bee Power Produkte in Kroatien."
   },
   "quiz": {
     "badge": "Interaktives Produkt-Quiz",
     "heading": "Finden Sie Ihr ideales Produkt in 5 Fragen",
-    "subheading": "Eine schnelle Analyse Ihres Trainings und Hauptziels für 100% natürliche Energie ohne Einbrüche.",
+    "subheading": "Fünf kurze Fragen zu Ihrem Training.",
     "questionOf": "Frage {step} von {total}",
     "percentDone": "{percent}% abgeschlossen",
     "prevQuestion": "Vorherige Frage",
@@ -327,8 +328,8 @@
     "categoryIsotonic": "Isotonisches Getränk",
     "addToCart": "In den Warenkorb",
     "resetQuiz": "Quiz erneut starten",
-    "matchReasonEnergyGel": "Heimischer Blütenhonig mit gefriergetrockneten Früchten liefert eine sofortige, lang anhaltende Energiequelle ohne Einbrüche.",
-    "matchReasonIsotonic": "Ein natürliches isotonisches Getränk mit Honig und Meersalz, ideal zur Hydration und zur Vorbeugung von Krämpfen.",
+    "matchReasonEnergyGel": "Ein 40-g-Gel mit Mehrblütenhonig und gefriergetrockneten Früchten liefert 29–32,8 g Kohlenhydrate.",
+    "matchReasonIsotonic": "Isotonisches Instant-Getränkepulver: 13,5 g Kohlenhydrate pro 15-g-Portion.",
     "questions": {
       "activity": {
         "title": "1. Welcher sportlichen Hauptaktivität gehen Sie nach?",
@@ -356,17 +357,17 @@
         "options": {
           "quick-energy": "Sofortiger Schub schneller Energie ⚡",
           "hydration": "Hydration und Elektrolythaushalt 💧",
-          "cramps": "Vorbeugung von Muskelkrämpfen 🛡️",
+          "cramps": "Erholung nach dem Training 🔄",
           "all-around": "Umfassende Energie und Hydration 🔥"
         }
       },
       "flavour": {
         "title": "4. Was ist Ihr liebster Fruchtgeschmack?",
-        "subtitle": "Alle unsere Geschmacksrichtungen sind 100% natürlich mit gefriergetrockneten Früchten und Honig",
+        "subtitle": "Die Gels enthalten gefriergetrocknete Früchte und Mehrblütenhonig",
         "options": {
           "orange": "Saftige Orange 🍊",
           "lemon": "Erfrischende Zitrone 🍋",
-          "raspberry": "Waldhimbeere 🍓",
+          "raspberry": "Himbeere 🍓",
           "any": "Ich liebe alle natürlichen Honiggeschmäcker 🍯"
         }
       },

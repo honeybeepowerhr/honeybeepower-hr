@@ -137,7 +137,7 @@ export default function B2BClient() {
                   id="companyName"
                   value={formData.companyName}
                   onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                  placeholder="npr. Bio Sport d.o.o."
+                  placeholder="npr. Sportski klub Našice"
                   className={errors.companyName ? 'border-red-500' : ''}
                 />
                 {errors.companyName && (

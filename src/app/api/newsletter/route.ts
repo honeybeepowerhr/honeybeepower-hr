@@ -41,7 +41,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         <h2>Hvala vam na prijavi na Honey Bee Power newsletter!</h2>
         <p>Pratite naše najnovije obavijesti, akcije i savjete za sportske performanse.</p>
         <hr/>
-        <p style="font-size: 12px; color: #888;">Planet Bio d.o.o. | Krndijska ulica 4, 31500 Našice</p>
+        <p style="font-size: 12px; color: #888;">Planet Bio, obrt za usluge | Krndijska 4, 31500 Našice</p>
       </div>
     `,
   })

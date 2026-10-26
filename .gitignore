@@ -58,3 +58,6 @@ planetbioo.jpg
 .wrangler
 .dev.vars*
 !.dev.vars.example
+
+# Podaci kupaca (lokalna rezervna kopija upita), nikad u git
+inquiries-backup.json

@@ -39,13 +39,13 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     category: 'energetski-gelovi',
     minQuantity: 50,
     shortDescription: {
-      hr: 'Prirodni energetski gel na bazi domaćeg cvjetnog meda i prirodnog soka limuna. Brza i dugotrajna energija bez padova.',
-      en: 'Natural energy gel based on local flower honey and natural lemon juice. Fast, sustained energy without sugar crashes.',
-      de: 'Natürliches Energiegel auf Basis von Blütenhonig und Zitronensaft.',
-      sl: 'Naravni energijski gel na osnovi cvetličnega medu in limoninega soka.',
-      pl: 'Naturalny żel energetyczny na bazie lokalnego miodu kwiatowego i soku z cytryny.',
+      hr: 'Energetski gel od 40 g, okus limun: višecvjetni med (94,5 %), liofilizirani plod limuna, ekstrakt sjemenki guarane i morska sol. 29 g ugljikohidrata u jednoj vrećici.',
+      en: '40 g energy gel, lemon flavour: multifloral honey (94.5%), freeze-dried lemon, guarana seed extract and sea salt. 29 g of carbohydrate per sachet.',
+      de: 'Energiegel 40 g, Geschmack Zitrone: Mehrblütenhonig (94,5 %), gefriergetrocknete Zitronenfrucht, Guaranasamenextrakt und Meersalz. 29 g Kohlenhydrate pro Beutel.',
+      sl: 'Energijski gel 40 g, okus limona: večcvetni med (94,5 %), liofiliziran plod limone, izvleček semen guarane in morska sol. 29 g ogljikovih hidratov v eni vrečki.',
+      pl: 'Żel energetyczny 40 g, smak cytryna: miód wielokwiatowy (94.5%), liofilizowany owoc cytryny, ekstrakt z nasion guarany i sól morska. 29 g węglowodanów w jednej saszetce.',
     },
-    basePrice: 249,
+    basePrice: 180,
     mainImage: {
       _type: 'image',
       asset: {
@@ -67,7 +67,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Limun', size: '40g sachet', sku: 'HBP-GEL-LIM-40', price: 249, stockLevel: 100, minQuantity: 50 },
+      { _key: 'v1', flavour: 'Limun', size: '40g sachet', sku: 'HBP-GEL-LIM-40', price: 180, stockLevel: 100, minQuantity: 50 },
       { _key: 'v2', flavour: 'Limun', size: 'Paket 10x40g', sku: 'HBP-GEL-LIM-10', price: 2999, stockLevel: 45, minQuantity: 5 },
     ],
   },
@@ -84,11 +84,11 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     category: 'energetski-gelovi',
     minQuantity: 5,
     shortDescription: {
-      hr: 'Paket od 10 komada prirodnog energetskog gela na bazi domaćeg cvjetnog meda i prirodnog soka limuna. Brza i dugotrajna energija bez padova.',
-      en: 'Pack of 10 natural energy gels based on local flower honey and natural lemon juice. Fast, sustained energy without sugar crashes.',
-      de: 'Paket von 10 natürlichen Energiegels auf Basis von Blütenhonig und Zitronensaft.',
-      sl: 'Paket 10 naravnih energijskih gelov na osnovi cvetličnega medu in limoninega soka.',
-      pl: 'Zestaw 10 naturalnych żeli energetycznych na bazie miodu kwiatowego i soku z cytryny.',
+      hr: 'Paket od 10 gelova po 40 g, okus limun: višecvjetni med (94,5 %), liofilizirani plod limuna, ekstrakt sjemenki guarane i morska sol. 29 g ugljikohidrata u jednoj vrećici.',
+      en: 'Pack of 10 gels, 40 g each, lemon flavour: multifloral honey (94.5%), freeze-dried lemon, guarana seed extract and sea salt. 29 g of carbohydrate per sachet.',
+      de: '10er-Paket, je 40 g, Geschmack Zitrone: Mehrblütenhonig (94,5 %), gefriergetrocknete Zitronenfrucht, Guaranasamenextrakt und Meersalz. 29 g Kohlenhydrate pro Beutel.',
+      sl: 'Paket 10 gelov po 40 g, okus limona: večcvetni med (94,5 %), liofiliziran plod limone, izvleček semen guarane in morska sol. 29 g ogljikovih hidratov v eni vrečki.',
+      pl: 'Zestaw 10 żeli po 40 g, smak cytryna: miód wielokwiatowy (94.5%), liofilizowany owoc cytryny, ekstrakt z nasion guarany i sól morska. 29 g węglowodanów w jednej saszetce.',
     },
     basePrice: 2999,
     mainImage: {
@@ -109,8 +109,6 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     variants: [
       { _key: 'v1', flavour: 'Limun', size: 'Paket 10x40g', sku: 'HBP-GEL-LIM-10P', price: 2999, stockLevel: 80, minQuantity: 5 },
     ],
-    averageRating: 4.9,
-    reviewCount: 24,
   },
   {
     _id: 'hbp-gel-orange',
@@ -125,13 +123,13 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     category: 'energetski-gelovi',
     minQuantity: 50,
     shortDescription: {
-      hr: 'Prirodni energetski gel s medom i sočnom cvjetnom narančom. Savršen omjer fruktoze i glukoze za maksimalnu izdržljivost.',
-      en: 'Natural energy gel with honey and juicy orange. Perfect fructose to glucose ratio for endurance.',
-      de: 'Natürliches Energiegel mit Honig und frischer Orange.',
-      sl: 'Naravni energijski gel z medom in pomarančo.',
-      pl: 'Naturalny żel energetyczny z miodem i soczystą pomarańczą.',
+      hr: 'Energetski gel od 40 g, okus naranča: višecvjetni med (95,5 %), liofilizirani plod naranče, ekstrakt sjemenki guarane i morska sol. 31,2 g ugljikohidrata u jednoj vrećici.',
+      en: '40 g energy gel, orange flavour: multifloral honey (95.5%), freeze-dried orange, guarana seed extract and sea salt. 31.2 g of carbohydrate per sachet.',
+      de: 'Energiegel 40 g, Geschmack Orange: Mehrblütenhonig (95,5 %), gefriergetrocknete Orangenfrucht, Guaranasamenextrakt und Meersalz. 31,2 g Kohlenhydrate pro Beutel.',
+      sl: 'Energijski gel 40 g, okus pomaranča: večcvetni med (95,5 %), liofiliziran plod pomaranče, izvleček semen guarane in morska sol. 31,2 g ogljikovih hidratov v eni vrečki.',
+      pl: 'Żel energetyczny 40 g, smak pomarańcza: miód wielokwiatowy (95.5%), liofilizowany owoc pomarańczy, ekstrakt z nasion guarany i sól morska. 31,2 g węglowodanów w jednej saszetce.',
     },
-    basePrice: 249,
+    basePrice: 180,
     mainImage: {
       _type: 'image',
       asset: {
@@ -153,11 +151,9 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Naranča', size: '40g sachet', sku: 'HBP-GEL-NAR-40', price: 249, stockLevel: 120, minQuantity: 50 },
+      { _key: 'v1', flavour: 'Naranča', size: '40g sachet', sku: 'HBP-GEL-NAR-40', price: 180, stockLevel: 120, minQuantity: 50 },
       { _key: 'v2', flavour: 'Naranča', size: 'Paket 10x40g', sku: 'HBP-GEL-NAR-10', price: 2999, stockLevel: 50, minQuantity: 5 },
     ],
-    averageRating: 5.0,
-    reviewCount: 42,
   },
   {
     _id: 'hbp-gel-orange-pack10',
@@ -172,11 +168,11 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     category: 'energetski-gelovi',
     minQuantity: 5,
     shortDescription: {
-      hr: 'Paket od 10 komada prirodnog energetskog gela s medom i sočnom cvjetnom narančom. Savršen omjer fruktoze i glukoze za maksimalnu izdržljivost.',
-      en: 'Pack of 10 natural energy gels with honey and juicy orange. Perfect fructose to glucose ratio for endurance.',
-      de: 'Paket von 10 natürlichen Energiegels mit Honig und frischer Orange.',
-      sl: 'Paket 10 naravnih energijskih gelov z medom in pomarančo.',
-      pl: 'Zestaw 10 naturalnych żeli energetycznych z miodem i pomarańczą.',
+      hr: 'Paket od 10 gelova po 40 g, okus naranča: višecvjetni med (95,5 %), liofilizirani plod naranče, ekstrakt sjemenki guarane i morska sol. 31,2 g ugljikohidrata u jednoj vrećici.',
+      en: 'Pack of 10 gels, 40 g each, orange flavour: multifloral honey (95.5%), freeze-dried orange, guarana seed extract and sea salt. 31.2 g of carbohydrate per sachet.',
+      de: '10er-Paket, je 40 g, Geschmack Orange: Mehrblütenhonig (95,5 %), gefriergetrocknete Orangenfrucht, Guaranasamenextrakt und Meersalz. 31,2 g Kohlenhydrate pro Beutel.',
+      sl: 'Paket 10 gelov po 40 g, okus pomaranča: večcvetni med (95,5 %), liofiliziran plod pomaranče, izvleček semen guarane in morska sol. 31,2 g ogljikovih hidratov v eni vrečki.',
+      pl: 'Zestaw 10 żeli po 40 g, smak pomarańcza: miód wielokwiatowy (95.5%), liofilizowany owoc pomarańczy, ekstrakt z nasion guarany i sól morska. 31,2 g węglowodanów w jednej saszetce.',
     },
     basePrice: 2999,
     mainImage: {
@@ -197,8 +193,6 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     variants: [
       { _key: 'v1', flavour: 'Naranča', size: 'Paket 10x40g', sku: 'HBP-GEL-NAR-10P', price: 2999, stockLevel: 80, minQuantity: 5 },
     ],
-    averageRating: 5.0,
-    reviewCount: 31,
   },
   {
     _id: 'hbp-gel-raspberry',
@@ -213,13 +207,13 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     category: 'energetski-gelovi',
     minQuantity: 50,
     shortDescription: {
-      hr: 'Prirodni energetski gel s liofiliziranom šumskom malinom i prirodnim elektrolitima. Bez umjetnih aditiva i bez sukraloze.',
-      en: 'Natural energy gel with freeze-dried wild raspberry and natural electrolytes. No artificial additives.',
-      de: 'Natürliches Energiegel mit gefriergetrockneten Himbeeren.',
-      sl: 'Naravni energijski gel z liofiliziranimi malinami.',
-      pl: 'Naturalny żel energetyczny z liofilizowaną maliną leśną i naturalnymi elektrolitami.',
+      hr: 'Energetski gel od 40 g, okus malina: višecvjetni med (91 %), liofilizirani plod maline, ekstrakt sjemenki guarane. 32,8 g ugljikohidrata u jednoj vrećici.',
+      en: '40 g energy gel, raspberry flavour: multifloral honey (91%), freeze-dried raspberry, guarana seed extract. 32.8 g of carbohydrate per sachet.',
+      de: 'Energiegel 40 g, Geschmack Himbeere: Mehrblütenhonig (91 %), gefriergetrocknete Himbeerfrucht, Guaranasamenextrakt. 32,8 g Kohlenhydrate pro Beutel.',
+      sl: 'Energijski gel 40 g, okus malina: večcvetni med (91 %), liofiliziran plod maline, izvleček semen guarane. 32,8 g ogljikovih hidratov v eni vrečki.',
+      pl: 'Żel energetyczny 40 g, smak malina: miód wielokwiatowy (91%), liofilizowany owoc maliny, ekstrakt z nasion guarany. 32,8 g węglowodanów w jednej saszetce.',
     },
-    basePrice: 249,
+    basePrice: 180,
     mainImage: {
       _type: 'image',
       asset: {
@@ -241,11 +235,9 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Malina', size: '40g sachet', sku: 'HBP-GEL-MAL-40', price: 249, stockLevel: 90, minQuantity: 50 },
+      { _key: 'v1', flavour: 'Malina', size: '40g sachet', sku: 'HBP-GEL-MAL-40', price: 180, stockLevel: 90, minQuantity: 50 },
       { _key: 'v2', flavour: 'Malina', size: 'Paket 10x40g', sku: 'HBP-GEL-MAL-10', price: 2999, stockLevel: 40, minQuantity: 5 },
     ],
-    averageRating: 4.8,
-    reviewCount: 29,
   },
   {
     _id: 'hbp-gel-raspberry-pack10',
@@ -260,11 +252,11 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     category: 'energetski-gelovi',
     minQuantity: 5,
     shortDescription: {
-      hr: 'Paket od 10 komada prirodnog energetskog gela s liofiliziranom šumskom malinom i prirodnim elektrolitima. Bez umjetnih aditiva i bez sukraloze.',
-      en: 'Pack of 10 natural energy gels with freeze-dried wild raspberry and natural electrolytes. No artificial additives.',
-      de: 'Paket von 10 natürlichen Energiegels mit gefriergetrockneten Himbeeren.',
-      sl: 'Paket 10 naravnih energijskih gelov z liofiliziranimi malinami.',
-      pl: 'Zestaw 10 naturalnych żeli energetycznych z liofilizowaną maliną leśną.',
+      hr: 'Paket od 10 gelova po 40 g, okus malina: višecvjetni med (91 %), liofilizirani plod maline, ekstrakt sjemenki guarane. 32,8 g ugljikohidrata u jednoj vrećici.',
+      en: 'Pack of 10 gels, 40 g each, raspberry flavour: multifloral honey (91%), freeze-dried raspberry, guarana seed extract. 32.8 g of carbohydrate per sachet.',
+      de: '10er-Paket, je 40 g, Geschmack Himbeere: Mehrblütenhonig (91 %), gefriergetrocknete Himbeerfrucht, Guaranasamenextrakt. 32,8 g Kohlenhydrate pro Beutel.',
+      sl: 'Paket 10 gelov po 40 g, okus malina: večcvetni med (91 %), liofiliziran plod maline, izvleček semen guarane. 32,8 g ogljikovih hidratov v eni vrečki.',
+      pl: 'Zestaw 10 żeli po 40 g, smak malina: miód wielokwiatowy (91%), liofilizowany owoc maliny, ekstrakt z nasion guarany. 32,8 g węglowodanów w jednej saszetce.',
     },
     basePrice: 2999,
     mainImage: {
@@ -285,8 +277,6 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     variants: [
       { _key: 'v1', flavour: 'Malina', size: 'Paket 10x40g', sku: 'HBP-GEL-MAL-10P', price: 2999, stockLevel: 80, minQuantity: 5 },
     ],
-    averageRating: 4.8,
-    reviewCount: 19,
   },
   {
     _id: 'hbp-iso-lemon',
@@ -301,13 +291,13 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     category: 'izotonicki-napitci',
     minQuantity: 5,
     shortDescription: {
-      hr: 'Prirodni izotonični napitak s medom u prahu, prirodnim limunom i morskom solju za brzu nadoknadu elektrolita.',
-      en: 'Natural isotonic drink with honey powder, lemon, and sea salt for rapid electrolyte replenishment.',
-      de: 'Isotonisches Getränk mit Honigpulver und Zitrone.',
-      sl: 'Izotonični napitek z medom v prahu in limono.',
-      pl: 'Naturalny napój izotoniczny z miodem w proszku, cytryną i solą morską.',
+      hr: 'Izotonični napitak u prahu, okus limun. Posuda od 500 g; 13,5 g ugljikohidrata u porciji od 15 g.',
+      en: 'Instant isotonic drink powder, lemon flavour. 500 g tub; 13.5 g of carbohydrate per 15 g serving.',
+      de: 'Isotonisches Instant-Getränkepulver, Geschmack Zitrone. 500-g-Dose; 13,5 g Kohlenhydrate pro 15-g-Portion.',
+      sl: 'Instant izotonični napitek v prahu, okus limona. Embalaža 500 g; 13,5 g ogljikovih hidratov v 15-gramskem obroku.',
+      pl: 'Instant napój izotoniczny w proszku, smak cytryna. Opakowanie 500 g; 13,5 g węglowodanów w porcji 15 g.',
     },
-    basePrice: 1199,
+    basePrice: 800,
     mainImage: {
       _type: 'image',
       asset: {
@@ -329,10 +319,8 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Limun', size: '500g posuda', sku: 'HBP-ISO-LIM-500', price: 1199, stockLevel: 60, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Limun', size: '500g posuda', sku: 'HBP-ISO-LIM-500', price: 800, stockLevel: 60, minQuantity: 5 },
     ],
-    averageRating: 4.9,
-    reviewCount: 33,
   },
   {
     _id: 'hbp-iso-orange',
@@ -347,13 +335,13 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     category: 'izotonicki-napitci',
     minQuantity: 5,
     shortDescription: {
-      hr: 'Prirodni izotonični napitak s medom i prirodnom sočnom narančom. Sprječava grčeve i održava hidraciju u utrci.',
-      en: 'Natural isotonic drink with honey and juicy orange. Prevents cramps and sustains hydration during races.',
-      de: 'Isotonisches Getränk mit Honig und Orange.',
-      sl: 'Izotonični napitek z medom in pomarančo.',
-      pl: 'Naturalny napój izotoniczny z miodem i soczystą pomarańczą.',
+      hr: 'Izotonični napitak u prahu, okus naranča. Posuda od 500 g; 13,5 g ugljikohidrata u porciji od 15 g.',
+      en: 'Instant isotonic drink powder, orange flavour. 500 g tub; 13.5 g of carbohydrate per 15 g serving.',
+      de: 'Isotonisches Instant-Getränkepulver, Geschmack Orange. 500-g-Dose; 13,5 g Kohlenhydrate pro 15-g-Portion.',
+      sl: 'Instant izotonični napitek v prahu, okus pomaranča. Embalaža 500 g; 13,5 g ogljikovih hidratov v 15-gramskem obroku.',
+      pl: 'Instant napój izotoniczny w proszku, smak pomarańcza. Opakowanie 500 g; 13,5 g węglowodanów w porcji 15 g.',
     },
-    basePrice: 1199,
+    basePrice: 800,
     mainImage: {
       _type: 'image',
       asset: {
@@ -375,10 +363,8 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Naranča', size: '500g posuda', sku: 'HBP-ISO-NAR-500', price: 1199, stockLevel: 75, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Naranča', size: '500g posuda', sku: 'HBP-ISO-NAR-500', price: 800, stockLevel: 75, minQuantity: 5 },
     ],
-    averageRating: 5.0,
-    reviewCount: 26,
   },
   {
     _id: 'hbp-iso-duo-shaker',
@@ -393,11 +379,11 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     category: 'izotonicki-napitci',
     minQuantity: 5,
     shortDescription: {
-      hr: 'Paket dva okusa prirodnog izotoničnog napitka (limun i naranča) uz Honey Bee Power shaker. Idealno za brzu nadoknadu elektrolita i hidraciju.',
-      en: 'Pack of two natural isotonic drink flavours (lemon and orange) with a Honey Bee Power shaker included. Ideal for rapid electrolyte replenishment and hydration.',
-      de: 'Paket aus zwei natürlichen isotonischen Getränken (Zitrone und Orange) inklusive Honey Bee Power Shaker.',
-      sl: 'Paket dveh okusov naravnega izotoničnega napitka (limona in pomaranča) s Honey Bee Power shakerjem.',
-      pl: 'Zestaw dwóch smaków naturalnego napoju izotonicznego (cytryna i pomarańcza) z shakerem Honey Bee Power.',
+      hr: 'Paket dva izotonična napitka u prahu, limun i naranča (2 × 500 g), uz Honey Bee Power shaker.',
+      en: 'Two instant isotonic drink powders, lemon and orange (2 × 500 g), with a Honey Bee Power shaker.',
+      de: 'Zwei isotonische Instant-Getränkepulver, Zitrone und Orange (2 × 500 g), mit Honey Bee Power Shaker.',
+      sl: 'Dva instant izotonična napitka v prahu, limona in pomaranča (2 × 500 g), s Honey Bee Power shakerjem.',
+      pl: 'Dwa instant napoje izotoniczne w proszku, cytryna i pomarańcza (2 × 500 g), z shakerem Honey Bee Power.',
     },
     basePrice: 3199,
     mainImage: {
@@ -418,8 +404,6 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     variants: [
       { _key: 'v1', flavour: 'Limun & Naranča', size: '2x500g posuda + Shaker', sku: 'HBP-ISO-DUO-SHK', price: 3199, stockLevel: 40, minQuantity: 5 },
     ],
-    averageRating: 5.0,
-    reviewCount: 12,
   },
   {
     _id: 'hbp-whey-choc-hazelnut-700',
@@ -434,11 +418,11 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     category: 'whey-proteini',
     minQuantity: 5,
     shortDescription: {
-      hr: 'Whey protein zaslađen medom, okus lješnjak-čokolada. Visok udio proteina, jednostavan za pripremu. Dodatak prehrani, posuda od 700 g.',
-      en: 'Honey-sweetened whey protein, hazelnut chocolate flavour. High protein content, easy to prepare. Food supplement, 700 g tub.',
-      de: 'Mit Honig gesüßtes Whey Protein, Geschmack Haselnuss-Schokolade. Hoher Proteingehalt, einfach zuzubereiten. Nahrungsergänzungsmittel, 700-g-Dose.',
-      sl: 'Z medom sladkan whey protein z okusom lešnik-čokolada. Visoka vsebnost beljakovin, enostaven za pripravo. Prehransko dopolnilo, embalaža 700 g.',
-      pl: 'Odżywka białkowa whey słodzona miodem, smak czekolady z orzechami laskowymi. Wysoka zawartość białka, łatwa w przygotowaniu. Suplement diety, opakowanie 700 g.',
+      hr: 'Whey protein sa sušenim medom (6 %) i stevijom, okus lješnjak-čokolada. Posuda od 700 g; oko 22,1 g proteina u porciji od 33 g. Sadrži mlijeko.',
+      en: 'Whey protein with dried honey (6%) and stevia, hazelnut-chocolate flavour. 700 g tub; about 22.1 g of protein per 33 g serving. Contains milk.',
+      de: 'Whey Protein mit getrocknetem Honig (6 %) und Stevia, Geschmack Haselnuss-Schokolade. 700-g-Dose; etwa 22,1 g Protein pro 33-g-Portion. Enthält Milch.',
+      sl: 'Whey protein s sušenim medom (6 %) in stevio, okus lešnik-čokolada. Embalaža 700 g; približno 22,1 g beljakovin v 33-gramskem obroku. Vsebuje mleko.',
+      pl: 'Białko serwatkowe z suszonym miodem (6%) i stewią, smak orzech laskowy z czekoladą. Opakowanie 700 g; około 22.1 g białka w porcji 33 g. Zawiera mleko.',
     },
     basePrice: 3800,
     mainImage: {
@@ -473,11 +457,11 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     category: 'whey-proteini',
     minQuantity: 5,
     shortDescription: {
-      hr: 'Whey protein zaslađen medom, okus banana-vanilija. Visok udio proteina, jednostavan za pripremu. Dodatak prehrani, posuda od 700 g.',
-      en: 'Honey-sweetened whey protein, banana vanilla flavour. High protein content, easy to prepare. Food supplement, 700 g tub.',
-      de: 'Mit Honig gesüßtes Whey Protein, Geschmack Banane-Vanille. Hoher Proteingehalt, einfach zuzubereiten. Nahrungsergänzungsmittel, 700-g-Dose.',
-      sl: 'Z medom sladkan whey protein z okusom banana-vanilija. Visoka vsebnost beljakovin, enostaven za pripravo. Prehransko dopolnilo, embalaža 700 g.',
-      pl: 'Odżywka białkowa whey słodzona miodem, smak bananowy z wanilią. Wysoka zawartość białka, łatwa w przygotowaniu. Suplement diety, opakowanie 700 g.',
+      hr: 'Whey protein sa sušenim medom (6 %) i stevijom, okus banana-vanilija. Posuda od 700 g; oko 22,1 g proteina u porciji od 33 g. Sadrži mlijeko.',
+      en: 'Whey protein with dried honey (6%) and stevia, banana-vanilla flavour. 700 g tub; about 22.1 g of protein per 33 g serving. Contains milk.',
+      de: 'Whey Protein mit getrocknetem Honig (6 %) und Stevia, Geschmack Banane-Vanille. 700-g-Dose; etwa 22,1 g Protein pro 33-g-Portion. Enthält Milch.',
+      sl: 'Whey protein s sušenim medom (6 %) in stevio, okus banana-vanilija. Embalaža 700 g; približno 22,1 g beljakovin v 33-gramskem obroku. Vsebuje mleko.',
+      pl: 'Białko serwatkowe z suszonym miodem (6%) i stewią, smak banan z wanilią. Opakowanie 700 g; około 22.1 g białka w porcji 33 g. Zawiera mleko.',
     },
     basePrice: 3800,
     mainImage: {
@@ -512,11 +496,11 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     category: 'whey-proteini',
     minQuantity: 5,
     shortDescription: {
-      hr: 'Whey protein zaslađen medom, okus jagoda-šlag. Visok udio proteina, jednostavan za pripremu. Dodatak prehrani, posuda od 700 g.',
-      en: 'Honey-sweetened whey protein, strawberry and whipped cream flavour. High protein content, easy to prepare. Food supplement, 700 g tub.',
-      de: 'Mit Honig gesüßtes Whey Protein, Geschmack Erdbeere mit Schlagsahne. Hoher Proteingehalt, einfach zuzubereiten. Nahrungsergänzungsmittel, 700-g-Dose.',
-      sl: 'Z medom sladkan whey protein z okusom jagoda s stepeno smetano. Visoka vsebnost beljakovin, enostaven za pripravo. Prehransko dopolnilo, embalaža 700 g.',
-      pl: 'Odżywka białkowa whey słodzona miodem, smak truskawkowy z bitą śmietaną. Wysoka zawartość białka, łatwa w przygotowaniu. Suplement diety, opakowanie 700 g.',
+      hr: 'Whey protein sa sušenim medom (6 %) i stevijom, okus jagoda-šlag. Posuda od 700 g; oko 22,7 g proteina u porciji od 33 g. Sadrži mlijeko.',
+      en: 'Whey protein with dried honey (6%) and stevia, strawberry-cream flavour. 700 g tub; about 22.7 g of protein per 33 g serving. Contains milk.',
+      de: 'Whey Protein mit getrocknetem Honig (6 %) und Stevia, Geschmack Erdbeere-Sahne. 700-g-Dose; etwa 22,7 g Protein pro 33-g-Portion. Enthält Milch.',
+      sl: 'Whey protein s sušenim medom (6 %) in stevio, okus jagoda-smetana. Embalaža 700 g; približno 22,7 g beljakovin v 33-gramskem obroku. Vsebuje mleko.',
+      pl: 'Białko serwatkowe z suszonym miodem (6%) i stewią, smak truskawka ze śmietaną. Opakowanie 700 g; około 22.7 g białka w porcji 33 g. Zawiera mleko.',
     },
     basePrice: 3800,
     mainImage: {

@@ -3,7 +3,6 @@
 import React from 'react'
 import { useTranslations } from 'next-intl'
 import { Sun, HeartPulse, ShieldCheck, Flame } from 'lucide-react'
-import { ComparisonTable } from './ComparisonTable'
 import { Reveal } from '@/components/motion/Reveal'
 
 export function WhyHBPSection() {
@@ -70,10 +69,6 @@ export function WhyHBPSection() {
           })}
         </div>
 
-        {/* Comparison Table Section */}
-        <Reveal className="max-w-4xl mx-auto">
-          <ComparisonTable />
-        </Reveal>
       </div>
     </section>
   )

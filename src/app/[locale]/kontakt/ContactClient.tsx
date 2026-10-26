@@ -48,7 +48,7 @@ export default function ContactClient() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-amber-50/50 p-8 rounded-3xl border border-amber-200 space-y-6">
-            <h2 className="text-xl font-bold text-gray-900">Planet Bio d.o.o.</h2>
+            <h2 className="text-xl font-bold text-gray-900">Planet Bio, obrt za usluge</h2>
 
             <div className="space-y-4 text-sm text-gray-700">
               <div className="flex items-start gap-3">
@@ -72,9 +72,7 @@ export default function ContactClient() {
                 <div>
                   <strong>{t('emailTitle')}:</strong><br />
                   <a href="mailto:info@planetbio.hr" className="hover:underline text-amber-900">info@planetbio.hr</a>
-                  <br />
-                  <a href="mailto:srdanrebic2101@gmail.com" className="hover:underline text-amber-900">srdanrebic2101@gmail.com</a>
-                  <span className="block text-xs text-gray-500">{t('emailB2BNote')}</span>
+
                 </div>
               </div>
 

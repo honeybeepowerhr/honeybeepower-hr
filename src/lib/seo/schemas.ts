@@ -47,20 +47,7 @@ export function buildProductSchema(
     schema.gtin = firstVariant.gtin
   }
 
-  // Aggregate rating — only when there are reviews
-  if (
-    typeof product.reviewCount === 'number' &&
-    product.reviewCount > 0 &&
-    typeof product.averageRating === 'number'
-  ) {
-    schema.aggregateRating = {
-      '@type': 'AggregateRating',
-      ratingValue: product.averageRating.toFixed(1),
-      reviewCount: product.reviewCount,
-      bestRating: '5',
-      worstRating: '1',
-    }
-  }
+  // Bez AggregateRating i Review dok ne postoje provjerene recenzije stvarnih kupaca.
 
   return schema
 }
@@ -122,7 +109,7 @@ export function buildBreadcrumbSchema(
 // ---------------------------------------------------------------------------
 
 /**
- * Builds a schema.org Organization JSON-LD object for Planet Bio d.o.o.
+ * Builds a schema.org Organization JSON-LD object for Planet Bio (obrt).
  * Carries a stable `@id` so other schemas (WebSite, Product, Article, Store)
  * can reference this same entity instead of repeating its fields.
  */
@@ -134,7 +121,7 @@ export function buildOrganizationSchema(
     '@type': 'Organization',
     '@id': `${siteUrl}/#organization`,
     name: 'Honey Bee Power',
-    legalName: 'Planet Bio d.o.o.',
+    legalName: 'Planet Bio, obrt za usluge, vl. Srđan Rebić',
     url: siteUrl,
     logo: `${siteUrl}/images/logo.png`,
     brand: {
@@ -201,7 +188,7 @@ export function buildStoreSchema(siteUrl: string): Record<string, unknown> {
     '@context': 'https://schema.org',
     '@type': 'Store',
     '@id': `${siteUrl}/#store-nasice`,
-    name: 'Honey Bee Power — Planet Bio d.o.o.',
+    name: 'Honey Bee Power — Planet Bio',
     parentOrganization: { '@id': `${siteUrl}/#organization` },
     image: `${siteUrl}/images/logo.png`,
     url: `${siteUrl}/gdje-kupiti`,

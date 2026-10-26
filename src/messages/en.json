@@ -75,34 +75,32 @@
     "switchToWholesale": "Buying in bulk? Switch to wholesale for bulk order minimums."
   },
   "hero": {
-    "heading": "Power from Nature. Performance Without Compromise.",
-    "subtitle": "Innovative natural energy gels and isotonic drinks. No artificial sweeteners, no sucralose — pure honey, freeze-dried fruit, and natural electrolytes.",
-    "ctaPrimary": "Browse Product Offer",
+    "heading": "An energy gel made from honey. Three or four ingredients.",
+    "subtitle": "Energy gels, isotonic drinks and whey protein made by APIMAR in Poland. The gels are made from multifloral honey and freeze-dried fruit, with no sucralose and no artificial colours.",
+    "ctaPrimary": "See the products",
     "ctaSecondary": "Find your product in 5 questions",
     "trustNoSucralose": "No sucralose & additives",
     "trustFruit": "Freeze-dried fruit",
-    "trustHoney": "100% Natural honey",
-    "badgeHoney": "100% HONEY",
-    "athleteRating": "Athlete rating",
-    "reviewsCount": "Over 1,500+ reviews"
+    "trustHoney": "Multifloral honey as the main ingredient",
+    "badgeHoney": "HONEY"
   },
   "whyHbp": {
-    "badge": "Why Choose Honey Bee Power?",
-    "title": "100% Pure Ingredients from Local Apiaries",
-    "subtitle": "Your body deserves real nutrients, not lab-made synthetic sugars and artificial flavours.",
-    "reason1Title": "Local wildflower honey",
-    "reason1Desc": "Perfect natural glucose to fructose ratio for instant and sustained energy without sugar crashes.",
+    "badge": "What is in the gel",
+    "title": "Three or four ingredients, nothing else",
+    "subtitle": "Made by APIMAR in Poland; Planet Bio is the distributor for Croatia. The ingredients are printed on the back of every pack.",
+    "reason1Title": "Multifloral honey",
+    "reason1Desc": "Honey from Polish apiaries makes up 91–95.5% of the gel, depending on the flavour.",
     "reason2Title": "Real freeze-dried fruit",
-    "reason2Desc": "Freeze-dried to preserve all natural vitamins, minerals, and fresh taste without artificial flavorings.",
-    "reason3Title": "Gentle on stomach",
-    "reason3Desc": "Formulated without sucralose or harsh preservatives. Causes no nausea or stomach cramps during races.",
-    "reason4Title": "Natural electrolytes",
-    "reason4Desc": "Enriched with pure sea salt and natural sodium for maximum hydration and cramp prevention."
+    "reason2Desc": "Freeze-dried lemon, orange or raspberry gives the flavour and colour. No artificial colours.",
+    "reason3Title": "Guarana",
+    "reason3Desc": "Guarana seed extract (1%) contains caffeine. Not recommended for people sensitive to caffeine, pregnant or breastfeeding women, or children.",
+    "reason4Title": "A pinch of sea salt",
+    "reason4Desc": "The lemon and orange gels contain 0.5% sea salt. The raspberry gel has no salt."
   },
   "productOffer": {
     "badge": "Our Product Range",
     "title": "Official Honey Bee Power Products",
-    "subtitle": "100% natural energy fuels based on honey, freeze-dried fruit, and natural electrolytes.",
+    "subtitle": "Energy gels, isotonic drinks and whey protein made by APIMAR in Poland.",
     "viewAll": "View all products",
     "gelBadge": "Energy Gel",
     "isoBadge": "Isotonic Drink",
@@ -128,10 +126,10 @@
     "cta": "Request Price List"
   },
   "trust": {
-    "natural": "100% Natural",
+    "natural": "No sucralose in the gels",
     "noSucralose": "No Sucralose",
     "delivery": "Delivery 1–2 days",
-    "croatianBrand": "Croatian Brand"
+    "croatianBrand": "Distributor for Croatia: Planet Bio"
   },
   "product": {
     "addToCart": "Add to Cart",
@@ -228,13 +226,13 @@
   "b2bPage": {
     "badge": "B2B Partner Program",
     "title": "Become a Honey Bee Power Partner",
-    "subtitle": "Offer your customers, competitors, and club members 100% natural honey-based sports nutrition. We offer attractive bulk-order conditions and fast delivery.",
-    "benefit1Title": "Attractive Bulk Discounts",
-    "benefit1Desc": "Special bulk discounts for shops, pharmacies, gyms, and sports clubs.",
-    "benefit2Title": "Fast Logistics & Delivery",
-    "benefit2Desc": "Dispatch from our warehouse in Našice within 24-48h for Croatia and the region.",
-    "benefit3Title": "Marketing Support & POS",
-    "benefit3Desc": "Free promotional materials and tasting samples.",
+    "subtitle": "For shops, pharmacies, gyms and sports clubs. Send us an enquiry and we will agree terms for volume orders directly.",
+    "benefit1Title": "Terms for volume orders",
+    "benefit1Desc": "Terms are agreed depending on the type of partnership and the quantity.",
+    "benefit2Title": "Shipping from Našice",
+    "benefit2Desc": "We ship from our warehouse at Krndijska 4 in Našice, usually within 1–3 working days of order confirmation.",
+    "benefit3Title": "Direct contact",
+    "benefit3Desc": "Enquiries are answered by the distributor, Planet Bio in Našice.",
     "formTitle": "B2B Partnership Application",
     "companyLabel": "Company or Business Name *",
     "contactLabel": "Contact Person Full Name *",
@@ -249,7 +247,7 @@
     "messageLabel": "Message and Inquiry Details *",
     "submitBtn": "Submit B2B Request",
     "successTitle": "Thank you for your interest!",
-    "successDesc": "Your B2B inquiry has been successfully received. Our sales team will contact you within 24 business hours."
+    "successDesc": "Your B2B enquiry has been received. We will get back to you as soon as possible."
   },
   "whereToBuyPage": {
     "badge": "Retail Locations",
@@ -271,7 +269,7 @@
   "athletesPage": {
     "badge": "Team Strength",
     "title": "Honey Bee Power Ambassadors",
-    "subtitle": "Introducing champions who push their limits with 100% natural honey energy.",
+    "subtitle": "Honey Bee Power at races and sports events.",
     "achievementsTitle": "Results & Achievements"
   },
   "guidesPage": {
@@ -300,8 +298,8 @@
   },
   "legal": {
     "impressumTitle": "Impressum",
-    "companyName": "Company Name:",
-    "companyNameVal": "Planet Bio d.o.o. for Trade and Services",
+    "companyName": "Business name:",
+    "companyNameVal": "Planet Bio, obrt za usluge, vl. Srđan Rebić",
     "address": "Headquarters Address:",
     "addressVal": "Krndijska ulica 4, 31500 Našice, Croatia",
     "contactDetails": "Contact Details:",
@@ -312,12 +310,15 @@
     "shippingTitle": "Shipping & Payment",
     "shippingNotice": "🚚 Shipping: We agree the delivery time and cost with you personally once your inquiry is confirmed.",
     "paymentMethodsTitle": "Payment Methods",
-    "deliveryTermsTitle": "Delivery Times"
+    "deliveryTermsTitle": "Delivery Times",
+    "registrationNumber": "Business registration number",
+    "manufacturer": "Manufacturer of Honey Bee Power products:",
+    "distributorNote": "Planet Bio is the distributor of Honey Bee Power products for Croatia."
   },
   "quiz": {
     "badge": "Interactive Product Quiz",
     "heading": "Find Your Ideal Product in 5 Questions",
-    "subheading": "A quick analysis of your training and primary goal for 100% natural energy without crashes.",
+    "subheading": "Five short questions about your training.",
     "questionOf": "Question {step} of {total}",
     "percentDone": "{percent}% complete",
     "prevQuestion": "Previous question",
@@ -327,8 +328,8 @@
     "categoryIsotonic": "Isotonic Drink",
     "addToCart": "Add to cart",
     "resetQuiz": "Retake the quiz",
-    "matchReasonEnergyGel": "Homemade flower honey with freeze-dried fruit provides an instant, long-lasting energy source without crashes.",
-    "matchReasonIsotonic": "A natural isotonic drink with honey and sea salt, ideal for hydration and preventing cramps.",
+    "matchReasonEnergyGel": "A 40 g gel with multifloral honey and freeze-dried fruit provides 29–32.8 g of carbohydrate.",
+    "matchReasonIsotonic": "Instant isotonic drink powder: 13.5 g of carbohydrate per 15 g serving.",
     "questions": {
       "activity": {
         "title": "1. What is your primary sport activity?",
@@ -356,17 +357,17 @@
         "options": {
           "quick-energy": "Instant burst of fast energy ⚡",
           "hydration": "Hydration and electrolyte balance 💧",
-          "cramps": "Preventing muscle cramps 🛡️",
+          "cramps": "Recovery after training 🔄",
           "all-around": "All-round energy and hydration 🔥"
         }
       },
       "flavour": {
         "title": "4. What is your favourite fruit flavour?",
-        "subtitle": "All our flavours are 100% natural with freeze-dried fruit and honey",
+        "subtitle": "The gels are made with freeze-dried fruit and multifloral honey",
         "options": {
           "orange": "Juicy Orange 🍊",
           "lemon": "Refreshing Lemon 🍋",
-          "raspberry": "Wild Raspberry 🍓",
+          "raspberry": "Raspberry 🍓",
           "any": "I love all natural honey flavours 🍯"
         }
       },

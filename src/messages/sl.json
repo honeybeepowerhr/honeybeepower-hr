@@ -75,34 +75,32 @@
     "switchToWholesale": "Kupujete na veliko? Preklopite na veleprodajo za naročila z najmanjšimi količinami."
   },
   "hero": {
-    "heading": "Moč iz Narave. Zmogljivost brez Kompromisov.",
-    "subtitle": "Inovativni naravni energijski geli in izotonični napitki. Brez umetnih sladil, brez sukraloze — čist med, liofilizirano sadje in naravni elektroliti.",
-    "ctaPrimary": "Oglej si ponudbo izdelkov",
+    "heading": "Energijski gel iz medu. Tri ali štiri sestavine.",
+    "subtitle": "Energijski geli, izotonični napitki in whey protein proizvajalca APIMAR s Poljske. Geli so iz večcvetnega medu in liofiliziranega sadja, brez sukraloze in umetnih barvil.",
+    "ctaPrimary": "Oglej si izdelke",
     "ctaSecondary": "Poišči svoj izdelek v 5 vprašanjih",
     "trustNoSucralose": "Brez sukraloze in dodatkov",
     "trustFruit": "Liofilizirano sadje",
-    "trustHoney": "100% Naraven med",
-    "badgeHoney": "100% MED",
-    "athleteRating": "Ocena športnikov",
-    "reviewsCount": "Več kot 1.500+ ocen"
+    "trustHoney": "Večcvetni med kot glavna sestavina",
+    "badgeHoney": "MED"
   },
   "whyHbp": {
-    "badge": "Zakaj Izbrati Honey Bee Power?",
-    "title": "100% Čiste Sestavine iz Domačih Čebelnjakov",
-    "subtitle": "Vaše telo si zasluži pravo hranilo, ne pa laboratorijskih sintetičnih sladkorjev in umetnih okusov.",
-    "reason1Title": "Domač cvetlični med",
-    "reason1Desc": "Popolno naravno razmerje glukoze in fruktoze za takojšen in dolgotrajen vir energije brez padcev sladkorja.",
+    "badge": "Kaj je v gelu",
+    "title": "Tri ali štiri sestavine, nič drugega",
+    "subtitle": "Proizvajalec je APIMAR s Poljske, Planet Bio je distributer za Hrvaško. Sestava je natisnjena na hrbtni strani vsakega pakiranja.",
+    "reason1Title": "Večcvetni med",
+    "reason1Desc": "Med s poljskih čebelnjakov predstavlja 91–95,5 % gela, odvisno od okusa.",
     "reason2Title": "Pravo liofilizirano sadje",
-    "reason2Desc": "Sušeno z zamrzovanjem za ohranitev vseh naravnih vitaminov, mineralov in svežega okusa brez umetnih arom.",
-    "reason3Title": "Nežno do želodca",
-    "reason3Desc": "Formulirano brez sukraloze in agresivnih konzervansov. Ne povzroča slabosti ali želodčnih krčev med tekmo.",
-    "reason4Title": "Naravni elektroliti",
-    "reason4Desc": "Obogateno s čisto morsko soljo in naravnim natrijem za maksimalno hidracijo in preprečevanje krčev."
+    "reason2Desc": "Liofilizirana limona, pomaranča ali malina daje okus in barvo. Brez umetnih barvil.",
+    "reason3Title": "Guarana",
+    "reason3Desc": "Izvleček semen guarane (1 %) vsebuje kofein. Ni priporočljivo za osebe, občutljive na kofein, nosečnice, doječe matere in otroke.",
+    "reason4Title": "Ščepec morske soli",
+    "reason4Desc": "Gela z limono in pomarančo vsebujeta 0,5 % morske soli. Gel z malino je brez soli."
   },
   "productOffer": {
     "badge": "Naša Ponudba Izdelkov",
     "title": "Uradni Honey Bee Power Izdelki",
-    "subtitle": "Sto odstotno naravna energijska goriva na osnovi medu, liofiliziranega sadja in naravnih elektrolitov.",
+    "subtitle": "Energijski geli, izotonični napitki in whey protein proizvajalca APIMAR s Poljske.",
     "viewAll": "Oglej si vse izdelke",
     "gelBadge": "Energijski Gel",
     "isoBadge": "Izotonični Napitek",
@@ -128,10 +126,10 @@
     "cta": "Zahtevaj Cenik"
   },
   "trust": {
-    "natural": "100% naravno",
+    "natural": "Brez sukraloze v gelih",
     "noSucralose": "Brez sukraloze",
     "delivery": "Dostava 1–2 dni",
-    "croatianBrand": "Hrvaška blagovna znamka"
+    "croatianBrand": "Distributer za Hrvaško: Planet Bio"
   },
   "product": {
     "addToCart": "Dodaj v košarico",
@@ -228,13 +226,13 @@
   "b2bPage": {
     "badge": "B2B Partner Program",
     "title": "Postanite Partner Honey Bee Power",
-    "subtitle": "Ponudite svojim strankam, tekmovalcem in članom kluba 100% naravno športno prehrano na osnovi medu. Nudimo privlačne pogoje za količinska naročila in hitro dostavo.",
-    "benefit1Title": "Privlačni Popusti na Količino",
-    "benefit1Desc": "Posebni popusti na količino za trgovine, lekarne, fitnes centre in športne klube.",
-    "benefit2Title": "Hitra Logistika in Dostava",
-    "benefit2Desc": "Dostava iz skladišča v Našicah v 24–48 urah za Hrvaško in regijo.",
-    "benefit3Title": "Marketinška Podpora in POS",
-    "benefit3Desc": "Brezplačna promocijska gradiva in vzorci za degustacijo.",
+    "subtitle": "Za trgovine, lekarne, fitnes centre in športne klube. Pošljite povpraševanje, pogoje za količinska naročila dogovorimo neposredno.",
+    "benefit1Title": "Pogoji za količinska naročila",
+    "benefit1Desc": "Pogoje dogovorimo glede na vrsto sodelovanja in količino.",
+    "benefit2Title": "Dostava iz Našic",
+    "benefit2Desc": "Pošiljamo iz skladišča na Krndijski 4 v Našicah, običajno v 1–3 delovnih dneh po potrditvi naročila.",
+    "benefit3Title": "Neposreden stik",
+    "benefit3Desc": "Na povpraševanja odgovarja distributer Planet Bio iz Našic.",
     "formTitle": "Prijavnica za B2B Sodelovanje",
     "companyLabel": "Ime podjetja ali obrti *",
     "contactLabel": "Ime in priimek kontaktne osebe *",
@@ -249,7 +247,7 @@
     "messageLabel": "Sporočilo in podrobnosti vprašanja *",
     "submitBtn": "Pošlji B2B Zahtevo",
     "successTitle": "Zahvaljujemo se za zanimanje!",
-    "successDesc": "Vaše B2B vprašanje je bilo uspešno prejeto. Naša prodajna ekipa vas bo kontaktirala v 24 delovnih urah."
+    "successDesc": "Vaše B2B povpraševanje smo prejeli. Oglasili se bomo čim prej."
   },
   "whereToBuyPage": {
     "badge": "Prodajna Mesta",
@@ -271,7 +269,7 @@
   "athletesPage": {
     "badge": "Ekipna Moč",
     "title": "Honey Bee Power Ambasadorji",
-    "subtitle": "Predstavljamo šampione, ki premikajo lastne meje s 100% naravno energijo medu.",
+    "subtitle": "Honey Bee Power na tekmah in športnih dogodkih.",
     "achievementsTitle": "Rezultati in Dosežki"
   },
   "guidesPage": {
@@ -300,8 +298,8 @@
   },
   "legal": {
     "impressumTitle": "Impresum",
-    "companyName": "Ime podjetja:",
-    "companyNameVal": "Planet Bio d.o.o. za trgovino in storitve",
+    "companyName": "Ime obrti:",
+    "companyNameVal": "Planet Bio, obrt za usluge, vl. Srđan Rebić",
     "address": "Sedež in naslov:",
     "addressVal": "Krndijska ulica 4, 31500 Našice, Hrvaška",
     "contactDetails": "Kontaktni podatki:",
@@ -312,12 +310,15 @@
     "shippingTitle": "Dostava in Plačilo",
     "shippingNotice": "🚚 Dostava: Rok in strošek dostave se dogovorimo osebno po potrditvi vašega povpraševanja.",
     "paymentMethodsTitle": "Načini Plačila",
-    "deliveryTermsTitle": "Roki Dostave"
+    "deliveryTermsTitle": "Roki Dostave",
+    "registrationNumber": "Matična številka obrti",
+    "manufacturer": "Proizvajalec izdelkov Honey Bee Power:",
+    "distributorNote": "Planet Bio je distributer izdelkov Honey Bee Power za Hrvaško."
   },
   "quiz": {
     "badge": "Interaktivni kviz izdelkov",
     "heading": "Poiščite svoj idealni izdelek v 5 vprašanjih",
-    "subheading": "Hitra analiza vašega treninga in glavnega cilja za 100% naravno energijo brez padcev.",
+    "subheading": "Pet kratkih vprašanj o vašem treningu.",
     "questionOf": "Vprašanje {step} od {total}",
     "percentDone": "{percent}% dokončano",
     "prevQuestion": "Prejšnje vprašanje",
@@ -327,8 +328,8 @@
     "categoryIsotonic": "Izotonična pijača",
     "addToCart": "Dodaj v košarico",
     "resetQuiz": "Znova rešite kviz",
-    "matchReasonEnergyGel": "Domači cvetlični med z liofiliziranim sadjem zagotavlja takojšen in dolgotrajen vir energije brez padcev.",
-    "matchReasonIsotonic": "Naravna izotonična pijača z medom in morsko soljo je idealna za hidracijo in preprečevanje krčev.",
+    "matchReasonEnergyGel": "Gel 40 g z večcvetnim medom in liofiliziranim sadjem vsebuje 29–32,8 g ogljikovih hidratov.",
+    "matchReasonIsotonic": "Instant izotonični napitek v prahu: 13,5 g ogljikovih hidratov v 15-gramskem obroku.",
     "questions": {
       "activity": {
         "title": "1. S katero primarno športno aktivnostjo se ukvarjate?",
@@ -356,17 +357,17 @@
         "options": {
           "quick-energy": "Takojšen naval hitre energije ⚡",
           "hydration": "Hidracija in ravnovesje elektrolitov 💧",
-          "cramps": "Preprečevanje mišičnih krčev 🛡️",
+          "cramps": "Obnova po treningu 🔄",
           "all-around": "Celovita energija in hidracija 🔥"
         }
       },
       "flavour": {
         "title": "4. Kateri je vaš najljubši sadni okus?",
-        "subtitle": "Vsi naši okusi so 100% naravni z liofiliziranim sadjem in medom",
+        "subtitle": "Geli vsebujejo liofilizirano sadje in večcvetni med",
         "options": {
           "orange": "Sočna pomaranča 🍊",
           "lemon": "Osvežujoča limona 🍋",
-          "raspberry": "Gozdna malina 🍓",
+          "raspberry": "Malina 🍓",
           "any": "Obožujem vse naravne okuse medu 🍯"
         }
       },

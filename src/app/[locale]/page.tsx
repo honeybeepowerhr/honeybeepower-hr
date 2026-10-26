@@ -16,29 +16,29 @@ export const revalidate = 60 // ISR revalidate every 60s
 
 const COPY: Record<Locale, { title: string; description: string }> = {
   hr: {
-    title: 'Honey Bee Power — Prirodna Sportska Prehrana na Bazi Meda',
+    title: 'Honey Bee Power: energetski gel od meda',
     description:
-      'Prirodni energetski gelovi i izotonični napitci na bazi 100% cvjetnog meda — bez sukraloze i umjetnih aditiva. Hrvatski brend, proizvedeno u Poljskoj, dostava diljem regije.',
+      'Energetski gelovi od višecvjetnog meda i liofiliziranog voća, izotonični napitci i whey protein. Proizvođač APIMAR (Poljska), distributer za Hrvatsku Planet Bio.',
   },
   en: {
-    title: 'Honey Bee Power — Natural Honey-Based Sports Nutrition',
+    title: 'Honey Bee Power: honey-based energy gels',
     description:
-      'Natural energy gels and isotonic drinks made with 100% flower honey — no sucralose, no artificial additives. Croatian brand, made in Poland, shipped across Europe.',
+      'Energy gels made from multifloral honey and freeze-dried fruit, isotonic drinks and whey protein. Made by APIMAR (Poland), distributed in Croatia by Planet Bio.',
   },
   de: {
-    title: 'Honey Bee Power — Natürliche Sporternährung auf Honigbasis',
+    title: 'Honey Bee Power: Energiegel aus Honig',
     description:
-      'Natürliche Energiegels und isotonische Getränke aus 100% Blütenhonig — ohne Sucralose, ohne künstliche Zusätze. Kroatische Marke, hergestellt in Polen.',
+      'Energiegels aus Mehrblütenhonig und gefriergetrockneten Früchten, isotonische Getränke und Whey Protein. Hersteller APIMAR (Polen), Vertrieb in Kroatien: Planet Bio.',
   },
   sl: {
-    title: 'Honey Bee Power — Naravna Športna Prehrana na Osnovi Medu',
+    title: 'Honey Bee Power: energijski gel iz medu',
     description:
-      'Naravni energijski geli in izotonični napitki na osnovi 100 % cvetličnega medu — brez sukraloze in umetnih dodatkov. Hrvaška blagovna znamka, izdelano na Poljskem.',
+      'Energijski geli iz večcvetnega medu in liofiliziranega sadja, izotonični napitki in whey protein. Proizvajalec APIMAR (Poljska), distributer za Hrvaško Planet Bio.',
   },
   pl: {
-    title: 'Honey Bee Power — Naturalne Odżywki Sportowe na Bazie Miodu',
+    title: 'Honey Bee Power: żel energetyczny z miodu',
     description:
-      'Naturalne żele energetyczne i napoje izotoniczne na bazie 100% miodu kwiatowego — bez sukralozy i sztucznych dodatków. Chorwacka marka, produkowane w Polsce.',
+      'Żele energetyczne z miodu wielokwiatowego i liofilizowanych owoców, napoje izotoniczne i białko serwatkowe. Producent APIMAR (Polska), dystrybutor w Chorwacji Planet Bio.',
   },
 }
 

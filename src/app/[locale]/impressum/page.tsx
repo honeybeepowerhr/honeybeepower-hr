@@ -14,11 +14,11 @@ const TITLES: Record<Locale, string> = {
 }
 
 const DESCRIPTIONS: Record<Locale, string> = {
-  hr: 'Impressum — podaci o trgovačkom društvu Planet Bio d.o.o., vlasniku brenda Honey Bee Power. Adresa, OIB i kontakt podaci.',
-  en: 'Legal notice — company details for Planet Bio d.o.o., owner of the Honey Bee Power brand. Registered address, tax ID and contact information.',
-  de: 'Impressum — Firmenangaben zu Planet Bio d.o.o., Inhaber der Marke Honey Bee Power. Anschrift, Steuernummer und Kontaktdaten.',
-  sl: 'Impresum — podatki o podjetju Planet Bio d.o.o., lastniku znamke Honey Bee Power. Naslov, davčna številka in kontaktni podatki.',
-  pl: 'Nota prawna — dane spółki Planet Bio d.o.o., właściciela marki Honey Bee Power. Adres, NIP i dane kontaktowe.',
+  hr: 'Impressum: Planet Bio, obrt za usluge iz Našica, distributer Honey Bee Power proizvoda za Hrvatsku. Adresa, OIB, matični broj i kontakt.',
+  en: 'Legal notice: Planet Bio, a sole-trader business in Našice and distributor of Honey Bee Power products for Croatia. Address, tax ID and contact.',
+  de: 'Impressum: Planet Bio, Gewerbebetrieb in Našice und Vertriebspartner für Honey Bee Power Produkte in Kroatien. Anschrift, Steuernummer und Kontakt.',
+  sl: 'Impresum: Planet Bio, obrt iz Našic, distributer izdelkov Honey Bee Power za Hrvaško. Naslov, davčna številka in kontakt.',
+  pl: 'Nota prawna: Planet Bio, działalność gospodarcza z Našic, dystrybutor produktów Honey Bee Power w Chorwacji. Adres, NIP i kontakt.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {

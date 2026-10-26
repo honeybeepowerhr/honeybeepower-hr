@@ -1,18 +1,18 @@
 export const FAQS = [
   {
-    q: 'Zašto je med bolji od kemijskih gelova?',
-    a: 'Med pruža prirodnu kombinaciju glukoze i fruktoze koja omogucava maksimalnu apsorpciju energije bez teškog osjećaja i grčeva u želucu.',
+    q: 'Što je u Honey Bee Power energetskom gelu?',
+    a: 'Gel ima tri ili četiri sastojka: višecvjetni med (91–95,5 %), liofilizirano voće (limun, naranča ili malina), ekstrakt sjemenki guarane i morsku sol. Gel s malinom nema soli. Točan sastav s postocima piše na stranici svakog gela.',
   },
   {
     q: 'Sadrže li proizvodi umjetne zaslađivače poput sukraloze?',
-    a: 'Apsolutno ne! Svi Honey Bee Power proizvodi su 100% prirodni, zaslađeni isključivo prirodnim cvjetnim medom.',
+    a: 'Gelovi ne sadrže sukralozu ni umjetna sladila: sladi ih višecvjetni med. Whey protein sadrži sušeni med (6 %) i steviju, a sadrži i mlijeko (alergen).',
   },
   {
     q: 'Koliko traje dostava?',
-    a: 'Uobičajeni rok dostave unutar Hrvatske je 1-3 radna dana.',
+    a: 'Šaljemo iz skladišta u Našicama. Uobičajeni rok dostave unutar Hrvatske je 1–3 radna dana nakon što potvrdimo narudžbu.',
   },
   {
-    q: 'Kako se koristi Honey Power Energy Gel?',
-    a: 'Preporučujemo uzimanje 1 gela 15 minuta prije početka aktivnosti te po 1 gel svakih 30-45 minuta tijekom jakog napora.',
+    q: 'Kako se koristi energetski gel?',
+    a: 'Prema deklaraciji: uzeti 1 obrok (40 g) nakon vježbanja ili fizičkog napora. Gel sadrži kofein iz guarane, pa se ne preporučuje osobama osjetljivim na kofein, trudnicama, dojiljama i djeci.',
   },
 ]

@@ -10,6 +10,8 @@ import ProductImageGallery from './ProductImageGallery'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { buildProductSchema, buildBreadcrumbSchema } from '@/lib/seo/schemas'
 import { pageMetadata, localeUrl } from '@/lib/seo/site'
+import { getDeclaration } from '@/lib/declarations'
+import GelDeclaration from './GelDeclaration'
 
 export const revalidate = 60
 
@@ -17,25 +19,25 @@ const KNOWN_CATEGORIES = PRODUCT_CATEGORIES
 
 const CATEGORY_DESCRIPTIONS: Record<string, Record<Locale, string>> = {
   'energetski-gelovi': {
-    hr: 'Energetski gelovi na bazi 100% prirodnog cvjetnog meda — bez sukraloze i umjetnih boja. Idealni za maraton, biciklizam i triatlon.',
-    en: 'Energy gels made with 100% natural flower honey — no sucralose, no artificial colours. Ideal for marathons, cycling and triathlon.',
-    de: 'Energiegels auf Basis von 100% natürlichem Blütenhonig — ohne Sucralose, ohne künstliche Farbstoffe. Ideal für Marathon und Radsport.',
-    sl: 'Energijski geli na osnovi 100 % naravnega cvetličnega medu — brez sukraloze in umetnih barvil. Idealni za maraton in kolesarjenje.',
-    pl: 'Żele energetyczne na bazie 100% naturalnego miodu kwiatowego — bez sukralozy i sztucznych barwników. Idealne na maraton i kolarstwo.',
+    hr: 'Energetski gelovi od 40 g s tri ili četiri sastojka: višecvjetni med (91–95,5 %), liofilizirano voće, ekstrakt sjemenki guarane i morska sol. Bez sukraloze i umjetnih boja.',
+    en: '40 g energy gels with three or four ingredients: multifloral honey (91–95.5%), freeze-dried fruit, guarana seed extract and sea salt. No sucralose, no artificial colours.',
+    de: 'Energiegels à 40 g mit drei oder vier Zutaten: Mehrblütenhonig (91–95,5 %), gefriergetrocknete Früchte, Guaranasamenextrakt und Meersalz. Ohne Sucralose und künstliche Farbstoffe.',
+    sl: 'Energijski geli po 40 g s tremi ali štirimi sestavinami: večcvetni med (91–95,5 %), liofilizirano sadje, izvleček semen guarane in morska sol. Brez sukraloze in umetnih barvil.',
+    pl: 'Żele energetyczne 40 g z trzema lub czterema składnikami: miód wielokwiatowy (91–95,5%), liofilizowane owoce, ekstrakt z nasion guarany i sól morska. Bez sukralozy i sztucznych barwników.',
   },
   'izotonicki-napitci': {
-    hr: 'Izotonični napitci s medom i morskom solju za brzu nadoknadu elektrolita i hidrataciju tijekom treninga i utrka.',
-    en: 'Isotonic drinks with honey and sea salt for fast electrolyte replenishment and hydration during training and races.',
-    de: 'Isotonische Getränke mit Honig und Meersalz für schnellen Elektrolytausgleich beim Training und Wettkampf.',
-    sl: 'Izotonični napitki z medom in morsko soljo za hitro nadomeščanje elektrolitov med treningom in tekmami.',
-    pl: 'Napoje izotoniczne z miodem i solą morską do szybkiego uzupełniania elektrolitów podczas treningu i zawodów.',
+    hr: 'Izotonični napitci u prahu, okusi limun i naranča. Posuda od 500 g ili vrećica od 15 g; 13,5 g ugljikohidrata u porciji od 15 g.',
+    en: 'Instant isotonic drink powders in lemon and orange. 500 g tub or 15 g sachet; 13.5 g of carbohydrate per 15 g serving.',
+    de: 'Isotonische Instant-Getränkepulver mit Zitrone und Orange. 500-g-Dose oder 15-g-Beutel; 13,5 g Kohlenhydrate pro 15-g-Portion.',
+    sl: 'Instant izotonični napitki v prahu z okusom limone in pomaranče. Embalaža 500 g ali vrečka 15 g; 13,5 g ogljikovih hidratov v 15-gramskem obroku.',
+    pl: 'Instant napoje izotoniczne w proszku o smaku cytrynowym i pomarańczowym. Opakowanie 500 g lub saszetka 15 g; 13,5 g węglowodanów w porcji 15 g.',
   },
   'whey-proteini': {
-    hr: 'Whey proteini zaslađeni medom u okusima lješnjak-čokolada, banana-vanilija i jagoda-šlag. Dodatak prehrani za sportaše i rekreativce, posuda od 700 g.',
-    en: 'Honey-sweetened whey proteins in hazelnut chocolate, banana vanilla and strawberry cream flavours. Food supplement for athletes and fitness enthusiasts, 700 g tubs.',
-    de: 'Mit Honig gesüßte Whey Proteine in den Geschmacksrichtungen Haselnuss-Schokolade, Banane-Vanille und Erdbeere-Sahne. Nahrungsergänzungsmittel für Sportler, 700-g-Dosen.',
-    sl: 'Z medom sladkane whey beljakovine z okusi lešnik-čokolada, banana-vanilija in jagoda-smetana. Prehransko dopolnilo za športnike in rekreativce, embalaža 700 g.',
-    pl: 'Odżywki białkowe whey słodzone miodem o smakach czekolada z orzechami laskowymi, banan z wanilią i truskawka ze śmietaną. Suplement diety dla sportowców, opakowania 700 g.',
+    hr: 'Whey protein sa sušenim medom (6 %) i stevijom, okusi lješnjak-čokolada, banana-vanilija i jagoda-šlag. Posuda od 700 g. Sadrži mlijeko.',
+    en: 'Whey protein with dried honey (6%) and stevia in hazelnut-chocolate, banana-vanilla and strawberry-cream. 700 g tub. Contains milk.',
+    de: 'Whey Protein mit getrocknetem Honig (6 %) und Stevia in Haselnuss-Schokolade, Banane-Vanille und Erdbeere-Sahne. 700-g-Dose. Enthält Milch.',
+    sl: 'Whey protein s sušenim medom (6 %) in stevio, okusi lešnik-čokolada, banana-vanilija in jagoda-smetana. Embalaža 700 g. Vsebuje mleko.',
+    pl: 'Białko serwatkowe z suszonym miodem (6%) i stewią, smaki orzech laskowy z czekoladą, banan z wanilią i truskawka ze śmietaną. Opakowanie 700 g. Zawiera mleko.',
   },
 }
 
@@ -122,25 +124,25 @@ export default async function ProductOrCategoryPage({ params }: PageProps) {
       pl: 'recenzji',
     },
     feature1: {
-      hr: '100% Prirodni cvjetni med',
-      en: '100% Natural flower honey',
-      de: '100% Natürlicher Blütenhonig',
-      sl: '100% Naravni cvetlični med',
-      pl: '100% Naturalny miód kwiatowy',
+      hr: 'Višecvjetni med (91–95,5 %)',
+      en: 'Multifloral honey (91–95.5%)',
+      de: 'Mehrblütenhonig (91–95,5 %)',
+      sl: 'Večcvetni med (91–95,5 %)',
+      pl: 'Miód wielokwiatowy (91–95,5%)',
     },
     feature2: {
-      hr: 'Bez sukraloze & bez sintetičkih boja',
-      en: 'No sucralose & no synthetic colors',
-      de: 'Ohne Sucralose & ohne synthetische Farbstoffe',
+      hr: 'Bez sukraloze i umjetnih boja',
+      en: 'No sucralose, no artificial colours',
+      de: 'Ohne Sucralose und künstliche Farbstoffe',
       sl: 'Brez sukraloze in sintetičnih barvil',
       pl: 'Bez sukralozy i syntetycznych barwników',
     },
     feature3: {
-      hr: 'Prirodni elektroliti i liofilizirano voće',
-      en: 'Natural electrolytes & freeze-dried fruit',
-      de: 'Natürliche Elektrolyte & gefriergetrocknete Früchte',
-      sl: 'Naravni elektroliti in zmrzovalno posušeno sadje',
-      pl: 'Naturalne elektrolity i owoce liofilizowane',
+      hr: 'Liofilizirano voće',
+      en: 'Freeze-dried fruit',
+      de: 'Gefriergetrocknete Früchte',
+      sl: 'Liofilizirano sadje',
+      pl: 'Owoce liofilizowane',
     },
     gelBadge: {
       hr: 'Energetski Gel',
@@ -164,25 +166,25 @@ export default async function ProductOrCategoryPage({ params }: PageProps) {
       pl: 'Białko serwatkowe',
     },
     wheyFeature1: {
-      hr: 'Whey protein zaslađen medom',
-      en: 'Honey-sweetened whey protein',
-      de: 'Mit Honig gesüßtes Whey Protein',
-      sl: 'Z medom sladkan whey protein',
-      pl: 'Odżywka białkowa whey słodzona miodem',
+      hr: 'Sušeni med (6 %) i stevija',
+      en: 'Dried honey (6%) and stevia',
+      de: 'Getrockneter Honig (6 %) und Stevia',
+      sl: 'Sušen med (6 %) in stevia',
+      pl: 'Suszony miód (6%) i stewia',
     },
     wheyFeature2: {
-      hr: 'Visok udio proteina',
-      en: 'High protein content',
-      de: 'Hoher Proteingehalt',
-      sl: 'Visoka vsebnost beljakovin',
-      pl: 'Wysoka zawartość białka',
+      hr: 'Oko 22 g proteina u porciji od 33 g',
+      en: 'About 22 g of protein per 33 g serving',
+      de: 'Etwa 22 g Protein pro 33-g-Portion',
+      sl: 'Približno 22 g beljakovin v 33-gramskem obroku',
+      pl: 'Około 22 g białka w porcji 33 g',
     },
     wheyFeature3: {
-      hr: 'Odličan okus, jednostavan za pripremu',
-      en: 'Great taste, easy to prepare',
-      de: 'Hervorragender Geschmack, einfach zuzubereiten',
-      sl: 'Odličen okus, enostaven za pripravo',
-      pl: 'Doskonały smak, łatwa w przygotowaniu',
+      hr: 'Sadrži mlijeko (alergen)',
+      en: 'Contains milk (allergen)',
+      de: 'Enthält Milch (Allergen)',
+      sl: 'Vsebuje mleko (alergen)',
+      pl: 'Zawiera mleko (alergen)',
     },
   }
 
@@ -256,9 +258,14 @@ export default async function ProductOrCategoryPage({ params }: PageProps) {
       : isWhey
         ? LABELS.wheyBadge
         : LABELS.isoBadge
+  const isGel = product.category === 'energetski-gelovi'
+  // Izotonik: sastav još nije potvrđen, pa bez popisa značajki.
   const features = isWhey
     ? [LABELS.wheyFeature1, LABELS.wheyFeature2, LABELS.wheyFeature3]
-    : [LABELS.feature1, LABELS.feature2, LABELS.feature3]
+    : isGel
+      ? [LABELS.feature1, LABELS.feature2, LABELS.feature3]
+      : []
+  const declaration = isGel ? getDeclaration(product.slug) : undefined
   const productSchema = buildProductSchema(product, currentLocale)
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: 'Početna', url: localeUrl(currentLocale, '/') },
@@ -319,6 +326,8 @@ export default async function ProductOrCategoryPage({ params }: PageProps) {
             </div>
           </div>
         </div>
+
+        {declaration && <GelDeclaration declaration={declaration} locale={currentLocale} />}
       </div>
     </div>
   )

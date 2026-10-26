@@ -87,9 +87,9 @@ export default function Footer() {
             {/* Contact details */}
             <address
               className="not-italic text-sm text-gray-400 space-y-1"
-              aria-label="Kontakt podaci Planet Bio d.o.o."
+              aria-label="Kontakt podaci Planet Bio"
             >
-              <p className="font-semibold text-gray-200">Planet Bio d.o.o.</p>
+              <p className="font-semibold text-gray-200">Planet Bio, obrt za usluge</p>
               <p>Krndijska ulica 4</p>
               <p>31500 Našice, Hrvatska</p>
               <a
@@ -98,13 +98,6 @@ export default function Footer() {
                 aria-label="Pošalji e-mail na info@planetbio.hr"
               >
                 info@planetbio.hr
-              </a>
-              <a
-                href="mailto:srdanrebic2101@gmail.com"
-                className="block hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded"
-                aria-label="Pošalji e-mail za B2B upite na srdanrebic2101@gmail.com"
-              >
-                srdanrebic2101@gmail.com
               </a>
               <a
                 href="tel:+385977097962"
@@ -235,7 +228,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
           <p>
-            &copy; {currentYear} Planet Bio d.o.o. — {t('rights')}.
+            &copy; {currentYear} Planet Bio, obrt za usluge — {t('rights')}.
           </p>
           <div className="flex items-center gap-4">
             <Link

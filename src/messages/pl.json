@@ -75,34 +75,32 @@
     "switchToWholesale": "Kupujesz hurtowo? Przełącz się na hurt dla minimalnych ilości zamówienia."
   },
   "hero": {
-    "heading": "Moc z Natury. Wydajność Bez Kompromisów.",
-    "subtitle": "Innowacyjne naturalne żele energetyczne i napoje izotoniczne. Bez sztucznych słodzików, bez sukralozy — czysty miód, liofilizowane owoce i naturalne elektrolity.",
-    "ctaPrimary": "Zobacz Ofertę Produktów",
+    "heading": "Żel energetyczny z miodu. Trzy lub cztery składniki.",
+    "subtitle": "Żele energetyczne, napoje izotoniczne i białko serwatkowe od producenta APIMAR z Polski. Żele są z miodu wielokwiatowego i liofilizowanych owoców, bez sukralozy i sztucznych barwników.",
+    "ctaPrimary": "Zobacz produkty",
     "ctaSecondary": "Znajdź swój produkt w 5 pytaniach",
     "trustNoSucralose": "Bez sukralozy & dodatków",
     "trustFruit": "Liofilizowane owoce",
-    "trustHoney": "100% Naturalny miód",
-    "badgeHoney": "100% MIÓD",
-    "athleteRating": "Ocena sportowców",
-    "reviewsCount": "Ponad 1500+ recenzji"
+    "trustHoney": "Miód wielokwiatowy jako główny składnik",
+    "badgeHoney": "MIÓD"
   },
   "whyHbp": {
-    "badge": "Dlaczego Honey Bee Power?",
-    "title": "100% Czyste Składniki z Lokalnych Pasiek",
-    "subtitle": "Twoje ciało zasługuje na prawdziwe składniki odżywcze, a nie laboratoryjne syntetyczne cukry i sztuczne aromaty.",
-    "reason1Title": "Lokalny miód kwiatowy",
-    "reason1Desc": "Idealna naturalna proporcja glukozy do fruktozy dla natychmiastowej i długotrwałej energii bez nagłych spadków cukru.",
+    "badge": "Co jest w żelu",
+    "title": "Trzy lub cztery składniki, nic więcej",
+    "subtitle": "Producentem jest APIMAR z Polski, a Planet Bio jest dystrybutorem w Chorwacji. Skład jest wydrukowany na odwrocie każdego opakowania.",
+    "reason1Title": "Miód wielokwiatowy",
+    "reason1Desc": "Miód z polskich pasiek stanowi 91–95,5% żelu, zależnie od smaku.",
     "reason2Title": "Prawdziwe liofilizowane owoce",
-    "reason2Desc": "Liofilizowane dla zachowania wszystkich naturalnych witamin, minerałów i świeżego smaku bez sztucznych aromatów.",
-    "reason3Title": "Łagodne dla żołądka",
-    "reason3Desc": "Formuła bez sukralozy i agresywnych konserwantów. Nie powoduje nudności ani skurczów żołądka podczas biegu.",
-    "reason4Title": "Naturalne elektrolity",
-    "reason4Desc": "Wzbogacone czystą solą morską i naturalnym sodem dla maksymalnego nawodnienia i zapobiegania skurczom."
+    "reason2Desc": "Liofilizowana cytryna, pomarańcza lub malina nadaje smak i kolor. Bez sztucznych barwników.",
+    "reason3Title": "Guarana",
+    "reason3Desc": "Ekstrakt z nasion guarany (1%) zawiera kofeinę. Nie zaleca się osobom wrażliwym na kofeinę, kobietom w ciąży, karmiącym piersią oraz dzieciom.",
+    "reason4Title": "Szczypta soli morskiej",
+    "reason4Desc": "Żele cytrynowy i pomarańczowy zawierają 0,5% soli morskiej. Żel malinowy jest bez soli."
   },
   "productOffer": {
     "badge": "Nasza Oferta Produktów",
     "title": "Oficjalne Produkty Honey Bee Power",
-    "subtitle": "100% naturalne paliwo energetyczne na bazie miodu, liofilizowanych owoców i naturalnych elektrolitów.",
+    "subtitle": "Żele energetyczne, napoje izotoniczne i białko serwatkowe od producenta APIMAR z Polski.",
     "viewAll": "Zobacz wszystkie produkty",
     "gelBadge": "Żel Energetyczny",
     "isoBadge": "Napój Izotoniczny",
@@ -128,10 +126,10 @@
     "cta": "Zapytaj o Cennik"
   },
   "trust": {
-    "natural": "100% naturalne",
+    "natural": "Bez sukralozy w żelach",
     "noSucralose": "Bez sukralozy",
     "delivery": "Dostawa 1–2 dni",
-    "croatianBrand": "Marka premium"
+    "croatianBrand": "Dystrybutor w Chorwacji: Planet Bio"
   },
   "product": {
     "addToCart": "Dodaj do koszyka",
@@ -244,13 +242,13 @@
   "b2bPage": {
     "badge": "Partnerstwo B2B",
     "title": "Zostań Partnerem Honey Bee Power",
-    "subtitle": "Oferujemy atrakcyjne warunki dla zamówień ilościowych dla sklepów sportowych, siłowni i dystrybutorów.",
-    "benefit1Title": "Wysokie Rabaty Ilościowe",
-    "benefit1Desc": "Konkurencyjne ceny przy zamówieniach ilościowych i elastyczne progi ilościowe.",
-    "benefit2Title": "Szybka Dostawa",
-    "benefit2Desc": "Bezpośrednia dostawa z magazynu w ciągu 48-72h.",
-    "benefit3Title": "Wsparcie Marketingowe",
-    "benefit3Desc": "Materiały promocyjne i próbki produktów dla Twoich klientów.",
+    "subtitle": "Dla sklepów, aptek, siłowni i klubów sportowych. Wyślij zapytanie, a warunki zamówień hurtowych ustalimy bezpośrednio.",
+    "benefit1Title": "Warunki zamówień hurtowych",
+    "benefit1Desc": "Warunki ustalamy w zależności od rodzaju współpracy i ilości.",
+    "benefit2Title": "Wysyłka z Našic",
+    "benefit2Desc": "Wysyłamy z magazynu przy Krndijska 4 w Našicach, zwykle w ciągu 1–3 dni roboczych od potwierdzenia zamówienia.",
+    "benefit3Title": "Bezpośredni kontakt",
+    "benefit3Desc": "Na zapytania odpowiada dystrybutor Planet Bio z Našic.",
     "formTitle": "Wyślij zapytanie B2B",
     "companyLabel": "Nazwa firmy / sklepu *",
     "contactLabel": "Imię i nazwisko osoby kontaktowej *",
@@ -265,12 +263,12 @@
     "messageLabel": "Wiadomość i szczegóły zapytania *",
     "submitBtn": "Wyślij zapytanie B2B",
     "successTitle": "Dziękujemy za zapytanie!",
-    "successDesc": "Nasz zespół ds. B2B skontaktuje się z Tobą w ciągu 24 godzin."
+    "successDesc": "Twoje zapytanie B2B zostało przyjęte. Odezwiemy się najszybciej, jak to możliwe."
   },
   "athletesPage": {
     "badge": "Nasi sportowcy",
     "title": "Zaufali nam profesjonalni sportowcy",
-    "subtitle": "Poznaj ambasadorów, którzy osiągają najwyższe wyniki dzięki naturalnej energii miodu.",
+    "subtitle": "Honey Bee Power na zawodach i wydarzeniach sportowych.",
     "achievementsTitle": "Wyniki & Osiągnięcia"
   },
   "guidesPage": {
@@ -299,8 +297,8 @@
   },
   "legal": {
     "impressumTitle": "Nota prawna (Impressum)",
-    "companyName": "Nazwa firmy:",
-    "companyNameVal": "Planet Bio d.o.o. za trgovinu i usluge",
+    "companyName": "Nazwa działalności:",
+    "companyNameVal": "Planet Bio, obrt za usluge, vl. Srđan Rebić",
     "address": "Siedziba i adres:",
     "addressVal": "Krndijska ulica 4, 31500 Našice, Chorwacja",
     "contactDetails": "Dane kontaktowe:",
@@ -311,12 +309,15 @@
     "shippingTitle": "Dostawa i Płatność",
     "shippingNotice": "🚚 Dostawa: Termin i koszt dostawy ustalamy osobiście po potwierdzeniu Twojego zapytania.",
     "paymentMethodsTitle": "Metody Płatności",
-    "deliveryTermsTitle": "Terminy Dostawy"
+    "deliveryTermsTitle": "Terminy Dostawy",
+    "registrationNumber": "Numer rejestrowy działalności",
+    "manufacturer": "Producent produktów Honey Bee Power:",
+    "distributorNote": "Planet Bio jest dystrybutorem produktów Honey Bee Power w Chorwacji."
   },
   "quiz": {
     "badge": "Interaktywny Quiz Rekomendacji",
     "heading": "Znajdź Swój Idealny Produkt w 5 Pytaniach",
-    "subheading": "Szybka analiza Twojego treningu i głównego celu dla 100% naturalnej energii bez spadków.",
+    "subheading": "Pięć krótkich pytań o Twój trening.",
     "questionOf": "Pytanie {step} z {total}",
     "percentDone": "{percent}% ukończono",
     "prevQuestion": "Poprzednie pytanie",
@@ -326,8 +327,8 @@
     "categoryIsotonic": "Napój Izotoniczny",
     "addToCart": "Dodaj do koszyka",
     "resetQuiz": "Rozwiąż quiz ponownie",
-    "matchReasonEnergyGel": "Lokalny miód kwiatowy z liofilizowanymi owocami zapewnia natychmiastowe i długotrwałe źródło energii bez spadków.",
-    "matchReasonIsotonic": "Naturalny napój izotoniczny z miodem i solą morską idealny do nawadniania i zapobiegania skurczom.",
+    "matchReasonEnergyGel": "Żel 40 g z miodem wielokwiatowym i liofilizowanymi owocami dostarcza 29–32,8 g węglowodanów.",
+    "matchReasonIsotonic": "Instant napój izotoniczny w proszku: 13,5 g węglowodanów w porcji 15 g.",
     "questions": {
       "activity": {
         "title": "1. Jaką aktywność sportową uprawiasz głównie?",
@@ -355,17 +356,17 @@
         "options": {
           "quick-energy": "Natychmiastowy zastrzyk szybkiej energii ⚡",
           "hydration": "Nawodnienie i równowaga elektrolitów 💧",
-          "cramps": "Zapobieganie skurczom mięśni 🛡️",
+          "cramps": "Regeneracja po treningu 🔄",
           "all-around": "Kompleksowa energia i nawodnienie 🔥"
         }
       },
       "flavour": {
         "title": "4. Jaki jest Twój ulubiony smak owocowy?",
-        "subtitle": "Wszystkie nasze smaki są w 100% naturalne z liofilizowanymi owocami i miodem",
+        "subtitle": "Żele zawierają liofilizowane owoce i miód wielokwiatowy",
         "options": {
           "orange": "Soczysta Pomarańcza 🍊",
           "lemon": "Orzeźwiająca Cytryna 🍋",
-          "raspberry": "Malina Leśna 🍓",
+          "raspberry": "Malina 🍓",
           "any": "Lubię wszystkie naturalne smaki miodu 🍯"
         }
       },

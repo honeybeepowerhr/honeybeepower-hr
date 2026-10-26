@@ -4,7 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useTranslations, useLocale } from 'next-intl'
-import { Star, ShoppingCart, ArrowRight } from 'lucide-react'
+import { ShoppingCart, ArrowRight } from 'lucide-react'
 import { useCartStore } from '@/features/cart/store'
 import { Button } from '@/components/ui/button'
 import { REAL_PRODUCTS } from '@/lib/products-data'
@@ -100,12 +100,6 @@ export function ProductLineSection() {
                     <span className="uppercase tracking-wider px-2.5 py-1 rounded-md bg-amber-50 border border-amber-200">
                       {badgeLabel}
                     </span>
-                    {prod.averageRating !== undefined && prod.reviewCount ? (
-                      <div className="flex items-center gap-1 text-amber-500 font-bold">
-                        <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                        <span>{prod.averageRating} ({prod.reviewCount})</span>
-                      </div>
-                    ) : null}
                   </div>
 
                   <h3 className="text-xl font-extrabold text-gray-900 group-hover:text-amber-600 transition-colors font-heading">

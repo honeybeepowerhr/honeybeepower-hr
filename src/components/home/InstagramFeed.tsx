@@ -9,25 +9,21 @@ const STATIC_INSTAGRAM_POSTS = [
     id: '1',
     src: '/images/events/event-1.jpg',
     alt: 'Honey Bee Power na natjecanju',
-    likes: 245,
   },
   {
     id: '2',
     src: '/images/events/event-4.jpg',
     alt: 'KBK Impact natjecanje uz Honey Bee Power',
-    likes: 412,
   },
   {
     id: '3',
     src: '/images/events/event-8.jpg',
     alt: 'Honey Bee Power terenske aktivnosti',
-    likes: 318,
   },
   {
     id: '4',
     src: '/images/events/event-11.jpg',
     alt: 'Promo pult maraton Vukovar',
-    likes: 356,
   },
 ]
 
@@ -71,8 +67,7 @@ export function InstagramFeed() {
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-semibold text-sm">
-              <Camera className="w-6 h-6 mr-1" />
-              <span>{post.likes}</span>
+              <Camera className="w-6 h-6" aria-hidden="true" />
             </div>
           </a>
         ))}

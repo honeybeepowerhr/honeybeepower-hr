@@ -85,8 +85,6 @@ export interface ProductSummary {
   shortDescription: LocalizedString
   basePrice: number
   compareAtPrice?: number | null
-  averageRating?: number
-  reviewCount?: number
   mainImage: SanityImage
   /** Additional product photos shown below the main image on the product page. */
   imageGallery?: SanityImage[]
