@@ -163,16 +163,14 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
           )}
 
           <div className="space-y-6">
-            <p className="tabular">
-              {price !== null ? (
-                <>
-                  <span className="font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold">{formatEur(price, locale)}</span>{' '}
-                  <span className="t-body">{t('priceFromList')}</span>
-                </>
-              ) : (
-                <span className="todo t-body">{t('pricePending')}</span>
-              )}
-            </p>
+            {price !== null ? (
+              <div className="flex flex-wrap items-baseline gap-x-3">
+                <p className="font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold tabular">{formatEur(price, locale)}</p>
+                <p className="t-body">{t('priceFromList')}</p>
+              </div>
+            ) : (
+              <p className="t-body"><span className="todo">{t('pricePending')}</span></p>
+            )}
             <ProductAddToCartButton
               product={product}
               variant={variant}

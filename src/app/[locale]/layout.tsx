@@ -9,6 +9,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { CartPanel } from '@/components/cart/CartPanel'
 import { ConsentBanner } from '@/components/analytics/ConsentBanner'
+import { CONSENT_INLINE_SCRIPT } from '@/lib/consent'
 import { ConsentGatedScripts } from '@/components/analytics/ConsentGatedScripts'
 import '../globals.css'
 
@@ -87,7 +88,10 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   const messages = await getMessages()
 
   return (
-    <html lang={locale} className={`${bodoni.variable} ${jost.variable}`}>
+    <html lang={locale} suppressHydrationWarning className={`${bodoni.variable} ${jost.variable}`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: CONSENT_INLINE_SCRIPT }} />
+      </head>
       <body>
         <a href="#main-content" className="skip-to-content">
           {locale === 'hr' ? 'Preskoči na sadržaj' : locale === 'de' ? 'Zum Inhalt springen' : locale === 'sl' ? 'Preskoči na vsebino' : locale === 'pl' ? 'Przejdź do treści' : 'Skip to content'}

@@ -43,8 +43,10 @@ export function CatalogueList({ items, kinds, sports }: Props) {
 
   useEffect(() => {
     const q = new URLSearchParams(window.location.search)
-    kind ? q.set('vrsta', kind) : q.delete('vrsta')
-    sport ? q.set('sport', sport) : q.delete('sport')
+    if (kind) q.set('vrsta', kind)
+    else q.delete('vrsta')
+    if (sport) q.set('sport', sport)
+    else q.delete('sport')
     const qs = q.toString()
     window.history.replaceState(null, '', `${window.location.pathname}${qs ? `?${qs}` : ''}`)
   }, [kind, sport])

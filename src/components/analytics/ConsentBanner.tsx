@@ -4,27 +4,26 @@ import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
 
-export const CONSENT_KEY = 'hbp_cookie_consent'
+import { CONSENT_KEY } from '@/lib/consent'
+
+export { CONSENT_KEY }
 export const OPEN_COOKIE_SETTINGS_EVENT = 'open_cookie_settings'
 
 /**
- * Privola za kolačiće. Traka stoji na vrhu stranice, u toku sadržaja,
- * pa ništa ne prekriva. Analitika se učitava tek nakon „Prihvati sve”.
+ * Privola za kolačiće. Traka se renderira na poslužitelju na vrhu stranice,
+ * u toku sadržaja, pa ništa ne prekriva i ne skače. Analitika se učitava tek
+ * nakon „Prihvati sve”.
  */
 export function ConsentBanner() {
   const t = useTranslations('consent')
   const locale = useLocale()
   const prefix = locale === 'hr' ? '' : `/${locale}`
-  const [show, setShow] = useState(false)
+  const [hidden, setHidden] = useState(false)
 
   useEffect(() => {
-    try {
-      if (localStorage.getItem(CONSENT_KEY) === null) setShow(true)
-    } catch {
-      setShow(true)
-    }
     const reopen = () => {
-      setShow(true)
+      document.documentElement.classList.remove('consent-done')
+      setHidden(false)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }
     window.addEventListener(OPEN_COOKIE_SETTINGS_EVENT, reopen)
@@ -37,14 +36,15 @@ export function ConsentBanner() {
     } catch {
       /* privatni način: odluka vrijedi do zatvaranja kartice */
     }
-    setShow(false)
+    document.documentElement.classList.add('consent-done')
+    setHidden(true)
     window.dispatchEvent(new Event('consent_updated'))
   }, [])
 
-  if (!show) return null
+  if (hidden) return null
 
   return (
-    <section aria-label={t('label')} className="on-ink">
+    <section aria-label={t('label')} className="consent-bar on-ink">
       <div className="frame flex flex-col gap-4 py-4 md:flex-row md:items-center md:justify-between md:gap-8">
         <p className="t-body measure">
           {t('text')}{' '}

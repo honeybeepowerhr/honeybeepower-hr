@@ -84,7 +84,7 @@ export default async function RecoveryPage({ params }: { params: Promise<{ local
       <SectionMotion />
 
       <section className="on-ink frame py-16 md:py-24" aria-labelledby="oporavak-h1">
-        <RecoveryCalculator headingId="oporavak-h1" heading={C.h1[locale]} headingLevel="h1" headingClass="t-head" />
+        <RecoveryCalculator headingId="oporavak-h1" heading={C.h1[locale]} headingLevel="h1" headingClass="font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-black leading-none tracking-[-0.03em]" />
       </section>
 
       <section className="frame section" aria-labelledby="zasto-title">

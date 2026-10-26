@@ -26,13 +26,14 @@ export function SectionMotion() {
       const below = (el: Element) => el.getBoundingClientRect().top > vh * 0.92
 
       // 1. Uvod: riječi, zatvarač na fotografiji, rečenica ispod
-      const strip = main.querySelector<HTMLElement>('[data-hero-strip]')
-      if (strip) {
+      const heroStrip = main.querySelector<HTMLElement>('[data-hero-strip]')
+      if (heroStrip) {
+        const strip = heroStrip
         const img = strip.querySelector('img')
         const tl = gsap.timeline({ defaults: { ease: 'expo.out' } })
-        tl.from(main.querySelectorAll('[data-hero-word]'), { yPercent: 40, opacity: 0, duration: 0.9, stagger: 0.08 })
-          .fromTo(strip, { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: 1.1 }, 0.15)
-          .from(img, { scale: 1.12, duration: 1.4 }, 0.15)
+        tl.from(main.querySelectorAll('[data-hero-word]'), { yPercent: 30, duration: 0.7, stagger: 0.06 })
+          .fromTo(strip, { clipPath: 'inset(0 70% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: 0.8 }, 0)
+          .from(img, { scale: 1.12, duration: 1.2 }, 0)
           .from(main.querySelectorAll('[data-hero-lead], [data-hero-actions]'), { y: 24, opacity: 0, duration: 0.8, stagger: 0.09 }, 0.55)
       }
 
@@ -44,8 +45,14 @@ export function SectionMotion() {
         gsap.from(el, { scale: 1.12, duration: 1.4, ease: 'expo.out', delay: 0.1 })
       })
 
-      // 2. Ulazak dijelova sekcija, samo za ono što je ispod prvog zaslona
-      const reveal = gsap.utils.toArray<HTMLElement>('[data-reveal]', main).filter(below)
+      // 2. Ulazak dijelova sekcija, samo za ono što je ispod prvog zaslona.
+      //    Uz označene elemente ([data-reveal]) ulaze i naslovi, odlomci, retci i slike sekcija.
+      const skip = '[data-reveal] *, [data-panel] *, [data-hero-title] *, #poledina *, details *, header *, [data-no-reveal], [data-no-reveal] *'
+      const auto = gsap.utils
+        .toArray<HTMLElement>('section h2, section h3, section > div > p, section li, section figure, section tr, article h2, article p', main)
+        .filter((el) => !el.matches(skip) && !el.closest('[data-reveal]'))
+      const strip = gsap.utils.toArray<HTMLElement>('#kontakt-podnozje > a > span')
+      const reveal = [...gsap.utils.toArray<HTMLElement>('[data-reveal]', main), ...auto, ...strip].filter(below)
       gsap.set(reveal, { y: 28, opacity: 0 })
       ScrollTrigger.batch(reveal, {
         start: 'top 88%',

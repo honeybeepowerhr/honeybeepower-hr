@@ -16,7 +16,7 @@ export const revalidate = 3600
 const L = {
   sport: { hr: 'Sport', en: 'Sport', de: 'Sport', sl: 'Šport', pl: 'Sport' },
   products: { hr: 'Proizvodi za ovaj sport', en: 'Products for this sport', de: 'Produkte für diesen Sport', sl: 'Izdelki za ta šport', pl: 'Produkty do tego sportu' },
-  calcTitle: { hr: 'Koliko ugljikohidrata za oporavak?', en: 'How much carbohydrate for recovery?', de: 'Wie viele Kohlenhydrate zur Erholung?', sl: 'Koliko ogljikovih hidratov za obnovo?', pl: 'Ile węglowodanów na regenerację?' },
+  calcTitle: { hr: 'Ugljikohidrati za oporavak', en: 'Carbohydrate for recovery', de: 'Kohlenhydrate zur Erholung', sl: 'Ogljikovi hidrati za obnovo', pl: 'Węglowodany na regenerację' },
   calcText: { hr: 'Upiši tjelesnu težinu i vidi koliko ugljikohidrata trebaš u prva 4 sata nakon napora, prema uvjetu iz odobrene tvrdnje.', en: 'Enter your body weight and see how much carbohydrate you need in the first 4 hours after exercise, following the condition of the authorised claim.', de: 'Körpergewicht eingeben und sehen, wie viele Kohlenhydrate du in den ersten 4 Stunden nach der Belastung brauchst, gemäß der zugelassenen Angabe.', sl: 'Vpiši telesno maso in poglej, koliko ogljikovih hidratov potrebuješ v prvih 4 urah po naporu, po pogoju odobrene trditve.', pl: 'Wpisz masę ciała i zobacz, ile węglowodanów potrzebujesz w ciągu 4 godzin po wysiłku, zgodnie z warunkiem dopuszczonego oświadczenia.' },
   calcCta: { hr: 'Izračunaj oporavak', en: 'Calculate recovery', de: 'Erholung berechnen', sl: 'Izračunaj obnovo', pl: 'Oblicz regenerację' },
   faq: { hr: 'Česta pitanja', en: 'Questions', de: 'Häufige Fragen', sl: 'Pogosta vprašanja', pl: 'Częste pytania' },

@@ -679,3 +679,10 @@ html {
     to { opacity: 1; transform: translateX(-50%); }
   }
 }
+
+@layer components {
+  /* Traka privole: skrivena prije iscrtavanja ako je odluka spremljena */
+  .consent-done .consent-bar {
+    display: none;
+  }
+}
