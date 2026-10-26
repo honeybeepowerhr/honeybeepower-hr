@@ -55,7 +55,7 @@ export async function ProductLinesSection({ locale }: { locale: Locale }) {
 
       <ol className="mt-12 grid gap-4 md:mt-16 md:grid-cols-12">
         {lines.map((line) => (
-          <li key={line.key} data-reveal className={`card group flex flex-col ${line.span}`}>
+          <li key={line.key} data-reveal data-tilt="4" className={`card group flex flex-col ${line.span}`}>
             <article className="flex h-full flex-col">
               <div className={`relative aspect-square w-full overflow-hidden ${line.field}`}>
                 {line.key === 'gel' ? (
@@ -88,7 +88,7 @@ export async function ProductLinesSection({ locale }: { locale: Locale }) {
                     </h3>
                     <p className="mt-2 t-body text-muted">{t(`${line.key}.flavours`)}</p>
                   </div>
-                  <p className="font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-black leading-[0.9] tracking-[-0.05em] text-[color:var(--color-honey)] tabular">
+                  <p data-countup className="font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-black leading-[0.9] tracking-[-0.05em] text-[color:var(--color-honey)] tabular">
                     {t(`${line.key}.figure`)}
                   </p>
                 </div>
