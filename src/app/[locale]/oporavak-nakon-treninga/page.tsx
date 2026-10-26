@@ -63,7 +63,7 @@ const C: Record<string, T5> = {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params
-  return pageMetadata({ locale, path: '/oporavak-nakon-treninga', title: C.metaTitle[locale], description: C.metaDescription[locale] })
+  return pageMetadata({ locale, path: '/oporavak-nakon-treninga', title: C.metaTitle[locale], description: C.metaDescription[locale], image: '/images/og/oporavak.jpg' })
 }
 
 export default async function RecoveryPage({ params }: { params: Promise<{ locale: Locale }> }) {
@@ -84,20 +84,20 @@ export default async function RecoveryPage({ params }: { params: Promise<{ local
       <SectionMotion />
 
       <section className="on-ink frame py-16 md:py-24" aria-labelledby="oporavak-h1">
-        <RecoveryCalculator headingId="oporavak-h1" heading={C.h1[locale]} headingLevel="h1" />
+        <RecoveryCalculator headingId="oporavak-h1" heading={C.h1[locale]} headingLevel="h1" headingClass="t-head" />
       </section>
 
       <section className="frame section" aria-labelledby="zasto-title">
         <div className="grid-12 gap-y-8">
-          <h2 id="zasto-title" data-reveal className="t-head col-span-12 md:col-span-5">{C.whyTitle[locale]}</h2>
-          <p data-reveal className="col-span-12 text-[length:var(--text-lead)] leading-[1.3] md:col-span-7">{C.whyText[locale]}</p>
+          <h2 id="zasto-title" data-reveal className="t-head col-span-12 lg:col-span-5">{C.whyTitle[locale]}</h2>
+          <p data-reveal className="col-span-12 text-[length:var(--text-lead)] leading-[1.3] lg:col-span-7">{C.whyText[locale]}</p>
         </div>
       </section>
 
       <section className="field-surface" aria-labelledby="gel-title">
         <div className="frame grid-12 gap-y-8 py-20 md:py-28">
-          <h2 id="gel-title" data-reveal className="t-head col-span-12 md:col-span-6 md:col-start-7 md:order-last">{C.gelTitle[locale]}</h2>
-          <div data-reveal className="col-span-12 md:col-span-6">
+          <h2 id="gel-title" data-reveal className="t-head col-span-12 lg:col-span-6 lg:col-start-7 lg:order-last">{C.gelTitle[locale]}</h2>
+          <div data-reveal className="col-span-12 lg:col-span-6">
             <p className="text-[length:var(--text-lead)] leading-[1.3]">{C.gelText[locale]}</p>
             <blockquote className="mt-6 t-body measure">„{GEL_DIRECTIONS[locale]}”</blockquote>
             <Link href={`${prefix}/proizvodi/energetski-gelovi`} className="btn btn-ghost mt-8">
@@ -118,7 +118,7 @@ export default async function RecoveryPage({ params }: { params: Promise<{ local
             <li key={s.url}><a href={s.url} className="link" rel="noopener" target="_blank">{s.label}</a></li>
           ))}
         </ol>
-        <p className="mt-4 t-small measure">{GEL_APPROVED_CLAIM[locale]}</p>
+        <p className="mt-4 t-body measure">{GEL_APPROVED_CLAIM[locale]}</p>
       </footer>
     </>
   )

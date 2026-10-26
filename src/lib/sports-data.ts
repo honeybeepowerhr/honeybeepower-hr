@@ -175,7 +175,7 @@ export const SPORT_PAGES: SportPage[] = [
     metaTitle: T('Prehrana za triatlon', 'Nutrition for triathlon', 'Ernährung im Triathlon', 'Prehrana za triatlon', 'Odżywianie w triathlonie'),
     metaDescription: T(
       'Prehrana za triatlon po disciplinama: što prije plivanja, na biciklu, u trčanju i nakon cilja. Opće smjernice s izvorima i Honey Bee Power za oporavak.',
-      'Triathlon nutrition by discipline: before the swim, on the bike, on the run and after the finish. General guidance with sources and Honey Bee Power for recovery.',
+      'Triathlon nutrition by discipline: before the swim, on the bike, on the run and after the finish. General guidance with sources.',
       'Triathlon-Ernährung nach Disziplin: vor dem Schwimmen, auf dem Rad, beim Laufen und nach dem Ziel. Allgemeine Orientierung mit Quellen.',
       'Prehrana za triatlon po disciplinah: pred plavanjem, na kolesu, med tekom in po cilju. Splošne smernice z viri in Honey Bee Power za obnovo.',
       'Odżywianie w triathlonie według dyscyplin: przed pływaniem, na rowerze, w biegu i po mecie. Ogólne wskazówki ze źródłami.',
@@ -247,7 +247,7 @@ export const SPORT_PAGES: SportPage[] = [
     title: T('Teretana', 'Gym', 'Fitnessstudio', 'Fitnes', 'Siłownia'),
     metaTitle: T('Whey protein s medom nakon treninga', 'Whey protein with honey after training', 'Whey Protein mit Honig nach dem Training', 'Whey protein z medom po treningu', 'Białko whey z miodem po treningu'),
     metaDescription: T(
-      'Koliko proteina nakon treninga i kada: opće smjernice s izvorom. Honey Bee Power whey sa sušenim medom i stevijom, oko 22 g proteina u 33 g. Sadrži mlijeko.',
+      'Koliko proteina nakon treninga i kada, uz izvor. Honey Bee Power whey sa sušenim medom i stevijom, oko 22 g proteina u 33 g. Sadrži mlijeko.',
       'How much protein after training and when: general guidance with a source. Honey Bee Power whey with dried honey and stevia, about 22 g protein per 33 g.',
       'Wie viel Protein nach dem Training und wann: allgemeine Orientierung mit Quelle. Honey Bee Power Whey mit Honig und Stevia, etwa 22 g Protein pro 33 g.',
       'Koliko beljakovin po treningu in kdaj: splošne smernice z virom. Whey Honey Bee Power s sušenim medom in stevio, približno 22 g beljakovin v 33 g.',
@@ -295,10 +295,10 @@ export const SPORT_PAGES: SportPage[] = [
   {
     slug: 'ekipni-sportovi',
     title: T('Ekipni sportovi', 'Team sports', 'Mannschaftssport', 'Ekipni športi', 'Sporty drużynowe'),
-    metaTitle: T('Prehrana za rukomet, nogomet i košarku', 'Nutrition for handball, football and basketball', 'Ernährung für Hand-, Fuß- und Basketball', 'Prehrana za rokomet, nogomet in košarko', 'Odżywianie w piłce ręcznej i nożnej'),
+    metaTitle: T('Prehrana za rukomet, nogomet i košarku', 'Nutrition for handball and football', 'Ernährung für Hand-, Fuß- und Basketball', 'Prehrana za rokomet, nogomet in košarko', 'Odżywianie w piłce ręcznej i nożnej'),
     metaDescription: T(
-      'Prehrana na turnirima i utakmicama: što između utakmica, tekućina na poluvremenu i oporavak nakon. Honey Bee Power za klubove, s B2B upitom za veće količine.',
-      'Nutrition at tournaments and matches: what to eat between games, fluids at half-time and recovery afterwards. Honey Bee Power for clubs, with a B2B enquiry.',
+      'Prehrana na turnirima i utakmicama: što između utakmica, tekućina na poluvremenu i oporavak. Honey Bee Power za klubove, uz B2B upit.',
+      'Nutrition at tournaments and matches: what to eat between games, fluids at half-time and recovery afterwards. Honey Bee Power for clubs.',
       'Ernährung bei Turnieren und Spielen: zwischen den Spielen, Flüssigkeit in der Halbzeit und Erholung danach. Honey Bee Power für Vereine.',
       'Prehrana na turnirjih in tekmah: kaj med tekmami, tekočina ob polčasu in obnova po njih. Honey Bee Power za klube, z B2B povpraševanjem.',
       'Odżywianie na turniejach i meczach: co między meczami, płyny w przerwie i regeneracja po. Honey Bee Power dla klubów, z zapytaniem B2B.',

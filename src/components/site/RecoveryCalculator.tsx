@@ -15,12 +15,15 @@ import {
 import { REAL_PRODUCTS } from '@/lib/products-data'
 import { officialPriceEur } from '@/lib/prices'
 import { useCartStore } from '@/features/cart'
+import { inkOn } from '@/lib/images'
 
 interface Props {
   /** id naslova sekcije, za aria-labelledby */
   headingId: string
   heading: React.ReactNode
   headingLevel?: 'h1' | 'h2'
+  /** Razred veličine naslova; zadano je velika plakatna veličina. */
+  headingClass?: string
 }
 
 /**
@@ -28,7 +31,7 @@ interface Props {
  * ugljikohidrati (4 g/kg), doze unutar prva 4 sata i udio jednog gela.
  * Bez JavaScripta vidi se tablica smjernica ispod obrasca.
  */
-export function RecoveryCalculator({ headingId, heading, headingLevel = 'h2' }: Props) {
+export function RecoveryCalculator({ headingId, heading, headingLevel = 'h2', headingClass = 't-display text-[length:var(--text-display)]' }: Props) {
   const t = useTranslations('calculator')
   const locale = useLocale() as Locale
   const id = useId()
@@ -74,7 +77,7 @@ export function RecoveryCalculator({ headingId, heading, headingLevel = 'h2' }: 
   return (
     <div className="grid-12 gap-y-12">
       <div className="col-span-12 lg:col-span-5">
-        <Heading id={headingId} className="t-display text-[length:var(--text-display)]">
+        <Heading id={headingId} className={headingClass}>
           {heading}
         </Heading>
         <p className="mt-6 t-body measure">{t('intro')}</p>
@@ -137,7 +140,7 @@ export function RecoveryCalculator({ headingId, heading, headingLevel = 'h2' }: 
                     className="relative flex min-h-12 cursor-pointer items-center gap-3 px-4 transition-colors has-[:focus-visible]:outline has-[:focus-visible]:outline-[3px] has-[:focus-visible]:outline-offset-2"
                     style={{
                       background: active ? d.flavourColor : 'transparent',
-                      color: active && d.slug.endsWith('malina') ? '#fff' : 'inherit',
+                      color: active ? inkOn(d.flavourColor) : 'inherit',
                       boxShadow: active ? 'none' : 'inset 0 0 0 2px currentColor',
                     }}
                   >
@@ -195,7 +198,7 @@ export function RecoveryCalculator({ headingId, heading, headingLevel = 'h2' }: 
           {added && <span className="t-body">{t('added')}</span>}
         </div>
 
-        <div id={`${id}-note`} className="mt-12 space-y-4 t-small measure">
+        <div id={`${id}-note`} className="mt-12 space-y-4 t-body measure">
           <p>
             <strong className="font-medium">{t('claimTitle')}</strong> {GEL_APPROVED_CLAIM[locale]}
           </p>

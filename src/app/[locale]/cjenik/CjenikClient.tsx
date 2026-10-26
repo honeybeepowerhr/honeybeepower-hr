@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
+import { SectionMotion } from '@/components/site/SectionMotion'
 import { LEGAL_ENTITY, CJENIK_ITEMS, getLatestUpdateTimestamp, get30DayArchiveList } from '@/lib/cjenik-data'
 
 /**
@@ -40,6 +41,7 @@ export function CjenikClient() {
 
   return (
     <div className="print:bg-white">
+      <SectionMotion />
       <section className="frame grid-12 gap-y-8 pb-10 pt-10" aria-labelledby="cjenik-title">
         <div className="col-span-12 lg:col-span-7">
           <h1 id="cjenik-title" className="t-display">{t('title')}</h1>
@@ -109,7 +111,7 @@ export function CjenikClient() {
                 <tr><td colSpan={9} className="py-12 text-center">{t('noResults', { query: searchQuery })}</td></tr>
               ) : (
                 filteredItems.map((item) => (
-                  <tr key={item.barkod} className="border-b border-current/15">
+                  <tr key={item.barkod} data-reveal className="border-b border-current/15">
                     <td className="py-3 pr-3">{item.rb}</td>
                     <td className="py-3 pr-3 font-medium">{item.naziv}</td>
                     <td className="py-2 pr-3 print:hidden">

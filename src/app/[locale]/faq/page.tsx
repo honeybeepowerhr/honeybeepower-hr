@@ -68,8 +68,9 @@ export default async function FaqPage({ params }: { params: Promise<{ locale: Lo
         { name: C.title[locale], url: localeUrl(locale, '/faq') },
       ])} />
       <SectionMotion />
-      <section className="frame pb-8 pt-10">
-        <h1 className="t-display">{C.title[locale]}</h1>
+      <section className="frame grid-12 gap-y-6 pb-8 pt-10">
+        <h1 className="t-display col-span-12 lg:col-span-6">{C.title[locale]}</h1>
+        <p className="col-span-12 self-end t-lead lg:col-span-6">{C.meta[locale]}</p>
       </section>
       {groups.map((g, i) => (
         <section key={g.id} className={`frame ${i % 2 ? 'field-surface' : ''} py-16 md:py-24`} aria-labelledby={g.id}>

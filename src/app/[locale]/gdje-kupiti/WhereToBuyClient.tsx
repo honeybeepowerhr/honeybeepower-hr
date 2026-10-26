@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
+import { SectionMotion } from '@/components/site/SectionMotion'
 
 /** Gdje kupiti: dok nema potvrđenih prodajnih mjesta, kupuje se izravno od distributera. */
 export default function WhereToBuyClient() {
@@ -11,6 +12,7 @@ export default function WhereToBuyClient() {
 
   return (
     <>
+      <SectionMotion />
       <section className="grid-12 items-stretch" aria-labelledby="gdje-title">
         <div className="frame col-span-12 flex flex-col justify-end gap-6 py-12 md:col-span-6">
           <h1 id="gdje-title" className="t-display">{t('title')}</h1>
@@ -26,7 +28,7 @@ export default function WhereToBuyClient() {
           <h2 id="kako-title" className="t-head col-span-12 md:col-span-5">{t('howTitle')}</h2>
           <ol className="col-span-12 space-y-6 md:col-span-7">
             {steps.map((s, i) => (
-              <li key={i} className="grid grid-cols-[3rem_1fr] items-baseline gap-4 text-[length:var(--text-lead)] leading-[1.3]">
+              <li key={i} data-reveal className="grid grid-cols-[3rem_1fr] items-baseline gap-4 text-[length:var(--text-lead)] leading-[1.3]">
                 <span aria-hidden="true" className="font-[family-name:var(--font-display)] font-black">{i + 1}.</span>
                 <span>{s}</span>
               </li>

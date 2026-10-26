@@ -132,7 +132,7 @@ export async function CategoryPage({ category, locale }: { category: string; loc
                   <Image src={webImage(p.mainImage.asset._ref)} alt="" fill sizes="20vw" className="object-contain transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:scale-105" />
                 </span>
                 <span className="col-span-8 sm:col-span-5">
-                  <span className="block font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-none">
+                  <span className="block font-[family-name:var(--font-display)] text-[length:var(--text-lead)] font-extrabold leading-[1.08]">
                     {d ? d.flavour[locale] : (p.name[locale] ?? p.name.hr).replace(/^Honey Bee Power\s+/, '')}
                     {pack && isGelPack(p.slug) ? `, ${l(LABELS.pack, locale)}` : ''}
                   </span>

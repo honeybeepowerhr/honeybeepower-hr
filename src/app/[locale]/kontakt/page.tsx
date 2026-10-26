@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
     path: '/kontakt',
     title: TITLES[locale] ?? TITLES.hr,
     description: DESCRIPTIONS[locale] ?? DESCRIPTIONS.hr,
+    image: '/images/og/kontakt.jpg',
   })
 }
 

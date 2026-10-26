@@ -33,18 +33,18 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   const { locale, slug } = await params
   const guide = getGuideBySlug(slug, locale)
   if (!guide) return pageMetadata({ locale, path: `/vodici/${slug}`, title: 'Honey Bee Power', description: 'Honey Bee Power', noIndex: true })
-  return pageMetadata({ locale, path: `/vodici/${slug}`, title: guide.title.slice(0, 60), description: guide.excerpt.slice(0, 155), image: guide.image })
+  return pageMetadata({ locale, path: `/vodici/${slug}`, title: guide.title.slice(0, 60), description: guide.excerpt.slice(0, 155), image: '/images/og/vodici.jpg' })
 }
 
 function Block({ block, prefix }: { block: GuideBlock; prefix: string }) {
   switch (block.type) {
     case 'h2':
-      return <h2 className="mt-14 font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-[1.05]">{block.text}</h2>
+      return <h2 data-reveal className="mt-14 font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-[1.05]">{block.text}</h2>
     case 'p':
-      return <p className="mt-5">{block.text}</p>
+      return <p data-reveal className="mt-5">{block.text}</p>
     case 'list':
       return (
-        <ul className="mt-5 list-disc space-y-2 pl-6">
+        <ul data-reveal className="mt-5 list-disc space-y-2 pl-6">
           {block.items.map((i) => <li key={i}>{i}</li>)}
         </ul>
       )
@@ -92,9 +92,6 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
       <SectionMotion />
 
       <header className="frame grid-12 gap-y-8 pb-12 pt-10 md:pb-16">
-        <p className="col-span-12 t-small">
-          <Link href={`${prefix}/vodici`} className="hover:underline">{L.guides[locale]}</Link> /
-        </p>
         <h1 className="t-head col-span-12 lg:col-span-10">{guide.title}</h1>
         <p className="col-span-12 t-lead measure lg:col-span-8">{guide.lead}</p>
         <dl className="col-span-12 flex flex-wrap gap-x-8 gap-y-2 t-small">

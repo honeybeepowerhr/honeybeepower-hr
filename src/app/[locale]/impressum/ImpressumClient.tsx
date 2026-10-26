@@ -1,3 +1,4 @@
+import { SectionMotion } from '@/components/site/SectionMotion'
 import { useTranslations } from 'next-intl'
 import { LEGAL_ENTITY } from '@/lib/cjenik-data'
 import { MANUFACTURER } from '@/lib/declarations'
@@ -30,12 +31,13 @@ export default function ImpressumClient() {
 
   return (
     <article>
+      <SectionMotion />
       <header className="frame pb-12 pt-10">
         <h1 className="t-display">{t('impressumTitle')}</h1>
       </header>
       <dl className="frame pb-16">
         {rows.map(([k, v], i) => (
-          <div key={i} className={`grid-12 gap-y-1 py-5 ${i % 2 ? 'field-surface -mx-[var(--gutter)] px-[var(--gutter)]' : ''}`}>
+          <div key={i} data-reveal className={`grid-12 gap-y-1 py-5 ${i % 2 ? 'field-surface -mx-[var(--gutter)] px-[var(--gutter)]' : ''}`}>
             <dt className="col-span-12 t-small md:col-span-4">{k}</dt>
             <dd className="col-span-12 t-lead md:col-span-8">{v}</dd>
           </div>

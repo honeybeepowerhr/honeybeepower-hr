@@ -206,7 +206,8 @@
     "backToTop": "Na vrh",
     "contactLead": "Vprašanja in naročila",
     "photoCredits": "Avtorji fotografij",
-    "distributor": "distributer za Hrvaško"
+    "distributor": "distributer za Hrvaško",
+    "photoStrip": "Fotografije z dogodkov: oglej si vse"
   },
   "contactPage": {
     "badge": "Kontaktirajte nas",
@@ -758,6 +759,7 @@
     "count": "{count, plural, one {# izdelek} two {# izdelka} few {# izdelki} other {# izdelkov}}",
     "view": "Oglej si",
     "empty": "Za ta izbor ni izdelkov.",
-    "reset": "Pokaži vse"
+    "reset": "Pokaži vse",
+    "countNote": "cene iz uradnega cenika, nakup s povpraševanjem"
   }
 }

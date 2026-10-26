@@ -1,6 +1,6 @@
-# Honey Bee Power Webshop
+# Honey Bee Power, honeybeepowerhr.com
 
-B2C e-commerce platforma za Honey Bee Power (Planet Bio d.o.o.), izgrađena na Next.js 15 + TypeScript strict, Tailwind CSS v4 + shadcn/ui, Sanity.io CMS i next-intl internacionalizacijom.
+Stranica za Honey Bee Power proizvode (proizvođač P.P.H. APIMAR, Poljska; distributer za Hrvatsku Planet Bio, obrt, Našice). Kupnja je na upit: košarica se šalje WhatsAppom ili e-mailom. Next.js 15, TypeScript strict, Tailwind CSS 4, next-intl, GSAP; objava na Cloudflare Workers preko OpenNexta.
 
 ---
 
@@ -10,13 +10,13 @@ B2C e-commerce platforma za Honey Bee Power (Planet Bio d.o.o.), izgrađena na N
 |---|---|
 | Framework | Next.js 15 (App Router) |
 | Jezik | TypeScript (strict mode) |
-| Styling | Tailwind CSS v4 + shadcn/ui |
-| CMS | Sanity.io |
-| Plaćanje | Stripe, Corvus Pay/WSPay |
+| Styling | Tailwind CSS 4 (tokeni u `src/app/globals.css`), GSAP + ScrollTrigger za animacije |
+| Podaci | `src/lib` (proizvodi, deklaracije, cjenik, vodiči, sportovi); Sanity samo za spremanje upita |
+| Plaćanje | nema plaćanja na stranici (upit); Stripe je u kodu, ali nije dovršen |
 | E-mail | Resend (transakcijski), Mailchimp (newsletter) |
 | Analytics | GA4 via GTM, Meta Pixel, Microsoft Clarity |
-| Hosting | Vercel |
-| Jezici | HR (default), EN, DE, SL |
+| Hosting | Cloudflare Workers preko OpenNexta (`@opennextjs/cloudflare`) |
+| Jezici | HR (bez prefiksa), EN, DE, SL, PL |
 
 ---
 
@@ -51,10 +51,11 @@ Aplikacija će biti dostupna na [http://localhost:3000](http://localhost:3000).
 ### Ostale naredbe
 
 ```bash
-pnpm build       # Production build
+pnpm build:next  # Next.js production build
 pnpm start       # Pokreni production build lokalno
+pnpm test        # Testovi (vitest)
 pnpm lint        # ESLint provjera
-pnpm tsc --noEmit  # TypeScript type check bez emitiranja
+pnpm preview     # OpenNext build i lokalni pregled u Workers okruženju
 ```
 
 ---
@@ -80,7 +81,9 @@ Sve varijable okruženja su definirane u `.env.example`. Kreiraj `.env.local` i 
 | `NEXT_PUBLIC_CLARITY_ID` | Microsoft Clarity project ID |
 | `CORVUS_SHOP_ID` | Corvus Pay shop ID |
 | `CORVUS_SECRET_KEY` | Corvus Pay secret key |
-| `NEXT_PUBLIC_SITE_URL` | Puna URL adresa sajta (npr. `https://www.honeybeepower.com`) |
+| `NEXT_PUBLIC_SITE_URL` | Puna adresa stranice (npr. `https://honeybeepowerhr.com`) |
+| `INQUIRY_RECIPIENT_EMAIL` | Kamo stižu obavijesti o upitima i porukama (zadano `info@planetbio.hr`) |
+| `B2B_RECIPIENT_EMAIL` | Kamo stižu B2B upiti (zadano isto kao gore) |
 
 > ⚠️ Nikada ne commita `.env.local` u git — `.gitignore` ga automatski isključuje.
 
@@ -170,14 +173,16 @@ Implementirano kroz `next-intl` s middleware routing-om. Prijevodne datoteke se 
 
 ---
 
-## Deployment (Vercel)
+## Objava (Cloudflare Workers)
 
-Projekt se automatski deploya na Vercel pri svakom push na `main` grani.
-Preview deploymenti se kreiraju za svaki pull request.
+Stranica se objavljuje na Cloudflare Workers preko OpenNexta (`open-next.config.ts`, `wrangler.jsonc`).
 
-1. Poveži GitHub repozitorij na Vercel
-2. Postavi sve environment varijable iz `.env.example` u Vercel projekt settings
-3. Vercel automatski detektira Next.js i konfigurira build
+```bash
+pnpm preview   # build i lokalni pregled u Workers okruženju
+pnpm deploy    # build i objava (samo uz odobrenje vlasnika)
+```
+
+Tajne varijable postavljaju se u Cloudflareu (`wrangler secret put IME`), a lokalno u `.dev.vars`. Slike se optimiziraju preko Cloudflare Images (binding `IMAGES`).
 
 ---
 

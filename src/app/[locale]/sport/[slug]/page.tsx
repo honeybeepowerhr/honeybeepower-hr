@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
     path: `/sport/${slug}`,
     title: l(page.metaTitle, locale),
     description: l(page.metaDescription, locale),
-    image: page.image,
+    image: '/images/og/sport.jpg',
   })
 }
 
@@ -63,9 +63,6 @@ export default async function SportPage({ params }: { params: Promise<{ locale: 
 
       <header className="grid-12 items-stretch">
         <div className="frame col-span-12 flex flex-col justify-end gap-8 py-12 md:col-span-6 md:py-16">
-          <p className="t-small">
-            <Link href={prefix || '/'} className="hover:underline">Honey Bee Power</Link> / {L.sport[locale]}
-          </p>
           <h1 className="t-display">{title}</h1>
           <p className="t-lead measure">{l(page.lead, locale)}</p>
         </div>
@@ -90,10 +87,10 @@ export default async function SportPage({ params }: { params: Promise<{ locale: 
           aria-labelledby={`sekcija-${i}`}
         >
           <div className={`frame grid-12 gap-y-6 ${i === 1 ? 'py-20 md:py-28' : 'section'}`}>
-            <h2 id={`sekcija-${i}`} data-reveal className={`t-head col-span-12 ${i % 2 ? 'md:col-span-6 md:col-start-7 md:order-last' : 'md:col-span-5'}`}>
+            <h2 id={`sekcija-${i}`} data-reveal className={`t-head col-span-12 ${i % 2 ? 'lg:col-span-6 lg:col-start-7 lg:order-last' : 'lg:col-span-6'}`}>
               {l(s.title, locale)}
             </h2>
-            <p data-reveal className={`col-span-12 text-[length:var(--text-lead)] leading-[1.3] ${i % 2 ? 'md:col-span-6' : 'md:col-span-7'}`}>
+            <p data-reveal className={`col-span-12 text-[length:var(--text-lead)] leading-[1.3] ${i % 2 ? 'lg:col-span-6' : 'lg:col-span-6 lg:col-start-7'}`}>
               {l(s.body, locale)}
             </p>
           </div>
@@ -102,11 +99,11 @@ export default async function SportPage({ params }: { params: Promise<{ locale: 
 
       <section className="field-surface" aria-labelledby="kalkulator-title">
         <div className="frame grid-12 items-end gap-y-8 py-20">
-          <div className="col-span-12 md:col-span-8">
+          <div className="col-span-12 lg:col-span-8">
             <h2 id="kalkulator-title" className="t-head">{L.calcTitle[locale]}</h2>
             <p className="mt-6 t-body measure">{L.calcText[locale]}</p>
           </div>
-          <div className="col-span-12 md:col-span-4 md:justify-self-end">
+          <div className="col-span-12 lg:col-span-4 lg:justify-self-end">
             <Link href={`${prefix}/oporavak-nakon-treninga`} className="btn btn-honey">
               {L.calcCta[locale]} <span className="btn-arrow" aria-hidden="true">→</span>
             </Link>

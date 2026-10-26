@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
     path: '/proizvodi',
     title: TITLES[locale] ?? TITLES.hr,
     description: DESCRIPTIONS[locale] ?? DESCRIPTIONS.hr,
-    image: '/images/hero/product-showcase-poster.jpg',
+    image: '/images/og/proizvodi.jpg',
   })
 }
 

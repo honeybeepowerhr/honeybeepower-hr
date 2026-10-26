@@ -13,7 +13,7 @@ export const revalidate = 3600
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'b2bPage' })
-  return pageMetadata({ locale, path: '/b2b', title: t('metaTitle'), description: t('metaDescription'), image: '/images/events-web/event-24.jpg' })
+  return pageMetadata({ locale, path: '/b2b', title: t('metaTitle'), description: t('metaDescription'), image: '/images/og/b2b.jpg' })
 }
 
 export default async function B2BPage({ params }: { params: Promise<{ locale: Locale }> }) {
@@ -46,7 +46,7 @@ export default async function B2BPage({ params }: { params: Promise<{ locale: Lo
           <p className="col-span-12 t-lead lg:col-span-6">{t('subtitle')}</p>
           <dl className="col-span-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {facts.map((f) => (
-              <div key={f.label} className="bg-white/[0.08] p-5">
+              <div key={f.label} data-reveal className="bg-white/[0.08] p-5">
                 <dt className="t-small">{f.label}</dt>
                 <dd className="mt-2 t-body font-medium">{f.value}</dd>
               </div>
@@ -57,7 +57,7 @@ export default async function B2BPage({ params }: { params: Promise<{ locale: Lo
 
       <section className="frame section" aria-labelledby="b2b-form-title">
         <div className="grid-12 gap-y-10">
-          <div className="col-span-12 lg:col-span-4">
+          <div data-reveal className="col-span-12 lg:col-span-4">
             <h2 id="b2b-form-title" className="t-head">{t('formTitle')}</h2>
             <p className="mt-6 t-body measure">{t('formLead')}</p>
           </div>

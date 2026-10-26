@@ -31,7 +31,7 @@ const C = {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params
-  return pageMetadata({ locale, path: '/vodici', title: C.metaTitle[locale], description: C.meta[locale], image: '/images/found/med-zlica.jpg' })
+  return pageMetadata({ locale, path: '/vodici', title: C.metaTitle[locale], description: C.meta[locale], image: '/images/og/vodici.jpg' })
 }
 
 export default async function GuidesPage({ params }: { params: Promise<{ locale: Locale }> }) {
@@ -59,7 +59,7 @@ export default async function GuidesPage({ params }: { params: Promise<{ locale:
                 <Image src={g.image} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.04]" />
               </span>
               <span className="col-span-12 md:col-span-7 md:col-start-6">
-                <span className="block font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-[1.02] group-hover:underline decoration-[0.06em] underline-offset-[0.12em]">
+                <span className="block font-[family-name:var(--font-display)] text-[length:var(--text-lead)] font-extrabold leading-[1.1] group-hover:underline decoration-[0.06em] underline-offset-[0.12em]">
                   {g.title}
                 </span>
                 <span className="mt-4 block t-body measure">{g.excerpt}</span>

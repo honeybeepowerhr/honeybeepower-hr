@@ -48,7 +48,7 @@ const C = {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params
-  return pageMetadata({ locale, path: '/dogadaji', title: C.metaTitle[locale], description: C.meta[locale], image: '/images/events-web/event-11.jpg' })
+  return pageMetadata({ locale, path: '/dogadaji', title: C.metaTitle[locale], description: C.meta[locale], image: '/images/og/dogadaji.jpg' })
 }
 
 export default async function EventsPage({ params }: { params: Promise<{ locale: Locale }> }) {

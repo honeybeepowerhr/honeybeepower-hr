@@ -6,7 +6,6 @@ import { JsonLd } from '@/components/seo/JsonLd'
 import { buildProductSchema, buildBreadcrumbSchema, buildFAQPageSchema } from '@/lib/seo/schemas'
 import { pageMetadata, localeUrl } from '@/lib/seo/site'
 import { officialPriceEur } from '@/lib/prices'
-import { webImage } from '@/lib/images'
 import { PRODUCT_FAQ, kindForCategory, l } from '@/lib/product-content'
 import { getDeclaration, formatNumber } from '@/lib/declarations'
 import { ProductDetail } from '@/components/product/ProductDetail'
@@ -14,6 +13,16 @@ import { CategoryPage, CATEGORY_COPY } from '@/components/product/CategoryPage'
 import { SectionMotion } from '@/components/site/SectionMotion'
 
 export const revalidate = 3600
+
+/** Slika za dijeljenje po proizvodu (redizajn/og/make_og.py). */
+function ogImageFor(slug: string, category: string): string {
+  if (slug.includes('naranca') && category === 'energetski-gelovi') return '/images/og/gel-naranca.jpg'
+  if (slug.includes('limun') && category === 'energetski-gelovi') return '/images/og/gel-limun.jpg'
+  if (slug.includes('malina')) return '/images/og/gel-malina.jpg'
+  if (category === 'izotonicki-napitci') return '/images/og/izotonik.jpg'
+  if (category === 'whey-proteini') return '/images/og/whey.jpg'
+  return '/images/og/proizvodi.jpg'
+}
 
 interface PageProps {
   params: Promise<{ locale: Locale; slug: string }>
@@ -39,7 +48,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       path: `/proizvodi/${slug}`,
       title: l(copy.title, locale),
       description: l(copy.meta, locale),
-      image: copy.image,
+      image: ogImageFor('', slug),
     })
   }
   const product = REAL_PRODUCTS.find((p) => p.slug === slug)
@@ -54,7 +63,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     path: `/proizvodi/${slug}`,
     title: `${name}${carbs}`.slice(0, 60),
     description: productDescription(slug, locale),
-    image: webImage(product.mainImage.asset._ref),
+    image: ogImageFor(product.slug, product.category),
   })
 }
 

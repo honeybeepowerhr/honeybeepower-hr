@@ -206,7 +206,8 @@
     "backToTop": "Do góry",
     "contactLead": "Pytania i zamówienia",
     "photoCredits": "Autorzy zdjęć",
-    "distributor": "dystrybutor w Chorwacji"
+    "distributor": "dystrybutor w Chorwacji",
+    "photoStrip": "Zdjęcia z wydarzeń: zobacz wszystkie"
   },
   "contactPage": {
     "badge": "Skontaktuj się z nami",
@@ -757,6 +758,7 @@
     "count": "{count, plural, one {# produkt} few {# produkty} many {# produktów} other {# produktów}}",
     "view": "Zobacz",
     "empty": "Brak produktów dla tego wyboru.",
-    "reset": "Pokaż wszystkie"
+    "reset": "Pokaż wszystkie",
+    "countNote": "ceny z oficjalnego cennika, zakup przez zapytanie"
   }
 }

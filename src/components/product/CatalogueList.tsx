@@ -85,7 +85,7 @@ export function CatalogueList({ items, kinds, sports }: Props) {
       </div>
 
       <p className="frame mt-8 t-small" aria-live="polite">
-        {t('count', { count: visible.length })}
+        {t('count', { count: visible.length })} · {t('countNote')}
       </p>
 
       {visible.length === 0 ? (
@@ -108,7 +108,7 @@ export function CatalogueList({ items, kinds, sports }: Props) {
                   <Image src={i.image} alt="" fill sizes="(min-width: 640px) 16vw, 30vw" className="object-contain transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:scale-105" />
                 </span>
                 <span className="col-span-8 sm:col-span-5">
-                  <span className="block font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-[1.02]">{i.title}</span>
+                  <span className="block font-[family-name:var(--font-display)] text-[length:var(--text-lead)] font-extrabold leading-[1.08]">{i.title}</span>
                   <span className="mt-2 block t-body">{i.subtitle}</span>
                 </span>
                 <span className="col-span-7 sm:col-span-3">

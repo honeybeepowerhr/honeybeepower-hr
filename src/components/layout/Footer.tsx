@@ -45,6 +45,19 @@ export default function Footer() {
 
   return (
     <footer className="on-ink" id="kontakt-podnozje">
+      <Link href={`${prefix}/dogadaji`} className="group grid grid-cols-3 gap-px sm:grid-cols-6" aria-label={t('photoStrip')}>
+        {[11, 24, 12, 4, 20, 9].map((n) => (
+          <span key={n} className="relative aspect-square overflow-hidden">
+            <Image
+              src={`/images/events-web/event-${n}.jpg`}
+              alt=""
+              fill
+              sizes="(min-width: 640px) 17vw, 33vw"
+              className="object-cover grayscale transition-[filter,transform] duration-500 ease-[var(--ease-out-expo)] group-hover:scale-[1.03] group-hover:grayscale-0"
+            />
+          </span>
+        ))}
+      </Link>
       <div className="frame flex min-h-[90svh] flex-col pb-8 pt-10">
         <div className="grid-12 gap-y-8">
           <div className="col-span-12 md:col-span-4">

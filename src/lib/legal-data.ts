@@ -66,7 +66,7 @@ const DOCS: Record<LegalSlug, Record<LegalLang, LegalDoc>> = {
   'politika-privatnosti': {
     hr: {
       title: 'Politika privatnosti',
-      metaDescription: 'Koje osobne podatke Planet Bio prikuplja preko stranice Honey Bee Power, zašto, koliko ih čuva, kome ih daje i koja su vaša prava, uključujući pritužbu AZOP-u.',
+      metaDescription: 'Koje podatke Planet Bio prikuplja preko stranice Honey Bee Power, zašto, koliko ih čuva, kome ih daje i koja su vaša prava, uz pritužbu AZOP-u.',
       updated: '2026-10-26',
       intro: `Voditelj obrade osobnih podataka je ${SELLER_HR}, e-mail info@planetbio.hr.`,
       sections: [
@@ -80,7 +80,7 @@ const DOCS: Record<LegalSlug, Record<LegalLang, LegalDoc>> = {
     },
     en: {
       title: 'Privacy policy',
-      metaDescription: 'What personal data Planet Bio collects through the Honey Bee Power website, why, how long it is kept, who receives it and your rights, including complaints.',
+      metaDescription: 'What data Planet Bio collects through the Honey Bee Power website, why, how long it is kept, who receives it and your rights, including complaints.',
       updated: '2026-10-26',
       intro: `The data controller is ${SELLER_EN}, e-mail info@planetbio.hr.`,
       sections: [

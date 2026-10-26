@@ -62,7 +62,7 @@ const C = {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params
-  return pageMetadata({ locale, path: '/o-nama', title: C.metaTitle[locale], description: C.meta[locale], image: '/images/found/na-pcelinjaku-1905.jpg' })
+  return pageMetadata({ locale, path: '/o-nama', title: C.metaTitle[locale], description: C.meta[locale], image: '/images/og/prica.jpg' })
 }
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: Locale }> }) {
@@ -88,8 +88,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
       <section className="frame section" aria-labelledby="proizvodac-title">
         <div className="grid-12 gap-y-6">
-          <h2 id="proizvodac-title" data-reveal className="t-head col-span-12 md:col-span-5">{C.makerTitle[locale]}</h2>
-          <div data-reveal className="col-span-12 md:col-span-7">
+          <h2 id="proizvodac-title" data-reveal className="t-head col-span-12 lg:col-span-5">{C.makerTitle[locale]}</h2>
+          <div data-reveal className="col-span-12 lg:col-span-7">
             <p className="text-[length:var(--text-lead)] leading-[1.3]">{C.makerText[locale]}</p>
             <p className="mt-6 t-small">{MANUFACTURER.name}, {MANUFACTURER.address}</p>
           </div>
@@ -120,7 +120,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             </div>
           </div>
         </div>
-        <p className="mt-16 t-small measure">{C.archive[locale]}</p>
+        <p className="mt-16 t-body measure">{C.archive[locale]}</p>
       </section>
     </>
   )

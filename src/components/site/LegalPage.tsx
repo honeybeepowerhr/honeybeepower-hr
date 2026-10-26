@@ -3,6 +3,7 @@ import { JsonLd } from '@/components/seo/JsonLd'
 import { buildBreadcrumbSchema } from '@/lib/seo/schemas'
 import { localeUrl } from '@/lib/seo/site'
 import { getLegalDoc, type LegalSlug } from '@/lib/legal-data'
+import { SectionMotion } from '@/components/site/SectionMotion'
 
 const NOTE: Record<Locale, string> = {
   hr: '',
@@ -23,6 +24,7 @@ export function LegalPage({ slug, locale }: { slug: LegalSlug; locale: Locale })
   const { doc, fallback } = getLegalDoc(slug, locale)
   return (
     <article lang={locale === 'hr' ? 'hr' : 'en'}>
+      <SectionMotion />
       <JsonLd schema={buildBreadcrumbSchema([
         { name: 'Honey Bee Power', url: localeUrl(locale, '/') },
         { name: doc.title, url: localeUrl(locale, `/${slug}`) },
@@ -37,9 +39,9 @@ export function LegalPage({ slug, locale }: { slug: LegalSlug; locale: Locale })
       </header>
       <div className="frame pb-24">
         {doc.sections.map((s, i) => (
-          <section key={s.title} className={`grid-12 gap-y-4 py-10 ${i % 2 ? 'field-surface -mx-[var(--gutter)] px-[var(--gutter)]' : ''}`}>
-            <h2 className="col-span-12 font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-[1.05] md:col-span-4">{s.title}</h2>
-            <div className="col-span-12 space-y-4 t-body md:col-span-7 md:col-start-6">
+          <section key={s.title} data-reveal className={`grid-12 gap-y-4 py-10 ${i % 2 ? 'field-surface -mx-[var(--gutter)] px-[var(--gutter)]' : ''}`}>
+            <h2 className="col-span-12 font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-[1.05] lg:col-span-5">{s.title}</h2>
+            <div className="col-span-12 space-y-4 t-body lg:col-span-7 lg:col-start-6">
               {s.paragraphs.map((p, j) => <p key={j} className="measure">{todo(p)}</p>)}
               {s.list && (
                 <ul className="list-disc space-y-1 pl-6 measure">

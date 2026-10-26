@@ -59,7 +59,7 @@ const META = [
 const TEXT: Record<string, Record<Locale, GuideText>> = {
   'kada-uzeti-energetski-gel': {
     hr: {
-      title: 'Kada uzeti energetski gel: prije, tijekom ili nakon?',
+      title: 'Kada uzeti energetski gel?',
       excerpt: 'Što kaže deklaracija Honey Bee Power gela, što kažu opće smjernice za ugljikohidrate i zašto je važno upozorenje za kofein.',
       lead: 'Na pitanje „kada uzeti gel” postoje dva odgovora: što piše na pakiranju konkretnog gela i što opće smjernice kažu o ugljikohidratima u sportu. Za Honey Bee Power gel prvi odgovor je jasan.',
       imageAlt: 'Muškarac u majici Honey Bee Power drži energetski gel',
@@ -79,7 +79,7 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       ],
     },
     en: {
-      title: 'When to take an energy gel: before, during or after?',
+      title: 'When to take an energy gel?',
       excerpt: 'What the Honey Bee Power gel label says, what general carbohydrate guidance says, and why the caffeine warning matters.',
       lead: 'There are two answers to “when do I take a gel”: what the pack of that particular gel says, and what general guidance says about carbohydrate in sport. For the Honey Bee Power gel, the first answer is clear.',
       imageAlt: 'A man in a Honey Bee Power shirt holding an energy gel',
@@ -99,7 +99,7 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       ],
     },
     de: {
-      title: 'Wann nimmt man ein Energiegel: vor, während oder nach?',
+      title: 'Wann nimmt man ein Energiegel?',
       excerpt: 'Was auf dem Etikett des Honey Bee Power Gels steht, was allgemeine Empfehlungen zu Kohlenhydraten sagen und warum der Koffeinhinweis wichtig ist.',
       lead: 'Auf die Frage „wann nimmt man ein Gel“ gibt es zwei Antworten: was auf der Packung dieses Gels steht und was allgemeine Empfehlungen zu Kohlenhydraten im Sport sagen. Für das Honey Bee Power Gel ist die erste Antwort klar.',
       imageAlt: 'Mann im Honey Bee Power Shirt mit einem Energiegel',
@@ -119,7 +119,7 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       ],
     },
     sl: {
-      title: 'Kdaj vzeti energijski gel: pred, med ali po?',
+      title: 'Kdaj vzeti energijski gel?',
       excerpt: 'Kaj piše na deklaraciji gela Honey Bee Power, kaj pravijo splošne smernice za ogljikove hidrate in zakaj je opozorilo za kofein pomembno.',
       lead: 'Na vprašanje „kdaj vzeti gel” sta dva odgovora: kaj piše na embalaži tega gela in kaj splošne smernice pravijo o ogljikovih hidratih v športu. Za gel Honey Bee Power je prvi odgovor jasen.',
       imageAlt: 'Moški v majici Honey Bee Power drži energijski gel',
@@ -139,7 +139,7 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       ],
     },
     pl: {
-      title: 'Kiedy przyjąć żel energetyczny: przed, w trakcie czy po?',
+      title: 'Kiedy przyjąć żel energetyczny?',
       excerpt: 'Co mówi etykieta żelu Honey Bee Power, co mówią ogólne wskazówki dotyczące węglowodanów i dlaczego ważne jest ostrzeżenie o kofeinie.',
       lead: 'Na pytanie „kiedy przyjąć żel” są dwie odpowiedzi: co podaje opakowanie danego żelu i co mówią ogólne wskazówki o węglowodanach w sporcie. Dla żelu Honey Bee Power pierwsza odpowiedź jest jasna.',
       imageAlt: 'Mężczyzna w koszulce Honey Bee Power trzyma żel energetyczny',
@@ -398,7 +398,7 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       ],
     },
     de: {
-      title: 'Protein nach dem Training: wie viel und wann',
+      title: 'Protein nach dem Training',
       excerpt: 'Allgemeine Empfehlungen für Protein nach dem Training, ein Beispiel für 70 kg und was im Honey Bee Power Whey steckt, inklusive Stevia und Milch.',
       lead: 'Protein nach dem Training ist keine Magie, sondern Teil der täglichen Zufuhr. Die Menge über den Tag zählt mehr als die genaue Minute nach dem Training.',
       imageAlt: 'Dose Honey Bee Power Whey Protein Banane-Vanille',

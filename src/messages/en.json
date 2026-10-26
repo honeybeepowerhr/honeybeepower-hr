@@ -206,7 +206,8 @@
     "backToTop": "Back to top",
     "contactLead": "Questions and orders",
     "photoCredits": "Photo credits",
-    "distributor": "distributor for Croatia"
+    "distributor": "distributor for Croatia",
+    "photoStrip": "Photos from events: see all"
   },
   "contactPage": {
     "badge": "Get in touch",
@@ -758,6 +759,7 @@
     "count": "{count, plural, one {# product} other {# products}}",
     "view": "View",
     "empty": "No products match this selection.",
-    "reset": "Show all"
+    "reset": "Show all",
+    "countNote": "prices from the official price list, buying by enquiry"
   }
 }

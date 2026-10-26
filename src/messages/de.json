@@ -206,7 +206,8 @@
     "backToTop": "Nach oben",
     "contactLead": "Fragen und Bestellungen",
     "photoCredits": "Bildnachweise",
-    "distributor": "Vertrieb in Kroatien"
+    "distributor": "Vertrieb in Kroatien",
+    "photoStrip": "Fotos von Veranstaltungen: alle ansehen"
   },
   "contactPage": {
     "badge": "Kontaktieren Sie uns",
@@ -758,6 +759,7 @@
     "count": "{count, plural, one {# Produkt} other {# Produkte}}",
     "view": "Ansehen",
     "empty": "Für diese Auswahl gibt es keine Produkte.",
-    "reset": "Alle anzeigen"
+    "reset": "Alle anzeigen",
+    "countNote": "Preise laut offizieller Preisliste, Kauf per Anfrage"
   }
 }

@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl'
 import ContactForm from '@/components/contact/ContactForm'
+import { SectionMotion } from '@/components/site/SectionMotion'
 import { LEGAL_ENTITY } from '@/lib/cjenik-data'
 
 const MAP_QUERY = encodeURIComponent('Krndijska 4, 31500 Našice, Hrvatska')
@@ -10,6 +11,7 @@ export default function ContactClient() {
 
   return (
     <>
+      <SectionMotion />
       <section className="frame pb-14 pt-10" aria-labelledby="kontakt-title">
         <h1 id="kontakt-title" className="t-display">{t('title')}</h1>
         <p className="mt-6 t-lead measure">{t('subtitle')}</p>
@@ -34,7 +36,7 @@ export default function ContactClient() {
 
       <section className="frame section" aria-labelledby="poruka-title">
         <div className="grid-12 gap-y-12">
-          <div className="col-span-12 space-y-8 lg:col-span-4">
+          <div data-reveal className="col-span-12 space-y-8 lg:col-span-4">
             <h2 id="poruka-title" className="t-head">{t('formTitle')}</h2>
             <dl className="space-y-5 t-body">
               <div>
@@ -54,7 +56,7 @@ export default function ContactClient() {
               </div>
             </dl>
           </div>
-          <div className="col-span-12 lg:col-span-7 lg:col-start-6">
+          <div data-reveal className="col-span-12 lg:col-span-7 lg:col-start-6">
             <ContactForm />
           </div>
         </div>
