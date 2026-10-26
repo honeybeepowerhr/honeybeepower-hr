@@ -72,7 +72,7 @@ export default function Footer() {
             {t('hours')}
           </address>
           <nav aria-label={t('siteNav')} className="col-span-6 md:col-span-3">
-            <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5 t-body">
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5 t-body [&>li]:min-w-0 [&_a]:break-words [&_a]:[hyphens:auto]">
               {siteLinks.map((l) => (
                 <li key={l.href}>
                   <Link href={`${prefix}${l.href}`} className="link decoration-transparent hover:decoration-honey hover:text-honey">
