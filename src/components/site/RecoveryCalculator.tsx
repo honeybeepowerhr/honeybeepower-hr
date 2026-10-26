@@ -119,7 +119,7 @@ export function RecoveryCalculator({ headingId, heading, headingLevel = 'h2', he
                     setRaw(String(v))
                   }}
                   aria-describedby={`${id}-range-hint`}
-                  className="w-[4ch] border-0 border-b-[3px] border-current bg-transparent text-center font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-none tabular focus:outline-none focus-visible:border-[color:var(--color-honey)]"
+                  className="w-[4ch] border-0 border-b-[3px] border-current bg-transparent text-center font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-[1.1] tabular focus:outline-none focus-visible:border-[color:var(--color-honey)]"
                 />
                 <span className="t-body">kg</span>
               </div>
@@ -163,7 +163,7 @@ export function RecoveryCalculator({ headingId, heading, headingLevel = 'h2', he
       </div>
 
       <div className="col-span-12 max-lg:pt-16 lg:col-span-6 lg:col-start-7" aria-live="polite">
-        <p className="font-[family-name:var(--font-display)] text-[length:var(--text-display)] font-black leading-[0.85] tracking-[-0.04em] tabular">
+        <p className="font-[family-name:var(--font-display)] text-[length:var(--text-display)] font-black leading-[1.02] tracking-[-0.02em] tabular">
           <span key={plan.totalCarbsG} className="number-pop">{plan.totalCarbsG}</span> g
         </p>
         <p className="mt-4 t-lead">
@@ -174,7 +174,7 @@ export function RecoveryCalculator({ headingId, heading, headingLevel = 'h2', he
         <ol className="mt-12 grid grid-cols-2 gap-2 sm:grid-cols-4">
           {plan.doses.map((d) => (
             <li key={d.hour} className="bg-[color:var(--cell-bg,rgba(255,255,255,0.08))] p-4">
-              <span className="block font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-none tabular">
+              <span className="block font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-[1.1] tabular">
                 <span key={`${d.hour}-${d.carbsG}`} className="number-pop">{n(d.carbsG)}</span> g
               </span>
               <span className="mt-2 block t-small">{d.hour === 0 ? t('doseNow') : t('doseAfter', { hours: d.hour })}</span>

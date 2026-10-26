@@ -114,11 +114,11 @@ export function CatalogueList({ items, kinds, sports }: Props) {
                   <span className="mt-2 block t-body">{i.subtitle}</span>
                 </span>
                 <span className="col-span-7 sm:col-span-3">
-                  <span className="block font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold tabular leading-none">{i.figure}</span>
+                  <span className="block font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold tabular leading-[1.1]">{i.figure}</span>
                   <span className="mt-1 block t-small">{i.figureLabel}</span>
                 </span>
                 <span className="col-span-5 text-right t-lead tabular sm:col-span-2">
-                  {i.price ?? <span className="todo t-small">[UPIŠI: cijena]</span>}
+                  {i.price ?? <span className="t-small text-muted">{t('priceOnEnquiry')}</span>}
                 </span>
               </Link>
             </li>

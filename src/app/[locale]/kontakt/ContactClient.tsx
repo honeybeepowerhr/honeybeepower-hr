@@ -19,7 +19,7 @@ export default function ContactClient() {
 
       <section className="on-ink" aria-label={t('phoneTitle')}>
         <div className="frame py-14 md:py-20">
-          <a href="tel:+385977097962" className="block whitespace-nowrap font-[family-name:var(--font-display)] text-[length:min(11vw,var(--text-display))] font-black leading-[0.9] tracking-[-0.035em] hover:underline decoration-[0.06em]">
+          <a href="tel:+385977097962" className="block whitespace-nowrap font-[family-name:var(--font-display)] text-[length:min(11vw,var(--text-display))] font-black leading-[1.04] tracking-[-0.02em] hover:underline decoration-[0.06em]">
             +385 97 709 7962
           </a>
           <a href="mailto:info@planetbio.hr" className="mt-4 block font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold hover:underline">

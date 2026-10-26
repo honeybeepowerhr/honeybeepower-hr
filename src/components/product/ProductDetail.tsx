@@ -28,18 +28,9 @@ import { officialPriceFor } from '@/lib/prices'
 import { FaqList } from '@/components/site/FaqList'
 import ProductAddToCartButton from '@/app/[locale]/proizvodi/[slug]/ProductAddToCartButton'
 
-/** Pretvara [UPIŠI: …] u tekstu u vidljivu oznaku. */
+/** Za svaki slučaj uklanja ostatke oznaka za nedostajuće podatke iz teksta. */
 function withTodo(text: string) {
-  const parts = text.split(/(\[UPIŠI:[^\]]*\])/g)
-  return parts.map((p, i) =>
-    p.startsWith('[UPIŠI') ? (
-      <span key={i} className="todo">
-        {p}
-      </span>
-    ) : (
-      p
-    ),
-  )
+  return text.replace(/\s*\[UPIŠI:[^\]]*\]/g, '')
 }
 
 const flavourOf = (p: ProductSummary) => p.variants[0]?.flavour ?? ''
@@ -126,7 +117,7 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
         : kind === 'whey'
           ? officialPriceFor('Proteinski prah', 'LJEŠNJAK-ČOKOLADA', '33 g')
           : null
-    const answer = l(f.a, locale).replace('{price}', smallPrice !== null ? formatEur(smallPrice, locale) : '[UPIŠI: cijena]')
+    const answer = l(f.a, locale).replace('{price}', smallPrice !== null ? formatEur(smallPrice, locale) : '')
     return { q: l(f.q, locale), a: <>{withTodo(answer)}</> }
   })
 
@@ -155,7 +146,7 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
 
           {figure && (
             <div>
-              <p className="font-[family-name:var(--font-display)] text-[length:var(--text-mega)] font-black leading-[0.82] tracking-[-0.04em] tabular">
+              <p className="font-[family-name:var(--font-display)] text-[length:var(--text-mega)] font-black leading-[1.02] tracking-[-0.02em] tabular">
                 {figure.value}
               </p>
               <p className="mt-3 t-lead">{figure.label}</p>
@@ -169,7 +160,7 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
                 <p className="t-body">{t('priceFromList')}</p>
               </div>
             ) : (
-              <p className="t-body"><span className="todo">{t('pricePending')}</span></p>
+              <p className="t-body">{t('pricePending')}</p>
             )}
             <ProductAddToCartButton
               product={product}
@@ -238,9 +229,11 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
             <h2 id="sastav-title" className="t-head">
               {decl?.ingredients && kind !== 'isotonic' ? t('ingredientsTitle', { count: ingredientCount }) : t('ingredientsTitleIso')}
             </h2>
-            <p className="mt-8 max-w-[38ch] font-[family-name:var(--font-display)] text-[length:var(--text-lead)] font-semibold leading-[1.25]">
-              {decl?.ingredients ? decl.ingredients[locale] : <span className="todo">{t('ingredientsMissing')}</span>}
-            </p>
+            {decl?.ingredients && (
+              <p className="mt-8 max-w-[38ch] font-[family-name:var(--font-display)] text-[length:var(--text-lead)] font-semibold leading-[1.25]">
+                {decl.ingredients[locale]}
+              </p>
+            )}
             {kind === 'gel' && <p className="mt-4 t-body">{GEL_CAFFEINE_SOURCE[locale]}</p>}
             {decl?.allergens && (
               <p className="mt-6 t-body">
@@ -303,8 +296,8 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
                 <strong className="font-medium">{t('warningTitle')}:</strong> {GEL_WARNING[locale]}
               </p>
               <p className="t-body">
-                {GEL_CAFFEINE_SOURCE[locale]} {t('caffeineAmount')}:{' '}
-                {GEL_CAFFEINE_MG !== null ? `${GEL_CAFFEINE_MG} mg` : <span className="todo">[UPIŠI: količina kofeina po gelu, mg]</span>}
+                {GEL_CAFFEINE_SOURCE[locale]}
+                {GEL_CAFFEINE_MG !== null ? ` ${t('caffeineAmount')}: ${GEL_CAFFEINE_MG} mg` : ''}
               </p>
               <p className="t-body">
                 <strong className="font-medium">{t('storageTitle')}:</strong> {GEL_STORAGE[locale]}
@@ -330,16 +323,6 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
                 <span className="btn-arrow" aria-hidden="true">→</span>
               </Link>
             </div>
-          </div>
-        </section>
-      )}
-      {kind === 'isotonic' && (
-        <section className="frame section" aria-labelledby="priprema-title">
-          <div className="grid-12 gap-y-6">
-            <h2 id="priprema-title" className="t-head col-span-12 md:col-span-5">{t('prepTitle')}</h2>
-            <p className="col-span-12 text-[length:var(--text-lead)] md:col-span-7">
-              <span className="todo">{t('prepMissing')}</span>
-            </p>
           </div>
         </section>
       )}

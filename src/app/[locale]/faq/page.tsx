@@ -27,7 +27,7 @@ const C = {
 } satisfies Record<string, Record<Locale, string>>
 
 function todo(text: string) {
-  return text.split(/(\[UPIŠI:[^\]]*\])/g).map((p, i) => (p.startsWith('[UPIŠI') ? <span key={i} className="todo">{p}</span> : p))
+  return text.replace(/\s*\[UPIŠI:[^\]]*\]/g, '')
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {

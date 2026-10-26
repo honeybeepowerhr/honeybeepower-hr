@@ -329,8 +329,6 @@
     "metaDescription": "Żele, izotoniki i whey Honey Bee Power dla klubów sportowych, siłowni, aptek i sklepów. Wyślij zapytanie z produktami i ilościami.",
     "fact1Label": "Zamówienie",
     "fact1": "Zapytanie z produktami i ilościami",
-    "fact2Label": "Warunki",
-    "fact2": "[UPIŠI: rabaty i minimalne zamówienie]",
     "fact3Label": "Dostawa",
     "fact3": "Z Našic, 1–3 dni robocze od potwierdzenia",
     "fact4Label": "Kontakt",
@@ -681,7 +679,7 @@
       "q1": "Kiedy przyjmować żel?",
       "a1": "Według etykiety: 1 porcja (40 g) po ćwiczeniach lub wysiłku fizycznym. Żel jest przeznaczony dla dorosłych po bardzo intensywnym lub długotrwałym wysiłku.",
       "q2": "Czy żel zawiera kofeinę?",
-      "a2": "Tak, z ekstraktu z nasion guarany (1%). Zawartość kofeiny w żelu potwierdzamy u producenta: <todo>[UPIŠI: kofeina w żelu]</todo>. Nie zaleca się osobom wrażliwym na kofeinę, kobietom w ciąży, karmiącym piersią oraz dzieciom.",
+      "a2": "Tak, z ekstraktu z nasion guarany (1%). Nie zaleca się osobom wrażliwym na kofeinę, kobietom w ciąży, karmiącym piersią oraz dzieciom.",
       "q3": "Czy whey jest słodzone tylko miodem?",
       "a3": "Nie. Whey zawiera suszony miód (6%) i stewię, a także mleko.",
       "q4": "Jak zamówić?",
@@ -707,7 +705,7 @@
     "carbsIso": "węglowodanów w porcji 15 g",
     "proteinWhey": "białka w porcji 33 g",
     "priceFromList": "za sztukę, z oficjalnego cennika",
-    "pricePending": "Cena zestawu: [UPIŠI: cena z cennika]",
+    "pricePending": "Cena na zapytanie",
     "flavour": "Smak",
     "pack": "Opakowanie",
     "single": "Jedna saszetka",
@@ -721,7 +719,6 @@
     "added": "Dodano do zapytania.",
     "ingredientsTitle": "{count, select, 3 {Trzy składniki.} other {Cztery składniki.}}",
     "ingredientsTitleIso": "Skład",
-    "ingredientsMissing": "[UPIŠI: skład z opakowania]",
     "nutritionTitle": "Wartości odżywcze",
     "per100": "w 100 g",
     "perServing": "w {grams} g",
@@ -750,8 +747,6 @@
     "calcLink": "Oblicz węglowodany na regenerację",
     "storageTitle": "Przechowywanie",
     "allergensTitle": "Alergeny",
-    "prepTitle": "Przygotowanie",
-    "prepMissing": "[UPIŠI: przygotowanie z opakowania]",
     "sportsTitle": "Dla jakiego sportu",
     "faqTitle": "Częste pytania",
     "relatedTitle": "Pasuje do tego",
@@ -766,6 +761,7 @@
     "view": "Zobacz",
     "empty": "Brak produktów dla tego wyboru.",
     "reset": "Pokaż wszystkie",
-    "countNote": "ceny z oficjalnego cennika, zakup przez zapytanie"
+    "countNote": "ceny z oficjalnego cennika, zakup przez zapytanie",
+    "priceOnEnquiry": "Cena na zapytanie"
   }
 }

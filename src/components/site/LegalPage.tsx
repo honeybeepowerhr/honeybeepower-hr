@@ -16,7 +16,7 @@ const NOTE: Record<Locale, string> = {
 const UPDATED: Record<Locale, string> = { hr: 'Ažurirano', en: 'Updated', de: 'Aktualisiert', sl: 'Posodobljeno', pl: 'Zaktualizowano' }
 
 function todo(text: string) {
-  return text.split(/(\[UPIŠI:[^\]]*\])/g).map((p, i) => (p.startsWith('[UPIŠI') ? <span key={i} className="todo">{p}</span> : p))
+  return text.replace(/\s*\[UPIŠI:[^\]]*\]/g, '')
 }
 
 /** Zajednički predložak pravnih stranica: naslov lijevo, tekst desno, bez ukrasa. */

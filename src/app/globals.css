@@ -99,8 +99,8 @@ h4 {
   font-family: var(--font-display);
   font-weight: 800;
   font-stretch: 112%;
-  letter-spacing: -0.03em;
-  line-height: 1;
+  letter-spacing: -0.012em;
+  line-height: 1.1;
   text-wrap: balance;
   overflow-wrap: break-word;
   margin: 0;
@@ -193,8 +193,8 @@ button {
   font-size: var(--text-display);
   font-weight: 900;
   font-stretch: 118%;
-  letter-spacing: -0.045em;
-  line-height: 0.92;
+  letter-spacing: -0.022em;
+  line-height: 1.02;
 }
 
 .t-head {
@@ -202,8 +202,8 @@ button {
   font-size: var(--text-head);
   font-weight: 800;
   font-stretch: 112%;
-  letter-spacing: -0.04em;
-  line-height: 0.98;
+  letter-spacing: -0.018em;
+  line-height: 1.08;
 }
 
 .t-lead {

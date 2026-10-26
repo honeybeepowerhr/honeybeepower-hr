@@ -53,7 +53,7 @@ export default function ProductAddToCartButton({ product, variant, unitPrice, va
           </button>
           <output
             aria-live="polite"
-            className="grid min-w-14 place-items-center px-2 font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-none tabular"
+            className="grid min-w-14 place-items-center px-2 font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-[1.1] tabular"
           >
             <span key={quantity} className="number-pop">{quantity}</span>
           </output>

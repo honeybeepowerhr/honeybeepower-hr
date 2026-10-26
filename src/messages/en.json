@@ -303,8 +303,6 @@
     "metaDescription": "Honey Bee Power gels, isotonic drinks and whey for sports clubs, gyms, pharmacies and shops. Send an enquiry with products and quantities; we agree terms directly.",
     "fact1Label": "Ordering",
     "fact1": "Enquiry with products and quantities",
-    "fact2Label": "Terms",
-    "fact2": "[UPIŠI: discounts and minimum order]",
     "fact3Label": "Shipping",
     "fact3": "From Našice, 1–3 working days after confirmation",
     "fact4Label": "Contact",
@@ -682,7 +680,7 @@
       "q1": "When do I take the gel?",
       "a1": "According to the label: 1 serving (40 g) after exercise or physical exertion. The gel is intended for adults after very intensive or long-lasting exercise.",
       "q2": "Does the gel contain caffeine?",
-      "a2": "Yes, from guarana seed extract (1%). We are confirming the caffeine content per gel with the producer: <todo>[UPIŠI: caffeine per gel]</todo>. Not recommended for people sensitive to caffeine, pregnant or breastfeeding women, or children.",
+      "a2": "Yes, from guarana seed extract (1%). Not recommended for people sensitive to caffeine, pregnant or breastfeeding women, or children.",
       "q3": "Is the whey sweetened only with honey?",
       "a3": "No. The whey contains dried honey (6%) and stevia, and it contains milk.",
       "q4": "How do I order?",
@@ -708,7 +706,7 @@
     "carbsIso": "carbohydrate per 15 g serving",
     "proteinWhey": "protein per 33 g serving",
     "priceFromList": "each, from the official price list",
-    "pricePending": "Pack price: [UPIŠI: price from the price list]",
+    "pricePending": "Price on request",
     "flavour": "Flavour",
     "pack": "Pack",
     "single": "Single sachet",
@@ -722,7 +720,6 @@
     "added": "Added to the enquiry.",
     "ingredientsTitle": "{count, select, 3 {Three ingredients.} other {Four ingredients.}}",
     "ingredientsTitleIso": "Ingredients",
-    "ingredientsMissing": "[UPIŠI: ingredients from the pack]",
     "nutritionTitle": "Nutrition information",
     "per100": "per 100 g",
     "perServing": "per {grams} g",
@@ -751,8 +748,6 @@
     "calcLink": "Calculate carbohydrate for recovery",
     "storageTitle": "Storage",
     "allergensTitle": "Allergens",
-    "prepTitle": "Preparation",
-    "prepMissing": "[UPIŠI: preparation from the pack]",
     "sportsTitle": "For which sport",
     "faqTitle": "Questions",
     "relatedTitle": "Goes with",
@@ -767,6 +762,7 @@
     "view": "View",
     "empty": "No products match this selection.",
     "reset": "Show all",
-    "countNote": "prices from the official price list, buying by enquiry"
+    "countNote": "prices from the official price list, buying by enquiry",
+    "priceOnEnquiry": "Price on request"
   }
 }

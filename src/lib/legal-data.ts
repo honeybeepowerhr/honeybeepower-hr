@@ -4,7 +4,7 @@ import { LEGAL_ENTITY } from '@/lib/cjenik-data'
 /**
  * Pravne stranice. Tekst treba pregledati pravnik prije objave (nisu pravni savjet).
  * Obvezujuća je hrvatska verzija; engleska je prijevod, a de/sl/pl prikazuju englesku
- * uz napomenu. Što nije poznato označeno je s [UPIŠI: …].
+ * uz napomenu.
  */
 
 export interface LegalSection {
@@ -38,11 +38,11 @@ const DOCS: Record<LegalSlug, Record<LegalLang, LegalDoc>> = {
       sections: [
         { title: 'Prodavatelj', paragraphs: [`Prodavatelj je ${SELLER_HR}. Kontakt: info@planetbio.hr, +385 97 709 7962. Proizvođač Honey Bee Power proizvoda je P.P.H. APIMAR, Baranów, Poljska; Planet Bio je distributer za Hrvatsku.`] },
         { title: 'Kako se naručuje', paragraphs: ['Na stranici se ne plaća. Kupac proizvode dodaje u upit i šalje ga WhatsAppom ili e-mailom. Prodavatelj odgovara ponudom s ukupnom cijenom, troškom dostave i načinom plaćanja. Ugovor je sklopljen kad kupac prihvati ponudu.'] },
-        { title: 'Cijene', paragraphs: ['Cijene na stranici jednake su cijenama iz službenog cjenika (stranica Cjenik), u eurima. Trošak dostave nije uključen i navodi se u ponudi prije sklapanja ugovora. [UPIŠI: je li obrt u sustavu PDV-a i iskazuje li se PDV]'] },
+        { title: 'Cijene', paragraphs: ['Cijene na stranici jednake su cijenama iz službenog cjenika (stranica Cjenik), u eurima. Trošak dostave nije uključen i navodi se u ponudi prije sklapanja ugovora.'] },
         { title: 'Plaćanje', paragraphs: ['Plaćanje je moguće pouzećem ili virmanom (uplatom na račun prodavatelja) prema dogovoru u ponudi. Plaćanje karticom trenutačno nije moguće.'] },
         { title: 'Dostava', paragraphs: ['Dostavljamo na području Republike Hrvatske, obično 1–3 radna dana nakon potvrde narudžbe. Za dostavu izvan Hrvatske pošaljite upit.'] },
         { title: 'Pravo na jednostrani raskid ugovora', paragraphs: ['Potrošač ima pravo raskinuti ugovor sklopljen na daljinu u roku od 14 dana od primitka robe, bez navođenja razloga. Pojedinosti i iznimke opisane su na stranici Povrat i reklamacije.'] },
-        { title: 'Reklamacije', paragraphs: ['Prigovor se može podnijeti pisano na info@planetbio.hr ili na adresu prodavatelja. Na pisani prigovor odgovaramo pisano u roku od 15 dana od primitka.', '[UPIŠI: tijelo za izvansudsko rješavanje potrošačkih sporova kojem se prodavatelj obvezuje pristupiti]'] },
+        { title: 'Reklamacije', paragraphs: ['Prigovor se može podnijeti pisano na info@planetbio.hr ili na adresu prodavatelja. Na pisani prigovor odgovaramo pisano u roku od 15 dana od primitka.'] },
         { title: 'Podaci o proizvodima', paragraphs: ['Sastav, nutritivne vrijednosti, način primjene i upozorenja preneseni su s deklaracija na pakiranjima. Mjerodavna je deklaracija na proizvodu koji ste primili. Dodaci prehrani i sportska prehrana nisu zamjena za raznovrsnu prehranu.'] },
       ],
     },
@@ -54,11 +54,11 @@ const DOCS: Record<LegalSlug, Record<LegalLang, LegalDoc>> = {
       sections: [
         { title: 'Seller', paragraphs: [`The seller is ${SELLER_EN}. Contact: info@planetbio.hr, +385 97 709 7962. Honey Bee Power products are made by P.P.H. APIMAR, Baranów, Poland; Planet Bio is the distributor for Croatia.`] },
         { title: 'How to order', paragraphs: ['Nothing is paid on the website. The customer adds products to an enquiry and sends it by WhatsApp or e-mail. The seller replies with an offer stating the total price, shipping cost and payment method. The contract is concluded when the customer accepts the offer.'] },
-        { title: 'Prices', paragraphs: ['Prices on the website match the official price list (Price list page), in euros. Shipping is not included and is stated in the offer before the contract is concluded. [UPIŠI: VAT status]'] },
+        { title: 'Prices', paragraphs: ['Prices on the website match the official price list (Price list page), in euros. Shipping is not included and is stated in the offer before the contract is concluded.'] },
         { title: 'Payment', paragraphs: ['Payment is by cash on delivery or bank transfer, as agreed in the offer. Card payment is currently not available.'] },
         { title: 'Shipping', paragraphs: ['We ship within Croatia, usually 1–3 working days after order confirmation. For shipping outside Croatia, please send an enquiry.'] },
         { title: 'Right of withdrawal', paragraphs: ['Consumers may withdraw from a distance contract within 14 days of receiving the goods, without giving a reason. Details and exceptions are on the Returns and complaints page.'] },
-        { title: 'Complaints', paragraphs: ['Complaints can be sent in writing to info@planetbio.hr or to the seller’s address. We reply in writing within 15 days of receipt.', '[UPIŠI: out-of-court consumer dispute body]'] },
+        { title: 'Complaints', paragraphs: ['Complaints can be sent in writing to info@planetbio.hr or to the seller’s address. We reply in writing within 15 days of receipt.'] },
         { title: 'Product information', paragraphs: ['Ingredients, nutrition, directions and warnings are copied from the pack labels. The label on the product you receive prevails. Food supplements and sports nutrition are not a substitute for a varied diet.'] },
       ],
     },
@@ -73,7 +73,7 @@ const DOCS: Record<LegalSlug, Record<LegalLang, LegalDoc>> = {
         { title: 'Koje podatke prikupljamo', paragraphs: ['Samo ono što nam pošaljete:'], list: ['Upit iz košarice: ime i prezime, broj telefona i popis proizvoda.', 'Kontakt obrazac: ime i prezime, e-mail, broj telefona (neobavezno) i poruka.', 'B2B obrazac: naziv kluba ili tvrtke, kontakt osoba, e-mail, telefon, vrsta suradnje, proizvodi i poruka.', 'Kolačići: izbor o kolačićima i sadržaj košarice spremaju se u vašem pregledniku.'] },
         { title: 'Svrha i pravna osnova', paragraphs: ['Podatke iz upita i obrazaca koristimo da odgovorimo i pripremimo ponudu (radnje prije sklapanja ugovora i izvršenje ugovora, čl. 6. st. 1. t. (b) Opće uredbe o zaštiti podataka). Podatke potrebne za račune čuvamo zbog zakonske obveze (t. (c)). Analitičke i marketinške kolačiće koristimo samo uz vašu privolu (t. (a)), koju možete povući u bilo kojem trenutku.'] },
         { title: 'Kome se podaci daju', paragraphs: ['Podatke ne prodajemo. Za rad stranice koristimo pružatelje usluga koji ih obrađuju u naše ime:'], list: ['Cloudflare (smještaj stranice)', 'Sanity (spremanje upita)', 'Resend (slanje e-mail obavijesti o upitima)', 'WhatsApp (Meta), ako upit pošaljete WhatsAppom', 'Uz privolu: Google Tag Manager i Google Analytics, Microsoft Clarity, Meta Pixel', 'Dostavna služba, kad šaljemo narudžbu'] },
-        { title: 'Koliko dugo čuvamo podatke', paragraphs: ['[UPIŠI: rok čuvanja upita i poruka koji nisu doveli do narudžbe]. Podatke s računa čuvamo onoliko koliko propisuju porezni i računovodstveni propisi.'] },
+        { title: 'Koliko dugo čuvamo podatke', paragraphs: ['Podatke s računa čuvamo onoliko koliko propisuju porezni i računovodstveni propisi.'] },
         { title: 'Vaša prava', paragraphs: ['Imate pravo na pristup, ispravak, brisanje, ograničenje obrade, prenosivost podataka, prigovor na obradu i povlačenje privole. Zahtjev pošaljite na info@planetbio.hr; odgovaramo u roku od mjesec dana.', 'Imate pravo podnijeti pritužbu Agenciji za zaštitu osobnih podataka (AZOP), Selska cesta 136, 10000 Zagreb, azop.hr.'] },
         { title: 'Kolačići', paragraphs: ['Nužni kolačići pamte košaricu i vaš izbor o kolačićima. Analitički (Google Analytics, Microsoft Clarity) i marketinški (Meta Pixel) učitavaju se samo ako odaberete „Prihvati sve”. Izbor možete promijeniti preko poveznice „Postavke kolačića” u podnožju.'] },
       ],
@@ -87,7 +87,7 @@ const DOCS: Record<LegalSlug, Record<LegalLang, LegalDoc>> = {
         { title: 'What we collect', paragraphs: ['Only what you send us:'], list: ['Basket enquiry: full name, phone number and the list of products.', 'Contact form: full name, e-mail, phone number (optional) and message.', 'B2B form: club or company name, contact person, e-mail, phone, type of partnership, products and message.', 'Cookies: your cookie choice and basket contents are stored in your browser.'] },
         { title: 'Purpose and legal basis', paragraphs: ['We use enquiry and form data to reply and prepare an offer (pre-contractual steps and performance of a contract, Art. 6(1)(b) GDPR). Data needed for invoices is kept to meet legal obligations (Art. 6(1)(c)). Analytics and marketing cookies are used only with your consent (Art. 6(1)(a)), which you can withdraw at any time.'] },
         { title: 'Who receives the data', paragraphs: ['We do not sell data. We use service providers that process it on our behalf:'], list: ['Cloudflare (hosting)', 'Sanity (storing enquiries)', 'Resend (e-mail notifications about enquiries)', 'WhatsApp (Meta), if you send the enquiry by WhatsApp', 'With consent: Google Tag Manager and Google Analytics, Microsoft Clarity, Meta Pixel', 'The courier, when we ship an order'] },
-        { title: 'How long we keep data', paragraphs: ['[UPIŠI: retention period for enquiries and messages that did not lead to an order]. Invoice data is kept as long as tax and accounting rules require.'] },
+        { title: 'How long we keep data', paragraphs: ['Invoice data is kept as long as tax and accounting rules require.'] },
         { title: 'Your rights', paragraphs: ['You have the right of access, rectification, erasure, restriction, data portability, objection and withdrawal of consent. Send requests to info@planetbio.hr; we reply within one month.', 'You may lodge a complaint with the Croatian Personal Data Protection Agency (AZOP), Selska cesta 136, 10000 Zagreb, azop.hr.'] },
         { title: 'Cookies', paragraphs: ['Necessary cookies remember the basket and your cookie choice. Analytics (Google Analytics, Microsoft Clarity) and marketing (Meta Pixel) cookies load only if you choose “Accept all”. You can change your choice via “Cookie settings” in the footer.'] },
       ],
@@ -100,7 +100,7 @@ const DOCS: Record<LegalSlug, Record<LegalLang, LegalDoc>> = {
       updated: '2026-10-26',
       intro: 'Narudžba ide na upit: nakon što pošaljete upit, javljamo se s ponudom u kojoj su ukupna cijena, trošak dostave i način plaćanja.',
       sections: [
-        { title: 'Dostava', paragraphs: ['Šaljemo iz skladišta u Krndijskoj 4 u Našicama, na području Republike Hrvatske, obično za 1–3 radna dana nakon potvrde narudžbe.', 'Trošak dostave: [UPIŠI: cijena dostave ili pravilo za besplatnu dostavu]. Do odluke trošak navodimo u ponudi prije potvrde.'] },
+        { title: 'Dostava', paragraphs: ['Šaljemo iz skladišta u Krndijskoj 4 u Našicama, na području Republike Hrvatske, obično za 1–3 radna dana nakon potvrde narudžbe.', 'Trošak dostave navodimo u ponudi prije potvrde narudžbe.'] },
         { title: 'Plaćanje', paragraphs: ['Pouzećem (plaćanje dostavljaču pri preuzimanju) ili virmanom na račun obrta Planet Bio prije slanja. Plaćanje karticom na stranici trenutačno nije moguće.'] },
         { title: 'Klubovi i trgovine', paragraphs: ['Za veće količine pošaljite B2B upit; dostavu i plaćanje dogovaramo prema količini.'] },
       ],
@@ -111,7 +111,7 @@ const DOCS: Record<LegalSlug, Record<LegalLang, LegalDoc>> = {
       updated: '2026-10-26',
       intro: 'Orders work by enquiry: after you send an enquiry, we reply with an offer stating the total price, shipping cost and payment method.',
       sections: [
-        { title: 'Shipping', paragraphs: ['We ship from our warehouse at Krndijska 4 in Našice, within Croatia, usually 1–3 working days after order confirmation.', 'Shipping cost: [UPIŠI: shipping price or free-shipping rule]. Until decided, we state it in the offer before confirmation.'] },
+        { title: 'Shipping', paragraphs: ['We ship from our warehouse at Krndijska 4 in Našice, within Croatia, usually 1–3 working days after order confirmation.', 'We state the shipping cost in the offer before the order is confirmed.'] },
         { title: 'Payment', paragraphs: ['Cash on delivery (pay the courier on receipt) or bank transfer to Planet Bio before shipping. Card payment on the website is currently not available.'] },
         { title: 'Clubs and shops', paragraphs: ['For larger quantities, send a B2B enquiry; shipping and payment are agreed according to quantity.'] },
       ],

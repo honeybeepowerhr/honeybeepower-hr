@@ -4,7 +4,7 @@ import type { Locale } from '@/types'
  * Podaci prepisani s deklaracija na poleđini pakiranja
  * (public/images/products/*-zadnja.png) i iz redizajn/podaci-deklaracije.json.
  * Ovo je jedini izvor nutritivnih podataka, sastava i upozorenja na stranici.
- * `null` znači da podatak nedostaje: prikazuje se kao [UPIŠI: …].
+ * `null` znači da podatak nedostaje: ne prikazuje se.
  * Prijevodi (en, de, sl, pl) čekaju provjeru izvornih govornika.
  */
 
