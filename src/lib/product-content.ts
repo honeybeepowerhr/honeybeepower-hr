@@ -4,7 +4,7 @@ import type { L10n } from '@/lib/declarations'
 /**
  * Sadržaj stranica proizvoda po vrsti (gel, izotonik, whey). Samo činjenice
  * iz redizajn/podaci-deklaracije.json i službenog cjenika; što nedostaje
- * označeno je s [UPIŠI: …]. Prijevodi čekaju provjeru.
+ * Prijevodi čekaju provjeru.
  */
 
 export type ProductKind = 'gel' | 'isotonic' | 'whey'
@@ -64,13 +64,13 @@ export const PRODUCT_FAQ: Record<ProductKind, FaqItem[]> = {
       ),
     },
     {
-      q: T('Koliko kofeina ima gel?', 'How much caffeine is in the gel?', 'Wie viel Koffein enthält das Gel?', 'Koliko kofeina vsebuje gel?', 'Ile kofeiny zawiera żel?'),
+      q: T('Ima li gel kofeina?', 'Does the gel contain caffeine?', 'Enthält das Gel Koffein?', 'Ali gel vsebuje kofein?', 'Czy żel zawiera kofeinę?'),
       a: T(
-        'Gel sadrži 1 % ekstrakta sjemenki guarane, a guarana sadrži kofein. Količinu kofeina po gelu potvrđujemo s proizvođačem: [UPIŠI: količina kofeina po gelu, mg]. Ne preporučuje se osobama osjetljivim na kofein, trudnicama, dojiljama i djeci.',
-        'The gel contains 1% guarana seed extract, and guarana contains caffeine. We are confirming the caffeine content per gel with the producer: [UPIŠI: caffeine per gel, mg]. Not recommended for people sensitive to caffeine, pregnant or breastfeeding women, or children.',
-        'Das Gel enthält 1 % Guaranasamenextrakt, und Guarana enthält Koffein. Den Koffeingehalt pro Gel klären wir mit dem Hersteller: [UPIŠI: Koffein pro Gel, mg]. Nicht empfohlen für koffeinempfindliche Personen, Schwangere, Stillende und Kinder.',
-        'Gel vsebuje 1 % izvlečka semen guarane, guarana pa vsebuje kofein. Količino kofeina na gel preverjamo pri proizvajalcu: [UPIŠI: kofein na gel, mg]. Ni priporočljivo za osebe, občutljive na kofein, nosečnice, doječe matere in otroke.',
-        'Żel zawiera 1% ekstraktu z nasion guarany, a guarana zawiera kofeinę. Zawartość kofeiny w żelu potwierdzamy u producenta: [UPIŠI: kofeina w żelu, mg]. Nie zaleca się osobom wrażliwym na kofeinę, kobietom w ciąży, karmiącym piersią oraz dzieciom.',
+        'Gel sadrži 1 % ekstrakta sjemenki guarane, a guarana sadrži kofein. Ne preporučuje se osobama osjetljivim na kofein, trudnicama, dojiljama i djeci.',
+        'The gel contains 1% guarana seed extract, and guarana contains caffeine. Not recommended for people sensitive to caffeine, pregnant or breastfeeding women, or children.',
+        'Das Gel enthält 1 % Guaranasamenextrakt, und Guarana enthält Koffein. Nicht empfohlen für koffeinempfindliche Personen, Schwangere, Stillende und Kinder.',
+        'Gel vsebuje 1 % izvlečka semen guarane, guarana pa vsebuje kofein. Ni priporočljivo za osebe, občutljive na kofein, nosečnice, doječe matere in otroke.',
+        'Żel zawiera 1% ekstraktu z nasion guarany, a guarana zawiera kofeinę. Nie zaleca się osobom wrażliwym na kofeinę, kobietom w ciąży, karmiącym piersią oraz dzieciom.',
       ),
     },
     {
@@ -118,21 +118,11 @@ export const PRODUCT_FAQ: Record<ProductKind, FaqItem[]> = {
     {
       q: T('Što je u izotoniku?', 'What is in the isotonic drink?', 'Was ist im isotonischen Getränk?', 'Kaj je v izotoniku?', 'Co zawiera izotonik?'),
       a: T(
-        'Prema deklaraciji 100 g praha ima 90 g ugljikohidrata, od toga 5,5 g šećera. Puni popis sastojaka: [UPIŠI: sastav izotonika s pakiranja].',
-        'According to the label, 100 g of powder contains 90 g of carbohydrate, of which 5.5 g sugars. Full ingredient list: [UPIŠI: isotonic ingredients from the pack].',
-        'Laut Etikett enthalten 100 g Pulver 90 g Kohlenhydrate, davon 5,5 g Zucker. Vollständige Zutatenliste: [UPIŠI: Zutaten von der Packung].',
-        'Po deklaraciji 100 g praška vsebuje 90 g ogljikovih hidratov, od tega 5,5 g sladkorjev. Celoten seznam sestavin: [UPIŠI: sestava izotonika z embalaže].',
-        'Według etykiety 100 g proszku zawiera 90 g węglowodanów, w tym 5,5 g cukrów. Pełny skład: [UPIŠI: skład izotoniku z opakowania].',
-      ),
-    },
-    {
-      q: T('Kako se priprema?', 'How do I prepare it?', 'Wie bereitet man es zu?', 'Kako ga pripravim?', 'Jak go przygotować?'),
-      a: T(
-        '[UPIŠI: način pripreme s pakiranja izotonika].',
-        '[UPIŠI: preparation instructions from the pack].',
-        '[UPIŠI: Zubereitung laut Packung].',
-        '[UPIŠI: način priprave z embalaže].',
-        '[UPIŠI: sposób przygotowania z opakowania].',
+        'Prema deklaraciji 100 g praha ima 90 g ugljikohidrata, od toga 5,5 g šećera.',
+        'According to the label, 100 g of powder contains 90 g of carbohydrate, of which 5.5 g sugars.',
+        'Laut Etikett enthalten 100 g Pulver 90 g Kohlenhydrate, davon 5,5 g Zucker.',
+        'Po deklaraciji 100 g praška vsebuje 90 g ogljikovih hidratov, od tega 5,5 g sladkorjev.',
+        'Według etykiety 100 g proszku zawiera 90 g węglowodanów, w tym 5,5 g cukrów.',
       ),
     },
     {

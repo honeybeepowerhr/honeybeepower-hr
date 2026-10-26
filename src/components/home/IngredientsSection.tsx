@@ -74,11 +74,11 @@ export async function IngredientsSection({ locale }: { locale: Locale }) {
                 className="card relative flex flex-col p-6 md:p-7"
                 style={{ backgroundImage: `radial-gradient(22rem 14rem at 100% 0%, ${d.flavourColor}33, transparent 70%)` }}
               >
-                <p className="font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-none tracking-[-0.04em]">
+                <p className="font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-[1.1] tracking-[-0.02em]">
                   <span aria-hidden="true" className="mr-3 inline-block h-[0.55em] w-[0.5em] align-[0.02em]" style={{ background: d.flavourColor, clipPath: 'polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)' }} />
                   {d.flavour[locale]}
                 </p>
-                <p data-countup className="mt-6 font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-black leading-[0.9] tracking-[-0.05em] tabular" style={{ color: d.flavourColor }}>
+                <p data-countup className="mt-6 font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-black leading-[1.04] tracking-[-0.025em] tabular" style={{ color: d.flavourColor }}>
                   {formatNumber(d.perServing!.carbohydrates, locale)}&nbsp;g
                 </p>
                 <p className="mt-2 t-small text-muted">

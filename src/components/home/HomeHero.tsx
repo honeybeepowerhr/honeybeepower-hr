@@ -63,7 +63,7 @@ export async function HomeHero({ locale }: { locale: Locale }) {
         <h1
           id="hero-title"
           data-hero-title
-          className="t-display col-span-12 text-[length:clamp(2.75rem,0.9rem+7vw,6.6rem)] leading-[0.9] text-center lg:col-span-7 lg:row-start-1 lg:self-end lg:text-left"
+          className="t-display col-span-12 text-[length:clamp(2.75rem,0.9rem+7vw,6.6rem)] leading-[1.04] text-center lg:col-span-7 lg:row-start-1 lg:self-end lg:text-left"
         >
           <span className="rise block">{t('before')}</span>
           <span
@@ -133,7 +133,7 @@ export async function HomeHero({ locale }: { locale: Locale }) {
             <div key={s.label} className="rise rounded-[var(--radius-sm)] border border-[color:var(--color-line)] bg-[color:var(--color-surface)] px-5 py-4" style={{ ['--d' as string]: '360ms' }}>
               <dt className="sr-only">{s.label}</dt>
               <dd className="flex items-baseline gap-3">
-                <span className="font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-none tracking-[-0.04em] text-[color:var(--color-honey)] tabular">
+                <span className="font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-[1.1] tracking-[-0.02em] text-[color:var(--color-honey)] tabular">
                   {s.value}
                 </span>
                 <span className="t-small text-muted" aria-hidden="true">{s.label}</span>

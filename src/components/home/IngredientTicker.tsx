@@ -20,7 +20,7 @@ export async function IngredientTicker({ locale }: { locale: Locale }) {
             {items.map((k, i) => (
               <li
                 key={`${k}-${i}`}
-                className="flex items-center whitespace-nowrap font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-none tracking-[-0.04em]"
+                className="flex items-center whitespace-nowrap font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-[1.1] tracking-[-0.02em]"
               >
                 {t(`part.${k}`)}
                 <span className="mx-[0.7em] inline-block h-[0.55em] w-[0.5em] bg-current opacity-80" style={{ clipPath: 'polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)' }} />

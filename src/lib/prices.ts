@@ -4,7 +4,7 @@ import type { Locale } from '@/types'
 /**
  * Cijene na stranici dolaze samo iz službenog cjenika (CJENIK_ITEMS).
  * Proizvod kojeg nema u cjeniku (paketi od 10, paket izotonika sa shakerom)
- * nema cijenu: prikazuje se [UPIŠI] dok klijent ne odluči.
+ * nema cijenu: prikazuje se „Cijena na upit”.
  */
 const SLUG_TO_CJENIK: Record<string, { vrsta: string; okus?: string; pakiranje: string }> = {
   'honey-bee-power-energy-gel-limun': { vrsta: 'Energetski gel', okus: 'LIMUN', pakiranje: '40 g' },

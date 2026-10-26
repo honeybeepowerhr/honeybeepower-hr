@@ -19,7 +19,7 @@ export async function TrackGallery({ locale }: { locale: Locale }) {
   return (
     <section aria-labelledby="staza-title" id="na-stazi" className="frame section">
       <div className="grid-12 items-end gap-y-6">
-        <h2 id="staza-title" className="t-display col-span-12 text-[length:var(--text-display)] leading-[0.92] md:col-span-7">
+        <h2 id="staza-title" className="t-display col-span-12 text-[length:var(--text-display)] leading-[1.04] md:col-span-7">
           <span className="block">{t('line1')}</span>
           <span className="block text-[color:var(--color-honey)]">{t('line2')}</span>
         </h2>

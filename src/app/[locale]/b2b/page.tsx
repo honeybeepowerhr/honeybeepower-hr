@@ -27,7 +27,6 @@ export default async function B2BPage({ params }: { params: Promise<{ locale: Lo
 
   const facts = [
     { label: t('fact1Label'), value: t('fact1') },
-    { label: t('fact2Label'), value: t('fact2') },
     { label: t('fact3Label'), value: t('fact3') },
     { label: t('fact4Label'), value: t('fact4') },
   ]
@@ -44,7 +43,7 @@ export default async function B2BPage({ params }: { params: Promise<{ locale: Lo
         <div className="frame grid-12 gap-y-10 pb-16 pt-12 md:pb-24">
           <h1 id="b2b-title" className="t-display col-span-12 lg:col-span-8">{t('title')}</h1>
           <p className="col-span-12 t-lead lg:col-span-6">{t('subtitle')}</p>
-          <dl className="col-span-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <dl className="col-span-12 grid gap-6 sm:grid-cols-3">
             {facts.map((f) => (
               <div key={f.label} data-reveal className="bg-white/[0.08] p-5">
                 <dt className="t-small">{f.label}</dt>

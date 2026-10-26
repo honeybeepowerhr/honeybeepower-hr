@@ -97,7 +97,7 @@ export default function Header() {
     <>
       <header
         className={`sticky top-0 z-40 border-b transition-[background-color,border-color,backdrop-filter] duration-300 ${
-          scrolled || menuOpen ? 'border-[color:var(--color-line)] bg-ground/95' : 'border-transparent bg-ground/60'
+          scrolled || menuOpen ? 'border-[color:var(--color-line)] bg-ground' : 'border-transparent bg-ground/60'
         }`}
       >
         <div className={`frame flex items-center gap-2 sm:gap-4 transition-[height] duration-300 ${scrolled ? 'h-[3.75rem]' : 'h-[var(--header-h)]'}`}>
@@ -179,7 +179,7 @@ export default function Header() {
                 <Link
                   href={`${prefix}${item.href}`}
                   aria-current={isActive(item.href) ? 'page' : undefined}
-                  className="group flex items-center justify-between gap-4 py-4 font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-extrabold leading-none tracking-[-0.04em] aria-[current=page]:text-[color:var(--color-honey)]"
+                  className="group flex items-center justify-between gap-4 py-4 font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-extrabold leading-[1.1] tracking-[-0.02em] aria-[current=page]:text-[color:var(--color-honey)]"
                 >
                   <span className="flex items-baseline gap-4">
                     <span className="t-small font-medium tabular text-muted">{String(i + 1).padStart(2, '0')}</span>

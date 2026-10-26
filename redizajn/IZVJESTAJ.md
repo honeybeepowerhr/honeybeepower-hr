@@ -1,3 +1,17 @@
+# Dopuna: oznake [UPIŠI] uklonjene sa stranice (odluka vlasnika)
+
+Vlasnik nema podatke i traži da se oznake ne prikazuju. Uklonjeno je sve što je ovisilo o nepoznatim podacima, bez izmišljanja zamjena:
+- cijene paketa od 10 i paketa izotonika sa shakerom: „Cijena na upit”
+- količina kofeina po gelu: izostavljena rečenica (upozorenje za kofein ostaje)
+- puni sastav izotonika i način pripreme izotonika: izostavljeni (prikazuju se samo nutritivne vrijednosti s deklaracije)
+- B2B: uklonjena kartica „popusti i minimalna narudžba”
+- pravne stranice: izostavljeni status PDV-a, tijelo za izvansudsko rješavanje sporova, rok čuvanja upita i pravilo o cijeni dostave („trošak dostave navodimo u ponudi prije potvrde narudžbe”)
+- česta pitanja: odgovori o kofeinu bez količine
+
+**Što valja znati prije objave:** pravne stranice (uvjeti, privatnost) sada ne navode status PDV-a, tijelo za izvansudsko rješavanje sporova ni rok čuvanja podataka; Zakon o zaštiti potrošača i GDPR te podatke mogu tražiti, pa ih je dobro dodati kad ih vlasnik dobije. Provjereno na 5 jezika i 23 stranice: nijedna više ne sadrži oznaku.
+
+Ispravljen je i razmak slova i visina redaka u naslovima i velikim brojkama (slova su se dodirivala i preklapala u višeretčanim naslovima s dijakriticima).
+
 # Dopuna: drugi smjer „Noćni med” (zamjenjuje izgled opisan niže)
 
 Klijent je odbacio prvi izgled (krem podloga, Bodoni, brutalne crne ploče). Izgled je u cijelosti zamijenjen; **funkcionalnost nije mijenjana** (košarica, upit preko WhatsAppa i e-maila, B2B, kalkulator, filtri, cjenik, prijevodi, SEO, preusmjeravanja). Opis smjera u odjeljku 1 niže vrijedi samo za povijest.

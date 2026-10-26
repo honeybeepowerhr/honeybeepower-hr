@@ -83,19 +83,19 @@ export async function ProductLinesSection({ locale }: { locale: Locale }) {
               <div className="flex flex-col gap-6 p-6 md:p-8">
                 <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
                   <div>
-                    <h3 className="font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-none tracking-[-0.04em]">
+                    <h3 className="font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-[1.1] tracking-[-0.02em]">
                       {t(`${line.key}.name`)}
                     </h3>
                     <p className="mt-2 t-body text-muted">{t(`${line.key}.flavours`)}</p>
                   </div>
-                  <p data-countup className="font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-black leading-[0.9] tracking-[-0.05em] text-[color:var(--color-honey)] tabular">
+                  <p data-countup className="font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-black leading-[1.04] tracking-[-0.025em] text-[color:var(--color-honey)] tabular">
                     {t(`${line.key}.figure`)}
                   </p>
                 </div>
                 <p className="t-small text-muted -mt-3">{t(`${line.key}.figureNote`)}</p>
                 <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-t border-[color:var(--color-line)] pt-5">
                   <p className="t-lead tabular font-semibold">
-                    {line.price !== null ? formatEur(line.price, locale) : <span className="todo">[UPIŠI: cijena]</span>}
+                    {line.price !== null ? formatEur(line.price, locale) : null}
                     <span className="ml-2 t-body font-normal text-muted">{t(`${line.key}.priceNote`)}</span>
                   </p>
                   <Link href={`${prefix}${line.href}`} className="btn btn-ghost min-h-12">

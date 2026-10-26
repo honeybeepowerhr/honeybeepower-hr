@@ -329,8 +329,6 @@
     "metaDescription": "Gelovi, izotonici i whey Honey Bee Power za sportske klubove, teretane, ljekarne i trgovine. Pošaljite upit s proizvodima i količinama, uvjete dogovaramo izravno.",
     "fact1Label": "Narudžba",
     "fact1": "Upit s proizvodima i količinama",
-    "fact2Label": "Uvjeti",
-    "fact2": "[UPIŠI: popusti i minimalna narudžba]",
     "fact3Label": "Dostava",
     "fact3": "Iz Našica, 1–3 radna dana nakon potvrde",
     "fact4Label": "Kontakt",
@@ -681,7 +679,7 @@
       "q1": "Kada se uzima gel?",
       "a1": "Prema deklaraciji: 1 obrok (40 g) nakon vježbanja ili fizičkog napora. Gel je namijenjen odraslima nakon vrlo intenzivnog ili dugotrajnog vježbanja.",
       "q2": "Ima li gel kofeina?",
-      "a2": "Da, iz ekstrakta sjemenki guarane (1 %). Količinu kofeina po gelu potvrđujemo s proizvođačem: <todo>[UPIŠI: količina kofeina po gelu]</todo>. Ne preporučuje se osobama osjetljivim na kofein, trudnicama, dojiljama i djeci.",
+      "a2": "Da, iz ekstrakta sjemenki guarane (1 %). Ne preporučuje se osobama osjetljivim na kofein, trudnicama, dojiljama i djeci.",
       "q3": "Je li whey zaslađen samo medom?",
       "a3": "Ne. Whey sadrži sušeni med (6 %) i steviju, a sadrži i mlijeko.",
       "q4": "Kako se naručuje?",
@@ -707,7 +705,7 @@
     "carbsIso": "ugljikohidrata u porciji od 15 g",
     "proteinWhey": "proteina u porciji od 33 g",
     "priceFromList": "po komadu, iz službenog cjenika",
-    "pricePending": "Cijena paketa: [UPIŠI: cijena iz cjenika]",
+    "pricePending": "Cijena na upit",
     "flavour": "Okus",
     "pack": "Pakiranje",
     "single": "Jedna vrećica",
@@ -721,7 +719,6 @@
     "added": "Dodano u upit.",
     "ingredientsTitle": "{count, select, 3 {Tri sastojka.} other {Četiri sastojka.}}",
     "ingredientsTitleIso": "Sastav",
-    "ingredientsMissing": "[UPIŠI: sastav s pakiranja]",
     "nutritionTitle": "Nutritivne vrijednosti",
     "per100": "na 100 g",
     "perServing": "na {grams} g",
@@ -750,8 +747,6 @@
     "calcLink": "Izračunaj ugljikohidrate za oporavak",
     "storageTitle": "Čuvanje",
     "allergensTitle": "Alergeni",
-    "prepTitle": "Priprema",
-    "prepMissing": "[UPIŠI: način pripreme s pakiranja]",
     "sportsTitle": "Za koji sport",
     "faqTitle": "Česta pitanja",
     "relatedTitle": "Uz ovaj proizvod",
@@ -766,6 +761,7 @@
     "view": "Pogledaj",
     "empty": "Za ovaj odabir nema proizvoda.",
     "reset": "Prikaži sve",
-    "countNote": "cijene iz službenog cjenika, kupnja na upit"
+    "countNote": "cijene iz službenog cjenika, kupnja na upit",
+    "priceOnEnquiry": "Cijena na upit"
   }
 }

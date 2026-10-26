@@ -93,13 +93,13 @@ export default function Footer() {
           <p className="t-body text-[color:var(--color-honey)]">{t('contactLead')}</p>
           <a
             href="tel:+385977097962"
-            className="mt-2 block whitespace-nowrap font-[family-name:var(--font-display)] text-[length:min(11vw,var(--text-display))] font-black leading-[0.9] tracking-[-0.035em] decoration-[0.06em] underline-offset-[0.12em] hover:underline"
+            className="mt-2 block whitespace-nowrap font-[family-name:var(--font-display)] text-[length:min(11vw,var(--text-display))] font-black leading-[1.04] tracking-[-0.02em] decoration-[0.06em] underline-offset-[0.12em] hover:underline"
           >
             +385 97 709 7962
           </a>
           <a
             href="mailto:info@planetbio.hr"
-            className="mt-3 block font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-none tracking-[-0.03em] decoration-[0.06em] underline-offset-[0.12em] hover:underline"
+            className="mt-3 block font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-[1.1] tracking-[-0.015em] decoration-[0.06em] underline-offset-[0.12em] hover:underline"
           >
             info@planetbio.hr
           </a>

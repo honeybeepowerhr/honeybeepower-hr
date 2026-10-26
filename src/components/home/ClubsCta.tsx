@@ -11,7 +11,7 @@ export async function ClubsCta({ locale }: { locale: Locale }) {
     <section aria-labelledby="klubovi-title" className="frame section" id="klubovi">
       <div className="on-honey hex-bg relative overflow-hidden rounded-[2rem] px-6 py-14 md:px-14 md:py-20" style={{ backgroundImage: 'var(--hex-pattern)' }}>
         <div className="flex min-h-[26rem] flex-col justify-between gap-14 md:min-h-[32rem]">
-          <h2 id="klubovi-title" data-reveal className="t-display max-w-[11ch] text-[length:var(--text-display)] leading-[0.9]">
+          <h2 id="klubovi-title" data-reveal className="t-display max-w-[11ch] text-[length:var(--text-display)] leading-[1.04]">
             {t('title')}
           </h2>
           <div className="grid-12 items-end gap-y-8">

@@ -81,7 +81,7 @@ const LABELS = {
   guidesLead: T('Savjeti o prehrani za trening i oporavak, s izvorima.', 'Nutrition advice for training and recovery, with sources.', 'Ernährungstipps für Training und Erholung, mit Quellen.', 'Nasveti o prehrani za trening in obnovo, z viri.', 'Porady żywieniowe na trening i regenerację, ze źródłami.'),
   sports: T('Za koji sport', 'For which sport', 'Für welchen Sport', 'Za kateri šport', 'Dla jakiego sportu'),
   faq: T('Česta pitanja', 'Questions', 'Häufige Fragen', 'Pogosta vprašanja', 'Częste pytania'),
-  onEnquiry: T('[UPIŠI: cijena iz cjenika]', '[UPIŠI: price list]', '[UPIŠI: Preisliste]', '[UPIŠI: cenik]', '[UPIŠI: cennik]'),
+  onEnquiry: T('Cijena na upit', 'Price on request', 'Preis auf Anfrage', 'Cena na zahtevo', 'Cena na zapytanie'),
 }
 
 export async function CategoryPage({ category, locale }: { category: string; locale: Locale }) {
@@ -142,7 +142,7 @@ export async function CategoryPage({ category, locale }: { category: string; loc
                   {figureFor(p.slug)}
                 </span>
                 <span className="col-span-6 text-right t-lead tabular sm:col-span-2">
-                  {price !== null ? formatEur(price, locale) : <span className="todo t-small">{l(LABELS.onEnquiry, locale)}</span>}
+                  {price !== null ? formatEur(price, locale) : <span className="t-small text-muted">{l(LABELS.onEnquiry, locale)}</span>}
                 </span>
               </Link>
             </li>
@@ -207,9 +207,7 @@ export async function CategoryPage({ category, locale }: { category: string; loc
           items={PRODUCT_FAQ[kind].slice(0, 4).map((f) => ({
             q: l(f.q, locale),
             a: l(f.a, locale)
-              .replace('{price}', formatEur((kind === 'isotonic' ? officialPriceFor('Instant izotonik', 'LIMUN', '15 g') : officialPriceFor('Proteinski prah', 'LJEŠNJAK-ČOKOLADA', '33 g')) ?? 0, locale))
-              .split(/(\[UPIŠI:[^\]]*\])/g)
-              .map((part, i) => (part.startsWith('[UPIŠI') ? <span key={i} className="todo">{part}</span> : part)),
+              .replace('{price}', formatEur((kind === 'isotonic' ? officialPriceFor('Instant izotonik', 'LIMUN', '15 g') : officialPriceFor('Proteinski prah', 'LJEŠNJAK-ČOKOLADA', '33 g')) ?? 0, locale)),
           }))}
         />
       </section>

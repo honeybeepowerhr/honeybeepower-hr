@@ -303,8 +303,6 @@
     "metaDescription": "Geli, izotoniki in whey Honey Bee Power za športne klube, fitnes centre, lekarne in trgovine. Pošljite povpraševanje z izdelki in količinami.",
     "fact1Label": "Naročilo",
     "fact1": "Povpraševanje z izdelki in količinami",
-    "fact2Label": "Pogoji",
-    "fact2": "[UPIŠI: popusti in minimalno naročilo]",
     "fact3Label": "Dostava",
     "fact3": "Iz Našic, 1–3 delovne dni po potrditvi",
     "fact4Label": "Kontakt",
@@ -682,7 +680,7 @@
       "q1": "Kdaj se gel uživa?",
       "a1": "Po deklaraciji: 1 obrok (40 g) po vadbi ali telesnem naporu. Gel je namenjen odraslim po zelo intenzivni ali dolgotrajni vadbi.",
       "q2": "Ali gel vsebuje kofein?",
-      "a2": "Da, iz izvlečka semen guarane (1 %). Količino kofeina na gel preverjamo pri proizvajalcu: <todo>[UPIŠI: kofein na gel]</todo>. Ni priporočljivo za osebe, občutljive na kofein, nosečnice, doječe matere in otroke.",
+      "a2": "Da, iz izvlečka semen guarane (1 %). Ni priporočljivo za osebe, občutljive na kofein, nosečnice, doječe matere in otroke.",
       "q3": "Ali je whey sladkan samo z medom?",
       "a3": "Ne. Whey vsebuje sušen med (6 %) in stevio ter mleko.",
       "q4": "Kako naročim?",
@@ -708,7 +706,7 @@
     "carbsIso": "ogljikovih hidratov v 15-gramskem obroku",
     "proteinWhey": "beljakovin v 33-gramskem obroku",
     "priceFromList": "za kos, iz uradnega cenika",
-    "pricePending": "Cena paketa: [UPIŠI: cena iz cenika]",
+    "pricePending": "Cena na zahtevo",
     "flavour": "Okus",
     "pack": "Pakiranje",
     "single": "Ena vrečka",
@@ -722,7 +720,6 @@
     "added": "Dodano v povpraševanje.",
     "ingredientsTitle": "{count, select, 3 {Tri sestavine.} other {Štiri sestavine.}}",
     "ingredientsTitleIso": "Sestava",
-    "ingredientsMissing": "[UPIŠI: sestava z embalaže]",
     "nutritionTitle": "Hranilna vrednost",
     "per100": "na 100 g",
     "perServing": "na {grams} g",
@@ -751,8 +748,6 @@
     "calcLink": "Izračunaj ogljikove hidrate za obnovo",
     "storageTitle": "Shranjevanje",
     "allergensTitle": "Alergeni",
-    "prepTitle": "Priprava",
-    "prepMissing": "[UPIŠI: priprava z embalaže]",
     "sportsTitle": "Za kateri šport",
     "faqTitle": "Pogosta vprašanja",
     "relatedTitle": "Zraven tega",
@@ -767,6 +762,7 @@
     "view": "Oglej si",
     "empty": "Za ta izbor ni izdelkov.",
     "reset": "Pokaži vse",
-    "countNote": "cene iz uradnega cenika, nakup s povpraševanjem"
+    "countNote": "cene iz uradnega cenika, nakup s povpraševanjem",
+    "priceOnEnquiry": "Cena na zahtevo"
   }
 }
