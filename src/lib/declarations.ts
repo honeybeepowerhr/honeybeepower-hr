@@ -32,6 +32,8 @@ export interface Declaration {
   flavour: L10n
   /** Boja okusa za polja na stranicama proizvoda. */
   flavourColor: string
+  /** Pozadina iza fotografije kad fotografija ima vlastitu (bijelu) pozadinu. */
+  photoField?: string
   backImage: string | null
   ingredients: L10n | null
   servingGrams: number
@@ -211,6 +213,7 @@ export const DECLARATIONS: Declaration[] = [
   {
     slug: 'honey-bee-power-whey-protein-ljesnjak-cokolada-700g',
     kind: 'whey',
+    photoField: '#ffffff',
     flavour: { hr: 'Lješnjak-čokolada', en: 'Hazelnut-chocolate', de: 'Haselnuss-Schokolade', sl: 'Lešnik-čokolada', pl: 'Orzech laskowy z czekoladą' },
     flavourColor: '#6b4226',
     backImage: null,
@@ -224,6 +227,7 @@ export const DECLARATIONS: Declaration[] = [
   {
     slug: 'honey-bee-power-whey-protein-banana-vanilija-700g',
     kind: 'whey',
+    photoField: '#ffffff',
     flavour: { hr: 'Banana-vanilija', en: 'Banana-vanilla', de: 'Banane-Vanille', sl: 'Banana-vanilija', pl: 'Banan z wanilią' },
     flavourColor: '#e8c547',
     backImage: null,
@@ -237,6 +241,7 @@ export const DECLARATIONS: Declaration[] = [
   {
     slug: 'honey-bee-power-whey-protein-jagoda-slag-700g',
     kind: 'whey',
+    photoField: '#ffffff',
     flavour: { hr: 'Jagoda-šlag', en: 'Strawberry-cream', de: 'Erdbeere-Sahne', sl: 'Jagoda-smetana', pl: 'Truskawka ze śmietaną' },
     flavourColor: '#e0607e',
     backImage: null,
@@ -282,4 +287,21 @@ export const GEL_DECLARATIONS = DECLARATIONS.filter((d) => d.kind === 'gel')
 export function formatNumber(value: number, locale: Locale, maxFractionDigits = 2): string {
   const tag = { hr: 'hr-HR', en: 'en-GB', de: 'de-DE', sl: 'sl-SI', pl: 'pl-PL' }[locale]
   return new Intl.NumberFormat(tag, { maximumFractionDigits: maxFractionDigits }).format(value)
+}
+
+/** Boja polja iza fotografije proizvoda. */
+export function photoFieldFor(d: Declaration | undefined): string {
+  return d?.photoField ?? d?.flavourColor ?? '#d9d5cd'
+}
+
+/** Oznaka pakiranja iz podataka proizvoda u obliku „40 g”, „10 × 40 g”. */
+export function sizeLabel(size: string): string {
+  const map: Record<string, string> = {
+    '40g sachet': '40 g',
+    'Paket 10x40g': '10 × 40 g',
+    '500g posuda': '500 g',
+    '700g posuda': '700 g',
+    '2x500g posuda + Shaker': '2 × 500 g + shaker',
+  }
+  return map[size] ?? size
 }

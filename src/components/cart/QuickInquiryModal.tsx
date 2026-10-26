@@ -1,20 +1,8 @@
 'use client'
 
 import { useState, useId, useCallback, type ChangeEvent, type FormEvent } from 'react'
-import { useTranslations } from 'next-intl'
-import { Mail } from 'lucide-react'
-import { WhatsAppIcon } from '@/components/ui/SocialIcons'
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from '@/components/ui/dialog'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { cn } from '@/lib/utils'
+import { useLocale, useTranslations } from 'next-intl'
+import * as Dialog from '@radix-ui/react-dialog'
 import {
   validateInquiryForm,
   defaultInquiryValues,
@@ -34,6 +22,9 @@ interface QuickInquiryModalProps {
 
 export function QuickInquiryModal({ open, channel, items, onClose, onSuccess }: QuickInquiryModalProps) {
   const t = useTranslations('quickInquiry')
+  const locale = useLocale()
+  const privacyHref = `${locale === 'hr' ? '' : `/${locale}`}/politika-privatnosti`
+  const [shakeKey, setShakeKey] = useState(0)
 
   const uid = useId()
   const id = useCallback((field: string) => `${uid}-${field}`, [uid])
@@ -67,6 +58,7 @@ export function QuickInquiryModal({ open, channel, items, onClose, onSuccess }: 
       const newErrors = validateInquiryForm(values)
       if (Object.keys(newErrors).length > 0) {
         setErrors(newErrors)
+        setShakeKey((k) => k + 1)
         const firstKey = Object.keys(newErrors)[0]
         document.getElementById(id(firstKey))?.focus()
         return
@@ -118,123 +110,94 @@ export function QuickInquiryModal({ open, channel, items, onClose, onSuccess }: 
         })
         if (!res.ok) {
           const data = await res.json().catch(() => ({}))
-          throw new Error(data.error || 'Slanje upita nije uspjelo. Pokušajte ponovno.')
+          throw new Error(data.error || t('errorSend'))
         }
         setSubmitted(true)
         onSuccess()
       } catch (err) {
-        setSubmitError(err instanceof Error ? err.message : 'Slanje upita nije uspjelo. Pokušajte ponovno.')
+        setSubmitError(err instanceof Error ? err.message : t('errorSend'))
       } finally {
         setIsSubmitting(false)
       }
     },
-    [values, channel, items, id, onSuccess],
+    [values, channel, items, id, onSuccess, t],
   )
 
-  const Icon = channel === 'whatsapp' ? WhatsAppIcon : Mail
-
   return (
-    <Dialog open={open} onOpenChange={(isOpen) => { if (!isOpen) resetAndClose() }}>
-      <DialogContent className="max-w-md bg-white border-amber-200">
-        {submitted ? (
-          <div role="status" className="py-4 text-center space-y-2">
-            <p className="text-2xl">✅</p>
-            <h2 className="text-lg font-bold text-charcoal">{t('successTitle')}</h2>
-            <p className="text-sm text-gray-600">
-              {channel === 'whatsapp' ? t('successMessageWhatsapp') : t('successMessageEmail', { phone: values.phone })}
-            </p>
-            <Button
-              type="button"
-              onClick={resetAndClose}
-              className="mt-2 bg-amber-500 hover:bg-amber-600 text-white font-bold"
-            >
-              {t('close')}
-            </Button>
-          </div>
-        ) : (
-          <>
-            <DialogHeader>
-              <DialogTitle className="flex items-center gap-2 font-heading text-xl text-charcoal">
-                <Icon className="w-5 h-5 text-amber-500" aria-hidden="true" />
+    <Dialog.Root open={open} onOpenChange={(isOpen) => { if (!isOpen) resetAndClose() }}>
+      <Dialog.Portal>
+        <Dialog.Overlay className="overlay z-[55]" />
+        <Dialog.Content className="dialog">
+          {submitted ? (
+            <div role="status" className="space-y-4">
+              <Dialog.Title className="t-head text-[length:var(--text-sub)]">{t('successTitle')}</Dialog.Title>
+              <Dialog.Description className="t-body">
+                {channel === 'whatsapp' ? t('successMessageWhatsapp') : t('successMessageEmail', { phone: values.phone })}
+              </Dialog.Description>
+              <button type="button" onClick={resetAndClose} className="btn">
+                {t('close')}
+              </button>
+            </div>
+          ) : (
+            <>
+              <Dialog.Title className="t-head text-[length:var(--text-sub)]">
                 {channel === 'whatsapp' ? t('titleWhatsapp') : t('titleEmail')}
-              </DialogTitle>
-              <DialogDescription>
+              </Dialog.Title>
+              <Dialog.Description className="mt-3 t-body">
                 {channel === 'whatsapp' ? t('introWhatsapp') : t('introEmail')}
-              </DialogDescription>
-            </DialogHeader>
+              </Dialog.Description>
 
-            <form onSubmit={handleSubmit} noValidate className="space-y-4">
-              <div className="flex flex-col gap-1.5">
-                <Label htmlFor={id('fullName')} className="text-sm font-medium text-charcoal">
-                  {t('fullNameLabel')} <span aria-hidden="true" className="text-red-500">*</span>
-                </Label>
-                <Input
-                  id={id('fullName')}
-                  name="fullName"
-                  type="text"
-                  autoComplete="name"
-                  placeholder="Ana Horvat"
-                  value={values.fullName}
-                  onChange={handleChange('fullName')}
-                  aria-required="true"
-                  aria-invalid={!!errors.fullName}
-                  aria-describedby={errors.fullName ? `${id('fullName')}-error` : undefined}
-                  className={cn(errors.fullName && 'border-red-400 focus-visible:ring-red-400')}
-                />
-                {errors.fullName && (
-                  <p id={`${id('fullName')}-error`} role="alert" className="text-xs text-red-600">
-                    {errors.fullName}
+              <form onSubmit={handleSubmit} noValidate className={`mt-6 space-y-5 ${shakeKey ? 'shake' : ''}`} key={shakeKey}>
+                {(['fullName', 'phone'] as const).map((field) => (
+                  <div key={field} className="flex flex-col gap-2">
+                    <label htmlFor={id(field)} className="t-body font-medium">
+                      {field === 'fullName' ? t('fullNameLabel') : t('phoneLabel')}
+                    </label>
+                    <input
+                      id={id(field)}
+                      name={field}
+                      type={field === 'phone' ? 'tel' : 'text'}
+                      autoComplete={field === 'phone' ? 'tel' : 'name'}
+                      inputMode={field === 'phone' ? 'tel' : undefined}
+                      value={values[field]}
+                      onChange={handleChange(field)}
+                      required
+                      aria-invalid={!!errors[field]}
+                      aria-describedby={errors[field] ? `${id(field)}-error` : undefined}
+                      className="field-input"
+                    />
+                    {errors[field] && (
+                      <p id={`${id(field)}-error`} className="t-small font-medium text-[color:var(--color-alert)]">
+                        {field === 'fullName' ? t('errorName') : t('errorPhone')}
+                      </p>
+                    )}
+                  </div>
+                ))}
+
+                {submitError && (
+                  <p role="alert" className="t-small font-medium text-[color:var(--color-alert)]">
+                    {submitError}
                   </p>
                 )}
-              </div>
 
-              <div className="flex flex-col gap-1.5">
-                <Label htmlFor={id('phone')} className="text-sm font-medium text-charcoal">
-                  {t('phoneLabel')} <span aria-hidden="true" className="text-red-500">*</span>
-                </Label>
-                <Input
-                  id={id('phone')}
-                  name="phone"
-                  type="tel"
-                  autoComplete="tel"
-                  placeholder="+385 91 234 5678"
-                  value={values.phone}
-                  onChange={handleChange('phone')}
-                  aria-required="true"
-                  aria-invalid={!!errors.phone}
-                  aria-describedby={errors.phone ? `${id('phone')}-error` : undefined}
-                  className={cn(errors.phone && 'border-red-400 focus-visible:ring-red-400')}
-                />
-                {errors.phone && (
-                  <p id={`${id('phone')}-error`} role="alert" className="text-xs text-red-600">
-                    {errors.phone}
-                  </p>
-                )}
-              </div>
-
-              {submitError && (
-                <p role="alert" className="text-sm text-red-600 text-center">
-                  {submitError}
+                <p className="t-small">
+                  {t('privacy')}{' '}
+                  <a href={privacyHref} className="link" target="_blank" rel="noopener">
+                    {t('privacyLink')}
+                  </a>
                 </p>
-              )}
 
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                aria-disabled={isSubmitting}
-                size="lg"
-                className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold h-12 rounded-xl"
-              >
-                {isSubmitting
-                  ? t('sending')
-                  : channel === 'whatsapp'
-                  ? t('submitWhatsapp')
-                  : t('submitEmail')}
-              </Button>
-            </form>
-          </>
-        )}
-      </DialogContent>
-    </Dialog>
+                <div className="flex flex-wrap gap-2">
+                  <button type="submit" disabled={isSubmitting} aria-disabled={isSubmitting} className="btn btn-honey grow">
+                    {isSubmitting ? t('sending') : channel === 'whatsapp' ? t('submitWhatsapp') : t('submitEmail')}
+                  </button>
+                  <Dialog.Close className="btn btn-ghost">{t('cancel')}</Dialog.Close>
+                </div>
+              </form>
+            </>
+          )}
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   )
 }

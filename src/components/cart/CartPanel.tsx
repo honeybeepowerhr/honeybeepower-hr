@@ -2,134 +2,93 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Mail } from 'lucide-react'
-import { useTranslations, useLocale } from 'next-intl'
+import * as Dialog from '@radix-ui/react-dialog'
+import { useLocale, useTranslations } from 'next-intl'
 import type { InquiryChannel, Locale } from '@/types'
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-} from '@/components/ui/sheet'
-import { WhatsAppIcon } from '@/components/ui/SocialIcons'
 import { useCartStore } from '@/features/cart'
+import { formatEur } from '@/lib/prices'
 import { CartItem } from './CartItem'
 import { QuickInquiryModal } from './QuickInquiryModal'
 
+/** Ladica s upitom: popis proizvoda i slanje WhatsAppom ili e-mailom. */
 export function CartPanel() {
   const t = useTranslations('cart')
   const locale = useLocale() as Locale
   const prefix = locale === 'hr' ? '' : `/${locale}`
-
   const { items, isOpen, closeCart, removeItem, updateQuantity, clearCart } = useCartStore()
-  const [inquiryChannel, setInquiryChannel] = useState<InquiryChannel | null>(null)
+  const [channel, setChannel] = useState<InquiryChannel | null>(null)
+
+  const count = items.reduce((s, i) => s + i.quantity, 0)
+  const subtotal = items.reduce((s, i) => s + i.unitPrice * i.quantity, 0) / 100
 
   return (
-    <Sheet open={isOpen} onOpenChange={(open) => !open && closeCart()}>
-      <SheetContent
-        side="right"
-        className="flex w-full flex-col p-0 sm:max-w-md bg-white border-l border-amber-200 shadow-2xl z-50"
-        aria-label={t('title')}
-      >
-        {/* Header */}
-        <SheetHeader className="flex flex-row items-center justify-between border-b border-amber-100 px-5 py-4 bg-amber-50/50">
-          <SheetTitle className="text-lg font-black text-gray-900 font-heading uppercase tracking-wide flex items-center justify-between w-full">
-            <span>
-              {t('title')}
-              {items.length > 0 && (
-                <span className="ml-2 text-sm font-bold text-amber-700 font-sans">
-                  ({items.length === 1 ? t('itemCountOne') : t('itemsCount', { count: items.length })})
-                </span>
-              )}
-            </span>
-          </SheetTitle>
-        </SheetHeader>
-
-        {items.length === 0 ? (
-          /* Empty state */
-          <div className="flex flex-1 flex-col items-center justify-center gap-4 px-6 text-center">
-            <div className="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 mb-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <circle cx="8" cy="21" r="1" />
-                <circle cx="19" cy="21" r="1" />
-                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
-              </svg>
-            </div>
-            <p className="text-base font-bold text-gray-800">{t('empty')}</p>
-            <p className="text-xs text-gray-500 max-w-xs">{t('emptySub')}</p>
-            <Link
-              href={`${prefix}/proizvodi`}
-              onClick={closeCart}
-              className="mt-2 inline-flex items-center justify-center px-6 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-black text-sm shadow-md transition-transform active:scale-95"
-            >
-              {t('viewProducts')}
-            </Link>
-          </div>
-        ) : (
-          <>
-            {/* Scrollable items list */}
-            <div className="flex-1 overflow-y-auto px-5">
-              <ul className="divide-y divide-amber-100">
-                {items.map((item) => (
-                  <CartItem
-                    key={`${item.productId}-${item.variantId}`}
-                    item={item}
-                    onRemove={() => removeItem(item.productId, item.variantId)}
-                    onUpdateQuantity={(qty) =>
-                      updateQuantity(item.productId, item.variantId, qty)
-                    }
-                  />
-                ))}
-              </ul>
+    <>
+      <Dialog.Root open={isOpen} onOpenChange={(open) => !open && closeCart()}>
+        <Dialog.Portal>
+          <Dialog.Overlay className="overlay" />
+          <Dialog.Content className="drawer" aria-describedby={undefined}>
+            <div className="frame flex items-center justify-between py-5">
+              <Dialog.Title className="t-head text-[length:var(--text-sub)]">
+                {t('title')} <span className="tabular">({count})</span>
+              </Dialog.Title>
+              <Dialog.Close className="link min-h-11 px-1 t-body font-medium">{t('close')}</Dialog.Close>
             </div>
 
-            {/* Footer / Inquiry buttons */}
-            <div className="border-t border-amber-200 px-5 py-5 bg-white space-y-2.5">
-              <p className="text-xs text-gray-500 text-center">{t('inquiryHint')}</p>
-              <button
-                type="button"
-                onClick={() => setInquiryChannel('whatsapp')}
-                className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#25D366] hover:bg-[#1fbd5a] px-5 py-3.5 text-base font-black text-white shadow-lg shadow-green-900/10 transition-transform active:scale-98"
-              >
-                <WhatsAppIcon className="w-5 h-5 shrink-0" />
-                {t('whatsappBtn')}
-              </button>
-              <button
-                type="button"
-                onClick={() => setInquiryChannel('email')}
-                className="flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-red-600 via-orange-500 to-amber-500 hover:from-red-700 hover:to-amber-600 px-5 py-3.5 text-base font-black text-white shadow-xl shadow-orange-500/25 transition-transform active:scale-98"
-              >
-                <Mail className="w-5 h-5 shrink-0" aria-hidden="true" />
-                {t('emailBtn')}
-              </button>
-            </div>
-          </>
-        )}
-      </SheetContent>
+            {items.length === 0 ? (
+              <div className="frame flex flex-1 flex-col justify-center gap-6 pb-16">
+                <p className="t-lead">{t('empty')}</p>
+                <p className="t-body measure">{t('emptySub')}</p>
+                <Link href={`${prefix}/proizvodi`} onClick={closeCart} className="btn btn-honey self-start">
+                  {t('viewProducts')}
+                </Link>
+              </div>
+            ) : (
+              <>
+                <ul className="frame flex-1 space-y-2 overflow-y-auto">
+                  {items.map((item) => (
+                    <CartItem
+                      key={`${item.productId}-${item.variantId}`}
+                      item={item}
+                      locale={locale}
+                      onRemove={() => removeItem(item.productId, item.variantId)}
+                      onUpdateQuantity={(qty) => updateQuantity(item.productId, item.variantId, qty)}
+                    />
+                  ))}
+                </ul>
+                <div className="frame space-y-4 bg-surface py-5">
+                  <p className="flex items-baseline justify-between t-body">
+                    <span>{t('subtotal')}</span>
+                    <span className="font-medium tabular">{formatEur(subtotal, locale)}</span>
+                  </p>
+                  {items.some((i) => i.unitPrice === 0) && <p className="t-small">{t('partialSubtotal')}</p>}
+                  <p className="t-small">{t('inquiryHint')}</p>
+                  <div className="grid gap-2">
+                    <button type="button" onClick={() => setChannel('whatsapp')} className="btn btn-honey">
+                      {t('whatsappBtn')}
+                    </button>
+                    <button type="button" onClick={() => setChannel('email')} className="btn">
+                      {t('emailBtn')}
+                    </button>
+                  </div>
+                </div>
+              </>
+            )}
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
 
-      {inquiryChannel && (
+      {channel && (
         <QuickInquiryModal
-          open={!!inquiryChannel}
-          channel={inquiryChannel}
+          open={!!channel}
+          channel={channel}
           items={items}
-          onClose={() => setInquiryChannel(null)}
+          onClose={() => setChannel(null)}
           onSuccess={() => {
             clearCart()
             closeCart()
           }}
         />
       )}
-    </Sheet>
+    </>
   )
 }

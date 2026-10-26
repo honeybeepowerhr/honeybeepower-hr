@@ -62,7 +62,7 @@ export function RecoveryCalculator({ headingId, heading, headingLevel = 'h2' }: 
       slug: product.slug,
       imageSrc: product.mainImage.asset._ref,
       variantLabel: `${gel.flavour[locale]} · 40 g`,
-      unitPrice: price !== null ? Math.round(price * 100) : variant.price,
+      unitPrice: price !== null ? Math.round(price * 100) : 0,
       quantity: 1,
     })
     setAdded(true)

@@ -7,14 +7,13 @@ import { absoluteUrl } from './site'
 
 /**
  * Builds a schema.org Product JSON-LD object for a given product and locale.
- *
- * No `offers`/price here on purpose — the site no longer shows a fixed
- * price to customers (request-a-quote model), and Google penalises
- * structured data that promises a price the page doesn't display.
+ * Offer se dodaje samo kad proizvod ima cijenu u službenom cjeniku (ista
+ * cijena kao na stranici). Bez AggregateRating i Review.
  */
 export function buildProductSchema(
   product: ProductSummary,
   locale: Locale,
+  opts: { priceEur?: number | null; url?: string } = {},
 ): Record<string, unknown> {
   const firstVariant = product.variants[0]
 
@@ -45,6 +44,16 @@ export function buildProductSchema(
   // GTIN if present on the first variant
   if (firstVariant?.gtin) {
     schema.gtin = firstVariant.gtin
+  }
+
+  if (typeof opts.priceEur === 'number') {
+    schema.offers = {
+      '@type': 'Offer',
+      price: opts.priceEur.toFixed(2),
+      priceCurrency: 'EUR',
+      ...(opts.url ? { url: opts.url } : {}),
+      seller: { '@type': 'Organization', name: 'Planet Bio' },
+    }
   }
 
   // Bez AggregateRating i Review dok ne postoje provjerene recenzije stvarnih kupaca.

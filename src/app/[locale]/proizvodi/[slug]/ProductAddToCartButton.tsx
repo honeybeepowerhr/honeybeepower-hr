@@ -1,108 +1,79 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
-import { ShoppingCart, Plus, Minus, Building2 } from 'lucide-react'
-import { useTranslations, useLocale } from 'next-intl'
-import { Button } from '@/components/ui/button'
+import { useState } from 'react'
+import { useLocale, useTranslations } from 'next-intl'
 import { useCartStore } from '@/features/cart/store'
-import { translateFlavour } from '@/lib/utils'
 import type { Locale, ProductSummary, Variant } from '@/types'
 
-interface ProductAddToCartButtonProps {
+interface Props {
   product: ProductSummary
   variant: Variant
+  /** Cijena za upit u centima (iz službenog cjenika kad postoji). */
+  unitPrice: number
+  variantLabel: string
+  imageSrc: string
 }
 
-export default function ProductAddToCartButton({ product, variant }: ProductAddToCartButtonProps) {
-  const { addItem, openCart } = useCartStore()
-  const t = useTranslations('product')
-  const tShop = useTranslations('shopMode')
+/** Dodavanje u upit (košarica se šalje WhatsAppom ili e-mailom). */
+export default function ProductAddToCartButton({ product, variant, unitPrice, variantLabel, imageSrc }: Props) {
+  const t = useTranslations('productPage')
   const locale = (useLocale() as Locale) || 'hr'
-
-  const prodName = product.name[locale] ?? product.name.hr
-  const moq = variant.minQuantity ?? product.minQuantity ?? 5
-
+  const addItem = useCartStore((s) => s.addItem)
+  const openCart = useCartStore((s) => s.openCart)
   const [quantity, setQuantity] = useState(1)
+  const [added, setAdded] = useState(false)
 
-  // Reset quantity whenever variant changes
-  useEffect(() => {
-    setQuantity(1)
-  }, [moq])
-
-  const handleDecrease = () => {
-    setQuantity((prev) => Math.max(1, prev - 1))
-  }
-
-  const handleIncrease = () => {
-    setQuantity((prev) => prev + 1)
-  }
-
-  const handleAdd = () => {
+  const add = () => {
     addItem({
       productId: product._id,
       variantId: variant._key,
-      name: prodName,
+      name: product.name[locale] ?? product.name.hr,
       slug: product.slug,
-      imageSrc: product.mainImage.asset._ref,
-      variantLabel: `${translateFlavour(variant.flavour, locale)} (${variant.size})`,
-      unitPrice: variant.price,
+      imageSrc,
+      variantLabel,
+      unitPrice,
       quantity,
     })
+    setAdded(true)
     openCart()
   }
 
   return (
-    <div className="space-y-4">
-      {/* Minimum order info badge */}
-      <div className="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-xs font-semibold text-amber-950 flex items-center gap-2">
-        <Building2 className="w-4 h-4 text-amber-600 shrink-0" />
-        <span>{tShop('minOrderNotice', { min: moq })}</span>
-      </div>
-
-      {/* Below-MOQ surcharge notice */}
-      {quantity < moq && (
-        <div className="p-3.5 rounded-2xl bg-red-500/10 border border-red-500/30 text-xs font-semibold text-red-900 flex items-center gap-2">
-          <Building2 className="w-4 h-4 text-red-600 shrink-0" />
-          <span>{tShop('belowMoqNotice', { min: moq })}</span>
-        </div>
-      )}
-
-      {/* Quantity & Add to Cart Controls */}
-      <div className="flex flex-col sm:flex-row items-stretch gap-3">
-        {/* Quantity selector */}
-        <div className="flex items-center justify-between border border-gray-200 rounded-2xl bg-gray-50/80 px-3 py-1.5 min-w-[140px]">
+    <div>
+      <div className="flex flex-wrap items-stretch gap-3">
+        <div className="flex items-stretch" role="group" aria-label={t('quantity')}>
           <button
             type="button"
-            onClick={handleDecrease}
+            onClick={() => setQuantity((q) => Math.max(1, q - 1))}
             disabled={quantity <= 1}
-            className="p-1 text-gray-600 hover:text-amber-600 disabled:opacity-40 disabled:hover:text-gray-600 transition-colors"
-            aria-label="Smanji količinu"
+            aria-label={t('decrease')}
+            className="grid w-12 place-items-center text-2xl font-medium shadow-[inset_0_0_0_2px_currentColor] transition-transform active:scale-95 disabled:opacity-40"
           >
-            <Minus className="w-4 h-4" />
+            −
           </button>
-          <span className="font-heading font-extrabold text-base text-gray-900 px-4">
-            {quantity}
-          </span>
+          <output
+            aria-live="polite"
+            className="grid min-w-14 place-items-center px-2 font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-none tabular"
+          >
+            <span key={quantity} className="number-pop">{quantity}</span>
+          </output>
           <button
             type="button"
-            onClick={handleIncrease}
-            className="p-1 text-gray-600 hover:text-amber-600 transition-colors"
-            aria-label="Povećaj količinu"
+            onClick={() => setQuantity((q) => Math.min(999, q + 1))}
+            aria-label={t('increase')}
+            className="grid w-12 place-items-center text-2xl font-medium shadow-[inset_0_0_0_2px_currentColor] transition-transform active:scale-95"
           >
-            <Plus className="w-4 h-4" />
+            +
           </button>
         </div>
-
-        {/* Add button */}
-        <Button
-          onClick={handleAdd}
-          size="lg"
-          className="flex-1 bg-amber-500 hover:bg-amber-600 text-slate-950 font-black px-8 h-13 rounded-2xl text-base shadow-lg transition-transform active:scale-98"
-        >
-          <ShoppingCart className="w-5 h-5 mr-2" />
+        <button type="button" onClick={add} className="btn btn-honey grow sm:grow-0">
           {t('addToCart')}
-        </Button>
+          <span className="btn-arrow" aria-hidden="true">→</span>
+        </button>
       </div>
+      <p className="mt-3 t-small" aria-live="polite">
+        {added ? t('added') : ''}
+      </p>
     </div>
   )
 }
