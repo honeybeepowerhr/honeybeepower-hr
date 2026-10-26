@@ -4,6 +4,7 @@ import type { Locale } from '@/types'
 import { localeUrl } from '@/lib/seo/site'
 import { REAL_PRODUCTS, PRODUCT_CATEGORIES } from '@/lib/products-data'
 import { GUIDES } from '@/lib/guides-data'
+import { SPORT_PAGES } from '@/lib/sports-data'
 
 interface RouteDef {
   path: string
@@ -29,6 +30,12 @@ const guideRoutes: RouteDef[] = GUIDES.map((g) => ({
   priority: 0.65,
 }))
 
+const sportRoutes: RouteDef[] = SPORT_PAGES.map((s) => ({
+  path: `/sport/${s.slug}`,
+  changeFrequency: 'monthly',
+  priority: 0.7,
+}))
+
 const staticRoutes: RouteDef[] = [
   { path: '', changeFrequency: 'daily', priority: 1.0 },
   { path: '/proizvodi', changeFrequency: 'daily', priority: 0.9 },
@@ -37,7 +44,9 @@ const staticRoutes: RouteDef[] = [
   { path: '/b2b', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/kontakt', changeFrequency: 'monthly', priority: 0.5 },
   { path: '/faq', changeFrequency: 'monthly', priority: 0.6 },
-  { path: '/aktivnosti', changeFrequency: 'weekly', priority: 0.5 },
+  { path: '/dogadaji', changeFrequency: 'weekly', priority: 0.5 },
+  { path: '/o-nama', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/oporavak-nakon-treninga', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/dostava-i-placanje', changeFrequency: 'monthly', priority: 0.4 },
   { path: '/pravo-na-povrat', changeFrequency: 'yearly', priority: 0.3 },
   { path: '/politika-privatnosti', changeFrequency: 'yearly', priority: 0.3 },
@@ -51,6 +60,7 @@ const allRoutes: RouteDef[] = [
   ...categoryRoutes,
   ...productRoutes,
   ...guideRoutes,
+  ...sportRoutes,
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {

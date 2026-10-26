@@ -14,11 +14,11 @@ const TITLES: Record<Locale, string> = {
 }
 
 const DESCRIPTIONS: Record<Locale, string> = {
-  hr: 'Kontaktirajte Honey Bee Power — Krndijska ulica 4, Našice. Tel: +385 977 097 962, email: info@planetbio.hr. Radno vrijeme pon-pet 08-16h.',
-  en: 'Contact Honey Bee Power — Krndijska ulica 4, Našice, Croatia. Phone: +385 977 097 962, email: info@planetbio.hr. Open Mon-Fri 08:00-16:00.',
-  de: 'Kontaktieren Sie Honey Bee Power — Krndijska ulica 4, Našice, Kroatien. Tel: +385 977 097 962, E-Mail: info@planetbio.hr. Mo-Fr 08:00-16:00 Uhr.',
-  sl: 'Kontaktirajte Honey Bee Power — Krndijska ulica 4, Našice, Hrvaška. Tel: +385 977 097 962, e-pošta: info@planetbio.hr. Pon-pet 08.00-16.00.',
-  pl: 'Skontaktuj się z Honey Bee Power — Krndijska ulica 4, Našice, Chorwacja. Tel: +385 977 097 962, e-mail: info@planetbio.hr. Pon-pt 08:00-16:00.',
+  hr: 'Kontakt Honey Bee Power, distributer Planet Bio: Krndijska 4, Našice. Telefon +385 97 709 7962, e-mail info@planetbio.hr, ponedjeljak–petak 8–16 h.',
+  en: 'Contact Honey Bee Power, distributor Planet Bio: Krndijska 4, Našice, Croatia. Phone +385 97 709 7962, e-mail info@planetbio.hr, Mon–Fri 8 am–4 pm.',
+  de: 'Kontakt Honey Bee Power, Vertrieb Planet Bio: Krndijska 4, Našice, Kroatien. Telefon +385 97 709 7962, E-Mail info@planetbio.hr, Mo–Fr 8–16 Uhr.',
+  sl: 'Kontakt Honey Bee Power, distributer Planet Bio: Krndijska 4, Našice. Telefon +385 97 709 7962, e-pošta info@planetbio.hr, pon–pet 8–16.',
+  pl: 'Kontakt Honey Bee Power, dystrybutor Planet Bio: Krndijska 4, Našice. Telefon +385 97 709 7962, e-mail info@planetbio.hr, pon–pt 8–16.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 export default async function ContactPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params
   const breadcrumbSchema = buildBreadcrumbSchema([
-    { name: 'Početna', url: localeUrl(locale, '/') },
+    { name: 'Honey Bee Power', url: localeUrl(locale, '/') },
     { name: 'Kontakt', url: localeUrl(locale, '/kontakt') },
   ])
 

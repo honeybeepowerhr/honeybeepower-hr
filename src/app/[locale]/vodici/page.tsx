@@ -1,114 +1,74 @@
-import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getTranslations } from 'next-intl/server'
 import type { Locale } from '@/types'
-import { pageMetadata } from '@/lib/seo/site'
+import { pageMetadata, localeUrl } from '@/lib/seo/site'
+import { buildBreadcrumbSchema } from '@/lib/seo/schemas'
+import { JsonLd } from '@/components/seo/JsonLd'
 import { getGuides } from '@/lib/guides-data'
+import { SectionMotion } from '@/components/site/SectionMotion'
 
-export const revalidate = 300 // ISR revalidate every 5 mins
+export const revalidate = 3600
 
-const TITLES: Record<Locale, string> = {
-  hr: 'Vodiči i Savjeti za Sportske Performanse',
-  en: 'Guides & Tips for Sports Performance',
-  de: 'Ratgeber & Tipps für sportliche Leistung',
-  sl: 'Vodniki in Nasveti za Športne Dosežke',
-  pl: 'Poradniki i Porady dla Sportowców',
-}
-
-const DESCRIPTIONS: Record<Locale, string> = {
-  hr: 'Stručni članci o prehrani na maratonima, hidrataciji za bicikliste i oporavku mišića uz pomoć prirodnog meda.',
-  en: 'Expert articles on marathon fueling, cyclist hydration, and muscle recovery with the help of natural honey.',
-  de: 'Fachartikel über Marathon-Ernährung, Hydration für Radfahrer und Muskelregeneration mit natürlichem Honig.',
-  sl: 'Strokovni članki o prehrani na maratonih, hidraciji za kolesarje in okrevanju mišic z naravnim medom.',
-  pl: 'Eksperckie artykuły o odżywianiu na maratonie, nawodnieniu kolarzy i regeneracji mięśni dzięki naturalnemu miodowi.',
-}
+const C = {
+  title: { hr: 'Vodiči', en: 'Guides', de: 'Ratgeber', sl: 'Vodniki', pl: 'Poradniki' },
+  metaTitle: { hr: 'Vodiči o sportskoj prehrani s izvorima', en: 'Sports nutrition guides with sources', de: 'Ratgeber Sporternährung mit Quellen', sl: 'Vodniki o športni prehrani z viri', pl: 'Poradniki o odżywianiu w sporcie' },
+  lead: {
+    hr: 'Kratki vodiči o gelovima, tekućini i proteinu: što piše na deklaraciji, što kažu opće smjernice i odakle to znamo.',
+    en: 'Short guides on gels, fluids and protein: what the label says, what general guidance says and where that comes from.',
+    de: 'Kurze Ratgeber zu Gels, Flüssigkeit und Protein: was auf dem Etikett steht, was allgemeine Empfehlungen sagen und woher wir das wissen.',
+    sl: 'Kratki vodniki o gelih, tekočini in beljakovinah: kaj piše na deklaraciji, kaj pravijo splošne smernice in od kod to vemo.',
+    pl: 'Krótkie poradniki o żelach, płynach i białku: co mówi etykieta, co mówią ogólne wskazówki i skąd to wiemy.',
+  },
+  meta: {
+    hr: 'Vodiči Honey Bee Power: kada uzeti energetski gel, med ili gel, tekućina na ljetnoj vožnji i protein nakon treninga. S izvorima i datumom ažuriranja.',
+    en: 'Honey Bee Power guides: when to take an energy gel, honey or gel, fluids on a summer ride and protein after training. With sources and update dates.',
+    de: 'Honey Bee Power Ratgeber: wann ein Energiegel, Honig oder Gel, Trinken im Sommer und Protein nach dem Training. Mit Quellen und Datum.',
+    sl: 'Vodniki Honey Bee Power: kdaj vzeti energijski gel, med ali gel, tekočina na poletni vožnji in beljakovine po treningu. Z viri in datumom.',
+    pl: 'Poradniki Honey Bee Power: kiedy żel energetyczny, miód czy żel, płyny latem i białko po treningu. Ze źródłami i datą aktualizacji.',
+  },
+  read: { hr: 'min čitanja', en: 'min read', de: 'Min. Lesezeit', sl: 'min branja', pl: 'min czytania' },
+} satisfies Record<string, Record<Locale, string>>
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params
-  const guides = getGuides(locale)
-  return pageMetadata({
-    locale,
-    path: '/vodici',
-    title: TITLES[locale] ?? TITLES.hr,
-    description: DESCRIPTIONS[locale] ?? DESCRIPTIONS.hr,
-    image: guides[0]?.image,
-  })
+  return pageMetadata({ locale, path: '/vodici', title: C.metaTitle[locale], description: C.meta[locale], image: '/images/found/med-zlica.jpg' })
 }
 
-export default async function BlogListingPage({ params }: { params: Promise<{ locale: Locale }> }) {
+export default async function GuidesPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params
-  const t = await getTranslations({ locale, namespace: 'guidesPage' })
-  const guides = getGuides(locale)
   const prefix = locale === 'hr' ? '' : `/${locale}`
+  const guides = getGuides(locale)
 
   return (
-    <div className="py-12 md:py-16 bg-gray-50/50">
-      <div className="container mx-auto px-4 max-w-7xl">
-        
-        {/* Breadcrumb */}
-        <nav aria-label="Breadcrumb" className="text-xs text-gray-500 mb-6 flex items-center gap-2">
-          <Link href={`${prefix}/`} className="hover:underline">Početna</Link>
-          <span>/</span>
-          <span className="font-semibold text-gray-900">{t('badge')}</span>
-        </nav>
+    <>
+      <JsonLd schema={buildBreadcrumbSchema([
+        { name: 'Honey Bee Power', url: localeUrl(locale, '/') },
+        { name: C.title[locale], url: localeUrl(locale, '/vodici') },
+      ])} />
+      <SectionMotion />
+      <section className="frame grid-12 gap-y-6 pb-14 pt-10" aria-labelledby="vodici-title">
+        <h1 id="vodici-title" className="t-display col-span-12 lg:col-span-6">{C.title[locale]}</h1>
+        <p className="col-span-12 self-end t-lead lg:col-span-6">{C.lead[locale]}</p>
+      </section>
 
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-amber-600 font-bold text-sm uppercase tracking-wider">{t('badge')}</span>
-          <h1 className="text-4xl font-extrabold text-gray-900 mt-1">
-            {t('title')}
-          </h1>
-          <p className="text-gray-600 mt-3 text-base">
-            {t('subtitle')}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {guides.map((article) => (
-            <article
-              key={article.slug}
-              className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between"
-            >
-              <div>
-                <div className="relative aspect-video w-full bg-gray-100">
-                  <Image
-                    src={article.image}
-                    alt={article.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-
-                <div className="p-6">
-                  <div className="flex items-center gap-3 text-xs text-gray-400 mb-3">
-                    <span>{article.date}</span>
-                    <span>•</span>
-                    <span>{article.readTime}</span>
-                  </div>
-
-                  <h2 className="text-xl font-bold text-gray-900 hover:text-amber-600 transition-colors leading-snug">
-                    <Link href={`${prefix}/vodici/${article.slug}`}>{article.title}</Link>
-                  </h2>
-
-                  <p className="text-sm text-gray-600 mt-3 line-clamp-3 leading-relaxed">
-                    {article.excerpt}
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-6 pt-0">
-                <Link
-                  href={`${prefix}/vodici/${article.slug}`}
-                  className="inline-flex items-center text-amber-600 font-bold text-sm hover:underline"
-                >
-                  {t('readMore')}
-                </Link>
-              </div>
-            </article>
-          ))}
-        </div>
-
-      </div>
-    </div>
+      <ul className="pb-24">
+        {guides.map((g, i) => (
+          <li key={g.slug} data-reveal className={i % 2 ? 'field-surface' : ''}>
+            <Link href={`${prefix}/vodici/${g.slug}`} className="group frame grid-12 items-center gap-y-6 py-10 md:py-14">
+              <span className="relative col-span-12 aspect-[16/10] overflow-hidden bg-surface md:col-span-4">
+                <Image src={g.image} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.04]" />
+              </span>
+              <span className="col-span-12 md:col-span-7 md:col-start-6">
+                <span className="block font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-[1.02] group-hover:underline decoration-[0.06em] underline-offset-[0.12em]">
+                  {g.title}
+                </span>
+                <span className="mt-4 block t-body measure">{g.excerpt}</span>
+                <span className="mt-3 block t-small">{g.readMinutes} {C.read[locale]} · Honey Bee Power</span>
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </>
   )
 }

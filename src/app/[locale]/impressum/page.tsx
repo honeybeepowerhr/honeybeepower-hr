@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 export default async function ImpressumPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params
   const breadcrumbSchema = buildBreadcrumbSchema([
-    { name: 'Početna', url: localeUrl(locale, '/') },
+    { name: 'Honey Bee Power', url: localeUrl(locale, '/') },
     { name: 'Impressum', url: localeUrl(locale, '/impressum') },
   ])
 

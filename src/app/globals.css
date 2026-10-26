@@ -645,3 +645,20 @@ html {
   scrollbar-color: var(--color-ink) var(--color-surface);
 }
 }
+
+@layer components {
+  /* Dijalog pretrage: pri vrhu zaslona */
+  .dialog.dialog-top {
+    top: 12svh;
+    transform: translateX(-50%);
+  }
+
+  .dialog.dialog-top[data-state='open'] {
+    animation: dialog-top-in 280ms var(--ease-out-expo);
+  }
+
+  @keyframes dialog-top-in {
+    from { opacity: 0; transform: translate(-50%, 12px); }
+    to { opacity: 1; transform: translateX(-50%); }
+  }
+}

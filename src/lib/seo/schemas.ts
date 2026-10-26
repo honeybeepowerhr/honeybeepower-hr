@@ -195,15 +195,14 @@ export function buildWebsiteSchema(siteUrl: string): Record<string, unknown> {
 export function buildStoreSchema(siteUrl: string): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
-    '@type': 'Store',
+    '@type': 'LocalBusiness',
     '@id': `${siteUrl}/#store-nasice`,
-    name: 'Honey Bee Power — Planet Bio',
+    name: 'Planet Bio, distributer Honey Bee Power',
     parentOrganization: { '@id': `${siteUrl}/#organization` },
     image: `${siteUrl}/images/logo.png`,
     url: `${siteUrl}/gdje-kupiti`,
     telephone: '+385-977-097-962',
     email: 'info@planetbio.hr',
-    priceRange: '€€',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Krndijska ulica 4',

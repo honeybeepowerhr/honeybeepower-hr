@@ -1,33 +1,16 @@
-import React from 'react'
 import Link from 'next/link'
-import { ArrowLeft, ShoppingBag } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 
+/** 404: velika brojka, jedna rečenica, dva puta dalje. */
 export default function NotFound() {
   return (
-    <div className="py-20 flex items-center justify-center">
-      <div className="text-center px-4 max-w-md">
-        <div className="text-6xl font-black text-amber-500 mb-2">404</div>
-        <h1 className="text-2xl font-extrabold text-gray-900 mb-3">Stranica nije pronađena</h1>
-        <p className="text-sm text-gray-600 mb-8 leading-relaxed">
-          Stranica koju tražite ne postoji ili je premještena. Pregledajte naš katalog i pronađite svoje omiljene proizvode.
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Button asChild className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold rounded-xl shadow">
-            <Link href="/proizvodi">
-              <ShoppingBag className="w-4 h-4 mr-2" />
-              Vidi Katalog
-            </Link>
-          </Button>
-          <Button asChild variant="outline" className="rounded-xl font-bold">
-            <Link href="/">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Povratak na Početnu
-            </Link>
-          </Button>
-        </div>
+    <section className="frame flex min-h-[70svh] flex-col justify-center gap-8 py-16" aria-labelledby="nf-title">
+      <p aria-hidden="true" className="font-[family-name:var(--font-display)] text-[length:var(--text-mega)] font-black leading-[0.8] tracking-[-0.04em]">404</p>
+      <h1 id="nf-title" className="t-head">Stranica nije pronađena</h1>
+      <p className="t-lead measure">Adresa ne postoji ili je premještena. Page not found.</p>
+      <div className="flex flex-wrap gap-3">
+        <Link href="/proizvodi" className="btn btn-honey">Proizvodi</Link>
+        <Link href="/" className="btn btn-ghost">Naslovnica</Link>
       </div>
-    </div>
+    </section>
   )
 }
