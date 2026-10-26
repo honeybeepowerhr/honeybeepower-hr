@@ -4,7 +4,7 @@
     "whereToBuy": "Gdje kupiti",
     "athletes": "Sportaši",
     "guides": "Vodiči",
-    "about": "O nama",
+    "about": "Naša priča",
     "contact": "Kontakt",
     "b2b": "Za partnere",
     "priceList": "Cjenik",
@@ -12,7 +12,18 @@
     "allProducts": "Svi proizvodi",
     "energyGels": "Energetski gelovi",
     "isotonicDrinks": "Izotonični napitci",
-    "wheyProteins": "Whey proteini"
+    "wheyProteins": "Whey proteini",
+    "main": "Glavna navigacija",
+    "recovery": "Oporavak",
+    "clubs": "Za klubove",
+    "search": "Pretraži",
+    "inquiry": "Upit",
+    "inquiryWithCount": "Otvori upit, stavki: {count}",
+    "menu": "Izbornik",
+    "close": "Zatvori",
+    "events": "Događaji",
+    "faq": "Česta pitanja",
+    "sport": "Sport"
   },
   "cjenik": {
     "badge": "Službeni i legalni digitalni cjenik RH",
@@ -164,19 +175,25 @@
     "company": "Tvrtka",
     "contact": "Kontakt",
     "rights": "Sva prava pridržana",
-    "aboutText": "Prirodna sportska prehrana na bazi meda i funkcionalnih sastojaka.",
+    "aboutText": "Energetski gelovi, izotonični napitci i whey protein proizvođača APIMAR iz Poljske. Distributer za Hrvatsku: Planet Bio iz Našica.",
     "energyGels": "Energetski gelovi",
     "isotonicDrinks": "Izotonični napitci",
     "whereToBuy": "Gdje kupiti",
     "faq": "FAQ",
     "shippingPayment": "Dostava i plaćanje",
     "returns": "Povrat i reklamacije",
-    "privacy": "Politika privatnosti",
-    "terms": "Uvjeti korištenja",
+    "privacy": "Privatnost",
+    "terms": "Uvjeti",
     "impressum": "Impressum",
     "priceList": "Službeni cjenik",
     "copyright": "© 2026 Honey Bee Power",
-    "cookieSettings": "Postavke kolačića"
+    "cookieSettings": "Postavke kolačića",
+    "hours": "ponedjeljak–petak 8–16 h",
+    "siteNav": "Stranice",
+    "backToTop": "Na vrh",
+    "contactLead": "Pitanja i narudžbe",
+    "photoCredits": "Autori fotografija",
+    "distributor": "distributer za Hrvatsku"
   },
   "contactPage": {
     "badge": "Kontaktirajte nas",
@@ -395,5 +412,194 @@
     "successMessageWhatsapp": "Otvorili smo WhatsApp u novoj kartici — pošaljite poruku da završite upit.",
     "successMessageEmail": "Javit ćemo vam se uskoro na {phone}.",
     "close": "Zatvori"
+  },
+  "flavours": {
+    "malina": "malina",
+    "limun": "limun",
+    "naranča": "naranča",
+    "lješnjak-čokolada": "lješnjak-čokolada",
+    "banana-vanilija": "banana-vanilija",
+    "jagoda-šlag": "jagoda-šlag"
+  },
+  "calculator": {
+    "intro": "Ugljikohidrati za oporavak nakon vrlo intenzivnog ili dugotrajnog napora: 4 g po kilogramu tjelesne težine, iz svih izvora, u dozama.",
+    "weightLabel": "Tvoja tjelesna težina (kg)",
+    "rangeHint": "Od {min} do {max} kg.",
+    "flavourLabel": "Gel za izračun",
+    "resultLead": "Ukupno ugljikohidrata",
+    "resultUnit": "iz hrane, napitaka i gelova, u dozama, u prva 4 sata nakon napora (najkasnije 6 sati).",
+    "dosesTitle": "Primjer raspodjele u četiri doze",
+    "doseNow": "Odmah nakon napora",
+    "doseAfter": "Nakon {hours} sata",
+    "gelShare": "Jedan gel {flavour} daje {grams} g, to je {pct} % ukupne količine.",
+    "restFromFood": "Ostalih {rest} g dolazi iz hrane i napitaka.",
+    "addGel": "Dodaj gel {flavour} u upit",
+    "added": "Dodano u upit.",
+    "claimTitle": "Odobrena zdravstvena tvrdnja:",
+    "disclaimer": "Ovo je opća smjernica, a ne medicinski ni prehrambeni savjet.",
+    "tableTitle": "Smjernice po tjelesnoj težini",
+    "colWeight": "Tjelesna težina",
+    "colTotal": "Ukupno ugljikohidrata",
+    "colDose": "Četiri doze",
+    "tableDose": "4 × {grams} g"
+  },
+  "home": {
+    "hero": {
+      "before": "Gel od",
+      "after": "meda.",
+      "lead": "Energetski gel od 40 g s tri ili četiri sastojka. Proizvodi ga APIMAR iz Poljske, a iz Našica šalje Planet Bio.",
+      "cta": "Pogledaj proizvode",
+      "secondary": "Izračunaj oporavak"
+    },
+    "ingredients": {
+      "title": "Tri ili četiri sastojka.",
+      "statement": "Višecvjetni <honey>med</honey> s poljskih pčelinjaka, liofilizirano <fruit>voće</fruit> ekstrakt sjemenki <guarana>guarane</guarana> i prstohvat morske <salt>soli</salt> Ništa drugo.",
+      "barsTitle": "Sastav gelova po okusu, s deklaracije",
+      "carbs": "{value} g ugljikohidrata u 40 g",
+      "part": {
+        "honey": "višecvjetni med",
+        "fruit": "liofilizirano voće",
+        "guarana": "ekstrakt sjemenki guarane",
+        "salt": "morska sol"
+      },
+      "fruitOf": "liofilizirani plod: {fruit}",
+      "noSalt": "bez soli",
+      "caffeineNote": "Guarana sadrži kofein."
+    },
+    "back": {
+      "titleStart": "Sve piše",
+      "titleEnd": "na poleđini.",
+      "caption": "Sastav s postocima i nutritivna tablica na svakoj vrećici. Gel naranča: 31,2 g ugljikohidrata u 40 g.",
+      "stage1": "Poleđina gela naranča",
+      "stage2": "Sastav s postocima",
+      "stage3": "Nutritivna tablica",
+      "imageAlt": "Poleđina gela Honey Bee Power naranča s hrvatskom deklaracijom"
+    },
+    "products": {
+      "title": "Gel, izotonik i whey",
+      "videoLabel": "Video proizvoda Honey Bee Power: gelovi, izotonici, whey i shakeri izbliza",
+      "videoPause": "Zaustavi video",
+      "videoPlay": "Pokreni video",
+      "gel": {
+        "name": "Energetski gel, 40 g",
+        "flavours": "Limun, naranča, malina",
+        "figure": "29–32,8 g",
+        "figureNote": "ugljikohidrata u jednoj vrećici, ovisno o okusu",
+        "priceNote": "po vrećici",
+        "cta": "Gelovi",
+        "imageAlt": "Tri energetska gela Honey Bee Power: malina, limun i naranča"
+      },
+      "iso": {
+        "name": "Izotonični napitak, 500 g",
+        "flavours": "Limun, naranča",
+        "figure": "13,5 g",
+        "figureNote": "ugljikohidrata u porciji od 15 g",
+        "priceNote": "posuda od 500 g",
+        "cta": "Izotonici",
+        "imageAlt": "Posuda izotoničnog napitka Honey Bee Power limun, 500 g"
+      },
+      "whey": {
+        "name": "Whey protein, 700 g",
+        "flavours": "Lješnjak-čokolada, banana-vanilija, jagoda-šlag. Sadrži mlijeko.",
+        "figure": "22 g",
+        "figureNote": "proteina u porciji od 33 g",
+        "priceNote": "posuda od 700 g",
+        "cta": "Whey",
+        "imageAlt": "Posuda Honey Bee Power whey proteina lješnjak-čokolada, 700 g"
+      }
+    },
+    "sport": {
+      "label": "Sport",
+      "run": {
+        "verb": "Trči.",
+        "caption": "Trkač s gelom Honey Bee Power na maratonu na Cipru.",
+        "alt": "Trkač u majici maratona na Cipru drži gel Honey Bee Power"
+      },
+      "fight": {
+        "verb": "Bori se.",
+        "caption": "Trening borilačkih sportova.",
+        "alt": "Trening kickboxinga u dvorani"
+      },
+      "play": {
+        "verb": "Igraj.",
+        "caption": "Rukometna ekipa u dresovima Honey Bee Power.",
+        "alt": "Rukometašice u dresovima s natpisom Honey Bee Power"
+      }
+    },
+    "recovery": {
+      "title": "Oporavi se."
+    },
+    "story": {
+      "title": "Od Baranówa do Našica",
+      "p1": "Honey Bee Power je brend poljskog proizvođača P.P.H. APIMAR iz Baranówa. Gelovi su od višecvjetnog meda s poljskih pčelinjaka, a na izotoniku piše „Poljski proizvod”. Planet Bio, obrt iz Našica, distributer je za Hrvatsku: proizvode držimo u skladištu u Krndijskoj 4 i šaljemo ih za 1–3 radna dana nakon potvrde narudžbe.",
+      "p2": "Naručuje se na upit. Složiš košaricu i pošalješ je WhatsAppom ili e-mailom, a cijenu dostave i plaćanje pouzećem ili virmanom dogovaramo osobno.",
+      "fact1Label": "Proizvođač",
+      "fact1": "APIMAR, Baranów, Poljska",
+      "fact2Label": "Skladište",
+      "fact2": "Krndijska 4, Našice",
+      "fact3Label": "Dostava",
+      "fact3": "1–3 radna dana",
+      "photoAlt": "Crno-bijela fotografija pčelinjaka s drvenim košnicama u voćnjaku",
+      "photoCaption": "Fotografija: pčelinjak u Łomiankama kraj Varšave, 1939. (arhiv).",
+      "more": "Cijela priča"
+    },
+    "track": {
+      "line1": "Na",
+      "line2": "stazi",
+      "photo1": "Promo pult Honey Bee Power u Vukovaru, s gelovima i izotonicima na stolu",
+      "caption1": "Promo pult u Vukovaru.",
+      "photo2": "Trkač u majici Honey Bee Power",
+      "caption2": "Na startu.",
+      "photo3": "Sportašice s ruksacima Honey Bee Power u dvorani",
+      "photo4": "Rukometna ekipa s ruksacima Honey Bee Power",
+      "photo5": "Pult Honey Bee Power na gradskom trgu u Vukovaru",
+      "sentence": "Promo pult na Vukovarskom maratonu, treninzi i utakmice.",
+      "more": "Događaji",
+      "moreLabel": "Još fotografija s događaja"
+    },
+    "prices": {
+      "title": "Cijene iz službenog cjenika",
+      "photoAlt": "Kutija s 10 gelova Honey Bee Power naranča",
+      "tableLabel": "Cijene",
+      "caption": "Cijene proizvoda iz službenog cjenika",
+      "colType": "Vrsta",
+      "colItem": "Okus i pakiranje",
+      "colPrice": "Cijena",
+      "type": {
+        "gel": "Energetski gel",
+        "iso": "Izotonik",
+        "whey": "Whey protein",
+        "shaker": "Shaker"
+      },
+      "note": "Paketi od 10 gelova i paket izotonika sa shakerom nisu u cjeniku; cijenu potvrđujemo na upit.",
+      "more": "Cijeli cjenik s barkodovima"
+    },
+    "clubs": {
+      "title": "Za klubove i trgovine.",
+      "sentence": "Teretane, ljekarne, trgovine i sportski klubovi: pošaljite upit s proizvodima i količinama, a uvjete dogovaramo izravno.",
+      "cta": "Pošalji B2B upit"
+    },
+    "faq": {
+      "title": "Česta pitanja",
+      "q1": "Kada se uzima gel?",
+      "a1": "Prema deklaraciji: 1 obrok (40 g) nakon vježbanja ili fizičkog napora. Gel je namijenjen odraslima nakon vrlo intenzivnog ili dugotrajnog vježbanja.",
+      "q2": "Ima li gel kofeina?",
+      "a2": "Da, iz ekstrakta sjemenki guarane (1 %). Količinu kofeina po gelu potvrđujemo s proizvođačem: <todo>[UPIŠI: količina kofeina po gelu]</todo>. Ne preporučuje se osobama osjetljivim na kofein, trudnicama, dojiljama i djeci.",
+      "q3": "Je li whey zaslađen samo medom?",
+      "a3": "Ne. Whey sadrži sušeni med (6 %) i steviju, a sadrži i mlijeko.",
+      "q4": "Kako se naručuje?",
+      "a4": "Dodaš proizvode u upit i pošalješ ga WhatsAppom ili e-mailom. Na stranici se ništa ne plaća; cijenu dostave i plaćanje (pouzeće ili virman) dogovaramo osobno.",
+      "q5": "Koliko traje dostava?",
+      "a5": "Šaljemo iz Našica, obično za 1–3 radna dana nakon što potvrdimo narudžbu.",
+      "q6": "Tko proizvodi Honey Bee Power?",
+      "a6": "P.P.H. APIMAR iz Baranówa u Poljskoj. Planet Bio iz Našica je distributer za Hrvatsku."
+    }
+  },
+  "consent": {
+    "label": "Kolačići",
+    "text": "Koristimo nužne kolačiće za rad stranice i košarice. Analitičke kolačiće uključujemo samo uz tvoj pristanak.",
+    "more": "Politika privatnosti",
+    "necessary": "Samo nužni",
+    "acceptAll": "Prihvati sve"
   }
 }

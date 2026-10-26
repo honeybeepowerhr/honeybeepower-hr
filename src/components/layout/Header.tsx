@@ -1,410 +1,195 @@
 'use client'
 
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useTranslations } from 'next-intl'
-import { useLocale } from 'next-intl'
-import { Menu, X, Search, ShoppingCart, ChevronDown } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { usePathname } from 'next/navigation'
+import { useLocale, useTranslations } from 'next-intl'
+import { Search } from 'lucide-react'
 import LanguageSwitcher from './LanguageSwitcher'
 import type { Locale } from '@/types'
 import { useCartStore } from '@/features/cart'
 import { SearchOverlay } from '@/features/search/SearchOverlay'
 
-// ─── Bee logo SVG ─────────────────────────────────────────────────────────────
+const NAV = [
+  { key: 'products', href: '/proizvodi' },
+  { key: 'recovery', href: '/oporavak-nakon-treninga' },
+  { key: 'guides', href: '/vodici' },
+  { key: 'priceList', href: '/cjenik' },
+  { key: 'clubs', href: '/b2b' },
+] as const
 
-function BeeLogo() {
-  return (
-    <Image
-      src="/images/logo.png"
-      alt="Honey Bee Power"
-      width={163}
-      height={40}
-      priority
-      className="h-9 w-auto object-contain shrink-0"
-    />
-  )
-}
-
-// ─── Navigation data ──────────────────────────────────────────────────────────
-
-interface NavCategory {
-  key: 'allProducts' | 'energyGels' | 'isotonicDrinks' | 'wheyProteins'
-  href: string
-}
-
-const PRODUCT_CATEGORIES: NavCategory[] = [
-  { key: 'allProducts',     href: '/proizvodi' },
-  { key: 'energyGels',     href: '/proizvodi/energetski-gelovi' },
-  { key: 'isotonicDrinks', href: '/proizvodi/izotonicki-napitci' },
-  { key: 'wheyProteins',   href: '/proizvodi/whey-proteini' },
-]
-
-// ─── MegaMenu ─────────────────────────────────────────────────────────────────
-
-interface MegaMenuProps {
-  isOpen: boolean
-  onClose: () => void
-  locale: Locale
-}
-
-function MegaMenu({ isOpen, onClose, locale }: MegaMenuProps) {
+export default function Header() {
   const t = useTranslations('nav')
-  const prefix = locale === 'hr' ? '' : `/${locale}`
-
-  return (
-    <div
-      id="mega-menu"
-      role="region"
-      aria-label="Mega menu — kategorije proizvoda"
-      className={cn(
-        'absolute top-full left-0 w-72 bg-white shadow-xl rounded-b-xl border border-gray-100 p-5 z-50',
-        'transition-all duration-200 origin-top',
-        isOpen ? 'opacity-100 scale-y-100 pointer-events-auto' : 'opacity-0 scale-y-95 pointer-events-none'
-      )}
-    >
-      <p className="text-xs font-semibold uppercase tracking-widest text-charcoal-muted mb-3">
-        {t('products')}
-      </p>
-      <ul role="list" className="space-y-1">
-        {PRODUCT_CATEGORIES.map((cat) => (
-          <li key={cat.href}>
-            <Link
-              href={`${prefix}${cat.href}`}
-              onClick={onClose}
-              className="block px-3 py-2 rounded-lg text-sm text-charcoal hover:bg-amber-50 hover:text-amber-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
-            >
-              {t(cat.key)}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
-}
-
-// ─── CartBadge ────────────────────────────────────────────────────────────────
-
-function CartBadge({ count }: { count: number }) {
-  const { openCart } = useCartStore()
-
-  return (
-    <button
-      type="button"
-      onClick={openCart}
-      aria-label="Otvori košaricu"
-      className="relative flex items-center justify-center p-2 rounded-lg text-charcoal hover:bg-amber-50 hover:text-amber-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
-    >
-      <ShoppingCart className="w-5 h-5" aria-hidden="true" />
-      {count > 0 && (
-        <span
-          aria-hidden="true"
-          className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] bg-amber-500 text-slate-950 text-[10px] font-black rounded-full flex items-center justify-center px-1 leading-none shadow-sm"
-        >
-          {count > 99 ? '99+' : count}
-        </span>
-      )}
-    </button>
-  )
-}
-
-// ─── Mobile menu ──────────────────────────────────────────────────────────────
-
-interface MobileMenuProps {
-  isOpen: boolean
-  onClose: () => void
-  locale: Locale
-}
-
-function MobileMenu({ isOpen, onClose, locale }: MobileMenuProps) {
-  const t = useTranslations('nav')
-  const prefix = locale === 'hr' ? '' : `/${locale}`
-
-  const navLinks = [
-    { key: 'products',   label: t('products'),   href: `${prefix}/proizvodi` },
-    { key: 'priceList',  label: t('priceList'),  href: `${prefix}/cjenik` },
-    { key: 'whereToBuy', label: t('whereToBuy'), href: `${prefix}/gdje-kupiti` },
-    { key: 'guides',     label: t('guides'),     href: `${prefix}/vodici` },
-    { key: 'contact',    label: t('contact'),    href: `${prefix}/kontakt` },
-    { key: 'b2b',        label: t('b2b'),        href: `${prefix}/b2b` },
-  ]
-
-  return (
-    <div
-      id="mobile-menu"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Mobilni navigacijski izbornik"
-      className={cn(
-        'fixed inset-0 z-50 flex md:hidden',
-        isOpen ? 'pointer-events-auto' : 'pointer-events-none'
-      )}
-    >
-      {/* Backdrop */}
-      <div
-        aria-hidden="true"
-        onClick={onClose}
-        className={cn(
-          'absolute inset-0 bg-black/60 transition-opacity duration-300',
-          isOpen ? 'opacity-100' : 'opacity-0'
-        )}
-      />
-
-      {/* Drawer */}
-      <nav
-        aria-label="Mobilna navigacija"
-        className={cn(
-          'relative w-80 max-w-[85vw] bg-white h-full flex flex-col shadow-2xl',
-          'transition-transform duration-300',
-          isOpen ? 'translate-x-0' : '-translate-x-full'
-        )}
-      >
-        {/* Header */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-          <div className="flex items-center gap-2">
-            <BeeLogo />
-          </div>
-          <button
-            onClick={onClose}
-            aria-label="Zatvori izbornik"
-            className="p-2 rounded-lg text-charcoal hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
-          >
-            <X className="w-5 h-5" aria-hidden="true" />
-          </button>
-        </div>
-
-        {/* Nav links */}
-        <ul role="list" className="flex-1 overflow-y-auto px-3 py-4 space-y-1">
-          {navLinks.map((link) => (
-            <li key={link.key}>
-              <Link
-                href={link.href}
-                onClick={onClose}
-                className="flex items-center px-4 py-3 rounded-xl text-charcoal font-medium hover:bg-amber-50 hover:text-amber-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        {/* Categories */}
-        <div className="px-5 py-4 border-t border-gray-100">
-          <p className="text-xs font-semibold uppercase tracking-widest text-charcoal-muted mb-2">
-            {t('categories')}
-          </p>
-          <ul role="list" className="space-y-1">
-            {PRODUCT_CATEGORIES.map((cat) => (
-              <li key={cat.href}>
-                <Link
-                  href={`${prefix}${cat.href}`}
-                  onClick={onClose}
-                  className="block px-3 py-2 text-sm text-charcoal rounded-lg hover:bg-amber-50 hover:text-amber-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
-                >
-                  {t(cat.key)}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Language switcher */}
-        <div className="px-5 py-4 border-t border-gray-100 space-y-3">
-          <LanguageSwitcher />
-        </div>
-      </nav>
-    </div>
-  )
-}
-
-// ─── Header ───────────────────────────────────────────────────────────────────
-
-export interface HeaderClientProps {
-  cartItemCount?: number
-}
-
-export default function Header({ cartItemCount = 0 }: HeaderClientProps) {
-  const t = useTranslations('nav')
-  const tHeader = useTranslations('header')
   const locale = useLocale() as Locale
   const prefix = locale === 'hr' ? '' : `/${locale}`
+  const pathname = usePathname()
 
-  const [megaOpen, setMegaOpen] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const items = useCartStore((s) => s.items)
+  const openCart = useCartStore((s) => s.openCart)
+  const count = items.reduce((sum, i) => sum + i.quantity, 0)
+
+  const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [hidden, setHidden] = useState(false)
+  const [bump, setBump] = useState(false)
+  const lastY = useRef(0)
+  const lastCount = useRef(count)
+  const menuButton = useRef<HTMLButtonElement>(null)
 
-  const megaRef = useRef<HTMLDivElement>(null)
-  const megaTriggerRef = useRef<HTMLButtonElement>(null)
-
-  // Shadow on scroll
+  // Košarica se čuva u localStorage; učitaj je nakon hidracije.
   useEffect(() => {
-    function onScroll() {
-      setScrolled(window.scrollY > 8)
+    void useCartStore.persist.rehydrate()
+  }, [])
+
+  // Zaglavlje se skriva pri skrolanju prema dolje i vraća pri skrolanju gore.
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY
+      setHidden(y > 240 && y > lastY.current)
+      lastY.current = y
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Close mega menu on outside click
+  // Kratki odziv na broju kad se nešto doda u upit.
   useEffect(() => {
-    function onPointerDown(e: PointerEvent) {
-      if (
-        megaRef.current &&
-        !megaRef.current.contains(e.target as Node) &&
-        megaTriggerRef.current &&
-        !megaTriggerRef.current.contains(e.target as Node)
-      ) {
-        setMegaOpen(false)
-      }
+    if (count > lastCount.current) {
+      setBump(true)
+      const id = window.setTimeout(() => setBump(false), 320)
+      lastCount.current = count
+      return () => window.clearTimeout(id)
     }
-    document.addEventListener('pointerdown', onPointerDown)
-    return () => document.removeEventListener('pointerdown', onPointerDown)
-  }, [])
+    lastCount.current = count
+  }, [count])
 
-  // Close mobile menu on Escape
   useEffect(() => {
-    function onKeyDown(e: KeyboardEvent) {
+    setMenuOpen(false)
+  }, [pathname])
+
+  useEffect(() => {
+    if (!menuOpen) return
+    document.body.style.overflow = 'hidden'
+    const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        setMegaOpen(false)
-        setMobileOpen(false)
+        setMenuOpen(false)
+        menuButton.current?.focus()
       }
     }
-    document.addEventListener('keydown', onKeyDown)
-    return () => document.removeEventListener('keydown', onKeyDown)
-  }, [])
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [menuOpen])
 
-  // Lock body scroll when mobile menu open
-  useEffect(() => {
-    document.body.style.overflow = mobileOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
-  }, [mobileOpen])
-
-  const closeMobileMenu = useCallback(() => setMobileOpen(false), [])
-
-  const desktopNavLinks = [
-    { key: 'whereToBuy', label: t('whereToBuy'), href: `${prefix}/gdje-kupiti` },
-    { key: 'guides',     label: t('guides'),     href: `${prefix}/vodici` },
-    { key: 'priceList',  label: t('priceList'),  href: `${prefix}/cjenik` },
-    { key: 'b2b',        label: t('b2b'),        href: `${prefix}/b2b` },
-  ]
+  const isActive = (href: string) => {
+    const full = `${prefix}${href}`
+    return pathname === full || pathname.startsWith(`${full}/`)
+  }
 
   return (
-    <header
-      role="banner"
-      className={cn(
-        'sticky top-0 z-40 w-full bg-white transition-shadow duration-300',
-        scrolled ? 'shadow-md' : 'shadow-sm'
-      )}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center h-16 gap-4">
-
-          {/* Hamburger — mobile only */}
-          <button
-            aria-label="Otvori navigacijski izbornik"
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-menu"
-            onClick={() => setMobileOpen(true)}
-            className="md:hidden p-2 -ml-1 rounded-lg text-charcoal hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
-          >
-            <Menu className="w-5 h-5" aria-hidden="true" />
-          </button>
-
-          {/* Logo */}
-          <Link
-            href={`${prefix}/`}
-            aria-label="Honey Bee Power — početna stranica"
-            className="flex items-center gap-2 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded-lg"
-          >
-            <BeeLogo />
+    <>
+      <header
+        className="sticky top-0 z-40 bg-ground transition-transform duration-300 ease-[var(--ease-out-quart)]"
+        style={{ transform: hidden && !menuOpen ? 'translateY(-100%)' : 'none' }}
+      >
+        <div className="frame flex h-[var(--header-h)] items-center gap-6">
+          <Link href={prefix || '/'} className="shrink-0" aria-label="Honey Bee Power, naslovnica">
+            <Image src="/images/logo.png" alt="Honey Bee Power" width={147} height={36} priority className="h-8 w-auto sm:h-9" />
           </Link>
 
-          {/* Desktop nav */}
-          <nav
-            aria-label="Glavna navigacija"
-            className="hidden md:flex items-center gap-1 ml-4 flex-1"
-          >
-            {/* Products with MegaMenu */}
-            <div
-              className="relative flex items-center"
-              ref={megaRef}
-              onMouseEnter={() => setMegaOpen(true)}
-              onMouseLeave={() => setMegaOpen(false)}
-            >
-              <Link
-                href={`${prefix}/proizvodi`}
-                className={cn(
-                  'flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors text-charcoal hover:bg-amber-50 hover:text-amber-600',
-                  megaOpen && 'bg-amber-50 text-amber-600'
-                )}
-              >
-                {t('products')}
-              </Link>
-              <button
-                ref={megaTriggerRef}
-                type="button"
-                aria-haspopup="true"
-                aria-expanded={megaOpen}
-                aria-label="Kategorije proizvoda"
-                onClick={() => setMegaOpen((v) => !v)}
-                className="p-1 -ml-1 text-charcoal hover:text-amber-600 focus-visible:outline-none"
-              >
-                <ChevronDown
-                  className={cn('w-3.5 h-3.5 transition-transform duration-200', megaOpen && 'rotate-180')}
-                  aria-hidden="true"
-                />
-              </button>
-              <MegaMenu
-                isOpen={megaOpen}
-                onClose={() => setMegaOpen(false)}
-                locale={locale}
-              />
-            </div>
-
-            {/* Other nav links */}
-            {desktopNavLinks.map((link) => (
-              <Link
-                key={link.key}
-                href={link.href}
-                className="px-3 py-2 rounded-lg text-sm font-medium text-charcoal hover:bg-gray-100 hover:text-amber-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
-              >
-                {link.label}
-              </Link>
-            ))}
+          <nav aria-label={t('main')} className="ml-auto hidden lg:block">
+            <ul className="flex items-center gap-7">
+              {NAV.map((item) => (
+                <li key={item.key}>
+                  <Link
+                    href={`${prefix}${item.href}`}
+                    aria-current={isActive(item.href) ? 'page' : undefined}
+                    className="t-body font-medium underline-offset-[0.3em] decoration-2 hover:underline aria-[current=page]:underline"
+                  >
+                    {t(item.key)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </nav>
 
-          {/* Right-side actions */}
-          <div className="flex items-center gap-1.5 ml-auto">
-            {/* Search trigger */}
+          <div className="ml-auto flex items-center gap-1 lg:ml-6">
+            <LanguageSwitcher className="hidden md:flex" />
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
-              aria-label={tHeader('search')}
-              className="p-2 rounded-lg text-charcoal hover:bg-amber-50 hover:text-amber-600 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+              aria-label={t('search')}
+              className="hidden h-11 w-11 place-items-center transition-transform active:scale-95 sm:grid"
             >
-              <Search className="w-5 h-5" aria-hidden="true" />
+              <Search className="h-5 w-5" strokeWidth={2.25} aria-hidden="true" />
             </button>
-
-            {/* Language switcher — desktop only */}
-            <LanguageSwitcher className="hidden md:flex" />
-
-            {/* Cart badge */}
-            <CartBadge count={cartItemCount} />
+            <button
+              type="button"
+              onClick={openCart}
+              className="btn ml-1 min-h-11 px-4"
+              aria-label={t('inquiryWithCount', { count })}
+            >
+              <span>{t('inquiry')}</span>
+              <span
+                className="tabular min-w-[1.5ch] text-center transition-transform duration-300"
+                style={{ transform: bump ? 'scale(1.35)' : 'none' }}
+                aria-hidden="true"
+              >
+                {count}
+              </span>
+            </button>
+            <button
+              ref={menuButton}
+              type="button"
+              onClick={() => setMenuOpen((o) => !o)}
+              aria-expanded={menuOpen}
+              aria-controls="site-menu"
+              className="ml-1 grid h-11 min-w-11 place-items-center px-2 font-medium lg:hidden"
+            >
+              {menuOpen ? t('close') : t('menu')}
+            </button>
           </div>
         </div>
+      </header>
+
+      <div
+        id="site-menu"
+        hidden={!menuOpen}
+        className="on-ink fixed inset-x-0 bottom-0 top-[var(--header-h)] z-40 overflow-y-auto lg:hidden"
+      >
+        <nav aria-label={t('main')} className="frame flex min-h-full flex-col pb-8 pt-6">
+          <ul className="space-y-1">
+            {NAV.map((item) => (
+              <li key={item.key}>
+                <Link
+                  href={`${prefix}${item.href}`}
+                  aria-current={isActive(item.href) ? 'page' : undefined}
+                  className="block py-1 font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-extrabold leading-[1.05] tracking-[-0.03em]"
+                >
+                  {t(item.key)}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <ul className="mt-8 grid grid-cols-2 gap-x-4 gap-y-3 t-body">
+            <li><Link href={`${prefix}/o-nama`} className="link">{t('about')}</Link></li>
+            <li><Link href={`${prefix}/dogadaji`} className="link">{t('events')}</Link></li>
+            <li><Link href={`${prefix}/faq`} className="link">{t('faq')}</Link></li>
+            <li><Link href={`${prefix}/kontakt`} className="link">{t('contact')}</Link></li>
+            <li>
+              <button type="button" className="link" onClick={() => { setMenuOpen(false); setSearchOpen(true) }}>
+                {t('search')}
+              </button>
+            </li>
+          </ul>
+          <LanguageSwitcher className="mt-auto pt-10" tone="ink" />
+        </nav>
       </div>
 
-      {/* Search overlay */}
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
-
-      {/* Mobile menu */}
-      <MobileMenu
-        isOpen={mobileOpen}
-        onClose={closeMobileMenu}
-        locale={locale}
-      />
-    </header>
+    </>
   )
 }

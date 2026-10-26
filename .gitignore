@@ -61,3 +61,6 @@ planetbioo.jpg
 
 # Podaci kupaca (lokalna rezervna kopija upita), nikad u git
 inquiries-backup.json
+
+# Radne snimke inspektora design-taste-frontend
+.taste-skill/

@@ -1,7 +1,7 @@
 {
   "nav": {
     "products": "Produkte",
-    "whereToBuy": "Wo kaufen",
+    "whereToBuy": "Bezugsquellen",
     "athletes": "Sportler",
     "guides": "Ratgeber",
     "about": "Über uns",
@@ -12,7 +12,18 @@
     "allProducts": "Alle Produkte",
     "energyGels": "Energiegels",
     "isotonicDrinks": "Isotonische Getränke",
-    "wheyProteins": "Molkenprotein"
+    "wheyProteins": "Molkenprotein",
+    "main": "Hauptnavigation",
+    "recovery": "Erholung",
+    "clubs": "Für Vereine",
+    "search": "Suchen",
+    "inquiry": "Anfrage",
+    "inquiryWithCount": "Anfrage öffnen, Artikel: {count}",
+    "menu": "Menü",
+    "close": "Schließen",
+    "events": "Veranstaltungen",
+    "faq": "Häufige Fragen",
+    "sport": "Sport"
   },
   "cjenik": {
     "badge": "Offizielle digitale Preisliste",
@@ -164,19 +175,25 @@
     "company": "Unternehmen",
     "contact": "Kontakt",
     "rights": "Alle Rechte vorbehalten",
-    "aboutText": "Natürliche Sportnahrung auf Honigbasis mit funktionellen Zutaten.",
+    "aboutText": "Energiegels, isotonische Getränke und Whey Protein von APIMAR aus Polen. Vertrieb in Kroatien: Planet Bio, Našice.",
     "energyGels": "Energiegels",
     "isotonicDrinks": "Isotonische Getränke",
     "whereToBuy": "Wo kaufen",
     "faq": "FAQ",
-    "shippingPayment": "Lieferung & Zahlung",
-    "returns": "Rückgabe & Reklamationen",
-    "privacy": "Datenschutz-Bestimmungen",
-    "terms": "Nutzungsbedingungen",
+    "shippingPayment": "Versand und Zahlung",
+    "returns": "Rückgabe und Reklamation",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
     "impressum": "Impressum",
     "priceList": "Offizielle Preisliste",
     "copyright": "© 2026 Honey Bee Power",
-    "cookieSettings": "Cookie-Einstellungen"
+    "cookieSettings": "Cookie-Einstellungen",
+    "hours": "Montag–Freitag 8–16 Uhr",
+    "siteNav": "Seiten",
+    "backToTop": "Nach oben",
+    "contactLead": "Fragen und Bestellungen",
+    "photoCredits": "Bildnachweise",
+    "distributor": "Vertrieb in Kroatien"
   },
   "contactPage": {
     "badge": "Kontaktieren Sie uns",
@@ -396,5 +413,194 @@
     "successMessageWhatsapp": "Wir haben WhatsApp in einem neuen Tab geöffnet — senden Sie die Nachricht, um Ihre Anfrage abzuschließen.",
     "successMessageEmail": "Wir melden uns in Kürze unter {phone} bei Ihnen.",
     "close": "Schließen"
+  },
+  "flavours": {
+    "malina": "Himbeere",
+    "limun": "Zitrone",
+    "naranča": "Orange",
+    "lješnjak-čokolada": "Haselnuss-Schokolade",
+    "banana-vanilija": "Banane-Vanille",
+    "jagoda-šlag": "Erdbeere-Sahne"
+  },
+  "calculator": {
+    "intro": "Kohlenhydrate zur Erholung nach sehr intensiver oder langer Belastung: 4 g pro Kilogramm Körpergewicht, aus allen Quellen, in Dosen.",
+    "weightLabel": "Dein Körpergewicht (kg)",
+    "rangeHint": "Von {min} bis {max} kg.",
+    "flavourLabel": "Gel für die Berechnung",
+    "resultLead": "Kohlenhydrate insgesamt",
+    "resultUnit": "aus Essen, Getränken und Gels, in Dosen, in den ersten 4 Stunden nach der Belastung (spätestens nach 6 Stunden).",
+    "dosesTitle": "Beispiel: Aufteilung auf vier Dosen",
+    "doseNow": "Direkt nach der Belastung",
+    "doseAfter": "Nach {hours, plural, one {# Stunde} other {# Stunden}}",
+    "gelShare": "Ein Gel {flavour} liefert {grams} g, das sind {pct} % der Gesamtmenge.",
+    "restFromFood": "Die übrigen {rest} g kommen aus Essen und Getränken.",
+    "addGel": "Gel {flavour} zur Anfrage hinzufügen",
+    "added": "Zur Anfrage hinzugefügt.",
+    "claimTitle": "Zugelassene gesundheitsbezogene Angabe:",
+    "disclaimer": "Dies ist eine allgemeine Orientierung, keine medizinische oder Ernährungsberatung.",
+    "tableTitle": "Orientierung nach Körpergewicht",
+    "colWeight": "Körpergewicht",
+    "colTotal": "Kohlenhydrate insgesamt",
+    "colDose": "Vier Dosen",
+    "tableDose": "4 × {grams} g"
+  },
+  "home": {
+    "hero": {
+      "before": "Gel aus",
+      "after": "Honig.",
+      "lead": "Ein Energiegel à 40 g mit drei oder vier Zutaten. Hergestellt von APIMAR in Polen, versandt von Planet Bio aus Našice.",
+      "cta": "Produkte ansehen",
+      "secondary": "Erholung berechnen"
+    },
+    "ingredients": {
+      "title": "Drei oder vier Zutaten.",
+      "statement": "<honey>Mehrblütenhonig</honey> von polnischen Imkereien, gefriergetrocknete <fruit>Früchte</fruit> <guarana>Guaranasamenextrakt</guarana> und eine Prise <salt>Meersalz</salt> Sonst nichts.",
+      "barsTitle": "Zutaten der Gels nach Sorte, laut Etikett",
+      "carbs": "{value} g Kohlenhydrate in 40 g",
+      "part": {
+        "honey": "Mehrblütenhonig",
+        "fruit": "gefriergetrocknete Früchte",
+        "guarana": "Guaranasamenextrakt",
+        "salt": "Meersalz"
+      },
+      "fruitOf": "gefriergetrocknet: {fruit}",
+      "noSalt": "ohne Salz",
+      "caffeineNote": "Guarana enthält Koffein."
+    },
+    "back": {
+      "titleStart": "Alles steht",
+      "titleEnd": "auf der Rückseite.",
+      "caption": "Zutaten mit Prozentangaben und Nährwerttabelle auf jedem Beutel. Orangengel: 31,2 g Kohlenhydrate in 40 g.",
+      "stage1": "Rückseite des Orangengels",
+      "stage2": "Zutaten mit Prozentangaben",
+      "stage3": "Nährwerttabelle",
+      "imageAlt": "Rückseite des Honey Bee Power Orangengels mit kroatischem Etikett"
+    },
+    "products": {
+      "title": "Gel, Isotonic und Whey",
+      "videoLabel": "Produktvideo Honey Bee Power: Gels, isotonische Getränke, Whey und Shaker aus der Nähe",
+      "videoPause": "Video anhalten",
+      "videoPlay": "Video abspielen",
+      "gel": {
+        "name": "Energiegel, 40 g",
+        "flavours": "Zitrone, Orange, Himbeere",
+        "figure": "29–32,8 g",
+        "figureNote": "Kohlenhydrate pro Beutel, je nach Sorte",
+        "priceNote": "pro Beutel",
+        "cta": "Gels",
+        "imageAlt": "Drei Honey Bee Power Energiegels: Himbeere, Zitrone und Orange"
+      },
+      "iso": {
+        "name": "Isotonisches Getränk, 500 g",
+        "flavours": "Zitrone, Orange",
+        "figure": "13,5 g",
+        "figureNote": "Kohlenhydrate pro 15-g-Portion",
+        "priceNote": "500-g-Dose",
+        "cta": "Isotonic",
+        "imageAlt": "Dose Honey Bee Power isotonisches Getränk Zitrone, 500 g"
+      },
+      "whey": {
+        "name": "Whey Protein, 700 g",
+        "flavours": "Haselnuss-Schokolade, Banane-Vanille, Erdbeere-Sahne. Enthält Milch.",
+        "figure": "22 g",
+        "figureNote": "Protein pro 33-g-Portion",
+        "priceNote": "700-g-Dose",
+        "cta": "Whey",
+        "imageAlt": "Dose Honey Bee Power Whey Protein Haselnuss-Schokolade, 700 g"
+      }
+    },
+    "sport": {
+      "label": "Sport",
+      "run": {
+        "verb": "Lauf.",
+        "caption": "Ein Läufer mit einem Honey Bee Power Gel bei einem Marathon auf Zypern.",
+        "alt": "Läufer im Shirt eines Zypern-Marathons mit einem Honey Bee Power Gel"
+      },
+      "fight": {
+        "verb": "Kämpf.",
+        "caption": "Kampfsporttraining.",
+        "alt": "Kickboxtraining in einer Halle"
+      },
+      "play": {
+        "verb": "Spiel.",
+        "caption": "Eine Handballmannschaft in Honey Bee Power Trikots.",
+        "alt": "Handballerinnen in Trikots mit Honey Bee Power Aufdruck"
+      }
+    },
+    "recovery": {
+      "title": "Erhol dich."
+    },
+    "story": {
+      "title": "Von Baranów nach Našice",
+      "p1": "Honey Bee Power ist eine Marke des polnischen Herstellers P.P.H. APIMAR aus Baranów. Die Gels bestehen aus Mehrblütenhonig von polnischen Imkereien, auf dem isotonischen Getränk steht „Polnisches Produkt“. Planet Bio, ein Gewerbebetrieb aus Našice, ist der Vertriebspartner für Kroatien: Wir lagern die Produkte in der Krndijska 4 und versenden sie innerhalb von 1–3 Werktagen nach Bestätigung.",
+      "p2": "Bestellt wird per Anfrage. Du stellst den Warenkorb zusammen und sendest ihn per WhatsApp oder E-Mail; Versandkosten und Zahlung (Nachnahme oder Überweisung) vereinbaren wir persönlich.",
+      "fact1Label": "Hersteller",
+      "fact1": "APIMAR, Baranów, Polen",
+      "fact2Label": "Lager",
+      "fact2": "Krndijska 4, Našice",
+      "fact3Label": "Versand",
+      "fact3": "1–3 Werktage",
+      "photoAlt": "Schwarzweißfoto eines Bienenstands mit Holzbeuten in einem Obstgarten",
+      "photoCaption": "Foto: Bienenstand in Łomianki bei Warschau, 1939 (Archiv).",
+      "more": "Die ganze Geschichte"
+    },
+    "track": {
+      "line1": "Auf der",
+      "line2": "Strecke",
+      "photo1": "Honey Bee Power Promostand in Vukovar mit Gels und isotonischen Getränken",
+      "caption1": "Promostand in Vukovar.",
+      "photo2": "Ein Läufer im Honey Bee Power Shirt",
+      "caption2": "Am Start.",
+      "photo3": "Sportlerinnen mit Honey Bee Power Beuteln in einer Halle",
+      "photo4": "Eine Handballmannschaft mit Honey Bee Power Beuteln",
+      "photo5": "Honey Bee Power Stand auf dem Stadtplatz in Vukovar",
+      "sentence": "Ein Promostand beim Vukovar-Marathon, Trainings und Spiele.",
+      "more": "Veranstaltungen",
+      "moreLabel": "Weitere Fotos von Veranstaltungen"
+    },
+    "prices": {
+      "title": "Preise aus der offiziellen Preisliste",
+      "photoAlt": "Karton mit 10 Honey Bee Power Orangengels",
+      "tableLabel": "Preise",
+      "caption": "Produktpreise aus der offiziellen Preisliste",
+      "colType": "Art",
+      "colItem": "Sorte und Packung",
+      "colPrice": "Preis",
+      "type": {
+        "gel": "Energiegel",
+        "iso": "Isotonic",
+        "whey": "Whey Protein",
+        "shaker": "Shaker"
+      },
+      "note": "10er-Pakete und das Isotonic-Set mit Shaker stehen nicht in der Preisliste; den Preis bestätigen wir auf Anfrage.",
+      "more": "Vollständige Preisliste mit Barcodes"
+    },
+    "clubs": {
+      "title": "Für Vereine und Geschäfte.",
+      "sentence": "Fitnessstudios, Apotheken, Geschäfte und Sportvereine: Senden Sie eine Anfrage mit Produkten und Mengen, die Konditionen vereinbaren wir direkt.",
+      "cta": "B2B-Anfrage senden"
+    },
+    "faq": {
+      "title": "Häufige Fragen",
+      "q1": "Wann nimmt man das Gel?",
+      "a1": "Laut Etikett: 1 Portion (40 g) nach dem Training oder körperlicher Anstrengung. Das Gel ist für Erwachsene nach sehr intensiver oder langer Belastung bestimmt.",
+      "q2": "Enthält das Gel Koffein?",
+      "a2": "Ja, aus Guaranasamenextrakt (1 %). Den Koffeingehalt pro Gel klären wir mit dem Hersteller: <todo>[UPIŠI: Koffein pro Gel]</todo>. Nicht empfohlen für koffeinempfindliche Personen, Schwangere, Stillende und Kinder.",
+      "q3": "Ist das Whey nur mit Honig gesüßt?",
+      "a3": "Nein. Das Whey enthält getrockneten Honig (6 %) und Stevia sowie Milch.",
+      "q4": "Wie bestellt man?",
+      "a4": "Produkte zur Anfrage hinzufügen und per WhatsApp oder E-Mail senden. Auf der Website wird nichts bezahlt; Versand und Zahlung (Nachnahme oder Überweisung) vereinbaren wir persönlich.",
+      "q5": "Wie lange dauert der Versand?",
+      "a5": "Wir versenden aus Našice, meist innerhalb von 1–3 Werktagen nach Bestätigung.",
+      "q6": "Wer stellt Honey Bee Power her?",
+      "a6": "P.P.H. APIMAR aus Baranów in Polen. Planet Bio aus Našice ist der Vertriebspartner für Kroatien."
+    }
+  },
+  "consent": {
+    "label": "Cookies",
+    "text": "Wir verwenden notwendige Cookies für die Website und den Warenkorb. Analyse-Cookies aktivieren wir nur mit deiner Zustimmung.",
+    "more": "Datenschutz",
+    "necessary": "Nur notwendige",
+    "acceptAll": "Alle akzeptieren"
   }
 }

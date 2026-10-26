@@ -1,219 +1,517 @@
 @import "tailwindcss";
 
+/*
+ * Honey Bee Power, redizajn 2026.
+ * Smjer: „The sentence is the layout” (design-taste-frontend, seed 1725151227).
+ * Proporcije s lista smjera (jedna podloga, jedna boja slova, jedan naglasak),
+ * boje uzete iz proizvoda: med kao jedini naglasak na glavnom gumbu,
+ * boje okusa (limun, naranča, malina) kao polja na stranicama proizvoda.
+ */
+
 @theme {
-  /* Brand Colors */
-  --color-amber-honey: #f59e0b;
-  --color-amber-honey-dark: #d97706;
-  --color-amber-hover: #e8910a;
-  --color-charcoal: #1a1a1a;
-  --color-charcoal-light: #2d2d2d;
-  --color-white: #ffffff;
-  --color-off-white: #fafaf8;
-  --color-green-nature: #4a7c59;
-  --color-terracotta: #8b4513;
-  --color-terracotta-dark: #6b3410;
-  --color-gray-100: #f5f5f5;
-  --color-gray-200: #e5e5e5;
-  --color-gray-400: #a3a3a3;
-  --color-gray-600: #525252;
-  --color-gray-800: #262626;
+  --color-ground: #e6e3dd;
+  --color-surface: #d9d5cd;
+  --color-ink: #0b0b0a;
+  --color-muted: #47443f;
+  --color-honey: #eaa221;
+  --color-honey-ink: #0b0b0a;
+  --color-lemon: #f2d21b;
+  --color-orange: #f08a1c;
+  --color-raspberry: #c3203f;
+  --color-alert: #a3122a;
 
-  /* Deep ink + rich honey — used for bold, high-contrast sections */
-  --color-ink: #14110c;
-  --color-ink-raised: #211a10;
-  --color-honey-rich: #f2a91f;
-  --color-honey-deep: #a86a10;
-  --color-cream: #faf5e7;
+  --font-display: var(--font-bodoni), "Bodoni Moda", Didot, serif;
+  --font-text: var(--font-jost), "Jost", system-ui, sans-serif;
 
-  /* Typography */
-  --font-heading: var(--font-barlow-condensed), "Barlow Condensed", sans-serif;
-  --font-inter: var(--font-inter), "Inter", sans-serif;
+  --text-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --text-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --text-lead: clamp(1.25rem, 1rem + 0.9vw, 1.875rem);
+  --text-sub: clamp(1.75rem, 1.2rem + 1.9vw, 3.25rem);
+  --text-head: clamp(2.5rem, 1.4rem + 4.2vw, 5.5rem);
+  --text-display: clamp(3.25rem, 0.8rem + 7.4vw, 8.5rem);
+  --text-mega: clamp(4.5rem, 1rem + 13vw, 15rem);
 
-  /* Spacing */
-  --radius: 0.5rem;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Smooth Scrolling & Base styles */
+:root {
+  --gutter: clamp(1rem, 0.6rem + 1.6vw, 2rem);
+  --section-gap: clamp(7.5rem, 5rem + 8vw, 13rem);
+  --header-h: 4.25rem;
+  color-scheme: light;
+}
+
+@layer base {
+/* ─── Osnova ─────────────────────────────────────────────────────────── */
+
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
-  font-family: var(--font-inter), "Inter", sans-serif;
-  color: #1a1a1a;
-  background: #ffffff;
-  overflow-x: hidden;
+  margin: 0;
+  background: var(--color-ground);
+  color: var(--color-ink);
+  font-family: var(--font-text);
+  font-size: var(--text-body);
+  line-height: 1.55;
+  letter-spacing: 0.005em;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-kerning: normal;
 }
 
-h1, h2, h3, h4, h5, h6, .font-heading {
-  font-family: var(--font-barlow-condensed), "Barlow Condensed", sans-serif;
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-optical-sizing: auto;
+  letter-spacing: -0.025em;
+  line-height: 0.95;
+  text-wrap: balance;
+  margin: 0;
 }
 
-/* Focus visible ring */
+p,
+li,
+dd {
+  text-wrap: pretty;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-honey);
+}
+
 :focus-visible {
-  outline: 2px solid #f59e0b;
-  outline-offset: 2px;
+  outline: 3px solid var(--color-ink);
+  outline-offset: 3px;
 }
 
-/* Skip to content */
+.on-ink :focus-visible,
+.on-ink:focus-visible {
+  outline-color: var(--color-honey);
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+  color: inherit;
+  accent-color: var(--color-ink);
+  caret-color: var(--color-ink);
+}
+}
+
+@layer components {
 .skip-to-content {
   position: absolute;
-  top: -999px;
-  left: -999px;
+  left: var(--gutter);
+  top: -100px;
+  z-index: 100;
+  background: var(--color-ink);
+  color: var(--color-ground);
+  padding: 0.75rem 1rem;
+  font-weight: 500;
 }
+
 .skip-to-content:focus {
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  z-index: 9999;
-  background: #f59e0b;
-  color: #1a1a1a;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
+  top: 0.75rem;
 }
 
-/* 3D Hexagon Theme Utilities */
-.clip-hexagon {
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+/* ─── Okvir i ritam ──────────────────────────────────────────────────── */
+
+.frame {
+  padding-inline: var(--gutter);
 }
 
-.text-honey-gradient {
-  background: linear-gradient(135deg, #ef4444 0%, #f97316 45%, #eab308 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(0.75rem, 0.4rem + 1.2vw, 1.75rem);
 }
 
-.bg-honey-gradient {
-  background: linear-gradient(135deg, #dc2626 0%, #ea580c 50%, #eab308 100%);
+.section {
+  padding-block: calc(var(--section-gap) / 2);
 }
 
-.bg-honey-gradient-soft {
-  background: linear-gradient(135deg, #fef2f2 0%, #fff7ed 50%, #fefce8 100%);
+.tabular {
+  font-variant-numeric: tabular-nums lining-nums;
 }
 
-/* Smooth 3D Keyframe Animations */
-@keyframes float3D {
-  0%, 100% {
-    transform: translateY(0px) rotateX(10deg) scale(1);
-  }
-  50% {
-    transform: translateY(-12px) rotateX(15deg) scale(1.03);
-  }
+/* ─── Tipografija ────────────────────────────────────────────────────── */
+
+.t-display {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 0.9;
 }
 
-@keyframes float3DReverse {
-  0%, 100% {
-    transform: translateY(0px) rotateX(-10deg) scale(1);
-  }
-  50% {
-    transform: translateY(10px) rotateX(-14deg) scale(1.02);
-  }
+.t-head {
+  font-family: var(--font-display);
+  font-size: var(--text-head);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
 }
 
-.animate-float-3d {
-  animation: float3D 6s ease-in-out infinite;
+.t-lead {
+  font-size: var(--text-lead);
+  line-height: 1.22;
+  letter-spacing: -0.005em;
 }
 
-.animate-float-3d-slow {
-  animation: float3D 9s ease-in-out infinite;
+.t-body {
+  font-size: var(--text-body);
+  line-height: 1.55;
 }
 
-.animate-float-3d-reverse {
-  animation: float3DReverse 7.5s ease-in-out infinite;
+.t-small {
+  font-size: var(--text-small);
+  line-height: 1.45;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .animate-float-3d,
-  .animate-float-3d-slow,
-  .animate-float-3d-reverse {
-    animation: none;
-  }
+.measure {
+  max-width: 62ch;
 }
 
-/* ─── Scroll-reveal (used by <Reveal>) ──────────────────────────────────── */
-
-.motion-reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-.motion-reveal.motion-in-view {
-  opacity: 1;
-  transform: translateY(0);
-}
-.motion-reveal-scale {
-  transform: translateY(20px) scale(0.95);
-}
-.motion-reveal-scale.motion-in-view {
-  transform: translateY(0) scale(1);
+/* Zamjena za [UPIŠI: …]: vidljivo, da se ne previdi prije objave */
+.todo {
+  background: var(--color-ink);
+  color: var(--color-honey);
+  padding: 0.05em 0.35em;
+  font-weight: 500;
+  white-space: normal;
 }
 
-/* ─── Marquee (used by <Marquee>) ───────────────────────────────────────── */
+/* ─── Gumbi ──────────────────────────────────────────────────────────── */
 
-.motion-marquee {
-  overflow: hidden;
-}
-.motion-marquee-track {
-  display: flex;
-  width: max-content;
-  animation: motion-marquee-scroll var(--marquee-duration, 24s) linear infinite;
-}
-.motion-marquee:hover .motion-marquee-track,
-.motion-marquee:focus-within .motion-marquee-track {
-  animation-play-state: paused;
-}
-@keyframes motion-marquee-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-/* ─── 3D tilt + magnetic hover (transform applied inline via JS) ───────── */
-
-.motion-tilt {
-  transition: transform 0.15s ease-out, box-shadow 0.3s ease;
-  transform-style: preserve-3d;
-  will-change: transform;
-}
-.motion-magnet {
-  transition: transform 0.2s ease;
+.btn {
+  --btn-bg: var(--color-ink);
+  --btn-fg: var(--color-ground);
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  min-height: 3.5rem;
+  padding: 0 1.6rem;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-family: var(--font-text);
+  font-size: var(--text-body);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  transition:
+    transform 160ms var(--ease-out-quart),
+    background-color 160ms var(--ease-out-quart),
+    color 160ms var(--ease-out-quart);
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* ─── Cursor spotlight (custom props set inline via JS) ─────────────────── */
+.btn:hover {
+  --btn-bg: #2a2925;
+}
 
-.motion-spotlight {
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-honey {
+  --btn-bg: var(--color-honey);
+  --btn-fg: var(--color-honey-ink);
+}
+
+.btn-honey:hover {
+  --btn-bg: #f3b23c;
+}
+
+.btn-ghost {
+  --btn-bg: transparent;
+  --btn-fg: currentColor;
+  box-shadow: inset 0 0 0 2px currentColor;
+}
+
+.btn-ghost:hover {
+  --btn-bg: var(--color-ink);
+  --btn-fg: var(--color-ground);
+}
+
+.on-ink .btn-ghost:hover {
+  --btn-bg: var(--color-ground);
+  --btn-fg: var(--color-ink);
+}
+
+.btn[disabled],
+.btn[aria-disabled='true'] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn .btn-arrow {
+  transition: transform 200ms var(--ease-out-quart);
+}
+
+.btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.link {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.22em;
+  transition: text-decoration-color 160ms ease, color 160ms ease;
+}
+
+.link:hover {
+  text-decoration-color: var(--color-honey);
+}
+
+/* ─── Polja ──────────────────────────────────────────────────────────── */
+
+.on-ink {
+  background: var(--color-ink);
+  color: var(--color-ground);
+}
+
+.field-lemon {
+  background: var(--color-lemon);
+  color: var(--color-ink);
+}
+
+.field-orange {
+  background: var(--color-orange);
+  color: var(--color-ink);
+}
+
+.field-raspberry {
+  background: var(--color-raspberry);
+  color: #fff;
+}
+
+.field-surface {
+  background: var(--color-surface);
+}
+
+/* ─── Rečenica s fotografijom (uvod) ─────────────────────────────────── */
+
+.hero-sentence {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(4.25rem, 0.5rem + 15vw, 11rem);
+}
+
+.sentence-strip {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  margin-block: 0.08em 0.1em;
+}
+
+.sentence-strip img,
+.sentence-strip video {
   position: absolute;
   inset: 0;
-  pointer-events: none;
-  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 40%), rgba(242, 169, 31, 0.16), transparent 68%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* ─── Scroll progress bar ────────────────────────────────────────────────── */
+@media (min-width: 768px) {
+  .hero-sentence {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.16em;
+    font-size: clamp(4.25rem, 9vw, 11rem);
+  }
 
-.motion-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: var(--color-honey-rich);
-  width: 0%;
-  z-index: 60;
-  transition: width 0.08s linear;
+  .sentence-strip {
+    flex: 1 1 auto;
+    width: auto;
+    aspect-ratio: auto;
+    height: 0.7em;
+    margin: 0;
+  }
 }
+
+/* Sličice u izjavi */
+.inline-thumb {
+  display: inline-block;
+  height: 0.85em;
+  width: 1.25em;
+  vertical-align: -0.1em;
+  margin-inline: 0.12em;
+  overflow: hidden;
+  position: relative;
+}
+
+.inline-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ─── Česta pitanja ──────────────────────────────────────────────────── */
+
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item .faq-chevron {
+  transition: transform 260ms var(--ease-out-quart);
+}
+
+.faq-item[open] .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-item::details-content {
+  block-size: 0;
+  overflow: clip;
+  transition:
+    block-size 320ms var(--ease-out-quart),
+    content-visibility 320ms allow-discrete;
+}
+
+.faq-item[open]::details-content {
+  block-size: auto;
+}
+
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+}
+
+/* ─── Ulazak elemenata (GSAP postavlja početno stanje; bez JS sve je vidljivo) */
 
 @media (prefers-reduced-motion: reduce) {
-  .motion-reveal,
-  .motion-reveal-scale {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-  .motion-marquee-track {
-    animation: none !important;
-    transform: none !important;
+}
+
+/* ─── Raspon (range) za kalkulator ───────────────────────────────────── */
+
+.range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2.75rem;
+  background: transparent;
+  cursor: pointer;
+  touch-action: pan-y;
+}
+
+.range::-webkit-slider-runnable-track {
+  height: 0.5rem;
+  background: currentColor;
+}
+
+.range::-moz-range-track {
+  height: 0.5rem;
+  background: currentColor;
+}
+
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-top: -0.875rem;
+  background: var(--color-honey);
+  border: 3px solid currentColor;
+  border-radius: 50%;
+  transition: transform 140ms var(--ease-out-quart);
+}
+
+.range::-moz-range-thumb {
+  width: 2.25rem;
+  height: 2.25rem;
+  background: var(--color-honey);
+  border: 3px solid currentColor;
+  border-radius: 50%;
+}
+
+.range:active::-webkit-slider-thumb {
+  transform: scale(1.12);
+}
+
+/* Brojka koja se mijenja u kalkulatoru */
+@keyframes number-pop {
+  from {
+    opacity: 0.35;
+    transform: translateY(0.12em);
   }
-  .motion-tilt,
-  .motion-magnet {
-    transform: none !important;
+  to {
+    opacity: 1;
+    transform: none;
   }
+}
+
+.number-pop {
+  display: inline-block;
+  animation: number-pop 260ms var(--ease-out-quart);
+}
+
+/* ─── Fotografija kao otisak (Na stazi) ──────────────────────────────── */
+
+.print-card {
+  background: #ffffff;
+  padding: 0.5rem 0.5rem 0.75rem;
+  color: var(--color-ink);
+  transition:
+    rotate 240ms var(--ease-out-quart),
+    translate 240ms var(--ease-out-quart);
+}
+
+/* Traka scrollbara */
+html {
+  scrollbar-color: var(--color-ink) var(--color-surface);
+}
 }
