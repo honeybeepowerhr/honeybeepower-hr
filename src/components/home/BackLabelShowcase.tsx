@@ -68,7 +68,7 @@ export function BackLabelShowcase({ titleStart, titleEnd, caption, stageLabels, 
 
           <div className="relative mt-4 grid w-full grid-cols-1 items-start md:grid-cols-[1fr_auto_1fr] md:gap-8">
             <div className="hidden md:block" />
-            <div className="relative mx-auto aspect-[4/5] w-[70vw] overflow-hidden bg-surface md:w-[min(30vw,46svh)]">
+            <div className="relative mx-auto aspect-[4/5] w-[70vw] overflow-hidden rounded-[var(--radius)] border border-[color:var(--color-line)] bg-surface shadow-[0_40px_120px_-30px_rgb(255_183_27/0.35)] md:w-[min(30vw,46svh)]">
               <Image
                 src="/images/products/gelnaranca-zadnja.png"
                 alt={imageAlt}

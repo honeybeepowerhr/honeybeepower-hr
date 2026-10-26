@@ -540,7 +540,14 @@
       "after": "honey.",
       "lead": "A 40 g energy gel with three or four ingredients. Made by APIMAR in Poland and shipped from Našice by Planet Bio.",
       "cta": "See the products",
-      "secondary": "Calculate recovery"
+      "secondary": "Calculate recovery",
+      "statHoneyValue": "91–95.5 %",
+      "statHoney": "multiflower honey in the gel",
+      "statCarbsValue": "29–32.8 g",
+      "statCarbs": "carbohydrates in a 40 g gel",
+      "statIngredientsValue": "3–4",
+      "statIngredients": "ingredients, nothing else",
+      "pouchesLabel": "Gel flavours"
     },
     "ingredients": {
       "title": "Three or four ingredients.",

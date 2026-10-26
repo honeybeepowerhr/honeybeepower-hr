@@ -33,7 +33,7 @@ export function CartItem({ item, locale, onRemove, onUpdateQuantity }: CartItemP
               onClick={() => onUpdateQuantity(item.quantity - 1)}
               disabled={item.quantity <= 1}
               aria-label={t('decrease', { name })}
-              className="grid h-10 w-10 place-items-center text-xl shadow-[inset_0_0_0_2px_currentColor] transition-transform active:scale-95 disabled:opacity-40"
+              className="grid h-10 w-10 place-items-center text-xl rounded-full shadow-[inset_0_0_0_1.5px_var(--color-line)] transition-transform active:scale-95 disabled:opacity-40"
             >
               −
             </button>
@@ -44,7 +44,7 @@ export function CartItem({ item, locale, onRemove, onUpdateQuantity }: CartItemP
               type="button"
               onClick={() => onUpdateQuantity(item.quantity + 1)}
               aria-label={t('increase', { name })}
-              className="grid h-10 w-10 place-items-center text-xl shadow-[inset_0_0_0_2px_currentColor] transition-transform active:scale-95"
+              className="grid h-10 w-10 place-items-center text-xl rounded-full shadow-[inset_0_0_0_1.5px_var(--color-line)] transition-transform active:scale-95"
             >
               +
             </button>

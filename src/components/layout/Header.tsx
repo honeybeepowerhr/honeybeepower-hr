@@ -92,22 +92,22 @@ export default function Header() {
   return (
     <>
       <header
-        className="sticky top-0 z-40 bg-ground transition-transform duration-300 ease-[var(--ease-out-quart)]"
+        className="sticky top-0 z-40 border-b border-[color:var(--color-line)] bg-ground/80 backdrop-blur-xl transition-transform duration-300 ease-[var(--ease-out-quart)]"
         style={{ transform: hidden && !menuOpen ? 'translateY(-100%)' : 'none' }}
       >
         <div className="frame flex h-[var(--header-h)] items-center gap-6">
           <Link href={prefix || '/'} className="shrink-0" aria-label="Honey Bee Power, naslovnica">
-            <Image src="/images/logo.png" alt="Honey Bee Power" width={147} height={36} priority className="h-8 w-auto sm:h-9" />
+            <Image src="/images/logo-white.png" alt="Honey Bee Power" width={147} height={36} priority className="h-8 w-auto sm:h-9" />
           </Link>
 
           <nav aria-label={t('main')} className="ml-auto hidden lg:block">
-            <ul className="flex items-center gap-7">
+            <ul className="flex items-center gap-1">
               {NAV.map((item) => (
                 <li key={item.key}>
                   <Link
                     href={`${prefix}${item.href}`}
                     aria-current={isActive(item.href) ? 'page' : undefined}
-                    className="t-body font-medium underline-offset-[0.3em] decoration-2 hover:underline aria-[current=page]:underline"
+                    className="rounded-full px-3.5 py-2 t-body font-medium text-muted transition-colors hover:bg-white/10 hover:text-ink aria-[current=page]:bg-white/10 aria-[current=page]:text-ink"
                   >
                     {t(item.key)}
                   </Link>
@@ -122,14 +122,14 @@ export default function Header() {
               type="button"
               onClick={() => setSearchOpen(true)}
               aria-label={t('search')}
-              className="hidden h-11 w-11 place-items-center transition-transform active:scale-95 sm:grid"
+              className="hidden h-11 w-11 place-items-center rounded-full transition-[transform,background-color] hover:bg-white/10 active:scale-95 sm:grid"
             >
               <Search className="h-5 w-5" strokeWidth={2.25} aria-hidden="true" />
             </button>
             <button
               type="button"
               onClick={openCart}
-              className="btn ml-1 min-h-11 px-4"
+              className="btn btn-honey ml-1 min-h-11 px-5"
               aria-label={t('inquiryWithCount', { count })}
             >
               <span>{t('inquiry')}</span>
@@ -147,7 +147,7 @@ export default function Header() {
               onClick={() => setMenuOpen((o) => !o)}
               aria-expanded={menuOpen}
               aria-controls="site-menu"
-              className="ml-1 grid h-11 min-w-11 place-items-center px-2 font-medium lg:hidden"
+              className="ml-1 grid h-11 min-w-11 place-items-center rounded-full px-3 font-medium hover:bg-white/10 lg:hidden"
             >
               {menuOpen ? t('close') : t('menu')}
             </button>
@@ -167,7 +167,7 @@ export default function Header() {
                 <Link
                   href={`${prefix}${item.href}`}
                   aria-current={isActive(item.href) ? 'page' : undefined}
-                  className="block py-1 font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-extrabold leading-[1.05] tracking-[-0.03em]"
+                  className="block py-1 font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-extrabold leading-[1.05] tracking-[-0.04em] aria-[current=page]:text-[color:var(--color-honey)]"
                 >
                   {t(item.key)}
                 </Link>

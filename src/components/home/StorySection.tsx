@@ -24,7 +24,7 @@ export async function StorySection({ locale }: { locale: Locale }) {
         <dl className="order-last col-span-12 grid grid-cols-1 gap-6 t-body sm:grid-cols-3 lg:order-none lg:col-span-2 lg:row-span-2 lg:grid-cols-1 lg:content-start">
           {facts.map((f) => (
             <div key={f.label} data-reveal>
-              <dt className="t-small">{f.label}</dt>
+              <dt className="eyebrow">{f.label}</dt>
               <dd className="mt-1 font-medium">{f.value}</dd>
             </div>
           ))}
@@ -32,7 +32,7 @@ export async function StorySection({ locale }: { locale: Locale }) {
 
         <div className="col-span-12 lg:col-span-10" data-reveal>
           <p className="text-[length:var(--text-lead)] leading-[1.28] tracking-[-0.005em]">
-            <span className="float-left mr-[0.5em] mt-[0.2em] block h-[3.66em] w-[3.66em] overflow-hidden max-sm:h-[4.9em] max-sm:w-[4.9em]">
+            <span className="float-left mr-[0.6em] mt-[0.2em] block h-[3.66em] w-[3.66em] overflow-hidden rounded-[var(--radius-sm)] max-sm:h-[4.9em] max-sm:w-[4.9em]">
               <Image
                 src="/images/found/pcelinjak-1939.jpg"
                 alt={t('photoAlt')}

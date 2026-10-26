@@ -210,7 +210,7 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
                 <li key={s.slug}>
                   <Link
                     href={`${prefix}/proizvodi/${s.slug}`}
-                    className="inline-flex min-h-11 items-center gap-2 px-4 shadow-[inset_0_0_0_2px_currentColor] transition-colors hover:bg-ink hover:text-ground"
+                    className="inline-flex min-h-11 items-center gap-2 px-4 rounded-full shadow-[inset_0_0_0_1.5px_var(--color-line)] transition-colors hover:bg-ink hover:text-ground"
                   >
                     {d && <span aria-hidden="true" className="h-3 w-3 rounded-full" style={{ background: d.flavourColor }} />}
                     {label}

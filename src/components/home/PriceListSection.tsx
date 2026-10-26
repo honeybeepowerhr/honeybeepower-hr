@@ -22,12 +22,12 @@ export async function PriceListSection({ locale }: { locale: Locale }) {
 
   return (
     <section aria-labelledby="cijene-title" className="frame section" id="cijene">
-      <h2 id="cijene-title" data-reveal className="t-head max-w-[14ch] md:pl-[3vw]">
+      <h2 id="cijene-title" data-reveal className="t-head max-w-[16ch]">
         {t('title')}
       </h2>
 
       <div className="mt-16 grid-12 gap-y-10 md:mt-24">
-        <div className="relative order-last col-span-12 aspect-[4/5] self-end bg-white sm:col-span-8 sm:col-start-5 md:order-none md:col-span-4 md:col-start-1">
+        <div className="relative order-last col-span-12 aspect-[4/5] self-end overflow-hidden rounded-[var(--radius)] bg-white sm:col-span-8 sm:col-start-5 md:order-none md:col-span-4 md:col-start-1">
           <Image
             src="/images/products-web/paketgelnaranca-new.webp"
             alt={t('photoAlt')}
@@ -39,7 +39,7 @@ export async function PriceListSection({ locale }: { locale: Locale }) {
 
         <p className="col-span-12 t-small md:col-span-1 md:col-start-7 md:pt-1">{t('tableLabel')}</p>
 
-        <div className="col-span-12 md:col-span-6 md:col-start-7 lg:col-span-5 lg:col-start-8">
+        <div className="card col-span-12 p-6 md:col-span-6 md:col-start-7 md:p-8 lg:col-span-5 lg:col-start-8">
           <table className="w-full text-left t-body tabular">
             <caption className="sr-only">{t('caption')}</caption>
             <thead className="sr-only">
@@ -59,7 +59,7 @@ export async function PriceListSection({ locale }: { locale: Locale }) {
                     <td className="py-[0.4rem] pr-4 align-top">
                       {[flavour(i.okus), i.pakiranje].filter(Boolean).join(', ')}
                     </td>
-                    <td className="py-[0.4rem] text-right align-top font-medium">{formatEur(i.aktualnaCijena, locale)}</td>
+                    <td className="py-[0.4rem] text-right align-top font-semibold text-[color:var(--color-honey)]">{formatEur(i.aktualnaCijena, locale)}</td>
                   </tr>
                 ))}
               </tbody>

@@ -539,7 +539,14 @@
       "after": "miodu.",
       "lead": "Żel energetyczny 40 g z trzema lub czterema składnikami. Produkuje go APIMAR z Polski, a z Našic wysyła Planet Bio.",
       "cta": "Zobacz produkty",
-      "secondary": "Oblicz regenerację"
+      "secondary": "Oblicz regenerację",
+      "statHoneyValue": "91–95,5 %",
+      "statHoney": "miodu wielokwiatowego w żelu",
+      "statCarbsValue": "29–32,8 g",
+      "statCarbs": "węglowodanów w żelu 40 g",
+      "statIngredientsValue": "3–4",
+      "statIngredients": "składniki, nic więcej",
+      "pouchesLabel": "Smaki żelu"
     },
     "ingredients": {
       "title": "Trzy lub cztery składniki.",

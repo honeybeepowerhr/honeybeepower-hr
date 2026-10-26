@@ -42,12 +42,12 @@ export default function LanguageSwitcher({ className, tone = 'ground' }: Languag
             aria-label={localeNames[l]}
             aria-current={l === locale ? 'true' : undefined}
             className={cn(
-              'grid h-11 min-w-9 place-items-center px-1.5 t-small font-medium uppercase transition-colors',
+              'grid h-11 min-w-9 place-items-center rounded-full px-1.5 t-small font-semibold uppercase transition-colors',
               l === locale
                 ? tone === 'ink'
-                  ? 'bg-ground text-ink'
+                  ? 'bg-honey text-honey-ink'
                   : 'bg-ink text-ground'
-                : 'hover:underline decoration-2 underline-offset-4',
+                : 'text-muted hover:text-ink',
             )}
           >
             {l}

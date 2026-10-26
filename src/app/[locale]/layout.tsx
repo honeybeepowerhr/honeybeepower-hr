@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-import { Bodoni_Moda, Jost } from 'next/font/google'
+import { Archivo, Figtree } from 'next/font/google'
 import { locales } from '@/features/i18n/config'
 import type { Locale } from '@/types'
 import Header from '@/components/layout/Header'
@@ -13,18 +13,18 @@ import { CONSENT_INLINE_SCRIPT } from '@/lib/consent'
 import { ConsentGatedScripts } from '@/components/analytics/ConsentGatedScripts'
 import '../globals.css'
 
-// Naslovi: Bodoni Moda (varijabilna težina i optička veličina), tekst: Jost.
+// Naslovi: Archivo (varijabilna težina i širina), tekst: Figtree.
 // Oba fonta s podskupom latin-ext zbog č, ć, đ, š, ž i poljskih znakova.
-const bodoni = Bodoni_Moda({
+const archivo = Archivo({
   subsets: ['latin', 'latin-ext'],
-  axes: ['opsz'],
-  variable: '--font-bodoni',
+  axes: ['wdth'],
+  variable: '--font-archivo',
   display: 'swap',
 })
 
-const jost = Jost({
+const figtree = Figtree({
   subsets: ['latin', 'latin-ext'],
-  variable: '--font-jost',
+  variable: '--font-figtree',
   display: 'swap',
 })
 
@@ -88,7 +88,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   const messages = await getMessages()
 
   return (
-    <html lang={locale} suppressHydrationWarning className={`${bodoni.variable} ${jost.variable}`}>
+    <html lang={locale} suppressHydrationWarning className={`${archivo.variable} ${figtree.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: CONSENT_INLINE_SCRIPT }} />
       </head>

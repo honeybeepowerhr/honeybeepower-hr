@@ -540,7 +540,14 @@
       "after": "medu.",
       "lead": "Energijski gel 40 g s tremi ali štirimi sestavinami. Izdeluje ga APIMAR s Poljske, iz Našic ga pošilja Planet Bio.",
       "cta": "Oglej si izdelke",
-      "secondary": "Izračunaj obnovo"
+      "secondary": "Izračunaj obnovo",
+      "statHoneyValue": "91–95,5 %",
+      "statHoney": "večcvetnega medu v gelu",
+      "statCarbsValue": "29–32,8 g",
+      "statCarbs": "ogljikovih hidratov v gelu 40 g",
+      "statIngredientsValue": "3–4",
+      "statIngredients": "sestavine, nič drugega",
+      "pouchesLabel": "Okusi gela"
     },
     "ingredients": {
       "title": "Tri ali štiri sestavine.",

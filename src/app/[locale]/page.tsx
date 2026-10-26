@@ -5,6 +5,7 @@ import type { Locale } from '@/types'
 import { SITE_URL, buildAlternates } from '@/lib/seo/site'
 import { buildOrganizationSchema, buildWebsiteSchema } from '@/lib/seo/schemas'
 import { HomeHero } from '@/components/home/HomeHero'
+import { IngredientTicker } from '@/components/home/IngredientTicker'
 import { IngredientsSection } from '@/components/home/IngredientsSection'
 import { BackLabelShowcase } from '@/components/home/BackLabelShowcase'
 import { ProductLinesSection } from '@/components/home/ProductLinesSection'
@@ -102,6 +103,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <SectionMotion />
 
       <HomeHero locale={locale} />
+      <IngredientTicker locale={locale} />
       <IngredientsSection locale={locale} />
       <BackLabelShowcase
         titleStart={t('back.titleStart')}
@@ -112,8 +114,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       />
       <ProductLinesSection locale={locale} />
       <SportPanels locale={locale} />
-      <section id="oporavak" aria-labelledby="oporavak-title" className="on-ink frame py-24 md:py-32">
-        <RecoveryCalculator headingId="oporavak-title" heading={t('recovery.title')} />
+      <section id="oporavak" aria-labelledby="oporavak-title" className="frame section">
+        <div className="on-ink overflow-hidden rounded-[2rem] border border-[color:var(--color-line)] px-5 py-12 md:px-12 md:py-16">
+          <RecoveryCalculator headingId="oporavak-title" heading={t('recovery.title')} />
+        </div>
       </section>
       <StorySection locale={locale} />
       <TrackGallery locale={locale} />

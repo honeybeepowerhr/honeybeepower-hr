@@ -58,7 +58,7 @@ export default function Footer() {
           </span>
         ))}
       </Link>
-      <div className="frame flex min-h-[90svh] flex-col pb-8 pt-10">
+      <div className="frame flex min-h-[70svh] flex-col pb-8 pt-10">
         <div className="grid-12 gap-y-8">
           <div className="col-span-12 md:col-span-4">
             <Image src="/images/logo-white.png" alt="Honey Bee Power" width={131} height={32} className="h-8 w-auto" />
@@ -75,7 +75,7 @@ export default function Footer() {
             <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5 t-body">
               {siteLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={`${prefix}${l.href}`} className="link decoration-transparent hover:decoration-honey">
+                  <Link href={`${prefix}${l.href}`} className="link decoration-transparent hover:decoration-honey hover:text-honey">
                     {l.label}
                   </Link>
                 </li>

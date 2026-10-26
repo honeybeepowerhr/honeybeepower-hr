@@ -18,7 +18,7 @@ export async function SportPanels({ locale }: { locale: Locale }) {
   return (
     <section aria-label={t('label')} id="sport">
       {PANELS.map((p) => (
-        <div key={p.key} className="relative h-[100svh] overflow-hidden bg-ink" data-panel>
+        <div key={p.key} className="relative h-[92svh] min-h-[32rem] overflow-hidden bg-ground" data-panel>
           <Image
             src={p.image}
             alt={t(`${p.key}.alt`)}
@@ -28,15 +28,15 @@ export async function SportPanels({ locale }: { locale: Locale }) {
             style={{ objectPosition: p.position }}
             data-panel-image
           />
-          <div className="absolute inset-0 bg-black/45" aria-hidden="true" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(10_8_6/0.35),rgb(10_8_6/0.1)_40%,rgb(10_8_6/0.75))]" aria-hidden="true" />
           <div className="absolute inset-0">
             <div className="sticky top-1/2 -translate-y-1/2 px-[var(--gutter)] text-center">
-              <h2 className="t-display text-ground text-[length:var(--text-mega)]" data-verb>
+              <h2 className="t-display text-ink text-[length:var(--text-mega)] drop-shadow-[0_8px_40px_rgb(0_0_0/0.45)]" data-verb>
                 {t(`${p.key}.verb`)}
               </h2>
             </div>
           </div>
-          <p className="absolute bottom-0 left-0 max-w-[36ch] bg-ink/80 px-[var(--gutter)] py-4 t-body text-ground">
+          <p className="absolute bottom-[var(--gutter)] left-[var(--gutter)] max-w-[36ch] rounded-[var(--radius-sm)] border border-[color:var(--color-line)] bg-ground/70 px-5 py-3 t-body text-ink backdrop-blur-md">
             {t(`${p.key}.caption`)}
           </p>
         </div>

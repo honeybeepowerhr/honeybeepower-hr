@@ -19,6 +19,7 @@ export async function ProductLinesSection({ locale }: { locale: Locale }) {
       field: 'field-orange',
       price: officialPriceEur('honey-bee-power-energy-gel-naranca'),
       fit: 'object-cover',
+      span: 'md:col-span-4',
     },
     {
       key: 'iso',
@@ -29,6 +30,7 @@ export async function ProductLinesSection({ locale }: { locale: Locale }) {
       field: 'field-lemon',
       price: officialPriceEur('honey-bee-power-izotonicki-napitak-limun'),
       fit: 'object-contain p-[8%]',
+      span: 'md:col-span-4',
     },
     {
       key: 'whey',
@@ -39,66 +41,68 @@ export async function ProductLinesSection({ locale }: { locale: Locale }) {
       field: 'bg-white',
       price: officialPriceEur('honey-bee-power-whey-protein-ljesnjak-cokolada-700g'),
       fit: 'object-contain',
+      span: 'md:col-span-4',
     },
   ] as const
 
   return (
-    <section aria-labelledby="proizvodi-title" className="section" id="proizvodi">
-      <div className="frame grid-12 items-end gap-y-8">
-        <h2 id="proizvodi-title" data-reveal className="t-display col-span-12 text-[length:var(--text-display)] lg:col-span-7">
+    <section aria-labelledby="proizvodi-title" className="frame section" id="proizvodi">
+      <div className="grid-12 items-end gap-y-8">
+        <h2 id="proizvodi-title" data-reveal className="t-head col-span-12 lg:col-span-8">
           {t('title')}
         </h2>
-        <div data-reveal className="col-span-12 sm:col-span-8 sm:col-start-5 lg:col-span-5 lg:col-start-8">
-          <LoopVideo
-            className="aspect-square w-full bg-surface"
-            poster="/images/hero/product-showcase-poster.jpg"
-            sources={[
-              { src: '/videos/product-showcase.webm', type: 'video/webm' },
-              { src: '/videos/product-showcase.mp4', type: 'video/mp4' },
-            ]}
-            label={t('videoLabel')}
-            pauseLabel={t('videoPause')}
-            playLabel={t('videoPlay')}
-          />
-        </div>
       </div>
 
-      <ol className="mt-20 space-y-4 md:mt-28">
-        {lines.map((line, i) => (
-          <li key={line.key} data-reveal>
-            <article className="grid-12 frame items-stretch gap-y-6">
-              <div className="col-span-12 flex flex-col justify-between gap-8 py-2 md:col-span-6 md:py-8">
-                <div>
-                  <h3 className="font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-none tracking-[-0.03em]">
-                    {t(`${line.key}.name`)}
-                  </h3>
-                  <p className="mt-3 t-body">{t(`${line.key}.flavours`)}</p>
-                </div>
-                <div>
-                  <p className="font-[family-name:var(--font-display)] text-[length:var(--text-display)] font-black leading-[0.88] tracking-[-0.04em] tabular">
+      <ol className="mt-12 grid gap-4 md:mt-16 md:grid-cols-12">
+        {lines.map((line) => (
+          <li key={line.key} data-reveal className={`card group flex flex-col ${line.span}`}>
+            <article className="flex h-full flex-col">
+              <div className={`relative aspect-square w-full overflow-hidden ${line.field}`}>
+                {line.key === 'gel' ? (
+                  <LoopVideo
+                    className="absolute! inset-0 h-full w-full"
+                    poster="/images/hero/product-showcase-poster.jpg"
+                    sources={[
+                      { src: '/videos/product-showcase.webm', type: 'video/webm' },
+                      { src: '/videos/product-showcase.mp4', type: 'video/mp4' },
+                    ]}
+                    label={t('videoLabel')}
+                    pauseLabel={t('videoPause')}
+                    playLabel={t('videoPlay')}
+                  />
+                ) : (
+                  <Image
+                    src={line.image}
+                    alt={t(`${line.key}.imageAlt`)}
+                    fill
+                    sizes="(min-width: 768px) 40vw, 100vw"
+                    className={`${line.fit} transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.04]`}
+                  />
+                )}
+              </div>
+              <div className="flex flex-col gap-6 p-6 md:p-8">
+                <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
+                  <div>
+                    <h3 className="font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-none tracking-[-0.04em]">
+                      {t(`${line.key}.name`)}
+                    </h3>
+                    <p className="mt-2 t-body text-muted">{t(`${line.key}.flavours`)}</p>
+                  </div>
+                  <p className="font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-black leading-[0.9] tracking-[-0.05em] text-[color:var(--color-honey)] tabular">
                     {t(`${line.key}.figure`)}
                   </p>
-                  <p className="mt-3 t-body">{t(`${line.key}.figureNote`)}</p>
                 </div>
-                <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-                  <p className="t-lead tabular font-medium">
+                <p className="t-small text-muted -mt-3">{t(`${line.key}.figureNote`)}</p>
+                <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-t border-[color:var(--color-line)] pt-5">
+                  <p className="t-lead tabular font-semibold">
                     {line.price !== null ? formatEur(line.price, locale) : <span className="todo">[UPIŠI: cijena]</span>}
-                    <span className="ml-2 t-body font-normal">{t(`${line.key}.priceNote`)}</span>
+                    <span className="ml-2 t-body font-normal text-muted">{t(`${line.key}.priceNote`)}</span>
                   </p>
                   <Link href={`${prefix}${line.href}`} className="btn btn-ghost min-h-12">
                     {t(`${line.key}.cta`)}
                     <span className="btn-arrow" aria-hidden="true">→</span>
                   </Link>
                 </div>
-              </div>
-              <div className={`relative col-span-12 aspect-[4/3] overflow-hidden md:col-span-6 md:aspect-auto md:min-h-[min(36rem,44vw)] ${i % 2 ? 'md:order-first' : ''} ${line.field}`}>
-                <Image
-                  src={line.image}
-                  alt={t(`${line.key}.imageAlt`)}
-                  fill
-                  sizes="(min-width: 768px) 50vw, 100vw"
-                  className={`${line.fit} transition-transform duration-700 ease-[var(--ease-out-expo)] hover:scale-[1.03]`}
-                />
               </div>
             </article>
           </li>

@@ -57,7 +57,7 @@ export function CatalogueList({ items, kinds, sports }: Props) {
   )
 
   const chip = (active: boolean) =>
-    `inline-flex min-h-11 items-center px-4 transition-colors ${active ? 'bg-ink text-ground' : 'shadow-[inset_0_0_0_2px_currentColor] hover:bg-surface'}`
+    `inline-flex min-h-11 items-center rounded-full px-5 font-medium transition-colors ${active ? 'bg-honey text-honey-ink' : 'shadow-[inset_0_0_0_1.5px_var(--color-line)] hover:bg-white/10'}`
 
   return (
     <div>
@@ -98,12 +98,12 @@ export function CatalogueList({ items, kinds, sports }: Props) {
           </button>
         </div>
       ) : (
-        <ul className="mt-4 space-y-2">
+        <ul className="frame mt-6 space-y-3">
           {visible.map((i) => (
             <li key={i.slug} className="row-in">
               <Link
                 href={i.href}
-                className="group grid-12 frame min-h-36 items-center gap-y-3 py-6"
+                className="group grid-12 min-h-36 items-center gap-y-3 overflow-hidden rounded-[var(--radius)] px-5 py-6 transition-transform duration-300 ease-[var(--ease-out-expo)] hover:-translate-y-0.5 md:px-8"
                 style={{ background: i.field, color: i.ink }}
               >
                 <span className="relative col-span-4 aspect-square sm:col-span-2">

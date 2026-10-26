@@ -1,35 +1,36 @@
 @import "tailwindcss";
 
 /*
- * Honey Bee Power, redizajn 2026.
- * Smjer: „The sentence is the layout” (design-taste-frontend, seed 1725151227).
- * Proporcije s lista smjera (jedna podloga, jedna boja slova, jedan naglasak),
- * boje uzete iz proizvoda: med kao jedini naglasak na glavnom gumbu,
- * boje okusa (limun, naranča, malina) kao polja na stranicama proizvoda.
+ * Honey Bee Power, redizajn 2026, drugi smjer: „Noćni med”.
+ * Topla crna podloga, krem tekst, jedan naglasak (jantar meda) i boje okusa
+ * s pakiranja (limun, naranča, malina). Motiv šesterokuta uzet je s vrećice.
+ * Naslovi: Archivo (široka, teška), tekst: Figtree. Sve boje idu kroz tokene.
  */
 
 @theme {
-  --color-ground: #e6e3dd;
-  --color-surface: #d9d5cd;
-  --color-ink: #0b0b0a;
-  --color-muted: #47443f;
-  --color-honey: #eaa221;
-  --color-honey-ink: #0b0b0a;
-  --color-lemon: #f2d21b;
-  --color-orange: #f08a1c;
-  --color-raspberry: #c3203f;
-  --color-alert: #a3122a;
+  --color-ground: #0a0806;
+  --color-surface: #15110b;
+  --color-surface-2: #1f1810;
+  --color-ink: #f6f0e4;
+  --color-muted: #b3a893;
+  --color-honey: #ffb71b;
+  --color-honey-ink: #140e02;
+  --color-lemon: #f6d92a;
+  --color-orange: #f5901f;
+  --color-raspberry: #d6264a;
+  --color-alert: #ff7b8a;
+  --color-line: rgb(246 240 228 / 0.14);
 
-  --font-display: var(--font-bodoni), "Bodoni Moda", Didot, serif;
-  --font-text: var(--font-jost), "Jost", system-ui, sans-serif;
+  --font-display: var(--font-archivo), "Archivo", system-ui, sans-serif;
+  --font-text: var(--font-figtree), "Figtree", system-ui, sans-serif;
 
   --text-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
-  --text-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
-  --text-lead: clamp(1.25rem, 1rem + 0.9vw, 1.875rem);
-  --text-sub: clamp(1.75rem, 1.2rem + 1.9vw, 3.25rem);
-  --text-head: clamp(2.5rem, 1.4rem + 4.2vw, 5.5rem);
-  --text-display: clamp(3.25rem, 0.8rem + 7.4vw, 8.5rem);
-  --text-mega: clamp(4.5rem, 1rem + 13vw, 15rem);
+  --text-body: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --text-lead: clamp(1.15rem, 1rem + 0.7vw, 1.6rem);
+  --text-sub: clamp(1.6rem, 1.1rem + 1.7vw, 2.9rem);
+  --text-head: clamp(2.1rem, 1.1rem + 3.6vw, 4.75rem);
+  --text-display: clamp(2.6rem, 0.9rem + 6.2vw, 7rem);
+  --text-mega: clamp(3.5rem, 1rem + 11vw, 12rem);
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
@@ -37,8 +38,10 @@
 
 :root {
   --gutter: clamp(1rem, 0.6rem + 1.6vw, 2rem);
-  --section-gap: clamp(7.5rem, 5rem + 8vw, 13rem);
+  --section-gap: clamp(6rem, 4rem + 7vw, 11rem);
   --header-h: 4.25rem;
+  --radius: 1.5rem;
+  --radius-sm: 0.875rem;
 
   /* Tokeni pokreta (transitions.dev) */
   --duration-stagger: 40ms;
@@ -54,7 +57,10 @@
   --distance-small: 6px;
   --distance-base: 8px;
   --blur-small: 2px;
-  color-scheme: light;
+
+  /* Šesterokuti s pakiranja kao tanka mreža */
+  --hex-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='98'%3E%3Cpath d='M28 0 56 16v34L28 66 0 50V16zM28 66v32M0 50 28 66M56 50 28 66M0 16V0M56 16V0' fill='none' stroke='%23ffb71b' stroke-opacity='.09' stroke-width='1.1'/%3E%3C/svg%3E");
+  color-scheme: dark;
 }
 
 @layer base {
@@ -64,6 +70,7 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  background: var(--color-ground);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -78,8 +85,7 @@ body {
   color: var(--color-ink);
   font-family: var(--font-text);
   font-size: var(--text-body);
-  line-height: 1.55;
-  letter-spacing: 0.005em;
+  line-height: 1.6;
   overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -92,10 +98,11 @@ h3,
 h4 {
   font-family: var(--font-display);
   font-weight: 800;
-  font-optical-sizing: auto;
-  letter-spacing: -0.025em;
-  line-height: 0.95;
+  font-stretch: 112%;
+  letter-spacing: -0.03em;
+  line-height: 1;
   text-wrap: balance;
+  overflow-wrap: break-word;
   margin: 0;
 }
 
@@ -122,18 +129,13 @@ video {
 }
 
 ::selection {
-  background: var(--color-ink);
-  color: var(--color-honey);
+  background: var(--color-honey);
+  color: var(--color-honey-ink);
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-ink);
+  outline: 3px solid var(--color-honey);
   outline-offset: 3px;
-}
-
-.on-ink :focus-visible,
-.on-ink:focus-visible {
-  outline-color: var(--color-honey);
 }
 
 input,
@@ -142,8 +144,8 @@ textarea,
 button {
   font: inherit;
   color: inherit;
-  accent-color: var(--color-ink);
-  caret-color: var(--color-ink);
+  accent-color: var(--color-honey);
+  caret-color: var(--color-honey);
 }
 }
 
@@ -153,10 +155,11 @@ button {
   left: var(--gutter);
   top: -100px;
   z-index: 100;
-  background: var(--color-ink);
-  color: var(--color-ground);
+  background: var(--color-honey);
+  color: var(--color-honey-ink);
   padding: 0.75rem 1rem;
-  font-weight: 500;
+  font-weight: 600;
+  border-radius: 999px;
 }
 
 .skip-to-content:focus {
@@ -189,45 +192,68 @@ button {
   font-family: var(--font-display);
   font-size: var(--text-display);
   font-weight: 900;
-  letter-spacing: -0.035em;
-  line-height: 0.9;
+  font-stretch: 118%;
+  letter-spacing: -0.045em;
+  line-height: 0.92;
 }
 
 .t-head {
   font-family: var(--font-display);
   font-size: var(--text-head);
   font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 0.95;
+  font-stretch: 112%;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
 }
 
 .t-lead {
   font-size: var(--text-lead);
-  line-height: 1.22;
-  letter-spacing: -0.005em;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
 }
 
 .t-body {
   font-size: var(--text-body);
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 .t-small {
   font-size: var(--text-small);
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
 .measure {
   max-width: 62ch;
 }
 
+/* Nježna oznaka iznad naslova */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  font-size: var(--text-small);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-honey);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 0.7em;
+  height: 0.8em;
+  background: currentColor;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
 /* Zamjena za [UPIŠI: …]: vidljivo, da se ne previdi prije objave */
 .todo {
-  background: var(--color-ink);
-  color: var(--color-honey);
-  padding: 0.05em 0.35em;
-  font-weight: 500;
+  background: var(--color-honey);
+  color: var(--color-honey-ink);
+  padding: 0.05em 0.4em;
+  font-weight: 600;
   white-space: normal;
+  border-radius: 0.35em;
 }
 
 /* ─── Gumbi ──────────────────────────────────────────────────────────── */
@@ -240,26 +266,27 @@ button {
   justify-content: center;
   gap: 0.6em;
   min-height: 3.5rem;
-  padding: 0 1.6rem;
+  padding: 0 1.75rem;
   background: var(--btn-bg);
   color: var(--btn-fg);
   font-family: var(--font-text);
   font-size: var(--text-body);
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-weight: 650;
+  letter-spacing: 0;
   text-decoration: none;
   border: 0;
-  border-radius: 0;
+  border-radius: 999px;
   cursor: pointer;
   transition:
     transform var(--duration-quick) var(--ease-smooth-out),
     background-color var(--duration-quick) var(--ease-smooth-out),
-    color var(--duration-quick) var(--ease-smooth-out);
+    color var(--duration-quick) var(--ease-smooth-out),
+    box-shadow var(--duration-fast) var(--ease-smooth-out);
   -webkit-tap-highlight-color: transparent;
 }
 
 .btn:hover {
-  --btn-bg: #2a2925;
+  --btn-bg: #fff9ec;
 }
 
 .btn:active {
@@ -269,16 +296,18 @@ button {
 .btn-honey {
   --btn-bg: var(--color-honey);
   --btn-fg: var(--color-honey-ink);
+  box-shadow: 0 10px 40px -10px rgb(255 183 27 / 0.6);
 }
 
 .btn-honey:hover {
-  --btn-bg: #f3b23c;
+  --btn-bg: #ffc94d;
+  box-shadow: 0 14px 48px -10px rgb(255 183 27 / 0.8);
 }
 
 .btn-ghost {
   --btn-bg: transparent;
   --btn-fg: currentColor;
-  box-shadow: inset 0 0 0 2px currentColor;
+  box-shadow: inset 0 0 0 1.5px currentColor;
 }
 
 .btn-ghost:hover {
@@ -286,9 +315,13 @@ button {
   --btn-fg: var(--color-ground);
 }
 
-.on-ink .btn-ghost:hover {
-  --btn-bg: var(--color-ground);
-  --btn-fg: var(--color-ink);
+.on-honey .btn {
+  --btn-bg: var(--color-honey-ink);
+  --btn-fg: var(--color-honey);
+}
+
+.on-honey .btn:hover {
+  --btn-bg: #000;
 }
 
 .btn[disabled],
@@ -308,34 +341,67 @@ button {
 
 .link {
   text-decoration: underline;
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 1.5px;
   text-underline-offset: 0.22em;
+  text-decoration-color: rgb(246 240 228 / 0.4);
   transition: text-decoration-color 160ms ease, color 160ms ease;
 }
 
 .link:hover {
   text-decoration-color: var(--color-honey);
+  color: var(--color-honey);
 }
 
-/* ─── Polja ──────────────────────────────────────────────────────────── */
+/* ─── Polja i ploče ──────────────────────────────────────────────────── */
 
+/* Povišena ploča (kalkulator, B2B, cjenik, podnožje) */
 .on-ink {
-  background: var(--color-ink);
-  color: var(--color-ground);
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(60rem 30rem at 85% -10%, rgb(255 183 27 / 0.14), transparent 60%),
+    var(--color-surface);
+  color: var(--color-ink);
+}
+
+.on-ink::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: var(--hex-pattern);
+  background-size: 56px 98px;
+  opacity: 0.55;
+  mask-image: linear-gradient(to bottom, #000, transparent 70%);
+  -webkit-mask-image: linear-gradient(to bottom, #000, transparent 70%);
+  pointer-events: none;
+}
+
+.on-honey {
+  background: var(--color-honey);
+  color: var(--color-honey-ink);
+}
+
+/* Kartica */
+.card {
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  overflow: hidden;
 }
 
 .field-lemon {
-  background: var(--color-lemon);
-  color: var(--color-ink);
+  background: radial-gradient(circle at 50% 35%, #ffe95a, var(--color-lemon) 60%);
+  color: #140e02;
 }
 
 .field-orange {
-  background: var(--color-orange);
-  color: var(--color-ink);
+  background: radial-gradient(circle at 50% 35%, #ffb04d, var(--color-orange) 60%);
+  color: #140e02;
 }
 
 .field-raspberry {
-  background: var(--color-raspberry);
+  background: radial-gradient(circle at 50% 35%, #ef5878, var(--color-raspberry) 62%);
   color: #fff;
 }
 
@@ -343,45 +409,72 @@ button {
   background: var(--color-surface);
 }
 
-/* ─── Rečenica s fotografijom (uvod) ─────────────────────────────────── */
-
-.hero-sentence {
-  display: flex;
-  flex-direction: column;
-  font-size: clamp(4.25rem, 0.5rem + 15vw, 11rem);
+/* Tanka mreža šesterokuta kao tekstura polja */
+.hex-bg {
+  background-image: var(--hex-pattern);
+  background-size: 56px 98px;
 }
 
-.sentence-strip {
+/* ─── Uvod ───────────────────────────────────────────────────────────── */
+
+.hero {
   position: relative;
-  overflow: hidden;
-  width: 100%;
-  aspect-ratio: 2 / 1;
-  margin-block: 0.08em 0.1em;
+  isolation: clip;
+  background:
+    radial-gradient(44rem 34rem at 76% 44%, rgb(255 183 27 / 0.16), rgb(255 150 20 / 0.05) 45%, transparent 70%),
+    var(--color-ground);
 }
 
-.sentence-strip img,
-.sentence-strip video {
+.hero::before {
+  content: '';
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  z-index: -1;
+  background-image: var(--hex-pattern);
+  background-size: 56px 98px;
+  mask-image: radial-gradient(70% 80% at 75% 45%, #000, transparent 75%);
+  -webkit-mask-image: radial-gradient(70% 80% at 75% 45%, #000, transparent 75%);
+  pointer-events: none;
 }
 
-@media (min-width: 768px) {
-  .hero-sentence {
-    flex-direction: row;
-    align-items: baseline;
-    gap: 0.16em;
-    font-size: clamp(4.25rem, 9vw, 11rem);
-  }
+/* Riječ ispunjena saćem */
+.honeycomb-text {
+  background-image: linear-gradient(180deg, rgb(255 183 27 / 0.2), rgb(255 183 27 / 0)), var(--honeycomb, none);
+  background-size: cover;
+  background-position: 50% 45%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
 
-  .sentence-strip {
-    flex: 1 1 auto;
-    width: auto;
-    aspect-ratio: auto;
-    height: 0.7em;
-    margin: 0;
+.pouch {
+  filter: drop-shadow(0 30px 40px rgb(0 0 0 / 0.55));
+  transition: transform 500ms var(--ease-out-expo), filter 500ms var(--ease-out-expo);
+}
+
+.pouch-link:hover .pouch {
+  transform: translateY(-10px) scale(1.03);
+}
+
+/* Traka koja klizi */
+@keyframes ticker {
+  to { transform: translateX(-50%); }
+}
+
+.ticker {
+  display: flex;
+  width: max-content;
+  animation: ticker 38s linear infinite;
+}
+
+.ticker:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker {
+    animation: none;
   }
 }
 
@@ -394,6 +487,7 @@ button {
   margin-inline: 0.12em;
   overflow: hidden;
   position: relative;
+  border-radius: 0.3em;
 }
 
 .inline-thumb img {
@@ -403,6 +497,10 @@ button {
 }
 
 /* ─── Česta pitanja ──────────────────────────────────────────────────── */
+
+.faq-item {
+  border-radius: var(--radius-sm);
+}
 
 .faq-item summary {
   list-style: none;
@@ -465,12 +563,14 @@ button {
 
 .range::-webkit-slider-runnable-track {
   height: 0.5rem;
-  background: currentColor;
+  border-radius: 999px;
+  background: rgb(246 240 228 / 0.22);
 }
 
 .range::-moz-range-track {
   height: 0.5rem;
-  background: currentColor;
+  border-radius: 999px;
+  background: rgb(246 240 228 / 0.22);
 }
 
 .range::-webkit-slider-thumb {
@@ -480,8 +580,9 @@ button {
   height: 2.25rem;
   margin-top: -0.875rem;
   background: var(--color-honey);
-  border: 3px solid currentColor;
+  border: 3px solid var(--color-ground);
   border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--color-honey), 0 6px 24px rgb(255 183 27 / 0.55);
   transition: transform 140ms var(--ease-out-quart);
 }
 
@@ -489,8 +590,9 @@ button {
   width: 2.25rem;
   height: 2.25rem;
   background: var(--color-honey);
-  border: 3px solid currentColor;
+  border: 3px solid var(--color-ground);
   border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--color-honey);
 }
 
 .range:active::-webkit-slider-thumb {
@@ -516,15 +618,31 @@ button {
   animation: number-pop var(--duration-fast) var(--ease-smooth-out);
 }
 
-/* ─── Fotografija kao otisak (Na stazi) ──────────────────────────────── */
+/* ─── Fotografija kao kartica ────────────────────────────────────────── */
 
 .print-card {
-  background: #ffffff;
+  background: var(--color-surface-2);
   padding: 0.5rem 0.5rem 0.75rem;
   color: var(--color-ink);
+  border-radius: var(--radius-sm);
   transition:
     rotate 240ms var(--ease-out-quart),
     translate 240ms var(--ease-out-quart);
+}
+
+.photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--color-surface-2);
+}
+
+.photo img {
+  transition: transform 900ms var(--ease-out-expo);
+}
+
+.photo:hover img {
+  transform: scale(1.04);
 }
 
 /* ─── Ladica košarice i dijalog upita ────────────────────────────────── */
@@ -563,7 +681,8 @@ button {
   position: fixed;
   inset: 0;
   z-index: 50;
-  background: rgb(11 11 10 / 0.6);
+  background: rgb(5 4 2 / 0.72);
+  backdrop-filter: blur(6px);
 }
 
 .overlay[data-state='open'] {
@@ -584,6 +703,7 @@ button {
   flex-direction: column;
   background: var(--color-ground);
   color: var(--color-ink);
+  border-left: 1px solid var(--color-line);
 }
 
 .drawer[data-state='open'] {
@@ -603,8 +723,10 @@ button {
   max-height: calc(100svh - 2rem);
   overflow-y: auto;
   transform: translate(-50%, -50%);
-  background: var(--color-ground);
+  background: var(--color-surface);
   color: var(--color-ink);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
   padding: clamp(1.25rem, 1rem + 1vw, 2rem);
 }
 
@@ -619,17 +741,23 @@ button {
 .field-input {
   width: 100%;
   min-height: 3.25rem;
-  padding: 0.5rem 0.875rem;
-  background: #fff;
-  border: 2px solid var(--color-ink);
-  border-radius: 0;
+  padding: 0.5rem 1rem;
+  background: var(--color-surface-2);
+  color: var(--color-ink);
+  border: 1.5px solid var(--color-line);
+  border-radius: var(--radius-sm);
   font-size: var(--text-body);
   transition: border-color 140ms ease, box-shadow 140ms ease;
 }
 
+.field-input::placeholder {
+  color: var(--color-muted);
+}
+
 .field-input:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px var(--color-honey);
+  border-color: var(--color-honey);
+  box-shadow: 0 0 0 3px rgb(255 183 27 / 0.35);
 }
 
 .field-input[aria-invalid='true'] {
@@ -659,7 +787,7 @@ button {
 
 /* Traka scrollbara */
 html {
-  scrollbar-color: var(--color-ink) var(--color-surface);
+  scrollbar-color: #3a3125 var(--color-ground);
 }
 }
 

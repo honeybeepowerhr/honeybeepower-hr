@@ -47,7 +47,7 @@ export default function ProductAddToCartButton({ product, variant, unitPrice, va
             onClick={() => setQuantity((q) => Math.max(1, q - 1))}
             disabled={quantity <= 1}
             aria-label={t('decrease')}
-            className="grid w-12 place-items-center text-2xl font-medium shadow-[inset_0_0_0_2px_currentColor] transition-transform active:scale-95 disabled:opacity-40"
+            className="grid w-12 place-items-center text-2xl font-medium rounded-full shadow-[inset_0_0_0_1.5px_var(--color-line)] transition-transform active:scale-95 disabled:opacity-40"
           >
             −
           </button>
@@ -61,7 +61,7 @@ export default function ProductAddToCartButton({ product, variant, unitPrice, va
             type="button"
             onClick={() => setQuantity((q) => Math.min(999, q + 1))}
             aria-label={t('increase')}
-            className="grid w-12 place-items-center text-2xl font-medium shadow-[inset_0_0_0_2px_currentColor] transition-transform active:scale-95"
+            className="grid w-12 place-items-center text-2xl font-medium rounded-full shadow-[inset_0_0_0_1.5px_var(--color-line)] transition-transform active:scale-95"
           >
             +
           </button>

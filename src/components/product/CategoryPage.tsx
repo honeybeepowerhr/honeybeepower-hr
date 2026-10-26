@@ -110,12 +110,12 @@ export async function CategoryPage({ category, locale }: { category: string; loc
           <h1 id="cat-title" className="t-display mt-6 max-w-[11ch]">{l(copy.title, locale)}</h1>
           <p className="mt-8 t-lead measure">{l(copy.lead, locale)}</p>
         </div>
-        <div className="relative col-span-12 aspect-square overflow-hidden bg-white sm:col-span-8 sm:col-start-5 lg:col-span-5">
+        <div className="relative col-span-12 aspect-square overflow-hidden rounded-[var(--radius)] bg-white sm:col-span-8 sm:col-start-5 lg:col-span-5">
           <Image src={copy.image} alt="" fill priority sizes="(min-width: 1024px) 40vw, 70vw" className="object-cover" />
         </div>
       </section>
 
-      <ul className="space-y-2" aria-label={l(copy.title, locale)}>
+      <ul className="frame space-y-3" aria-label={l(copy.title, locale)}>
         {products.map((p) => {
           const d = getDeclaration(p.slug)
           const color = photoFieldFor(d)
@@ -125,7 +125,7 @@ export async function CategoryPage({ category, locale }: { category: string; loc
             <li key={p.slug} data-reveal>
               <Link
                 href={`${prefix}/proizvodi/${p.slug}`}
-                className="group grid-12 frame min-h-36 items-center gap-y-4 py-6 transition-colors"
+                className="group grid-12 min-h-36 items-center gap-y-4 overflow-hidden rounded-[var(--radius)] px-5 py-6 transition-transform duration-300 ease-[var(--ease-out-expo)] hover:-translate-y-0.5 md:px-8"
                 style={{ background: color, color: inkOn(color) }}
               >
                 <span className="relative col-span-4 aspect-square sm:col-span-2">

@@ -540,7 +540,14 @@
       "after": "Honig.",
       "lead": "Ein Energiegel à 40 g mit drei oder vier Zutaten. Hergestellt von APIMAR in Polen, versandt von Planet Bio aus Našice.",
       "cta": "Produkte ansehen",
-      "secondary": "Erholung berechnen"
+      "secondary": "Erholung berechnen",
+      "statHoneyValue": "91–95,5 %",
+      "statHoney": "Mehrblütenhonig im Gel",
+      "statCarbsValue": "29–32,8 g",
+      "statCarbs": "Kohlenhydrate im 40-g-Gel",
+      "statIngredientsValue": "3–4",
+      "statIngredients": "Zutaten, sonst nichts",
+      "pouchesLabel": "Gel-Sorten"
     },
     "ingredients": {
       "title": "Drei oder vier Zutaten.",

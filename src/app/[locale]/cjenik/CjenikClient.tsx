@@ -37,7 +37,7 @@ export function CjenikClient() {
     })
   }, [searchQuery, selectedCategory])
 
-  const chip = (active: boolean) => `min-h-11 px-4 ${active ? 'bg-ink text-ground' : 'shadow-[inset_0_0_0_2px_currentColor]'}`
+  const chip = (active: boolean) => `min-h-11 rounded-full px-4 ${active ? 'bg-ink text-ground' : 'rounded-full shadow-[inset_0_0_0_1.5px_var(--color-line)]'}`
 
   return (
     <div className="print:bg-white">
