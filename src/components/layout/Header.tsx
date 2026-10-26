@@ -19,6 +19,14 @@ const NAV = [
   { key: 'clubs', href: '/b2b' },
 ] as const
 
+const MORE = [
+  { key: 'about', href: '/o-nama' },
+  { key: 'events', href: '/dogadaji' },
+  { key: 'whereToBuy', href: '/gdje-kupiti' },
+  { key: 'faq', href: '/faq' },
+  { key: 'contact', href: '/kontakt' },
+] as const
+
 export default function Header() {
   const t = useTranslations('nav')
   const locale = useLocale() as Locale
@@ -31,9 +39,8 @@ export default function Header() {
 
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
-  const [hidden, setHidden] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const [bump, setBump] = useState(false)
-  const lastY = useRef(0)
   const lastCount = useRef(count)
   const menuButton = useRef<HTMLButtonElement>(null)
 
@@ -42,13 +49,10 @@ export default function Header() {
     void useCartStore.persist.rehydrate()
   }, [])
 
-  // Zaglavlje se skriva pri skrolanju prema dolje i vraća pri skrolanju gore.
+  // Zaglavlje je uvijek vidljivo; nakon prvog skrola postaje kompaktnije i dobiva podlogu.
   useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY
-      setHidden(y > 240 && y > lastY.current)
-      lastY.current = y
-    }
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -92,22 +96,23 @@ export default function Header() {
   return (
     <>
       <header
-        className="sticky top-0 z-40 border-b border-[color:var(--color-line)] bg-ground/95 transition-transform duration-300 ease-[var(--ease-out-quart)]"
-        style={{ transform: hidden && !menuOpen ? 'translateY(-100%)' : 'none' }}
+        className={`sticky top-0 z-40 border-b transition-[background-color,border-color,backdrop-filter] duration-300 ${
+          scrolled || menuOpen ? 'border-[color:var(--color-line)] bg-ground/95' : 'border-transparent bg-ground/60'
+        }`}
       >
-        <div className="frame flex h-[var(--header-h)] items-center gap-6">
+        <div className={`frame flex items-center gap-4 transition-[height] duration-300 ${scrolled ? 'h-[3.75rem]' : 'h-[var(--header-h)]'}`}>
           <Link href={prefix || '/'} className="shrink-0" aria-label="Honey Bee Power, naslovnica">
             <Image src="/images/logo-white.png" alt="Honey Bee Power" width={147} height={36} priority className="h-8 w-auto sm:h-9" />
           </Link>
 
-          <nav aria-label={t('main')} className="ml-auto hidden lg:block">
-            <ul className="flex items-center gap-1">
+          <nav aria-label={t('main')} className="mx-auto hidden lg:block">
+            <ul className="flex items-center gap-1 rounded-full border border-[color:var(--color-line)] bg-white/[0.04] p-1">
               {NAV.map((item) => (
                 <li key={item.key}>
                   <Link
                     href={`${prefix}${item.href}`}
                     aria-current={isActive(item.href) ? 'page' : undefined}
-                    className="rounded-full px-3.5 py-2 t-body font-medium text-muted transition-colors hover:bg-white/10 hover:text-ink aria-[current=page]:bg-white/10 aria-[current=page]:text-ink"
+                    className="block rounded-full px-4 py-2 font-medium text-ink/85 transition-colors hover:bg-white/10 hover:text-ink aria-[current=page]:bg-[color:var(--color-honey)] aria-[current=page]:text-[color:var(--color-honey-ink)]"
                   >
                     {t(item.key)}
                   </Link>
@@ -116,13 +121,13 @@ export default function Header() {
             </ul>
           </nav>
 
-          <div className="ml-auto flex items-center gap-1 lg:ml-6">
-            <LanguageSwitcher className="hidden md:flex" />
+          <div className="ml-auto flex items-center gap-1 lg:ml-0">
+            <LanguageSwitcher variant="menu" className="hidden md:block" />
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
               aria-label={t('search')}
-              className="hidden h-11 w-11 place-items-center rounded-full transition-[transform,background-color] hover:bg-white/10 active:scale-95 sm:grid"
+              className="hidden h-11 w-11 place-items-center rounded-full text-ink transition-[transform,background-color] hover:bg-white/10 active:scale-95 sm:grid"
             >
               <Search className="h-5 w-5" strokeWidth={2.25} aria-hidden="true" />
             </button>
@@ -134,8 +139,8 @@ export default function Header() {
             >
               <span>{t('inquiry')}</span>
               <span
-                className="tabular min-w-[1.5ch] text-center transition-transform duration-300"
-                style={{ transform: bump ? 'scale(1.35)' : 'none' }}
+                className="tabular grid h-6 min-w-6 place-items-center rounded-full bg-[color:var(--color-honey-ink)] px-1.5 text-center text-[0.8125rem] text-[color:var(--color-honey)] transition-transform duration-300"
+                style={{ transform: bump ? 'scale(1.3)' : 'none' }}
                 aria-hidden="true"
               >
                 {count}
@@ -147,8 +152,13 @@ export default function Header() {
               onClick={() => setMenuOpen((o) => !o)}
               aria-expanded={menuOpen}
               aria-controls="site-menu"
-              className="ml-1 grid h-11 min-w-11 place-items-center rounded-full px-3 font-medium hover:bg-white/10 lg:hidden"
+              className="ml-1 inline-flex h-11 items-center gap-2.5 rounded-full border border-[color:var(--color-line)] px-4 font-medium text-ink transition-colors hover:bg-white/10 lg:hidden"
             >
+              <span aria-hidden="true" className="relative block h-3 w-5">
+                <span className={`absolute left-0 h-[2px] w-5 rounded bg-current transition-all duration-300 ${menuOpen ? 'top-[5px] rotate-45' : 'top-0'}`} />
+                <span className={`absolute left-0 top-[5px] h-[2px] w-5 rounded bg-current transition-opacity duration-200 ${menuOpen ? 'opacity-0' : ''}`} />
+                <span className={`absolute left-0 h-[2px] w-5 rounded bg-current transition-all duration-300 ${menuOpen ? 'top-[5px] -rotate-45' : 'top-[10px]'}`} />
+              </span>
               {menuOpen ? t('close') : t('menu')}
             </button>
           </div>
@@ -158,34 +168,62 @@ export default function Header() {
       <div
         id="site-menu"
         hidden={!menuOpen}
+        data-lenis-prevent
         className="on-ink fixed inset-x-0 bottom-0 top-[var(--header-h)] z-40 overflow-y-auto lg:hidden"
       >
-        <nav aria-label={t('main')} className="frame flex min-h-full flex-col pb-8 pt-6">
-          <ul className="space-y-1">
-            {NAV.map((item) => (
-              <li key={item.key}>
+        <nav aria-label={t('main')} className="frame flex min-h-full flex-col pb-8 pt-4">
+          <ul>
+            {NAV.map((item, i) => (
+              <li key={item.key} className="border-b border-[color:var(--color-line)]">
                 <Link
                   href={`${prefix}${item.href}`}
                   aria-current={isActive(item.href) ? 'page' : undefined}
-                  className="block py-1 font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-extrabold leading-[1.05] tracking-[-0.04em] aria-[current=page]:text-[color:var(--color-honey)]"
+                  className="group flex items-center justify-between gap-4 py-4 font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-extrabold leading-none tracking-[-0.04em] aria-[current=page]:text-[color:var(--color-honey)]"
+                >
+                  <span className="flex items-baseline gap-4">
+                    <span className="t-small font-medium tabular text-muted">{String(i + 1).padStart(2, '0')}</span>
+                    {t(item.key)}
+                  </span>
+                  <span aria-hidden="true" className="text-[0.6em] transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <ul className="mt-6 grid grid-cols-2 gap-2">
+            {MORE.map((item) => (
+              <li key={item.key}>
+                <Link
+                  href={`${prefix}${item.href}`}
+                  className="flex min-h-12 items-center rounded-2xl border border-[color:var(--color-line)] px-4 font-medium text-ink/90 transition-colors hover:bg-white/10"
                 >
                   {t(item.key)}
                 </Link>
               </li>
             ))}
-          </ul>
-          <ul className="mt-8 grid grid-cols-2 gap-x-4 gap-y-3 t-body">
-            <li><Link href={`${prefix}/o-nama`} className="link">{t('about')}</Link></li>
-            <li><Link href={`${prefix}/dogadaji`} className="link">{t('events')}</Link></li>
-            <li><Link href={`${prefix}/faq`} className="link">{t('faq')}</Link></li>
-            <li><Link href={`${prefix}/kontakt`} className="link">{t('contact')}</Link></li>
             <li>
-              <button type="button" className="link" onClick={() => { setMenuOpen(false); setSearchOpen(true) }}>
+              <button
+                type="button"
+                className="flex min-h-12 w-full items-center gap-2 rounded-2xl border border-[color:var(--color-line)] px-4 font-medium text-ink/90 transition-colors hover:bg-white/10"
+                onClick={() => {
+                  setMenuOpen(false)
+                  setSearchOpen(true)
+                }}
+              >
+                <Search className="h-4 w-4" aria-hidden="true" />
                 {t('search')}
               </button>
             </li>
           </ul>
-          <LanguageSwitcher className="mt-auto pt-10" tone="ink" />
+
+          <div className="mt-auto space-y-5 pt-10">
+            <LanguageSwitcher tone="ink" />
+            <p className="t-small text-muted">
+              <a href="tel:+385977097962" className="link text-ink">+385 97 709 7962</a>
+              {' · '}
+              <a href="mailto:info@planetbio.hr" className="link text-ink">info@planetbio.hr</a>
+            </p>
+          </div>
         </nav>
       </div>
 

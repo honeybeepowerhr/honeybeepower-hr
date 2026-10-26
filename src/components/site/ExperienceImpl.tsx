@@ -23,6 +23,31 @@ export default function ExperienceImpl() {
     lenisInstance?.scrollTo(0, { immediate: true, force: true })
   }, [pathname])
 
+  // Košnica u uvodu: svaka ćelija ima svoju dubinu pa se micanjem miša razmiču kao slojevi.
+  useEffect(() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches
+    const hive = document.querySelector<HTMLElement>('[data-hive]')
+    if (!hive || reduce || !fine) return
+    const cells = Array.from(hive.querySelectorAll<HTMLElement>('[data-depth]'))
+    const setters = cells.map((el) => ({
+      el,
+      depth: Number(el.dataset.depth) || 1,
+      x: gsap.quickTo(el, 'x', { duration: 0.9, ease: 'power3' }),
+      y: gsap.quickTo(el, 'y', { duration: 0.9, ease: 'power3' }),
+    }))
+    const onMove = (e: PointerEvent) => {
+      const nx = e.clientX / window.innerWidth - 0.5
+      const ny = e.clientY / window.innerHeight - 0.5
+      for (const s of setters) {
+        s.x(nx * s.depth * -34)
+        s.y(ny * s.depth * -26)
+      }
+    }
+    window.addEventListener('pointermove', onMove, { passive: true })
+    return () => window.removeEventListener('pointermove', onMove)
+  }, [pathname])
+
   useEffect(() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches
