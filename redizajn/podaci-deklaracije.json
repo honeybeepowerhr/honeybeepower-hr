@@ -1,0 +1,133 @@
+{
+  "_napomena": "Provjereni podaci za redizajn. Izvori: deklaracije na poleđini pakiranja (public/images/products/*-zadnja.png), službeni cjenik (src/lib/cjenik-data.ts) i PDF prezentacija samo tamo gdje deklaracije nema. null znači da podatak nedostaje: na stranici prikaži [UPIŠI: ...], nikad ne izmišljaj. Kad se ovi podaci razlikuju od src/lib/products-data.ts, vrijede ovi.",
+  "tvrtka": {
+    "pravni_podaci": "koristi LEGAL_ENTITY iz src/lib/cjenik-data.ts (Planet Bio, obrt za usluge, vl. Srđan Rebić, s OIB-om i matičnim brojem); potvrditi s vlasnikom",
+    "uloga": "distributer za Hrvatsku",
+    "adresa": "Krndijska ulica 4, 31500 Našice, Hrvatska",
+    "telefon": "+385 97 709 7962",
+    "whatsapp_broj": "385977097962",
+    "email": "info@planetbio.hr",
+    "radno_vrijeme": "ponedjeljak–petak 8–16 h"
+  },
+  "proizvodac": {
+    "naziv": "P.P.H. \"APIMAR\" – Marzanna Marcinkowska",
+    "adresa": "ul. Południowa 21A, 24-105 Baranów, Poljska",
+    "web": "https://honeybeepower.pl",
+    "napomena": "Honey Bee Power je brend proizvođača iz Poljske. Na pakiranju izotonika piše 'Poljski proizvod'. Nikad ne pisati 'hrvatski brend' ni 'domaći med'.",
+    "iz_prezentacije_potvrditi": ["med s vlastitih pčelinjaka u regiji Lublin", "30 godina suradnje s pčelarima", "brend nastao 2022."]
+  },
+  "gelovi_zajednicko": {
+    "naziv_na_deklaraciji": "Honey Bee Power Prirodna energetska krema",
+    "neto_kolicina_g": 40,
+    "odobrena_tvrdnja": "Ugljikohidrati pridonose oporavku normalne funkcije mišića (kontrakcije) nakon vrlo intenzivnog i/ili dugotrajnog fizičkog vježbanja koje dovodi do umora mišića i trošenja zaliha glikogena u poprečnoprugastom mišiću. Koristan učinak dobiva se uzimanjem ugljikohidrata iz svih izvora, pri ukupnom uzimanju 4 g po kg tjelesne težine, u dozama, unutar prva 4 sata i najkasnije 6 sati nakon vrlo intenzivnog i/ili dugotrajnog fizičkog vježbanja koje dovodi do umora mišića i iskorištavanja zaliha glikogena u poprečnoprugastom mišiću.",
+    "nacin_primjene": "Uzeti 1 obrok (40 g) nakon vježbanja ili fizičkog napora. Proizvod je namijenjen odraslim osobama koje su vrlo intenzivno ili dugotrajno fizički vježbale, što je dovelo do umora mišića i trošenja zaliha glikogena u poprečnoprugastom mišiću.",
+    "upozorenje": "Ne preporučuje se osobama osjetljivim na kofein, trudnicama, dojiljama i djeci.",
+    "napomena": "Važno je pridržavati se uravnotežene i raznovrsne prehrane i zdravog načina života.",
+    "cuvanje": "Na sobnoj temperaturi (do 25 °C). Proizvod treba čuvati od dohvata male djece.",
+    "kofein_mg": null,
+    "otvoreno_pitanje": "Deklaracija preporučuje upotrebu NAKON vježbanja. Upotrebu tijekom napora (npr. tijekom utrke) potvrditi s proizvođačem prije nego što se igdje preporuči."
+  },
+  "proizvodi": [
+    {
+      "slug": "honey-bee-power-energy-gel-naranca",
+      "naziv": "Energy gel naranča",
+      "deklaracija_slika": "/images/products/gelnaranca-zadnja.png",
+      "sastav": "višecvjetni med 95,5 %, liofilizirani plod naranče 3 %, ekstrakt sjemenki guarane 1 %, morska sol 0,5 %",
+      "na_100g": { "energija": "1330 kJ / 318 kcal", "masti_g": 0, "ugljikohidrati_g": 78, "seceri_g": 75, "vlakna_g": 0, "bjelancevine_g": 0, "sol_g": 0.25 },
+      "na_40g": { "energija": "532 kJ / 127 kcal", "masti_g": 0, "ugljikohidrati_g": 31.2, "seceri_g": 30, "vlakna_g": 0, "bjelancevine_g": 0, "sol_g": 0.1 },
+      "cijena_cjenik_eur": 1.8,
+      "cijena_u_kodu_eur": 2.49
+    },
+    {
+      "slug": "honey-bee-power-energy-gel-limun",
+      "naziv": "Energy gel limun",
+      "deklaracija_slika": "/images/products/gellimun-zadnja.png",
+      "sastav": "višecvjetni med 94,5 %, liofilizirani plod limuna 4 %, ekstrakt sjemenki guarane 1 %, morska sol 0,5 %",
+      "na_100g": { "energija": "1330 kJ / 313 kcal", "masti_g": 0, "ugljikohidrati_g": 72.5, "seceri_g": 60, "vlakna_g": 0, "bjelancevine_g": 0, "sol_g": 0.25 },
+      "na_40g": { "energija": "532 kJ / 125 kcal", "masti_g": 0, "ugljikohidrati_g": 29, "seceri_g": 24, "vlakna_g": 0, "bjelancevine_g": 0, "sol_g": 0.1 },
+      "cijena_cjenik_eur": 1.8,
+      "cijena_u_kodu_eur": 2.49,
+      "napomena": "na deklaraciji 1330 kJ = 313 kcal (kod naranče isti kJ = 318 kcal); prepisati točno kako piše"
+    },
+    {
+      "slug": "honey-bee-power-energy-gel-malina",
+      "naziv": "Energy gel malina",
+      "deklaracija_slika": "/images/products/gelmalina-zadnja.png",
+      "sastav": "višecvjetni med 91 %, liofilizirani plod maline 8 %, ekstrakt sjemenki guarane 1 %",
+      "na_100g": { "energija": "1390 kJ / 328 kcal", "masti_g": 0, "ugljikohidrati_g": 82, "seceri_g": 77.5, "vlakna_g": 0, "bjelancevine_g": 0, "sol_g": 0 },
+      "na_40g": { "energija": "556 kJ / 131 kcal", "masti_g": 0, "ugljikohidrati_g": 32.8, "seceri_g": 31, "vlakna_g": 0, "bjelancevine_g": 0, "sol_g": 0 },
+      "cijena_cjenik_eur": 1.8,
+      "cijena_u_kodu_eur": 2.49,
+      "napomena": "tri sastojka, bez morske soli; vrijednosti u PDF prezentaciji su pogrešne"
+    },
+    { "slug": "honey-bee-power-energy-gel-naranca-paket-10", "naziv": "Energy gel naranča, paket od 10", "isti_kao": "honey-bee-power-energy-gel-naranca", "cijena_cjenik_eur": null, "cijena_u_kodu_eur": 29.99 },
+    { "slug": "honey-bee-power-energy-gel-limun-paket-10", "naziv": "Energy gel limun, paket od 10", "isti_kao": "honey-bee-power-energy-gel-limun", "cijena_cjenik_eur": null, "cijena_u_kodu_eur": 29.99 },
+    { "slug": "honey-bee-power-energy-gel-malina-paket-10", "naziv": "Energy gel malina, paket od 10", "isti_kao": "honey-bee-power-energy-gel-malina", "cijena_cjenik_eur": null, "cijena_u_kodu_eur": 29.99 },
+    {
+      "slug": "honey-bee-power-izotonicki-napitak-limun",
+      "naziv": "Izotonični napitak limun (Instant isotonic drink)",
+      "deklaracija_slika": "/images/products/isolimun-zadnja.png",
+      "pakiranja": ["500 g", "vrećica 15 g"],
+      "na_100g": { "energija": "1550 kJ / 364 kcal", "masti_g": 0, "zasicene_g": 0, "ugljikohidrati_g": 90, "seceri_g": 5.5, "bjelancevine_g": 0.43, "sol_g": 0.1, "magnezij_mg": 34.1, "kalij_mg": 45.5, "natrij_mg": 7.6 },
+      "na_15g": { "energija": "233 kJ / 55 kcal", "masti_g": 0, "ugljikohidrati_g": 13.5, "seceri_g": 0.83, "bjelancevine_g": 0.06, "sol_g": 0, "magnezij_mg": 5.12, "kalij_mg": 6.83, "natrij_mg": 1.14 },
+      "sastav": null,
+      "priprema": null,
+      "cijena_cjenik_eur": { "500 g": 8.0, "15 g": 1.6 },
+      "cijena_u_kodu_eur": { "500 g": 11.99 },
+      "napomena": "90 g ugljikohidrata, samo 5,5 g šećera: ugljikohidrati su većinom ne-šećerni (vjerojatno maltodekstrin), provjeriti sastav. Vrlo malo natrija: ne isticati 'nadoknadu elektrolita'."
+    },
+    {
+      "slug": "honey-bee-power-izotonicki-napitak-naranca",
+      "naziv": "Izotonični napitak naranča (Instant isotonic drink)",
+      "deklaracija_slika": "/images/products/isonaranca-zadnja.png",
+      "pakiranja": ["500 g", "vrećica 15 g"],
+      "na_100g": { "energija": "1540 kJ / 363 kcal", "masti_g": 0, "zasicene_g": 0, "ugljikohidrati_g": 90, "seceri_g": 5.5, "bjelancevine_g": 0.4, "sol_g": 0.1, "magnezij_mg": 27.1, "kalij_mg": 31.3, "natrij_mg": 14.6 },
+      "na_15g": { "energija": "231 kJ / 54 kcal", "ostalo": "stupac za porciju na fotografiji nije čitljiv; izračunati iz vrijednosti na 100 g ili pročitati s pakiranja" },
+      "sastav": null,
+      "priprema": null,
+      "cijena_cjenik_eur": { "500 g": 8.0, "15 g": 1.6 },
+      "cijena_u_kodu_eur": { "500 g": 11.99 }
+    },
+    { "slug": "honey-bee-power-izotonicki-napitak-paket-limun-naranca-shaker", "naziv": "Paket izotonika limun i naranča sa shakerom", "pakiranje": "2 × 500 g + shaker (prema kodu)", "cijena_cjenik_eur": null, "cijena_u_kodu_eur": 31.99 },
+    {
+      "slug": "honey-bee-power-whey-protein-ljesnjak-cokolada-700g",
+      "naziv": "Whey protein lješnjak-čokolada",
+      "izvor": "PDF prezentacija; deklaracija nije pregledana",
+      "pakiranja": ["700 g", "vrećica 33 g"],
+      "na_100g": { "energija": "1660 kJ / 399 kcal", "masti_g": 7.1, "ugljikohidrati_g": 16.26, "seceri_g": 5.79, "bjelancevine_g": 67.07, "sol_g": 0.61 },
+      "bjelancevine_na_33g": 22.13,
+      "sastav": "whey protein (91–92 %), sušeni med (6 %), stevija, guma arabika",
+      "alergeni": ["mlijeko"],
+      "cijena_cjenik_eur": { "700 g": 38.0, "33 g": 3.0 }
+    },
+    {
+      "slug": "honey-bee-power-whey-protein-banana-vanilija-700g",
+      "naziv": "Whey protein banana-vanilija",
+      "izvor": "PDF prezentacija; deklaracija nije pregledana",
+      "pakiranja": ["700 g", "vrećica 33 g"],
+      "na_100g": { "energija": "1660 kJ / 399 kcal", "masti_g": 7.1, "ugljikohidrati_g": 16.26, "seceri_g": 5.79, "bjelancevine_g": 67.07, "sol_g": 0.61 },
+      "bjelancevine_na_33g": 22.13,
+      "sastav": "whey protein (91–92 %), sušeni med (6 %), stevija, guma arabika",
+      "alergeni": ["mlijeko"],
+      "cijena_cjenik_eur": { "700 g": 38.0, "33 g": 3.0 }
+    },
+    {
+      "slug": "honey-bee-power-whey-protein-jagoda-slag-700g",
+      "naziv": "Whey protein jagoda-šlag",
+      "izvor": "PDF prezentacija; deklaracija nije pregledana",
+      "pakiranja": ["700 g", "vrećica 33 g"],
+      "na_100g": { "energija": "1666 kJ / 400 kcal", "masti_g": 6.7, "ugljikohidrati_g": 16.43, "seceri_g": 5.95, "bjelancevine_g": 68.69, "sol_g": 0.61 },
+      "bjelancevine_na_33g": 22.66,
+      "sastav": "whey protein (91–92 %), sušeni med (6 %), stevija, guma arabika",
+      "alergeni": ["mlijeko"],
+      "cijena_cjenik_eur": { "700 g": 38.0, "33 g": 3.0 }
+    }
+  ],
+  "otvorene_odluke": [
+    "cijene: službeni cjenik (src/lib/cjenik-data.ts) ili cijene u src/lib/products-data.ts",
+    "model kupnje: A (plaćanje online), B (upit, kao sada) ili C (kombinacija)",
+    "smije li se gel preporučivati tijekom napora",
+    "količina kofeina po gelu",
+    "puni sastav izotonika i deklaracija wheyja"
+  ]
+}
