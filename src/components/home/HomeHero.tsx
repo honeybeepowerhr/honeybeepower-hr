@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { getTranslations } from 'next-intl/server'
 import type { Locale } from '@/types'
 import { GEL_DECLARATIONS } from '@/lib/declarations'
+import { HexFieldLoader } from '@/components/home/HexFieldLoader'
 
 /** Okusi na vrećicama, redom kako stoje u uvodu (srednja je glavna). */
 const POUCHES = [
@@ -27,8 +28,9 @@ export async function HomeHero({ locale }: { locale: Locale }) {
 
   return (
     <section aria-labelledby="hero-title" className="hero">
+      <HexFieldLoader />
       <div className="frame grid-12 min-h-[calc(100svh-var(--header-h))] items-center gap-y-10 pb-10 pt-8 lg:pb-14">
-        <div className="col-span-12 lg:col-span-7">
+        <div data-parallax="-0.1" className="col-span-12 lg:col-span-7">
           <h1
             id="hero-title"
             data-hero-title
@@ -60,6 +62,7 @@ export async function HomeHero({ locale }: { locale: Locale }) {
 
         <ul
           aria-label={t('pouchesLabel')}
+          data-parallax="0.22"
           className="relative col-span-12 mx-auto flex w-full max-w-[34rem] items-end justify-center lg:col-span-5 lg:max-w-none"
         >
           {POUCHES.map((p, i) => (
@@ -73,7 +76,7 @@ export async function HomeHero({ locale }: { locale: Locale }) {
                 className="absolute inset-[-22%] -z-10 rounded-full opacity-40"
                 style={{ background: `radial-gradient(closest-side, ${p.tone}, transparent)` }}
               />
-              <Link href={`${prefix}/proizvodi/${p.slug}`} className="pouch-link block">
+              <Link href={`${prefix}/proizvodi/${p.slug}`} data-tilt className="pouch-link block">
                 <Image
                   src={p.src}
                   alt={`Honey Bee Power, ${GEL_DECLARATIONS.find((d) => d.slug === p.slug)?.flavour[locale] ?? ''}`}

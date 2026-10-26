@@ -32,8 +32,8 @@ export async function TrackGallery({ locale }: { locale: Locale }) {
       </div>
 
       <ul className="mt-12 grid grid-cols-12 gap-3 md:mt-16 md:gap-4" aria-label={t('moreLabel')}>
-        {photos.map((p) => (
-          <li key={p.src} data-print className={`photo ${p.cls}`}>
+        {photos.map((p, i) => (
+          <li key={p.src} data-print data-parallax={i % 2 ? '0.14' : '-0.06'} className={`photo ${p.cls}`}>
             <figure className={`relative h-full ${p.ratio}`}>
               <Image src={p.src} alt={p.alt} fill sizes="(min-width: 768px) 33vw, 50vw" className="object-cover" style={{ objectPosition: p.pos }} />
               {p.caption && (

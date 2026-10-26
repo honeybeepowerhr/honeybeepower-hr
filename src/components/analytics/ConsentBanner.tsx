@@ -10,8 +10,8 @@ export { CONSENT_KEY }
 export const OPEN_COOKIE_SETTINGS_EVENT = 'open_cookie_settings'
 
 /**
- * Privola za kolačiće. Traka se renderira na poslužitelju na vrhu stranice,
- * u toku sadržaja, pa ništa ne prekriva i ne skače. Analitika se učitava tek
+ * Privola za kolačiće. Traka je plutajuća kartica pri dnu zaslona
+ * (fiksni položaj, pa ne pomiče sadržaj). Analitika se učitava tek
  * nakon „Prihvati sve”.
  */
 export function ConsentBanner() {
@@ -45,8 +45,8 @@ export function ConsentBanner() {
 
   return (
     <section aria-label={t('label')} className="consent-bar on-ink">
-      <div className="frame flex flex-col gap-4 py-4 md:flex-row md:items-center md:justify-between md:gap-8">
-        <p className="t-body measure">
+      <div className="flex flex-col gap-4 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+        <p className="t-small measure">
           {t('text')}{' '}
           <Link href={`${prefix}/politika-privatnosti`} className="link">
             {t('more')}

@@ -281,7 +281,8 @@ button {
     transform var(--duration-quick) var(--ease-smooth-out),
     background-color var(--duration-quick) var(--ease-smooth-out),
     color var(--duration-quick) var(--ease-smooth-out),
-    box-shadow var(--duration-fast) var(--ease-smooth-out);
+    box-shadow var(--duration-fast) var(--ease-smooth-out),
+    translate 380ms var(--ease-out-expo);
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -384,10 +385,28 @@ button {
 
 /* Kartica */
 .card {
+  position: relative;
   border: 1px solid var(--color-line);
   border-radius: var(--radius);
   background: var(--color-surface);
   overflow: hidden;
+}
+
+/* Svjetlo koje klizi po kartici ispod miša */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background: radial-gradient(18rem circle at var(--mx, 50%) var(--my, 50%), rgb(255 183 27 / 0.14), transparent 60%);
+  opacity: 0;
+  transition: opacity 300ms ease;
+  pointer-events: none;
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .field-lemon {
@@ -419,22 +438,10 @@ button {
 
 .hero {
   position: relative;
-  isolation: clip;
+  isolation: isolate;
   background:
     radial-gradient(44rem 34rem at 76% 44%, rgb(255 183 27 / 0.16), rgb(255 150 20 / 0.05) 45%, transparent 70%),
     var(--color-ground);
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image: var(--hex-pattern);
-  background-size: 56px 98px;
-  mask-image: radial-gradient(70% 80% at 75% 45%, #000, transparent 75%);
-  -webkit-mask-image: radial-gradient(70% 80% at 75% 45%, #000, transparent 75%);
-  pointer-events: none;
 }
 
 /* Riječ ispunjena saćem */
@@ -485,6 +492,84 @@ button {
 
 [data-product-image] {
   animation: settle 1.4s var(--ease-out-expo) both;
+}
+
+/* Prijelaz među stranicama */
+@keyframes page-in {
+  from { opacity: 0; translate: 0 1.25rem; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+.page-in {
+  animation: page-in 0.6s var(--ease-out-expo) both;
+}
+
+/* Traka napretka skrolanja: čisti CSS (scroll-driven animation) */
+@keyframes scroll-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.scroll-progress {
+  display: none;
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    display: block;
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 90;
+    height: 3px;
+    transform-origin: 0 50%;
+    background: linear-gradient(90deg, var(--color-honey), #ffe08a);
+    animation: scroll-grow linear both;
+    animation-timeline: scroll(root);
+    pointer-events: none;
+  }
+}
+
+/* Svjetlo koje prati miš */
+.cursor-glow {
+  position: fixed;
+  left: -15rem;
+  top: -15rem;
+  z-index: 30;
+  width: 30rem;
+  height: 30rem;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(255 183 27 / 0.1), transparent);
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 400ms ease;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.cursor-glow[data-on='1'] {
+  opacity: 1;
+}
+
+/* Glatko skrolanje (Lenis) */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+html.lenis-on {
+  scroll-behavior: auto;
 }
 
 /* Traka koja klizi */
@@ -842,5 +927,19 @@ html {
   /* Traka privole: skrivena prije iscrtavanja ako je odluka spremljena */
   .consent-done .consent-bar {
     display: none;
+  }
+
+  .consent-bar {
+    position: fixed;
+    z-index: 80;
+    left: var(--gutter);
+    right: var(--gutter);
+    bottom: var(--gutter);
+    max-width: 46rem;
+    margin-inline: auto;
+    border: 1px solid var(--color-line);
+    border-radius: 1.25rem;
+    box-shadow: 0 30px 80px -20px rgb(0 0 0 / 0.8);
+    animation: rise 0.7s var(--ease-out-expo) 0.8s both;
   }
 }

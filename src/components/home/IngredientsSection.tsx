@@ -78,7 +78,7 @@ export async function IngredientsSection({ locale }: { locale: Locale }) {
                   <span aria-hidden="true" className="mr-3 inline-block h-[0.55em] w-[0.5em] align-[0.02em]" style={{ background: d.flavourColor, clipPath: 'polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)' }} />
                   {d.flavour[locale]}
                 </p>
-                <p className="mt-6 font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-black leading-[0.9] tracking-[-0.05em] tabular" style={{ color: d.flavourColor }}>
+                <p data-countup className="mt-6 font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-black leading-[0.9] tracking-[-0.05em] tabular" style={{ color: d.flavourColor }}>
                   {formatNumber(d.perServing!.carbohydrates, locale)}&nbsp;g
                 </p>
                 <p className="mt-2 t-small text-muted">

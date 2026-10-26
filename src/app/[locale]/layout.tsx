@@ -11,6 +11,7 @@ import { CartPanel } from '@/components/cart/CartPanel'
 import { ConsentBanner } from '@/components/analytics/ConsentBanner'
 import { CONSENT_INLINE_SCRIPT } from '@/lib/consent'
 import { ConsentGatedScripts } from '@/components/analytics/ConsentGatedScripts'
+import { Experience } from '@/components/site/Experience'
 import '../globals.css'
 
 // Naslovi: Archivo (varijabilna težina i širina), tekst: Figtree.
@@ -96,7 +97,9 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
         <a href="#main-content" className="skip-to-content">
           {locale === 'hr' ? 'Preskoči na sadržaj' : locale === 'de' ? 'Zum Inhalt springen' : locale === 'sl' ? 'Preskoči na vsebino' : locale === 'pl' ? 'Przejdź do treści' : 'Skip to content'}
         </a>
+        <div className="scroll-progress" aria-hidden="true" />
         <NextIntlClientProvider messages={messages}>
+          <Experience />
           <ConsentBanner />
           <Header />
           {/* Page content */}

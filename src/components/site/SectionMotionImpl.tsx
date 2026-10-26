@@ -2,9 +2,10 @@
 
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { SplitText } from 'gsap/SplitText'
 import { useGSAP } from '@gsap/react'
 
-gsap.registerPlugin(useGSAP, ScrollTrigger)
+gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText)
 
 /**
  * Animacijski sloj stranice.
@@ -25,9 +26,71 @@ export function SectionMotionImpl() {
       const vh = window.innerHeight
       const below = (el: Element) => el.getBoundingClientRect().top > vh * 0.92
 
+      // 1a. Naslovi sekcija: redak po redak izlaze odozdo
+      gsap.utils
+        .toArray<HTMLElement>('.t-head, .t-display', main)
+        .filter((el) => !el.matches('[data-hero-title], [data-verb], [data-no-reveal]') && !el.closest('[data-hero-title], [data-panel], header, footer, #poledina') && below(el))
+        .forEach((el) => {
+          el.removeAttribute('data-reveal')
+          el.setAttribute('data-split', '')
+          SplitText.create(el, {
+            type: 'lines',
+            autoSplit: true,
+            onSplit: (self) =>
+              gsap.from(self.lines, {
+                yPercent: 70,
+                opacity: 0,
+                duration: 1.1,
+                ease: 'expo.out',
+                stagger: 0.09,
+                scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+              }),
+          })
+        })
+
+      // 1b. Paralaksa: elementi s [data-parallax] putuju sporije ili brže od skrola
+      gsap.utils.toArray<HTMLElement>('[data-parallax]', main).forEach((el) => {
+        const speed = parseFloat(el.dataset.parallax ?? '0.2') || 0
+        gsap.fromTo(
+          el,
+          { y: () => -speed * 140 },
+          {
+            y: () => speed * 140,
+            ease: 'none',
+            scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: 0.6, invalidateOnRefresh: true },
+          },
+        )
+      })
+
+      // 1c. Brojke se „natoče” do vrijednosti kad uđu na zaslon (decimalni zarez ostaje)
+      gsap.utils.toArray<HTMLElement>('[data-countup]', main).forEach((el) => {
+        const original = el.textContent ?? ''
+        const re = /\d+(?:[.,]\d+)?/g
+        if (!original.match(re)) return
+        const render = (p: number) => {
+          el.textContent = original.replace(re, (m) => {
+            const decimals = (m.split(/[.,]/)[1] ?? '').length
+            const sep = m.includes(',') ? ',' : '.'
+            return (parseFloat(m.replace(',', '.')) * p).toFixed(decimals).replace('.', sep)
+          })
+        }
+        const state = { p: 1 }
+        if (below(el)) {
+          state.p = 0
+          render(0)
+        }
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 88%',
+          once: true,
+          onEnter: () =>
+            gsap.to(state, { p: 1, duration: 1.6, ease: 'power3.out', onUpdate: () => render(state.p), onComplete: () => { el.textContent = original } }),
+        })
+      })
+
       // 2. Ulazak dijelova sekcija, samo za ono što je ispod prvog zaslona.
       //    Uz označene elemente ([data-reveal]) ulaze i naslovi, odlomci, retci i slike sekcija.
-      const skip = '[data-reveal] *, [data-panel] *, [data-hero-title] *, #poledina *, details *, header *, [data-no-reveal], [data-no-reveal] *'
+      const skip = '[data-split], [data-split] *, [data-reveal] *, [data-panel] *, [data-hero-title] *, #poledina *, details *, header *, [data-no-reveal], [data-no-reveal] *'
       const auto = gsap.utils
         .toArray<HTMLElement>('section h2, section h3, section > div > p, section li, section figure, section tr, article h2, article p', main)
         .filter((el) => !el.matches(skip) && !el.closest('[data-reveal]'))
