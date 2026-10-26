@@ -92,7 +92,7 @@ export default function Header() {
   return (
     <>
       <header
-        className="sticky top-0 z-40 border-b border-[color:var(--color-line)] bg-ground/80 backdrop-blur-xl transition-transform duration-300 ease-[var(--ease-out-quart)]"
+        className="sticky top-0 z-40 border-b border-[color:var(--color-line)] bg-ground/95 transition-transform duration-300 ease-[var(--ease-out-quart)]"
         style={{ transform: hidden && !menuOpen ? 'translateY(-100%)' : 'none' }}
       >
         <div className="frame flex h-[var(--header-h)] items-center gap-6">

@@ -457,6 +457,36 @@ button {
   transform: translateY(-10px) scale(1.03);
 }
 
+/* Ulaz uvoda i glavne fotografije: čisti CSS, vidljivo i prije skripti */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(2rem); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes rise-y {
+  from { transform: translateY(4rem); }
+  to { transform: none; }
+}
+
+@keyframes settle {
+  from { scale: 1.08; }
+  to { scale: 1; }
+}
+
+.rise {
+  animation: rise 0.9s var(--ease-out-expo) both;
+  animation-delay: var(--d, 0ms);
+}
+
+.rise-y {
+  animation: rise-y 1.1s var(--ease-out-expo) both;
+  animation-delay: var(--d, 0ms);
+}
+
+[data-product-image] {
+  animation: settle 1.4s var(--ease-out-expo) both;
+}
+
 /* Traka koja klizi */
 @keyframes ticker {
   to { transform: translateX(-50%); }

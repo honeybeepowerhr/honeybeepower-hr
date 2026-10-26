@@ -32,23 +32,22 @@ export async function HomeHero({ locale }: { locale: Locale }) {
           <h1
             id="hero-title"
             data-hero-title
-            className="t-display text-[length:clamp(3.1rem,1.2rem+9.2vw,9.25rem)] leading-[0.88]"
+            className="t-display text-[length:clamp(3.75rem,1.2rem+9.2vw,9.25rem)] leading-[0.88]"
           >
-            <span data-hero-word className="block">{t('before')}</span>
+            <span className="rise block">{t('before')}</span>
             <span
-              data-hero-word
-              className="honeycomb-text block pb-[0.08em]"
-              style={{ ['--honeycomb' as string]: 'url(/images/found/sace-tekst.webp)' }}
+              className="rise honeycomb-text block pb-[0.08em]"
+              style={{ ['--honeycomb' as string]: 'url(/images/found/sace-tekst.webp)', ['--d' as string]: '90ms' }}
             >
               {t('after')}
             </span>
           </h1>
 
-          <p data-hero-lead className="mt-8 t-lead max-w-[34ch] text-muted">
+          <p className="rise mt-8 t-lead max-w-[34ch] text-muted" style={{ ['--d' as string]: '200ms' }}>
             {t('lead')}
           </p>
 
-          <div data-hero-actions className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+          <div className="rise mt-8 flex flex-wrap items-center gap-x-6 gap-y-4" style={{ ['--d' as string]: '280ms' }}>
             <Link href={`${prefix}/proizvodi`} className="btn btn-honey">
               {t('cta')}
               <span className="btn-arrow" aria-hidden="true">→</span>
@@ -66,14 +65,13 @@ export async function HomeHero({ locale }: { locale: Locale }) {
           {POUCHES.map((p, i) => (
             <li
               key={p.slug}
-              data-hero-pouch
-              className={i === 1 ? 'relative z-10 w-[36%]' : 'relative w-[31%] -mx-[2%]'}
-              style={{ rotate: p.rotate, translate: `0 ${p.shift}` }}
+              className={`rise-y ${i === 1 ? 'relative z-10 w-[36%]' : 'relative w-[31%] -mx-[2%]'}`}
+              style={{ rotate: p.rotate, translate: `0 ${p.shift}`, ['--d' as string]: `${i === 1 ? 0 : 90}ms` }}
             >
               <span
                 aria-hidden="true"
-                className="absolute inset-[-18%] -z-10 rounded-full opacity-30 blur-[70px]"
-                style={{ background: p.tone }}
+                className="absolute inset-[-22%] -z-10 rounded-full opacity-40"
+                style={{ background: `radial-gradient(closest-side, ${p.tone}, transparent)` }}
               />
               <Link href={`${prefix}/proizvodi/${p.slug}`} className="pouch-link block">
                 <Image
@@ -92,7 +90,7 @@ export async function HomeHero({ locale }: { locale: Locale }) {
 
         <dl className="col-span-12 mt-2 grid grid-cols-1 gap-3 sm:grid-cols-3 lg:mt-6">
           {stats.map((s) => (
-            <div key={s.label} data-hero-lead className="rounded-[var(--radius-sm)] border border-[color:var(--color-line)] bg-[color:var(--color-surface)]/70 px-5 py-4 backdrop-blur">
+            <div key={s.label} className="rise rounded-[var(--radius-sm)] border border-[color:var(--color-line)] bg-[color:var(--color-surface)] px-5 py-4" style={{ ['--d' as string]: '360ms' }}>
               <dt className="sr-only">{s.label}</dt>
               <dd className="flex items-baseline gap-3">
                 <span className="font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-none tracking-[-0.04em] text-[color:var(--color-honey)] tabular">

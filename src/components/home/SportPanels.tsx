@@ -36,7 +36,7 @@ export async function SportPanels({ locale }: { locale: Locale }) {
               </h2>
             </div>
           </div>
-          <p className="absolute bottom-[var(--gutter)] left-[var(--gutter)] max-w-[36ch] rounded-[var(--radius-sm)] border border-[color:var(--color-line)] bg-ground/70 px-5 py-3 t-body text-ink backdrop-blur-md">
+          <p className="absolute bottom-[var(--gutter)] left-[var(--gutter)] max-w-[36ch] rounded-[var(--radius-sm)] border border-[color:var(--color-line)] bg-ground/70 px-5 py-3 t-body text-ink">
             {t(`${p.key}.caption`)}
           </p>
         </div>

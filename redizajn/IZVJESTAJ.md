@@ -1,3 +1,16 @@
+# Dopuna: drugi smjer „Noćni med” (zamjenjuje izgled opisan niže)
+
+Klijent je odbacio prvi izgled (krem podloga, Bodoni, brutalne crne ploče). Izgled je u cijelosti zamijenjen; **funkcionalnost nije mijenjana** (košarica, upit preko WhatsAppa i e-maila, B2B, kalkulator, filtri, cjenik, prijevodi, SEO, preusmjeravanja). Opis smjera u odjeljku 1 niže vrijedi samo za povijest.
+
+- **Smjer:** tamna topla crna podloga (`#0a0806`), krem tekst, jedan naglasak (jantar meda `#ffb71b`), boje okusa s pakiranja (limun, naranča, malina) i šesterokut s vrećice kao motiv. Fontovi: **Archivo** (varijabilna težina i širina) za naslove i **Figtree** za tekst, oba preko `next/font/google` s `latin-ext`. Zaobljene kartice (24 px), gumbi u obliku pilule.
+- **Naslovnica:** uvod „Gel od meda.” u kojem je riječ „meda.” ispunjena fotografijom saća, tri vrećice gela s pravim fotografijama (poveznice na proizvode) i tri brojke s deklaracije; traka sastojaka koja klizi; sastav po okusu u karticama; kadar poleđine (nepromijenjen); proizvodi u tri kartice; tri ploče sporta; kalkulator oporavka u ploči; priča; „Na stazi” kao mozaik; cjenik; jantarna ploča za klubove; česta pitanja; podnožje s telefonom kao naslovom.
+- **Dijeli se sve ostalo preko tokena** (`src/app/globals.css`): sve stranice (proizvodi, kategorije, cjenik, B2B, sport, vodiči, kontakt, košarica) dobile su novi izgled bez izmjene logike. Redovi proizvoda su zaobljene kartice u boji okusa.
+- **Dodani tekstovi** (na svih 5 jezika, **čekaju provjeru izvornih govornika**): `home.hero.statHoney*`, `statCarbs*`, `statIngredients*`, `pouchesLabel`.
+- **Performanse:** ulaz uvoda i glavne fotografije proizvoda prebačen na čisti CSS (prije ih je skrivao GSAP do hidracije); GSAP sloj učitava se tek nakon prvog iscrtavanja (`SectionMotion` je tanki wrapper, kod je u `SectionMotionImpl`); uklonjeni blur filteri.
+- **Izmjereno (lokalno, `next start`, Lighthouse 12, mobilni profil sa simuliranim usporavanjem):** gel naranča **91** performanse / 100 / 100 / 92; naslovnica **67 do 71** (cilj 90 nije dostignut), pristupačnost 100, najbolje prakse 100, SEO 92 (canonical pokazuje na produkcijsku domenu). Bez usporavanja naslovnica ima **100** (LCP 1,3 s, TBT 40 ms), pa je razlika u simuliranom procesoru; sljedeći korak je smanjiti hidraciju naslovnice (kalkulator i podaci proizvoda su klijentski kod). Ponoviti na Cloudflare previewu.
+- **Nije ponovljeno:** inspektor design-taste-frontend (skill nije dostupan u ovoj sesiji) i mjerenje na stranicama izvan naslovnice i proizvoda. Provjereno ručno snimkama zaslona na 1440 i 390 px (naslovnica, proizvod, kategorija, cjenik, B2B, sport, košarica, izbornik) i testom dodavanja u upit.
+- **Uklonjeno:** stari ukrasi i polaroidi na „Na stazi” (zamijenjeni mozaikom); font Bodoni Moda i Jost.
+
 # Izvještaj: redizajn honeybeepowerhr.com
 
 Grana `redizajn` (od `hitni-popravci`). Ništa nije objavljeno ni poslano na GitHub. `main` nije diran: lokalni merge `hitni-popravci` → `main` blokirao je sustav dopuštenja, pa ga treba napraviti vlasnik.
