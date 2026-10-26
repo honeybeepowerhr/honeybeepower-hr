@@ -58,3 +58,9 @@ planetbioo.jpg
 .wrangler
 .dev.vars*
 !.dev.vars.example
+
+# Podaci kupaca (lokalna rezervna kopija upita), nikad u git
+inquiries-backup.json
+
+# Radne snimke inspektora design-taste-frontend
+.taste-skill/

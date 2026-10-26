@@ -1,0 +1,12 @@
+# -*- coding: utf-8 -*-
+"""Impressum."""
+
+L = {
+    'hr': dict(impressumTitle='Impressum', companyName='Naziv obrta', address='Adresa', contactDetails='Kontakt', photosTitle='Fotografije', photosText='Fotografije proizvoda i s događaja su naše. Fotografije sastojaka, pčelinjaka i krajolika preuzete su iz otvorenih zbirki, uz ove licence:', disclaimerNotice='Dodaci prehrani i sportska prehrana nisu zamjena za uravnoteženu i raznovrsnu prehranu i zdrav način života. Čuvati izvan dohvata male djece.'),
+    'en': dict(impressumTitle='Legal notice', companyName='Business name', address='Address', contactDetails='Contact', photosTitle='Photographs', photosText='Product and event photographs are our own. Photographs of ingredients, apiaries and landscapes come from open collections, under these licences:', disclaimerNotice='Food supplements and sports nutrition are not a substitute for a varied, balanced diet and a healthy lifestyle. Keep out of reach of young children.'),
+    'de': dict(impressumTitle='Impressum', companyName='Name des Betriebs', address='Anschrift', contactDetails='Kontakt', photosTitle='Fotos', photosText='Produkt- und Veranstaltungsfotos sind unsere eigenen. Fotos von Zutaten, Bienenständen und Landschaften stammen aus offenen Sammlungen, unter diesen Lizenzen:', disclaimerNotice='Nahrungsergänzungsmittel und Sporternährung sind kein Ersatz für eine abwechslungsreiche, ausgewogene Ernährung und gesunde Lebensweise. Außerhalb der Reichweite kleiner Kinder aufbewahren.'),
+    'sl': dict(impressumTitle='Impresum', companyName='Ime obrti', address='Naslov', contactDetails='Kontakt', photosTitle='Fotografije', photosText='Fotografije izdelkov in z dogodkov so naše. Fotografije sestavin, čebelnjakov in pokrajin so iz odprtih zbirk, pod temi licencami:', disclaimerNotice='Prehranska dopolnila in športna prehrana niso nadomestilo za uravnoteženo in raznoliko prehrano ter zdrav način življenja. Hraniti nedosegljivo majhnim otrokom.'),
+    'pl': dict(impressumTitle='Nota prawna', companyName='Nazwa firmy', address='Adres', contactDetails='Kontakt', photosTitle='Zdjęcia', photosText='Zdjęcia produktów i z wydarzeń są nasze. Zdjęcia składników, pasiek i krajobrazów pochodzą z otwartych zbiorów, na tych licencjach:', disclaimerNotice='Suplementy diety i odżywki sportowe nie zastąpią zróżnicowanej, zbilansowanej diety i zdrowego trybu życia. Przechowywać w miejscu niedostępnym dla małych dzieci.'),
+}
+
+SECTIONS = {'legal': L}

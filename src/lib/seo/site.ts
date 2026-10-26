@@ -57,7 +57,7 @@ interface PageMetadataInput {
   /** Bare page title — the root layout's title.template appends " | Honey Bee Power". */
   title: string
   description: string
-  /** Absolute or root-relative image path. Defaults to the brand logo. */
+  /** Slika za dijeljenje 1200 × 630 (public/images/og). Zadano: naslovnica. */
   image?: string
   noIndex?: boolean
 }
@@ -78,7 +78,7 @@ export function pageMetadata({
   noIndex,
 }: PageMetadataInput): Metadata {
   const brandedTitle = `${title} | ${SITE_NAME}`
-  const imageUrl = absoluteUrl(image ?? '/images/logo.png')
+  const imageUrl = absoluteUrl(image ?? '/images/og/naslovnica.jpg')
 
   return {
     title,

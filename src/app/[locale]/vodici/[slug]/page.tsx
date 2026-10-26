@@ -1,151 +1,141 @@
-import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { buildBreadcrumbSchema } from '@/lib/seo/schemas'
-import { pageMetadata, localeUrl, SITE_URL } from '@/lib/seo/site'
-import { GUIDES, getGuideBySlug, type GuideBlock } from '@/lib/guides-data'
+import { buildBreadcrumbSchema, buildFAQPageSchema } from '@/lib/seo/schemas'
+import { pageMetadata, localeUrl, SITE_URL, absoluteUrl } from '@/lib/seo/site'
+import { GUIDES, getGuideBySlug, getGuides, type GuideBlock } from '@/lib/guides-data'
+import { FaqList } from '@/components/site/FaqList'
+import { SectionMotion } from '@/components/site/SectionMotion'
 import type { Locale } from '@/types'
 
-export const revalidate = 300 // ISR revalidate every 5 mins
+export const revalidate = 3600
 
-interface PageProps {
-  params: Promise<{ locale: Locale; slug: string }>
-}
+const L = {
+  guides: { hr: 'Vodiči', en: 'Guides', de: 'Ratgeber', sl: 'Vodniki', pl: 'Poradniki' },
+  author: { hr: 'Autor', en: 'Author', de: 'Autor', sl: 'Avtor', pl: 'Autor' },
+  updated: { hr: 'Ažurirano', en: 'Updated', de: 'Aktualisiert', sl: 'Posodobljeno', pl: 'Zaktualizowano' },
+  read: { hr: 'min čitanja', en: 'min read', de: 'Min. Lesezeit', sl: 'min branja', pl: 'min czytania' },
+  faq: { hr: 'Česta pitanja', en: 'Questions', de: 'Häufige Fragen', sl: 'Pogosta vprašanja', pl: 'Częste pytania' },
+  sources: { hr: 'Izvori', en: 'Sources', de: 'Quellen', sl: 'Viri', pl: 'Źródła' },
+  more: { hr: 'Još vodiča', en: 'More guides', de: 'Weitere Ratgeber', sl: 'Več vodnikov', pl: 'Więcej poradników' },
+  note: { hr: 'Ovo je opća informacija, a ne medicinski ni prehrambeni savjet.', en: 'This is general information, not medical or nutritional advice.', de: 'Dies ist eine allgemeine Information, keine medizinische oder Ernährungsberatung.', sl: 'To je splošna informacija in ne zdravniški ali prehranski nasvet.', pl: 'To ogólna informacja, a nie porada medyczna ani żywieniowa.' },
+} satisfies Record<string, Record<Locale, string>>
 
-export function generateStaticParams(): { slug: string }[] {
+const DATE_TAG: Record<Locale, string> = { hr: 'hr-HR', en: 'en-GB', de: 'de-DE', sl: 'sl-SI', pl: 'pl-PL' }
+
+export function generateStaticParams() {
   return GUIDES.map((g) => ({ slug: g.slug }))
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale; slug: string }> }): Promise<Metadata> {
   const { locale, slug } = await params
   const guide = getGuideBySlug(slug, locale)
-
-  if (!guide) {
-    return pageMetadata({
-      locale,
-      path: `/vodici/${slug}`,
-      title: 'Vodič nije pronađen',
-      description: 'Traženi vodič ne postoji.',
-      noIndex: true,
-    })
-  }
-
-  return pageMetadata({
-    locale,
-    path: `/vodici/${guide.slug}`,
-    title: guide.title,
-    description: guide.excerpt,
-    image: guide.image,
-  })
+  if (!guide) return pageMetadata({ locale, path: `/vodici/${slug}`, title: 'Honey Bee Power', description: 'Honey Bee Power', noIndex: true })
+  return pageMetadata({ locale, path: `/vodici/${slug}`, title: guide.title.slice(0, 60), description: guide.excerpt.slice(0, 155), image: '/images/og/vodici.jpg' })
 }
 
-function GuideBlockRenderer({ block, prefix }: { block: GuideBlock; prefix: string }) {
+function Block({ block, prefix }: { block: GuideBlock; prefix: string }) {
   switch (block.type) {
-    case 'lead':
-      return <p className="text-lg font-medium text-gray-900">{block.text}</p>
     case 'h2':
-      return <h2 className="text-2xl font-bold text-gray-900 mt-8">{block.text}</h2>
+      return <h2 data-reveal className="mt-14 font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-[1.05]">{block.text}</h2>
     case 'p':
-      return <p>{block.text}</p>
-    case 'callout':
+      return <p data-reveal className="mt-5">{block.text}</p>
+    case 'list':
       return (
-        <div className="p-6 bg-amber-50 rounded-2xl border border-amber-200 my-8">
-          <h3 className="text-lg font-bold text-amber-900 mb-2">{block.title}</h3>
-          <p className="text-sm text-amber-800 mb-4">{block.text}</p>
-          <Link
-            href={`${prefix}${block.ctaHref}`}
-            className="inline-flex items-center px-4 py-2 bg-amber-500 text-slate-950 font-bold rounded-xl text-xs hover:bg-amber-600 transition"
-          >
-            {block.ctaLabel}
-          </Link>
-        </div>
+        <ul data-reveal className="mt-5 list-disc space-y-2 pl-6">
+          {block.items.map((i) => <li key={i}>{i}</li>)}
+        </ul>
       )
-    default:
-      return null
+    case 'link':
+      return (
+        <p className="mt-6">
+          <Link href={`${prefix}${block.href}`} className="link font-medium">{block.text} →</Link>
+        </p>
+      )
   }
 }
 
-export default async function GuideDetailPage({ params }: PageProps) {
+export default async function GuidePage({ params }: { params: Promise<{ locale: Locale; slug: string }> }) {
   const { locale, slug } = await params
   const guide = getGuideBySlug(slug, locale)
-
-  if (!guide) {
-    notFound()
-  }
-
+  if (!guide) notFound()
   const prefix = locale === 'hr' ? '' : `/${locale}`
+  const date = new Intl.DateTimeFormat(DATE_TAG[locale], { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(guide.isoUpdated))
+  const others = getGuides(locale).filter((g) => g.slug !== slug)
 
-  const articleSchema = {
+  const article = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: guide.title,
     description: guide.excerpt,
-    image: [`${SITE_URL}${guide.image}`],
-    datePublished: guide.isoDate,
-    dateModified: guide.isoDate,
-    author: [{ '@type': 'Person', name: guide.author }],
+    image: guide.image.startsWith('http') ? guide.image : absoluteUrl(guide.image),
+    dateModified: guide.isoUpdated,
+    datePublished: guide.isoUpdated,
+    inLanguage: locale,
+    author: { '@type': 'Organization', name: guide.author },
     publisher: { '@id': `${SITE_URL}/#organization` },
-    mainEntityOfPage: localeUrl(locale, `/vodici/${guide.slug}`),
+    mainEntityOfPage: localeUrl(locale, `/vodici/${slug}`),
+    citation: guide.sources.map((s) => s.url),
   }
 
-  const breadcrumbSchema = buildBreadcrumbSchema([
-    { name: 'Početna', url: localeUrl(locale, '/') },
-    { name: 'Vodiči', url: localeUrl(locale, '/vodici') },
-    { name: guide.title, url: localeUrl(locale, `/vodici/${guide.slug}`) },
-  ])
-
   return (
-    <article className="py-12 md:py-16 bg-white">
-      <JsonLd schema={articleSchema} />
-      <JsonLd schema={breadcrumbSchema} />
+    <article>
+      <JsonLd schema={article} />
+      <JsonLd schema={buildBreadcrumbSchema([
+        { name: 'Honey Bee Power', url: localeUrl(locale, '/') },
+        { name: L.guides[locale], url: localeUrl(locale, '/vodici') },
+        { name: guide.title, url: localeUrl(locale, `/vodici/${slug}`) },
+      ])} />
+      <JsonLd schema={buildFAQPageSchema(guide.faq.map((f, i) => ({ _key: String(i), question: { hr: f.q, en: f.q, de: f.q }, answer: { hr: f.a, en: f.a, de: f.a } })), 'hr')} />
+      <SectionMotion />
 
-      <div className="container mx-auto px-4 max-w-3xl">
+      <header className="frame grid-12 gap-y-8 pb-12 pt-10 md:pb-16">
+        <h1 className="t-head col-span-12 lg:col-span-10">{guide.title}</h1>
+        <p className="col-span-12 t-lead measure lg:col-span-8">{guide.lead}</p>
+        <dl className="col-span-12 flex flex-wrap gap-x-8 gap-y-2 t-small">
+          <div className="flex gap-2"><dt>{L.author[locale]}:</dt><dd className="font-medium">{guide.author}</dd></div>
+          <div className="flex gap-2"><dt>{L.updated[locale]}:</dt><dd className="font-medium"><time dateTime={guide.isoUpdated}>{date}</time></dd></div>
+          <div><dd>{guide.readMinutes} {L.read[locale]}</dd></div>
+        </dl>
+      </header>
 
-        {/* Breadcrumb */}
-        <nav aria-label="Breadcrumb" className="text-xs text-gray-500 mb-8 flex items-center gap-2">
-          <Link href={`${prefix}/`} className="hover:underline">Početna</Link>
-          <span>/</span>
-          <Link href={`${prefix}/vodici`} className="hover:underline">Vodiči</Link>
-          <span>/</span>
-          <span className="font-semibold text-gray-900 truncate max-w-[200px]">{guide.title}</span>
-        </nav>
-
-        <header className="mb-8">
-          <div className="text-xs font-bold text-amber-600 uppercase tracking-widest mb-2">
-            {guide.category}
-          </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">
-            {guide.title}
-          </h1>
-          <div className="flex items-center gap-4 text-xs text-gray-500 mt-4 pb-6 border-b border-gray-100">
-            <span>Autor: {guide.author}</span>
-            <span>•</span>
-            <span>{guide.date}</span>
-            <span>•</span>
-            <span>{guide.readTime}</span>
-          </div>
-        </header>
-
-        <div className="relative aspect-video w-full rounded-2xl overflow-hidden mb-8 bg-gray-100 shadow-md">
-          <Image
-            src={guide.image}
-            alt={guide.title}
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-
-        <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-6 font-sans">
-          {guide.body.map((block, i) => (
-            <GuideBlockRenderer key={i} block={block} prefix={prefix} />
-          ))}
-        </div>
-
+      <div className="relative mx-[var(--gutter)] aspect-[21/9] overflow-hidden bg-surface">
+        <Image src={guide.image} alt={guide.imageAlt} fill priority sizes="100vw" className="object-cover" data-product-image />
       </div>
+
+      <div className="frame grid-12 py-16 md:py-24">
+        <div className="col-span-12 t-body md:col-span-8 md:col-start-3 lg:col-span-6 lg:col-start-4">
+          {guide.body.map((b, i) => <Block key={i} block={b} prefix={prefix} />)}
+          <p className="mt-10 t-small">{L.note[locale]}</p>
+        </div>
+      </div>
+
+      <section className="frame section pt-0" aria-labelledby="vodic-faq">
+        <FaqList id="vodic-faq" title={L.faq[locale]} items={guide.faq} />
+      </section>
+
+      <footer className="field-surface">
+        <div className="frame grid-12 gap-y-10 py-16">
+          <div className="col-span-12 md:col-span-7">
+            <h2 className="t-body font-medium">{L.sources[locale]}</h2>
+            <ol className="mt-3 list-decimal space-y-1 pl-5 t-small">
+              {guide.sources.map((s) => (
+                <li key={s.url}><a href={s.url} className="link" rel="noopener" target="_blank">{s.label}</a></li>
+              ))}
+            </ol>
+          </div>
+          <nav className="col-span-12 md:col-span-5" aria-label={L.more[locale]}>
+            <h2 className="t-body font-medium">{L.more[locale]}</h2>
+            <ul className="mt-3 space-y-2">
+              {others.map((g) => (
+                <li key={g.slug}><Link href={`${prefix}/vodici/${g.slug}`} className="link t-body">{g.title}</Link></li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </footer>
     </article>
   )
 }

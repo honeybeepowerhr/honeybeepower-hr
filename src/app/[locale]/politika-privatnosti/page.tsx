@@ -1,67 +1,16 @@
-import React from 'react'
 import type { Metadata } from 'next'
 import type { Locale } from '@/types'
 import { pageMetadata } from '@/lib/seo/site'
-
-const TITLES: Record<Locale, string> = {
-  hr: 'Politika Privatnosti',
-  en: 'Privacy Policy',
-  de: 'Datenschutzerklärung',
-  sl: 'Politika Zasebnosti',
-  pl: 'Polityka Prywatności',
-}
-
-const DESCRIPTIONS: Record<Locale, string> = {
-  hr: 'Informacije o obradi osobnih podataka i GDPR pravima kupaca Honey Bee Power webshopa.',
-  en: 'Information on personal data processing and GDPR rights for Honey Bee Power customers.',
-  de: 'Informationen zur Verarbeitung personenbezogener Daten und DSGVO-Rechten für Honey Bee Power Kunden.',
-  sl: 'Informacije o obdelavi osebnih podatkov in pravicah GDPR za kupce Honey Bee Power.',
-  pl: 'Informacje o przetwarzaniu danych osobowych i prawach RODO klientów Honey Bee Power.',
-}
+import { getLegalDoc } from '@/lib/legal-data'
+import { LegalPage } from '@/components/site/LegalPage'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params
-  return pageMetadata({
-    locale,
-    path: '/politika-privatnosti',
-    title: TITLES[locale] ?? TITLES.hr,
-    description: DESCRIPTIONS[locale] ?? DESCRIPTIONS.hr,
-  })
+  const { doc } = getLegalDoc('politika-privatnosti', locale)
+  return pageMetadata({ locale, path: '/politika-privatnosti', title: doc.title, description: doc.metaDescription })
 }
 
-export default function PrivacyPolicyPage() {
-  return (
-    <div className="py-12 md:py-16">
-      <div className="container mx-auto px-4 max-w-3xl space-y-6 text-gray-700 leading-relaxed text-sm">
-        <h1 className="text-3xl font-black text-gray-900">Politika Privatnosti</h1>
-
-        <p>
-          Planet Bio d.o.o. poštuje vašu privatnost i obvezuje se štititi vaše osobne podatke sukladno Općoj uredbi o zaštiti podataka (GDPR, EU 2016/679).
-        </p>
-
-        <h2 className="text-lg font-bold text-gray-900 pt-4">Prikupljanje podataka</h2>
-        <p>
-          Kada nam pošaljete upit iz košarice (putem WhatsAppa ili e-maila), prikupljamo samo ime i prezime, broj telefona i sadržaj vaše košarice — dovoljno da vam se osobno javimo s ponudom. Ne prikupljamo podatke o plaćanju jer se plaćanje ne obavlja putem stranice.
-        </p>
-
-        <h2 className="text-lg font-bold text-gray-900 pt-4">Kolačići</h2>
-        <p>
-          Stranica koristi kolačiće u tri kategorije:
-        </p>
-        <ul className="list-disc pl-5 space-y-1">
-          <li><strong>Nužni:</strong> omogućuju osnovan rad stranice (npr. pamćenje sadržaja košarice i vašeg izbora oko kolačića). Ne mogu se isključiti.</li>
-          <li><strong>Analitički:</strong> pomažu nam razumjeti kako se stranica koristi (Google Tag Manager / Analytics, Microsoft Clarity). Učitavaju se samo uz vašu privolu.</li>
-          <li><strong>Marketinški:</strong> koriste se za mjerenje učinkovitosti oglasa (Meta Pixel). Učitavaju se samo uz vašu privolu.</li>
-        </ul>
-        <p>
-          Svoj izbor možete promijeniti u bilo kojem trenutku putem poveznice &quot;Postavke kolačića&quot; u podnožju stranice.
-        </p>
-
-        <h2 className="text-lg font-bold text-gray-900 pt-4">Vaša prava</h2>
-        <p>
-          U svakom trenutku imate pravo zatražiti uvid, ispravak ili brisanje svojih osobnih podataka slanjem emaila na info@planetbio.hr.
-        </p>
-      </div>
-    </div>
-  )
+export default async function Page({ params }: { params: Promise<{ locale: Locale }> }) {
+  const { locale } = await params
+  return <LegalPage slug="politika-privatnosti" locale={locale} />
 }

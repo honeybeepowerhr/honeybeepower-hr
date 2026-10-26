@@ -1,140 +1,113 @@
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
+import { getTranslations } from 'next-intl/server'
+import type { Locale } from '@/types'
+import { formatEur, officialPriceEur } from '@/lib/prices'
+import { LoopVideo } from '@/components/site/LoopVideo'
 
-interface ProductLine {
-  slug: string
-  category: string
-  name: string
-  tagline: string
-  rating: number
-  reviews: number
-  color: string
-  bgColor: string
-  badge: string
-  highlights: string[]
-  href: string
-}
+export async function ProductLinesSection({ locale }: { locale: Locale }) {
+  const t = await getTranslations({ locale, namespace: 'home.products' })
+  const prefix = locale === 'hr' ? '' : `/${locale}`
 
-const productLines: ProductLine[] = [
-  {
-    slug: 'energetski-gelovi',
-    category: 'Energetski gelovi',
-    name: 'Energy Gel',
-    tagline: 'Brza energija. Bez maltodekstrina.',
-    rating: 4.9,
-    reviews: 128,
-    color: 'text-amber-700',
-    bgColor: 'bg-amber-50 border-amber-200',
-    badge: '24g UH · 0g sukraloze',
-    highlights: ['Med kao baza', 'Liofilizirano voće', 'Guarana + morska sol'],
-    href: '/proizvodi/energetski-gelovi',
-  },
-  {
-    slug: 'izotonicni-napitci',
-    category: 'Izotonični napitci',
-    name: 'Isotonic Drink',
-    tagline: 'Hidratacija i elektroliti bez kemije.',
-    rating: 4.8,
-    reviews: 84,
-    color: 'text-green-700',
-    bgColor: 'bg-green-50 border-green-200',
-    badge: '33 porcije · Prirodni okusi',
-    highlights: ['Med + glukoza', 'Natrij iz morske soli', 'Limun ili naranča'],
-    href: '/proizvodi/izotonicni-napitci',
-  },
-  {
-    slug: 'whey-proteini',
-    category: 'Whey proteini',
-    name: 'Whey Protein',
-    tagline: '91% proteina. Nema ničeg suvišnog.',
-    rating: 4.9,
-    reviews: 212,
-    color: 'text-terracotta',
-    bgColor: 'bg-orange-50 border-orange-200',
-    badge: '91% whey · Stevija · 0g sukraloze',
-    highlights: ['Med + stevija', 'Guma akacije', 'Desertni okusi'],
-    href: '/proizvodi/whey-proteini',
-  },
-]
+  const lines = [
+    {
+      key: 'gel',
+      href: '/proizvodi/energetski-gelovi',
+      image: '/images/hero/product-showcase-poster.jpg',
+      imageW: 1200,
+      imageH: 1200,
+      field: 'field-orange',
+      price: officialPriceEur('honey-bee-power-energy-gel-naranca'),
+      fit: 'object-cover',
+      span: 'md:col-span-4',
+    },
+    {
+      key: 'iso',
+      href: '/proizvodi/izotonicki-napitci',
+      image: '/images/products-web/isolimun-prednja.webp',
+      imageW: 1024,
+      imageH: 1600,
+      field: 'field-lemon',
+      price: officialPriceEur('honey-bee-power-izotonicki-napitak-limun'),
+      fit: 'object-contain p-[8%]',
+      span: 'md:col-span-4',
+    },
+    {
+      key: 'whey',
+      href: '/proizvodi/whey-proteini',
+      image: '/images/products-web/proteincokolada700g.webp',
+      imageW: 1080,
+      imageH: 1080,
+      field: 'bg-white',
+      price: officialPriceEur('honey-bee-power-whey-protein-ljesnjak-cokolada-700g'),
+      fit: 'object-contain',
+      span: 'md:col-span-4',
+    },
+  ] as const
 
-
-export default function ProductLinesSection() {
   return (
-    <section aria-labelledby="product-lines-heading" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-14">
-          <h2
-            id="product-lines-heading"
-            className="font-heading font-black text-4xl sm:text-5xl text-charcoal mb-4"
-          >
-            Tri linije. Jedan cilj.
-          </h2>
-          <p className="text-gray-500 text-lg max-w-xl mx-auto">
-            Energija, hidratacija i oporavak — sve iz prirodnih izvora.
-          </p>
-        </div>
+    <section aria-labelledby="proizvodi-title" className="frame section" id="proizvodi">
+      <div className="grid-12 items-end gap-y-8">
+        <h2 id="proizvodi-title" data-reveal className="t-head col-span-12 lg:col-span-8">
+          {t('title')}
+        </h2>
+      </div>
 
-        {/* Cards grid */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {productLines.map((p) => (
-            <article
-              key={p.slug}
-              className={`flex flex-col rounded-2xl border-2 p-6 ${p.bgColor} hover:shadow-lg transition-shadow`}
-              aria-label={p.name}
-            >
-              {/* Category + badge */}
-              <div className="flex items-start justify-between mb-4">
-                <span className={`text-xs font-bold uppercase tracking-widest ${p.color}`}>
-                  {p.category}
-                </span>
-                <span className="text-xs bg-white/80 text-gray-600 font-semibold px-2 py-0.5 rounded-full border border-gray-200">
-                  {p.badge}
-                </span>
+      <ol className="mt-12 grid gap-4 md:mt-16 md:grid-cols-12">
+        {lines.map((line) => (
+          <li key={line.key} data-reveal className={`card group flex flex-col ${line.span}`}>
+            <article className="flex h-full flex-col">
+              <div className={`relative aspect-square w-full overflow-hidden ${line.field}`}>
+                {line.key === 'gel' ? (
+                  <LoopVideo
+                    className="absolute! inset-0 h-full w-full"
+                    poster="/images/hero/product-showcase-poster.jpg"
+                    sources={[
+                      { src: '/videos/product-showcase.webm', type: 'video/webm' },
+                      { src: '/videos/product-showcase.mp4', type: 'video/mp4' },
+                    ]}
+                    label={t('videoLabel')}
+                    pauseLabel={t('videoPause')}
+                    playLabel={t('videoPlay')}
+                  />
+                ) : (
+                  <Image
+                    src={line.image}
+                    alt={t(`${line.key}.imageAlt`)}
+                    fill
+                    sizes="(min-width: 768px) 40vw, 100vw"
+                    className={`${line.fit} transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.04]`}
+                  />
+                )}
               </div>
-
-              {/* Name + tagline */}
-              <h3 className={`font-heading font-black text-2xl ${p.color} mb-1`}>{p.name}</h3>
-              <p className="text-gray-600 text-sm mb-4">{p.tagline}</p>
-
-              {/* Highlights */}
-              <ul className="space-y-1 mb-6 flex-1" role="list">
-                {p.highlights.map((h) => (
-                  <li key={h} className="flex items-center gap-2 text-sm text-gray-700">
-                    <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0" />
-                    {h}
-                  </li>
-                ))}
-              </ul>
-
-
-
-              {/* CTA */}
-              <div className="mt-auto">
-                <Link
-                  href={p.href}
-                  className={`inline-flex items-center justify-center gap-1.5 w-full px-4 py-2.5 bg-amber-500 hover:bg-amber-600 text-white text-sm font-bold rounded-xl transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2`}
-                  aria-label={`Pogledaj ${p.name}`}
-                >
-                  Pogledaj
-                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
-                </Link>
+              <div className="flex flex-col gap-6 p-6 md:p-8">
+                <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
+                  <div>
+                    <h3 className="font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-none tracking-[-0.04em]">
+                      {t(`${line.key}.name`)}
+                    </h3>
+                    <p className="mt-2 t-body text-muted">{t(`${line.key}.flavours`)}</p>
+                  </div>
+                  <p className="font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-black leading-[0.9] tracking-[-0.05em] text-[color:var(--color-honey)] tabular">
+                    {t(`${line.key}.figure`)}
+                  </p>
+                </div>
+                <p className="t-small text-muted -mt-3">{t(`${line.key}.figureNote`)}</p>
+                <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-t border-[color:var(--color-line)] pt-5">
+                  <p className="t-lead tabular font-semibold">
+                    {line.price !== null ? formatEur(line.price, locale) : <span className="todo">[UPIŠI: cijena]</span>}
+                    <span className="ml-2 t-body font-normal text-muted">{t(`${line.key}.priceNote`)}</span>
+                  </p>
+                  <Link href={`${prefix}${line.href}`} className="btn btn-ghost min-h-12">
+                    {t(`${line.key}.cta`)}
+                    <span className="btn-arrow" aria-hidden="true">→</span>
+                  </Link>
+                </div>
               </div>
             </article>
-          ))}
-        </div>
-
-        {/* All products CTA */}
-        <div className="text-center mt-10">
-          <Link
-            href="/proizvodi"
-            className="inline-flex items-center gap-2 text-amber-600 hover:text-amber-700 font-semibold text-base transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded"
-          >
-            Svi proizvodi
-            <ArrowRight className="w-4 h-4" aria-hidden="true" />
-          </Link>
-        </div>
-      </div>
+          </li>
+        ))}
+      </ol>
     </section>
   )
 }

@@ -1,74 +1,66 @@
 'use client'
 
-import React, { useState, useEffect, useCallback } from 'react'
-import { Cookie } from 'lucide-react'
+import { useCallback, useEffect, useState } from 'react'
+import Link from 'next/link'
+import { useLocale, useTranslations } from 'next-intl'
 
-export const CONSENT_KEY = 'hbp_cookie_consent'
+import { CONSENT_KEY } from '@/lib/consent'
+
+export { CONSENT_KEY }
 export const OPEN_COOKIE_SETTINGS_EVENT = 'open_cookie_settings'
 
+/**
+ * Privola za kolačiće. Traka se renderira na poslužitelju na vrhu stranice,
+ * u toku sadržaja, pa ništa ne prekriva i ne skače. Analitika se učitava tek
+ * nakon „Prihvati sve”.
+ */
 export function ConsentBanner() {
-  const [showBanner, setShowBanner] = useState(false)
+  const t = useTranslations('consent')
+  const locale = useLocale()
+  const prefix = locale === 'hr' ? '' : `/${locale}`
+  const [hidden, setHidden] = useState(false)
 
   useEffect(() => {
-    const consent = localStorage.getItem(CONSENT_KEY)
-    if (consent === null) {
-      setShowBanner(true)
+    const reopen = () => {
+      document.documentElement.classList.remove('consent-done')
+      setHidden(false)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
-
-    const handleReopen = () => setShowBanner(true)
-    window.addEventListener(OPEN_COOKIE_SETTINGS_EVENT, handleReopen)
-    return () => window.removeEventListener(OPEN_COOKIE_SETTINGS_EVENT, handleReopen)
+    window.addEventListener(OPEN_COOKIE_SETTINGS_EVENT, reopen)
+    return () => window.removeEventListener(OPEN_COOKIE_SETTINGS_EVENT, reopen)
   }, [])
 
-  const handleAccept = useCallback(() => {
-    localStorage.setItem(CONSENT_KEY, 'granted')
-    setShowBanner(false)
+  const decide = useCallback((value: 'granted' | 'denied') => {
+    try {
+      localStorage.setItem(CONSENT_KEY, value)
+    } catch {
+      /* privatni način: odluka vrijedi do zatvaranja kartice */
+    }
+    document.documentElement.classList.add('consent-done')
+    setHidden(true)
     window.dispatchEvent(new Event('consent_updated'))
   }, [])
 
-  const handleDecline = useCallback(() => {
-    localStorage.setItem(CONSENT_KEY, 'denied')
-    setShowBanner(false)
-    window.dispatchEvent(new Event('consent_updated'))
-  }, [])
-
-  if (!showBanner) return null
+  if (hidden) return null
 
   return (
-    <div
-      role="region"
-      aria-label="Postavke kolačića"
-      className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 z-[60] max-w-md bg-slate-900 text-white rounded-3xl p-6 shadow-2xl border border-amber-500/20"
-    >
-      <div className="flex items-start gap-3">
-        <span className="text-2xl shrink-0" aria-hidden="true">🍯</span>
-        <div className="space-y-2">
-          <h3 className="font-heading font-black text-base uppercase tracking-wide flex items-center gap-1.5">
-            <Cookie className="w-4 h-4 text-amber-400" aria-hidden="true" />
-            Kolačići u igri
-          </h3>
-          <p className="text-xs text-gray-300 leading-relaxed">
-            Koristimo kolačiće da stranica radi kako treba i da vidimo što vam se sviđa. Birate vi — sve, ili samo ono nužno za rad stranice.
-          </p>
+    <section aria-label={t('label')} className="consent-bar on-ink">
+      <div className="frame flex flex-col gap-4 py-4 md:flex-row md:items-center md:justify-between md:gap-8">
+        <p className="t-body measure">
+          {t('text')}{' '}
+          <Link href={`${prefix}/politika-privatnosti`} className="link">
+            {t('more')}
+          </Link>
+        </p>
+        <div className="flex shrink-0 gap-2">
+          <button type="button" onClick={() => decide('denied')} className="btn btn-ghost min-h-11 px-4">
+            {t('necessary')}
+          </button>
+          <button type="button" onClick={() => decide('granted')} className="btn btn-honey min-h-11 px-4">
+            {t('acceptAll')}
+          </button>
         </div>
       </div>
-
-      <div className="grid grid-cols-2 gap-3 mt-5 pt-4 border-t border-white/10">
-        <button
-          type="button"
-          onClick={handleDecline}
-          className="w-full rounded-xl border border-white/20 text-white font-bold text-xs px-4 py-2.5 hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
-        >
-          Samo nužni
-        </button>
-        <button
-          type="button"
-          onClick={handleAccept}
-          className="w-full rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs px-4 py-2.5 shadow transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
-        >
-          Prihvati sve
-        </button>
-      </div>
-    </div>
+    </section>
   )
 }

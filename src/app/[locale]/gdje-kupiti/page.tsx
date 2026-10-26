@@ -7,19 +7,19 @@ import { JsonLd } from '@/components/seo/JsonLd'
 import WhereToBuyClient from './WhereToBuyClient'
 
 const TITLES: Record<Locale, string> = {
-  hr: 'Gdje Kupiti Honey Bee Power',
-  en: 'Where to Buy Honey Bee Power',
-  de: 'Wo gibt es Honey Bee Power zu kaufen',
-  sl: 'Kje Kupiti Honey Bee Power',
-  pl: 'Gdzie Kupić Honey Bee Power',
+  hr: 'Gdje kupiti Honey Bee Power u Hrvatskoj',
+  en: 'Where to buy Honey Bee Power in Croatia',
+  de: 'Wo man Honey Bee Power in Kroatien kauft',
+  sl: 'Kje kupiti Honey Bee Power na Hrvaškem',
+  pl: 'Gdzie kupić Honey Bee Power w Chorwacji',
 }
 
 const DESCRIPTIONS: Record<Locale, string> = {
-  hr: 'Pronađite Honey Bee Power proizvode — sjedište i prodajno mjesto u Našicama, Krndijska ulica 4. Za veleprodaju i partnerstva kontaktirajte nas izravno.',
-  en: 'Find Honey Bee Power — our store and headquarters in Našice, Croatia (Krndijska ulica 4). Contact us directly for wholesale and retail partnerships.',
-  de: 'Finden Sie Honey Bee Power — unser Geschäft und Hauptsitz in Našice, Kroatien (Krndijska ulica 4). Kontaktieren Sie uns für Großhandel und Partnerschaften.',
-  sl: 'Poiščite Honey Bee Power — naša trgovina in sedež v Našicah, Hrvaška (Krndijska ulica 4). Za veleprodajo in partnerstva nas kontaktirajte neposredno.',
-  pl: 'Znajdź Honey Bee Power — nasz sklep i siedziba w Našicach, Chorwacja (Krndijska ulica 4). W sprawie hurtu i partnerstw skontaktuj się z nami bezpośrednio.',
+  hr: 'Honey Bee Power u Hrvatskoj naručuješ izravno od distributera Planet Bio iz Našica: upit na stranici, WhatsAppom ili e-mailom, dostava 1–3 radna dana.',
+  en: 'In Croatia you order Honey Bee Power directly from the distributor Planet Bio in Našice: enquiry on the site, by WhatsApp or e-mail, shipping in 1–3 working days.',
+  de: 'In Kroatien bestellst du Honey Bee Power direkt beim Vertriebspartner Planet Bio in Našice: Anfrage, WhatsApp oder E-Mail, Versand in 1–3 Werktagen.',
+  sl: 'Na Hrvaškem Honey Bee Power naročiš neposredno pri distributerju Planet Bio iz Našic: povpraševanje, WhatsApp ali e-pošta, dostava v 1–3 delovnih dneh.',
+  pl: 'W Chorwacji zamawiasz Honey Bee Power bezpośrednio u dystrybutora Planet Bio z Našic: zapytanie, WhatsApp lub e-mail, dostawa w 1–3 dni robocze.',
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
@@ -36,8 +36,8 @@ export default async function WhereToBuyPage({ params }: { params: Promise<{ loc
   const { locale } = await params
   const storeSchema = buildStoreSchema(SITE_URL)
   const breadcrumbSchema = buildBreadcrumbSchema([
-    { name: 'Početna', url: localeUrl(locale, '/') },
-    { name: 'Gdje kupiti', url: localeUrl(locale, '/gdje-kupiti') },
+    { name: 'Honey Bee Power', url: localeUrl(locale, '/') },
+    { name: TITLES[locale] ?? TITLES.hr, url: localeUrl(locale, '/gdje-kupiti') },
   ])
 
   return (

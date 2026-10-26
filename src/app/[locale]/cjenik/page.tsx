@@ -6,11 +6,11 @@ import { JsonLd } from '@/components/seo/JsonLd'
 import { CjenikClient } from './CjenikClient'
 
 const TITLES: Record<Locale, string> = {
-  hr: 'Službeni Digitalni Cjenik | Planet Bio',
-  en: 'Official Digital Price List | Planet Bio',
-  de: 'Offizielle Digitale Preisliste | Planet Bio',
-  sl: 'Uradni Digitalni Cenik | Planet Bio',
-  pl: 'Oficjalny Cyfrowy Cennik | Planet Bio',
+  hr: 'Službeni digitalni cjenik Honey Bee Power',
+  en: 'Official digital price list, Honey Bee Power',
+  de: 'Offizielle digitale Preisliste, Honey Bee Power',
+  sl: 'Uradni digitalni cenik, Honey Bee Power',
+  pl: 'Oficjalny cennik cyfrowy, Honey Bee Power',
 }
 
 const DESCRIPTIONS: Record<Locale, string> = {
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 export default async function CjenikPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params
   const breadcrumbSchema = buildBreadcrumbSchema([
-    { name: 'Početna', url: localeUrl(locale, '/') },
+    { name: 'Honey Bee Power', url: localeUrl(locale, '/') },
     { name: 'Službeni cjenik', url: localeUrl(locale, '/cjenik') },
   ])
 

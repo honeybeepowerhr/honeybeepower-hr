@@ -7,14 +7,13 @@ import { absoluteUrl } from './site'
 
 /**
  * Builds a schema.org Product JSON-LD object for a given product and locale.
- *
- * No `offers`/price here on purpose — the site no longer shows a fixed
- * price to customers (request-a-quote model), and Google penalises
- * structured data that promises a price the page doesn't display.
+ * Offer se dodaje samo kad proizvod ima cijenu u službenom cjeniku (ista
+ * cijena kao na stranici). Bez AggregateRating i Review.
  */
 export function buildProductSchema(
   product: ProductSummary,
   locale: Locale,
+  opts: { priceEur?: number | null; url?: string } = {},
 ): Record<string, unknown> {
   const firstVariant = product.variants[0]
 
@@ -47,20 +46,17 @@ export function buildProductSchema(
     schema.gtin = firstVariant.gtin
   }
 
-  // Aggregate rating — only when there are reviews
-  if (
-    typeof product.reviewCount === 'number' &&
-    product.reviewCount > 0 &&
-    typeof product.averageRating === 'number'
-  ) {
-    schema.aggregateRating = {
-      '@type': 'AggregateRating',
-      ratingValue: product.averageRating.toFixed(1),
-      reviewCount: product.reviewCount,
-      bestRating: '5',
-      worstRating: '1',
+  if (typeof opts.priceEur === 'number') {
+    schema.offers = {
+      '@type': 'Offer',
+      price: opts.priceEur.toFixed(2),
+      priceCurrency: 'EUR',
+      ...(opts.url ? { url: opts.url } : {}),
+      seller: { '@type': 'Organization', name: 'Planet Bio' },
     }
   }
+
+  // Bez AggregateRating i Review dok ne postoje provjerene recenzije stvarnih kupaca.
 
   return schema
 }
@@ -122,7 +118,7 @@ export function buildBreadcrumbSchema(
 // ---------------------------------------------------------------------------
 
 /**
- * Builds a schema.org Organization JSON-LD object for Planet Bio d.o.o.
+ * Builds a schema.org Organization JSON-LD object for Planet Bio (obrt).
  * Carries a stable `@id` so other schemas (WebSite, Product, Article, Store)
  * can reference this same entity instead of repeating its fields.
  */
@@ -134,7 +130,7 @@ export function buildOrganizationSchema(
     '@type': 'Organization',
     '@id': `${siteUrl}/#organization`,
     name: 'Honey Bee Power',
-    legalName: 'Planet Bio d.o.o.',
+    legalName: 'Planet Bio, obrt za usluge, vl. Srđan Rebić',
     url: siteUrl,
     logo: `${siteUrl}/images/logo.png`,
     brand: {
@@ -199,15 +195,14 @@ export function buildWebsiteSchema(siteUrl: string): Record<string, unknown> {
 export function buildStoreSchema(siteUrl: string): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
-    '@type': 'Store',
+    '@type': 'LocalBusiness',
     '@id': `${siteUrl}/#store-nasice`,
-    name: 'Honey Bee Power — Planet Bio d.o.o.',
+    name: 'Planet Bio, distributer Honey Bee Power',
     parentOrganization: { '@id': `${siteUrl}/#organization` },
     image: `${siteUrl}/images/logo.png`,
     url: `${siteUrl}/gdje-kupiti`,
     telephone: '+385-977-097-962',
     email: 'info@planetbio.hr',
-    priceRange: '€€',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Krndijska ulica 4',

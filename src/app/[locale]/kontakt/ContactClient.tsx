@@ -1,116 +1,66 @@
-'use client'
-
-import React from 'react'
-import { Mail, Phone, MapPin, Clock } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import ContactForm from '@/components/contact/ContactForm'
-import { PresentationDownload } from '@/components/common/PresentationDownload'
-import { WhatsAppIcon, FacebookIcon, InstagramIcon, TikTokIcon } from '@/components/ui/SocialIcons'
+import { SectionMotion } from '@/components/site/SectionMotion'
+import { LEGAL_ENTITY } from '@/lib/cjenik-data'
 
-const SOCIAL_LINKS = [
-  {
-    key: 'whatsapp',
-    href: 'https://wa.me/385977097962',
-    icon: WhatsAppIcon,
-    label: '+385 97 709 7962',
-  },
-  {
-    key: 'facebook',
-    href: 'https://www.facebook.com/profile.php?id=61556227986574',
-    icon: FacebookIcon,
-    label: 'Honey Bee Power',
-  },
-  {
-    key: 'instagram',
-    href: 'https://www.instagram.com/planet__bio/',
-    icon: InstagramIcon,
-    label: '@planet__bio',
-  },
-  {
-    key: 'tiktok',
-    href: 'https://www.tiktok.com/@honeybeepowerhrvatska',
-    icon: TikTokIcon,
-    label: '@honeybeepowerhrvatska',
-  },
-]
+const MAP_QUERY = encodeURIComponent('Krndijska 4, 31500 Našice, Hrvatska')
 
+/** Kontakt: telefon i e-mail kao glavni elementi, obrazac i adresa skladišta. */
 export default function ContactClient() {
   const t = useTranslations('contactPage')
 
   return (
-    <div className="py-12 md:py-16">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <div className="text-center mb-12">
-          <span className="text-amber-600 font-bold text-sm uppercase tracking-wider">{t('badge')}</span>
-          <h1 className="text-4xl font-black text-gray-900 mt-1">{t('title')}</h1>
-          <p className="text-gray-600 mt-2">{t('subtitle')}</p>
+    <>
+      <SectionMotion />
+      <section className="frame pb-14 pt-10" aria-labelledby="kontakt-title">
+        <h1 id="kontakt-title" className="t-display">{t('title')}</h1>
+        <p className="mt-6 t-lead measure">{t('subtitle')}</p>
+      </section>
+
+      <section className="on-ink" aria-label={t('phoneTitle')}>
+        <div className="frame py-14 md:py-20">
+          <a href="tel:+385977097962" className="block whitespace-nowrap font-[family-name:var(--font-display)] text-[length:min(11vw,var(--text-display))] font-black leading-[0.9] tracking-[-0.035em] hover:underline decoration-[0.06em]">
+            +385 97 709 7962
+          </a>
+          <a href="mailto:info@planetbio.hr" className="mt-4 block font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold hover:underline">
+            info@planetbio.hr
+          </a>
+          <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 t-body">
+            <li><a className="link" href="https://wa.me/385977097962" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+            <li><a className="link" href="https://www.instagram.com/planet__bio/" target="_blank" rel="noopener noreferrer">Instagram @planet__bio</a></li>
+            <li><a className="link" href="https://www.tiktok.com/@honeybeepowerhrvatska" target="_blank" rel="noopener noreferrer">TikTok @honeybeepowerhrvatska</a></li>
+            <li><a className="link" href="https://www.facebook.com/profile.php?id=61556227986574" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+          </ul>
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-amber-50/50 p-8 rounded-3xl border border-amber-200 space-y-6">
-            <h2 className="text-xl font-bold text-gray-900">Planet Bio d.o.o.</h2>
-
-            <div className="space-y-4 text-sm text-gray-700">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
-                <div>
-                  <strong>{t('addressTitle')}:</strong><br />
-                  Krndijska ulica 4, 31500 Našice, Hrvatska
-                </div>
+      <section className="frame section" aria-labelledby="poruka-title">
+        <div className="grid-12 gap-y-12">
+          <div data-reveal className="col-span-12 space-y-8 lg:col-span-4">
+            <h2 id="poruka-title" className="t-head">{t('formTitle')}</h2>
+            <dl className="space-y-5 t-body">
+              <div>
+                <dt className="t-small">{t('addressTitle')}</dt>
+                <dd className="mt-1 font-medium">{LEGAL_ENTITY.nazivTvrtke}<br />{LEGAL_ENTITY.adresa}, {LEGAL_ENTITY.postanskiBroj} {LEGAL_ENTITY.grad}</dd>
               </div>
-
-              <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-amber-600 flex-shrink-0" />
-                <div>
-                  <strong>{t('phoneTitle')}:</strong><br />
-                  <a href="tel:+385977097962" className="hover:underline text-amber-900">+385 977 097 962</a>
-                </div>
+              <div>
+                <dt className="t-small">{t('hoursTitle')}</dt>
+                <dd className="mt-1 font-medium">{t('hours')}</dd>
               </div>
-
-              <div className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
-                <div>
-                  <strong>{t('emailTitle')}:</strong><br />
-                  <a href="mailto:info@planetbio.hr" className="hover:underline text-amber-900">info@planetbio.hr</a>
-                  <br />
-                  <a href="mailto:srdanrebic2101@gmail.com" className="hover:underline text-amber-900">srdanrebic2101@gmail.com</a>
-                  <span className="block text-xs text-gray-500">{t('emailB2BNote')}</span>
-                </div>
+              <div>
+                <dt className="t-small">{t('mapTitle')}</dt>
+                <dd className="mt-1 flex flex-wrap gap-x-4">
+                  <a className="link" href={`https://www.openstreetmap.org/search?query=${MAP_QUERY}`} target="_blank" rel="noopener noreferrer">OpenStreetMap</a>
+                  <a className="link" href={`https://www.google.com/maps/search/?api=1&query=${MAP_QUERY}`} target="_blank" rel="noopener noreferrer">Google Maps</a>
+                </dd>
               </div>
-
-              <div className="flex items-center gap-3">
-                <Clock className="w-5 h-5 text-amber-600 flex-shrink-0" />
-                <div>
-                  <strong>{t('hoursTitle')}:</strong><br />
-                  Pon - Pet: 08:00 - 16:00h
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-6 border-t border-amber-200/70">
-              <strong className="text-sm text-gray-900">{t('socialTitle')}</strong>
-              <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {SOCIAL_LINKS.map(({ key, href, icon: Icon, label }) => (
-                  <a
-                    key={key}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white border border-amber-200 text-sm font-semibold text-gray-700 hover:text-amber-700 hover:border-amber-400 transition-colors"
-                  >
-                    <Icon className="w-4 h-4 text-amber-600 flex-shrink-0" />
-                    <span className="truncate">{label}</span>
-                  </a>
-                ))}
-              </div>
-            </div>
+            </dl>
           </div>
-
-          <ContactForm />
+          <div data-reveal className="col-span-12 lg:col-span-7 lg:col-start-6">
+            <ContactForm />
+          </div>
         </div>
-
-        <PresentationDownload className="mt-8" />
-      </div>
-    </div>
+      </section>
+    </>
   )
 }

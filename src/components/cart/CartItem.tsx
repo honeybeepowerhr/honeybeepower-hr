@@ -2,94 +2,58 @@
 
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
-import type { CartItem as CartItemType } from '@/types'
+import type { CartItem as CartItemType, Locale } from '@/types'
+import { formatEur } from '@/lib/prices'
 
 interface CartItemProps {
   item: CartItemType
+  locale: Locale
   onRemove: () => void
   onUpdateQuantity: (qty: number) => void
 }
 
-export function CartItem({ item, onRemove, onUpdateQuantity }: CartItemProps) {
+export function CartItem({ item, locale, onRemove, onUpdateQuantity }: CartItemProps) {
   const t = useTranslations('cart')
+  const name = item.name.replace(/^Honey Bee Power\s+/, '')
 
   return (
-    <li className="flex gap-3 py-4 border-b border-border last:border-0 items-center">
-      {/* Product image */}
-      <div className="relative h-16 w-16 flex-shrink-0 overflow-hidden rounded-xl bg-amber-50/80 border border-amber-200">
+    <li className="row-in grid grid-cols-[4.5rem_1fr] gap-4 bg-surface p-3">
+      <div className="relative h-[4.5rem] w-[4.5rem] bg-white">
         {item.imageSrc ? (
-          <Image
-            src={item.imageSrc}
-            alt={item.name}
-            fill
-            className="object-contain p-1"
-            sizes="64px"
-          />
-        ) : (
-          <div className="flex h-full w-full items-center justify-center text-muted-foreground text-xs">
-            {t('noImage')}
-          </div>
-        )}
+          <Image src={item.imageSrc} alt="" fill sizes="72px" className="object-contain p-1" />
+        ) : null}
       </div>
-
-      {/* Product info */}
-      <div className="flex flex-1 flex-col gap-1 min-w-0">
-        <p className="text-sm font-bold text-gray-900 leading-tight truncate">{item.name}</p>
-        {item.variantLabel && (
-          <p className="text-xs text-amber-700 font-semibold">{item.variantLabel}</p>
-        )}
-
-        {/* Quantity controls + remove */}
-        <div className="flex items-center justify-between mt-1">
-          <div className="flex items-center gap-1.5 bg-gray-100 rounded-lg p-0.5">
+      <div className="min-w-0">
+        <p className="t-body font-medium leading-tight">{name}</p>
+        <p className="t-small">{item.variantLabel}</p>
+        <div className="mt-2 flex items-center justify-between gap-3">
+          <div className="flex items-center" role="group" aria-label={t('quantityFor', { name })}>
             <button
               type="button"
               onClick={() => onUpdateQuantity(item.quantity - 1)}
-              className="flex h-6 w-6 items-center justify-center rounded-md bg-white border border-gray-200 text-sm font-bold hover:bg-amber-100 transition-colors disabled:opacity-40"
               disabled={item.quantity <= 1}
-              aria-label={`Smanji količinu za ${item.name}`}
+              aria-label={t('decrease', { name })}
+              className="grid h-10 w-10 place-items-center text-xl rounded-full shadow-[inset_0_0_0_1.5px_var(--color-line)] transition-transform active:scale-95 disabled:opacity-40"
             >
               −
             </button>
-            <span className="min-w-[1.5rem] text-center text-sm font-extrabold text-gray-900">
-              {item.quantity}
+            <span className="min-w-10 text-center t-body font-medium tabular" aria-live="polite">
+              <span key={item.quantity} className="number-pop">{item.quantity}</span>
             </span>
             <button
               type="button"
               onClick={() => onUpdateQuantity(item.quantity + 1)}
-              className="flex h-6 w-6 items-center justify-center rounded-md bg-white border border-gray-200 text-sm font-bold hover:bg-amber-100 transition-colors"
-              aria-label={`Povećaj količinu za ${item.name}`}
+              aria-label={t('increase', { name })}
+              className="grid h-10 w-10 place-items-center text-xl rounded-full shadow-[inset_0_0_0_1.5px_var(--color-line)] transition-transform active:scale-95"
             >
               +
             </button>
           </div>
-
-          <div className="flex items-center gap-3">
-            <button
-              type="button"
-              onClick={onRemove}
-              className="text-gray-400 hover:text-red-600 transition-colors p-1"
-              aria-label={`${t('remove')} ${item.name}`}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M3 6h18" />
-                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
-                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
-              </svg>
-            </button>
-          </div>
+          <span className="t-body tabular">{item.unitPrice > 0 ? formatEur((item.unitPrice * item.quantity) / 100, locale) : t('priceOnEnquiry')}</span>
         </div>
+        <button type="button" onClick={onRemove} className="link mt-2 t-small" aria-label={`${t('remove')}: ${name}`}>
+          {t('remove')}
+        </button>
       </div>
     </li>
   )
