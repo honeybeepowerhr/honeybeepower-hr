@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { getTranslations } from 'next-intl/server'
 import type { Locale } from '@/types'
 import { GEL_DECLARATIONS, GEL_WARNING, formatNumber } from '@/lib/declarations'
+import { SHARES } from '@/lib/gel-shares'
 
 /** Riječ i sličica ostaju u istom retku, s interpunkcijom iza sličice. */
 function Thumb({ word, src, position = '50% 50%', after = '' }: { word: React.ReactNode; src: string; position?: string; after?: string }) {
@@ -14,27 +15,6 @@ function Thumb({ word, src, position = '50% 50%', after = '' }: { word: React.Re
       {after}
     </span>
   )
-}
-
-/** Udjeli sastojaka s deklaracije, po okusu (zbroj je 100 %). */
-const SHARES: Record<string, Array<{ key: 'honey' | 'fruit' | 'guarana' | 'salt'; pct: number }>> = {
-  'honey-bee-power-energy-gel-naranca': [
-    { key: 'honey', pct: 95.5 },
-    { key: 'fruit', pct: 3 },
-    { key: 'guarana', pct: 1 },
-    { key: 'salt', pct: 0.5 },
-  ],
-  'honey-bee-power-energy-gel-limun': [
-    { key: 'honey', pct: 94.5 },
-    { key: 'fruit', pct: 4 },
-    { key: 'guarana', pct: 1 },
-    { key: 'salt', pct: 0.5 },
-  ],
-  'honey-bee-power-energy-gel-malina': [
-    { key: 'honey', pct: 91 },
-    { key: 'fruit', pct: 8 },
-    { key: 'guarana', pct: 1 },
-  ],
 }
 
 const SEGMENT_BG: Record<string, string> = {

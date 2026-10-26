@@ -763,6 +763,10 @@
     "empty": "Für diese Auswahl gibt es keine Produkte.",
     "reset": "Alle anzeigen",
     "countNote": "Preise laut offizieller Preisliste, Kauf per Anfrage",
-    "priceOnEnquiry": "Preis auf Anfrage"
+    "priceOnEnquiry": "Preis auf Anfrage",
+    "zoomHint": "Mit der Maus vergrößern, klicken für das ganze Etikett",
+    "zoomOpen": "Etikett in voller Größe öffnen",
+    "zoomClose": "Schließen",
+    "compositionLabel": "Zusammensetzung nach Anteil"
   }
 }

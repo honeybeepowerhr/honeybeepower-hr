@@ -763,6 +763,10 @@
     "empty": "Za ta izbor ni izdelkov.",
     "reset": "Pokaži vse",
     "countNote": "cene iz uradnega cenika, nakup s povpraševanjem",
-    "priceOnEnquiry": "Cena na zahtevo"
+    "priceOnEnquiry": "Cena na zahtevo",
+    "zoomHint": "Z miško povečaj, klikni za celotno deklaracijo",
+    "zoomOpen": "Odpri deklaracijo v polni velikosti",
+    "zoomClose": "Zapri",
+    "compositionLabel": "Sestava po deležu"
   }
 }

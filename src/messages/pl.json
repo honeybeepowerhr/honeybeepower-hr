@@ -762,6 +762,10 @@
     "empty": "Brak produktów dla tego wyboru.",
     "reset": "Pokaż wszystkie",
     "countNote": "ceny z oficjalnego cennika, zakup przez zapytanie",
-    "priceOnEnquiry": "Cena na zapytanie"
+    "priceOnEnquiry": "Cena na zapytanie",
+    "zoomHint": "Najedź myszą, aby powiększyć, kliknij, aby zobaczyć całą etykietę",
+    "zoomOpen": "Otwórz etykietę w pełnym rozmiarze",
+    "zoomClose": "Zamknij",
+    "compositionLabel": "Skład według udziału"
   }
 }

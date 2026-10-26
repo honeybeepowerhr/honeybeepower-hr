@@ -762,6 +762,10 @@
     "empty": "Za ovaj odabir nema proizvoda.",
     "reset": "Prikaži sve",
     "countNote": "cijene iz službenog cjenika, kupnja na upit",
-    "priceOnEnquiry": "Cijena na upit"
+    "priceOnEnquiry": "Cijena na upit",
+    "zoomHint": "Pređi mišem za povećalo, klikni za cijelu deklaraciju",
+    "zoomOpen": "Otvori deklaraciju u punoj veličini",
+    "zoomClose": "Zatvori",
+    "compositionLabel": "Sastav po udjelu"
   }
 }

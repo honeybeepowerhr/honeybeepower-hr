@@ -27,6 +27,12 @@ import { KIND_LABEL, PACK_TEXT, PRODUCT_FAQ, SPORTS, SPORTS_BY_KIND, kindForCate
 import { officialPriceFor } from '@/lib/prices'
 import { FaqList } from '@/components/site/FaqList'
 import ProductAddToCartButton from '@/app/[locale]/proizvodi/[slug]/ProductAddToCartButton'
+import ProductStage, { type StageOrb } from '@/components/product/ProductStage'
+import ProductStickyBuy from '@/components/product/ProductStickyBuy'
+import { CompositionDonut } from '@/components/product/CompositionDonut'
+import LabelZoom from '@/components/product/LabelZoom'
+import { SHARES } from '@/lib/gel-shares'
+import { IMAGE_RATIOS } from '@/lib/image-ratios'
 
 /** Za svaki slučaj uklanja ostatke oznaka za nedostajuće podatke iz teksta. */
 function withTodo(text: string) {
@@ -37,6 +43,7 @@ const flavourOf = (p: ProductSummary) => p.variants[0]?.flavour ?? ''
 
 export async function ProductDetail({ product, locale }: { product: ProductSummary; locale: Locale }) {
   const t = await getTranslations({ locale, namespace: 'productPage' })
+  const tIng = await getTranslations({ locale, namespace: 'home.ingredients' })
   const prefix = locale === 'hr' ? '' : `/${locale}`
   const kind = kindForCategory(product.category)
   const decl = getDeclaration(product.slug)
@@ -63,6 +70,21 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
   const fieldInk = inkOn(field)
   const front = webImage(product.mainImage.asset._ref)
   const back = decl?.backImage ?? null
+  const ratio = IMAGE_RATIOS[front] ?? (kind === 'gel' ? 0.497 : 1)
+  const flavourWord = decl ? decl.flavour[locale] : flavourOf(product)
+  const shares = kind === 'gel' ? SHARES[isPack ? singleSlugFor(product.slug) : product.slug] : undefined
+
+  // Sastojci koji lebde oko gela (fotografije sastojaka; svaki okus ima svoje voće, malina je bez soli).
+  const fruitPhoto: Record<string, string> = { limun: '/images/found/limun.jpg', naranca: '/images/found/naranca.jpg', malina: '/images/found/malina.jpg' }
+  const fruitKey = Object.keys(fruitPhoto).find((k) => product.slug.includes(k))
+  const orbs: StageOrb[] = shares
+    ? [
+        { src: '/images/found/med-zlica.jpg', label: tIng('part.honey'), x: 15, y: 24, depth: 54, size: 96, delay: 700 },
+        ...(fruitKey ? [{ src: fruitPhoto[fruitKey], label: tIng('part.fruit'), x: 85, y: 30, depth: 40, size: 86, delay: 850 }] : []),
+        { src: '/images/found/guarana.jpg', label: tIng('part.guarana'), x: 21, y: 72, depth: 64, size: 80, delay: 1000 },
+        ...(shares.some((x) => x.key === 'salt') ? [{ src: '/images/found/sol.jpg', label: tIng('part.salt'), x: 87, y: 76, depth: 46, size: 72, delay: 1150 }] : []),
+      ]
+    : []
 
   // Ostali okusi i pakiranja iste vrste.
   const siblings = REAL_PRODUCTS.filter((p) => p.category === product.category && p.slug !== product.slug)
@@ -146,14 +168,14 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
 
           {figure && (
             <div>
-              <p className="font-[family-name:var(--font-display)] text-[length:var(--text-mega)] font-black leading-[1.02] tracking-[-0.02em] tabular">
+              <p className="foil-text font-[family-name:var(--font-display)] text-[length:var(--text-mega)] font-black leading-[1.02] tracking-[-0.02em] tabular">
                 {figure.value}
               </p>
               <p className="mt-3 t-lead">{figure.label}</p>
             </div>
           )}
 
-          <div className="space-y-6">
+          <div className="space-y-6" id="buy-box">
             {price !== null ? (
               <div className="flex flex-wrap items-baseline gap-x-3">
                 <p className="font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold tabular">{formatEur(price, locale)}</p>
@@ -173,19 +195,15 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
           </div>
         </div>
 
-        <div
-          className="relative col-span-12 flex min-h-[70svh] items-center justify-center overflow-hidden md:col-span-6 md:min-h-[calc(100svh-var(--header-h))]"
-          style={{ background: field, color: fieldInk }}
-        >
-          <Image
+        <div className="col-span-12 md:col-span-6">
+          <ProductStage
             src={front}
             alt={t('frontAlt', { name: shortName })}
-            width={800}
-            height={1600}
-            priority
-            sizes="(min-width: 768px) 40vw, 80vw"
-            className="h-[62svh] w-auto object-contain md:h-[78svh]"
-            data-product-image
+            ratio={ratio}
+            field={field}
+            ink={fieldInk}
+            word={flavourWord}
+            orbs={orbs}
           />
         </div>
       </section>
@@ -234,7 +252,21 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
                 {decl.ingredients[locale]}
               </p>
             )}
-            {kind === 'gel' && <p className="mt-4 t-body">{GEL_CAFFEINE_SOURCE[locale]}</p>}
+            {shares && decl && (
+              <div className="mt-10">
+                <CompositionDonut
+                  shares={shares}
+                  fruitColor={decl.flavourColor}
+                  labels={{ honey: tIng('part.honey'), fruit: tIng('part.fruit'), guarana: tIng('part.guarana'), salt: tIng('part.salt') }}
+                  fruitLabel={tIng('fruitOf', { fruit: decl.flavour[locale].toLowerCase() })}
+                  centerValue={`${formatNumber(shares[0].pct, locale)} %`}
+                  centerLabel={tIng('part.honey')}
+                  ariaLabel={t('compositionLabel')}
+                  formatPct={(n) => `${formatNumber(n, locale)} %`}
+                />
+              </div>
+            )}
+            {kind === 'gel' && <p className="mt-6 t-body">{GEL_CAFFEINE_SOURCE[locale]}</p>}
             {decl?.allergens && (
               <p className="mt-6 t-body">
                 <strong className="font-medium">{t('allergensTitle')}:</strong> {decl.allergens[locale]}
@@ -271,17 +303,9 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
           </div>
 
           {back && (
-            <figure className="col-span-12 sm:col-span-8 sm:col-start-3 lg:col-span-4 lg:col-start-9">
-              <div className="relative aspect-[1/2] w-full bg-surface">
-                <Image
-                  src={back}
-                  alt={t('backAlt', { name: shortName })}
-                  fill
-                  sizes="(min-width: 1024px) 30vw, 70vw"
-                  className="object-contain p-4"
-                />
-              </div>
-            </figure>
+            <div className="col-span-12 sm:col-span-8 sm:col-start-3 lg:col-span-4 lg:col-start-9">
+              <LabelZoom src={back} alt={t('backAlt', { name: shortName })} hint={t('zoomHint')} openLabel={t('zoomOpen')} closeLabel={t('zoomClose')} />
+            </div>
           )}
         </div>
       </section>
@@ -331,14 +355,12 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
       <section className="field-surface" aria-labelledby="sport-title">
         <div className="frame py-20 md:py-28">
           <h2 id="sport-title" className="t-head">{t('sportsTitle')}</h2>
-          <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-2">
+          <ul className="mt-10 flex flex-wrap gap-3">
             {SPORTS.filter((s) => SPORTS_BY_KIND[kind].includes(s.slug)).map((s) => (
               <li key={s.slug}>
-                <Link
-                  href={`${prefix}/sport/${s.slug}`}
-                  className="font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold underline decoration-[0.06em] underline-offset-[0.14em] hover:decoration-honey"
-                >
+                <Link href={`${prefix}/sport/${s.slug}`} className="sport-pill">
                   {s.name[locale]}
+                  <span aria-hidden="true">→</span>
                 </Link>
               </li>
             ))}
@@ -360,8 +382,8 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
             const pr = officialPriceEur(p.slug)
             return (
               <li key={p.slug}>
-                <Link href={`${prefix}/proizvodi/${p.slug}`} className="group block">
-                  <div className="relative aspect-[4/5] overflow-hidden" style={{ background: photoFieldFor(d) }}>
+                <Link href={`${prefix}/proizvodi/${p.slug}`} data-tilt="5" className="group block">
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius)] shadow-[0_24px_50px_-24px_rgb(0_0_0/0.8)]" style={{ background: photoFieldFor(d) }}>
                     <Image
                       src={webImage(p.mainImage.asset._ref)}
                       alt=""
@@ -379,6 +401,17 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
         </ul>
         <p className="mt-16 t-small">{t('madeBy', { maker: `${MANUFACTURER.name}, ${MANUFACTURER.address}` })}</p>
       </section>
+      <ProductStickyBuy
+        product={product}
+        variant={variant}
+        unitPrice={unitPriceCents}
+        variantLabel={`${flavourWord} · ${sizeLabel(variant.size)}`}
+        imageSrc={front}
+        title={shortName}
+        priceLabel={price !== null ? formatEur(price, locale) : ''}
+        color={field}
+        anchorId="buy-box"
+      />
     </article>
   )
 }

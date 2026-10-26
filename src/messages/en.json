@@ -763,6 +763,10 @@
     "empty": "No products match this selection.",
     "reset": "Show all",
     "countNote": "prices from the official price list, buying by enquiry",
-    "priceOnEnquiry": "Price on request"
+    "priceOnEnquiry": "Price on request",
+    "zoomHint": "Hover for a magnifier, click for the full label",
+    "zoomOpen": "Open the label at full size",
+    "zoomClose": "Close",
+    "compositionLabel": "Composition by share"
   }
 }
