@@ -88,6 +88,27 @@ export function SectionMotionImpl() {
         })
       })
 
+      // 1d. Prstenasti grafikon sastava: segmenti se crtaju jedan za drugim
+      gsap.utils.toArray<HTMLElement>('[data-donut]', main).forEach((box) => {
+        const segs = gsap.utils.toArray<SVGCircleElement>('[data-donut-seg]', box)
+        if (!segs.length || !below(box)) return
+        segs.forEach((seg) => seg.setAttribute('stroke-dasharray', `0 ${seg.dataset.dash?.split(' ')[1] ?? 400}`))
+        ScrollTrigger.create({
+          trigger: box,
+          start: 'top 82%',
+          once: true,
+          onEnter: () =>
+            segs.forEach((seg, i) =>
+              gsap.to(seg, {
+                attr: { 'stroke-dasharray': seg.dataset.dash ?? '' },
+                duration: 1.3,
+                delay: i * 0.18,
+                ease: 'power3.out',
+              }),
+            ),
+        })
+      })
+
       // 2. Ulazak dijelova sekcija, samo za ono što je ispod prvog zaslona.
       //    Uz označene elemente ([data-reveal]) ulaze i naslovi, odlomci, retci i slike sekcija.
       const skip = '[data-split], [data-split] *, [data-reveal] *, [data-panel] *, [data-hero-title] *, #poledina *, details *, header *, [data-no-reveal], [data-no-reveal] *'

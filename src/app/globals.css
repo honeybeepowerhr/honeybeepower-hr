@@ -630,8 +630,9 @@ button {
   to { opacity: 1; translate: 0 0; }
 }
 
+/* Bez „forwards”: nakon animacije na omotaču ne ostaje transformacija koja bi „fiksne” elemente vezala uz stranicu */
 .page-in {
-  animation: page-in 0.6s var(--ease-out-expo) both;
+  animation: page-in 0.6s var(--ease-out-expo) backwards;
 }
 
 /* Traka napretka skrolanja: čisti CSS (scroll-driven animation) */
@@ -657,6 +658,315 @@ button {
     animation-timeline: scroll(root);
     pointer-events: none;
   }
+}
+
+/* ─── Pozornica proizvoda: slojevi s dubinom ─────────────────────────── */
+
+.stage {
+  --mx: 0;
+  --my: 0;
+  --hex-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='98'%3E%3Cpath d='M28 0 56 16v34L28 66 0 50V16zM28 66v32M0 50 28 66M56 50 28 66M0 16V0M56 16V0' fill='none' stroke='%23140e02' stroke-opacity='.16' stroke-width='1.2'/%3E%3C/svg%3E");
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  container-type: inline-size;
+  display: grid;
+  place-items: center;
+  min-height: 74svh;
+  perspective: 1400px;
+  background:
+    radial-gradient(70% 55% at 50% 38%, rgb(255 255 255 / 0.34), transparent 70%),
+    linear-gradient(to top, rgb(0 0 0 / 0.3), transparent 48%),
+    var(--stage-field);
+}
+
+.stage-layer {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  transform: translate3d(calc(var(--mx) * var(--d, 0px)), calc(var(--my) * var(--d, 0px) * 0.6), 0);
+  will-change: transform;
+}
+
+.stage-pos {
+  position: absolute;
+  z-index: 3;
+  transform: translate(-50%, -50%) translate3d(calc(var(--mx) * var(--d, 0px)), calc(var(--my) * var(--d, 0px) * 0.6), 0);
+  will-change: transform;
+}
+
+.stage-hex {
+  position: absolute;
+  inset: -12%;
+  background-image: var(--hex-dark);
+  background-size: 56px 98px;
+  mask-image: radial-gradient(60% 58% at 50% 45%, #000, transparent 82%);
+  -webkit-mask-image: radial-gradient(60% 58% at 50% 45%, #000, transparent 82%);
+}
+
+.stage-word {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-stretch: 125%;
+  font-size: min(34cqw, calc(118cqw / var(--len)));
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  opacity: 0.15;
+  user-select: none;
+}
+
+.stage-floathex {
+  position: absolute;
+  width: var(--hs);
+  height: calc(var(--hs) * 1.1547);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background: rgb(255 255 255 / 0.28);
+  animation: stage-float 9s ease-in-out infinite;
+}
+
+.stage-product-wrap {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateY(calc(var(--mx) * 10deg)) rotateX(calc(var(--my) * -6deg));
+}
+
+.stage-enter {
+  animation: stage-rise 1.3s var(--ease-out-expo) 0.15s both;
+}
+
+.stage-float {
+  animation: stage-float 7s ease-in-out infinite;
+}
+
+.stage-img {
+  display: block;
+  height: min(62svh, 120cqw);
+  width: auto;
+  max-width: 78cqw;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 40px rgb(0 0 0 / 0.38));
+}
+
+@media (min-width: 768px) {
+  .stage-img {
+    height: min(72svh, 120cqw);
+  }
+}
+
+.stage-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: -3%;
+  z-index: -1;
+  width: 62%;
+  height: 7%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(0 0 0 / 0.5), transparent);
+  filter: blur(8px);
+  transform: translateX(calc(-50% + var(--mx) * -26px)) scaleX(calc(1 - var(--my) * 0.06));
+}
+
+.stage-orb-enter {
+  animation: stage-pop 1s var(--ease-out-expo) both;
+}
+
+.stage-orb {
+  position: relative;
+  width: var(--s, 84px);
+  aspect-ratio: 1;
+  animation: stage-float 7s ease-in-out infinite;
+}
+
+.stage-orb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgb(255 255 255 / 0.9);
+  box-shadow: 0 16px 34px -8px rgb(0 0 0 / 0.5);
+}
+
+.stage-orb-label {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 0.45rem);
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  background: rgb(10 8 6 / 0.78);
+  color: var(--color-ink);
+  font-size: var(--text-small);
+  font-weight: 600;
+}
+
+@container (max-width: 520px) {
+  .stage-orb {
+    width: calc(var(--s, 84px) * 0.66);
+  }
+
+  .stage-orb-label {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .stage {
+    min-height: calc(100svh - var(--header-h));
+  }
+}
+
+@keyframes stage-rise {
+  from { opacity: 0; transform: translateY(5rem) scale(0.9) rotate(-5deg); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes stage-pop {
+  from { opacity: 0; transform: scale(0.3); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes stage-float {
+  0%, 100% { transform: translateY(0) rotate(-0.6deg); }
+  50% { transform: translateY(-0.9rem) rotate(0.8deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage-float,
+  .stage-orb,
+  .stage-floathex {
+    animation: none;
+  }
+}
+
+/* Zlatni sjaj preko velike brojke */
+.foil-text {
+  background-image: linear-gradient(100deg, var(--color-ink) 0%, var(--color-ink) 38%, var(--color-honey) 50%, var(--color-ink) 62%, var(--color-ink) 100%);
+  background-size: 250% 100%;
+  background-position: 120% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: foil 5.5s ease-in-out 1.2s infinite;
+}
+
+@keyframes foil {
+  0% { background-position: 120% 0; }
+  45%, 100% { background-position: -20% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .foil-text {
+    animation: none;
+    background-image: none;
+    color: var(--color-ink);
+    -webkit-text-fill-color: currentColor;
+  }
+}
+
+/* Povećalo na deklaraciji i prikaz u punoj veličini */
+.lens {
+  position: absolute;
+  z-index: 5;
+  border-radius: 50%;
+  border: 3px solid var(--color-honey);
+  background-repeat: no-repeat;
+  background-color: #fff;
+  box-shadow: 0 20px 50px -10px rgb(0 0 0 / 0.7);
+  pointer-events: none;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  overflow: auto;
+  display: grid;
+  justify-items: center;
+  align-items: start;
+  padding: 4.5rem var(--gutter) 2rem;
+  background: rgb(10 8 6 / 0.92);
+  cursor: zoom-out;
+  animation: overlay-in 250ms ease both;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 1rem;
+  right: var(--gutter);
+  z-index: 2;
+}
+
+.lightbox-img {
+  width: min(1100px, 100%);
+  height: auto;
+  border-radius: var(--radius-sm);
+  background: #fff;
+  cursor: default;
+}
+
+/* Traka za kupnju pri dnu stranice proizvoda */
+.sticky-buy {
+  position: fixed;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: var(--gutter);
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  max-width: 42rem;
+  margin-inline: auto;
+  padding: 0.6rem 0.6rem 0.6rem 0.7rem;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: rgb(21 17 11 / 0.94);
+  box-shadow: 0 30px 70px -20px rgb(0 0 0 / 0.85);
+  transform: translateY(170%);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    transform 700ms var(--ease-out-expo),
+    opacity 300ms ease,
+    visibility 0s linear 700ms;
+}
+
+.sticky-buy[data-show='1'] {
+  transform: none;
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+body:has(.sticky-buy[data-show='1']) .hive-top {
+  display: none;
+}
+
+/* Poveznice na sportove */
+.sport-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 3.5rem;
+  padding: 0 1.5rem;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: var(--text-lead);
+  font-weight: 800;
+  font-stretch: 108%;
+  letter-spacing: -0.01em;
+  transition: background-color 250ms ease, color 250ms ease, transform 400ms var(--ease-out-expo), border-color 250ms ease;
+}
+
+.sport-pill:hover {
+  background: var(--color-honey);
+  border-color: var(--color-honey);
+  color: var(--color-honey-ink);
+  transform: translateY(-3px);
 }
 
 /* Uvodna animacija: šesterokut se puni medom, zastor se podiže */
