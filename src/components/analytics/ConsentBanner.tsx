@@ -52,11 +52,11 @@ export function ConsentBanner() {
             {t('more')}
           </Link>
         </p>
-        <div className="flex shrink-0 gap-2">
-          <button type="button" onClick={() => decide('denied')} className="btn btn-ghost min-h-11 px-4">
+        <div className="flex flex-wrap gap-2 sm:shrink-0 sm:flex-nowrap">
+          <button type="button" onClick={() => decide('denied')} className="btn btn-ghost min-h-11 flex-1 px-4 sm:flex-none">
             {t('necessary')}
           </button>
-          <button type="button" onClick={() => decide('granted')} className="btn btn-honey min-h-11 px-4">
+          <button type="button" onClick={() => decide('granted')} className="btn btn-honey min-h-11 flex-1 px-4 sm:flex-none">
             {t('acceptAll')}
           </button>
         </div>

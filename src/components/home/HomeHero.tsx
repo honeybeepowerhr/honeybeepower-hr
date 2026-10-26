@@ -63,7 +63,7 @@ export async function HomeHero({ locale }: { locale: Locale }) {
         <h1
           id="hero-title"
           data-hero-title
-          className="t-display col-span-12 text-[length:clamp(2.75rem,0.9rem+7vw,6.6rem)] leading-[0.9] lg:col-span-7 lg:row-start-1 lg:self-end"
+          className="t-display col-span-12 text-[length:clamp(2.75rem,0.9rem+7vw,6.6rem)] leading-[0.9] text-center lg:col-span-7 lg:row-start-1 lg:self-end lg:text-left"
         >
           <span className="rise block">{t('before')}</span>
           <span
@@ -74,11 +74,11 @@ export async function HomeHero({ locale }: { locale: Locale }) {
           </span>
         </h1>
 
-        <div className="order-3 col-span-12 flex flex-col lg:order-none lg:col-span-7 lg:row-start-2 lg:self-start">
+        <div className="order-3 col-span-12 flex flex-col items-center text-center lg:order-none lg:col-span-7 lg:row-start-2 lg:items-start lg:self-start lg:text-left">
           <p className="rise t-lead max-w-[32ch] text-ink/80" style={{ ['--d' as string]: '200ms' }}>
             {t('lead')}
           </p>
-          <div className="rise mt-7 flex flex-wrap items-center gap-x-4 gap-y-4" style={{ ['--d' as string]: '280ms' }}>
+          <div className="rise mt-7 flex flex-wrap items-center justify-center gap-x-4 gap-y-4 lg:justify-start" style={{ ['--d' as string]: '280ms' }}>
             <Link href={`${prefix}/proizvodi`} className="btn btn-honey">
               {t('cta')}
               <span className="btn-arrow" aria-hidden="true">→</span>

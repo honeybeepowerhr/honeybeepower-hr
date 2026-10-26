@@ -100,9 +100,9 @@ export default function Header() {
           scrolled || menuOpen ? 'border-[color:var(--color-line)] bg-ground/95' : 'border-transparent bg-ground/60'
         }`}
       >
-        <div className={`frame flex items-center gap-4 transition-[height] duration-300 ${scrolled ? 'h-[3.75rem]' : 'h-[var(--header-h)]'}`}>
+        <div className={`frame flex items-center gap-2 sm:gap-4 transition-[height] duration-300 ${scrolled ? 'h-[3.75rem]' : 'h-[var(--header-h)]'}`}>
           <Link href={prefix || '/'} className="shrink-0" aria-label="Honey Bee Power, naslovnica">
-            <Image src="/images/logo-white.png" alt="Honey Bee Power" width={147} height={36} priority className="h-8 w-auto sm:h-9" />
+            <Image src="/images/logo-white.png" alt="Honey Bee Power" width={147} height={36} priority className="h-7 w-auto sm:h-9" />
           </Link>
 
           <nav aria-label={t('main')} className="mx-auto hidden lg:block">
@@ -134,7 +134,7 @@ export default function Header() {
             <button
               type="button"
               onClick={openCart}
-              className="btn btn-honey ml-1 min-h-11 px-5"
+              className="btn btn-honey ml-1 min-h-11 gap-2 px-4 sm:px-5"
               aria-label={t('inquiryWithCount', { count })}
             >
               <span>{t('inquiry')}</span>
@@ -152,14 +152,15 @@ export default function Header() {
               onClick={() => setMenuOpen((o) => !o)}
               aria-expanded={menuOpen}
               aria-controls="site-menu"
-              className="ml-1 inline-flex h-11 items-center gap-2.5 rounded-full border border-[color:var(--color-line)] px-4 font-medium text-ink transition-colors hover:bg-white/10 lg:hidden"
+              aria-label={menuOpen ? t('close') : t('menu')}
+              className="ml-0.5 inline-flex h-11 min-w-11 items-center justify-center gap-2.5 rounded-full border border-[color:var(--color-line)] px-3 font-medium text-ink transition-colors hover:bg-white/10 sm:ml-1 sm:px-4 lg:hidden"
             >
               <span aria-hidden="true" className="relative block h-3 w-5">
                 <span className={`absolute left-0 h-[2px] w-5 rounded bg-current transition-all duration-300 ${menuOpen ? 'top-[5px] rotate-45' : 'top-0'}`} />
                 <span className={`absolute left-0 top-[5px] h-[2px] w-5 rounded bg-current transition-opacity duration-200 ${menuOpen ? 'opacity-0' : ''}`} />
                 <span className={`absolute left-0 h-[2px] w-5 rounded bg-current transition-all duration-300 ${menuOpen ? 'top-[5px] -rotate-45' : 'top-[10px]'}`} />
               </span>
-              {menuOpen ? t('close') : t('menu')}
+              <span className="hidden sm:inline">{menuOpen ? t('close') : t('menu')}</span>
             </button>
           </div>
         </div>
