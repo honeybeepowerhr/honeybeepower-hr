@@ -102,17 +102,17 @@ export default function Header() {
       >
         <div className={`frame flex items-center gap-2 sm:gap-4 transition-[height] duration-300 ${scrolled ? 'h-[3.75rem]' : 'h-[var(--header-h)]'}`}>
           <Link href={prefix || '/'} className="shrink-0" aria-label="Honey Bee Power, naslovnica">
-            <Image src="/images/logo-white.png" alt="Honey Bee Power" width={147} height={36} priority className="h-7 w-auto sm:h-9" />
+            <Image src="/images/logo.png" alt="Honey Bee Power" width={147} height={36} priority className="h-7 w-auto sm:h-9" />
           </Link>
 
           <nav aria-label={t('main')} className="mx-auto hidden lg:block">
-            <ul className="flex items-center gap-1 rounded-full border border-[color:var(--color-line)] bg-white/[0.04] p-1">
+            <ul className="flex items-center gap-1 rounded-full border border-[color:var(--color-line)] bg-ink/[0.05] p-1">
               {NAV.map((item) => (
                 <li key={item.key}>
                   <Link
                     href={`${prefix}${item.href}`}
                     aria-current={isActive(item.href) ? 'page' : undefined}
-                    className="block rounded-full px-4 py-2 font-medium text-ink/85 transition-colors hover:bg-white/10 hover:text-ink aria-[current=page]:bg-[color:var(--color-honey)] aria-[current=page]:text-[color:var(--color-honey-ink)]"
+                    className="block rounded-full px-4 py-2 font-medium text-ink/85 transition-colors hover:bg-ink/10 hover:text-ink aria-[current=page]:bg-[color:var(--color-honey)] aria-[current=page]:text-[color:var(--color-honey-ink)]"
                   >
                     {t(item.key)}
                   </Link>
@@ -127,7 +127,7 @@ export default function Header() {
               type="button"
               onClick={() => setSearchOpen(true)}
               aria-label={t('search')}
-              className="hidden h-11 w-11 place-items-center rounded-full text-ink transition-[transform,background-color] hover:bg-white/10 active:scale-95 sm:grid"
+              className="hidden h-11 w-11 place-items-center rounded-full text-ink transition-[transform,background-color] hover:bg-ink/10 active:scale-95 sm:grid"
             >
               <Search className="h-5 w-5" strokeWidth={2.25} aria-hidden="true" />
             </button>
@@ -139,7 +139,7 @@ export default function Header() {
             >
               <span>{t('inquiry')}</span>
               <span
-                className="tabular grid h-6 min-w-6 place-items-center rounded-full bg-[color:var(--color-honey-ink)] px-1.5 text-center text-[0.8125rem] text-[color:var(--color-honey)] transition-transform duration-300"
+                className="tabular grid h-6 min-w-6 place-items-center rounded-full bg-[#1d2048] px-1.5 text-center text-[0.8125rem] text-[#ffc933] transition-transform duration-300"
                 style={{ transform: bump ? 'scale(1.3)' : 'none' }}
                 aria-hidden="true"
               >
@@ -153,7 +153,7 @@ export default function Header() {
               aria-expanded={menuOpen}
               aria-controls="site-menu"
               aria-label={menuOpen ? t('close') : t('menu')}
-              className="ml-0.5 inline-flex h-11 min-w-11 items-center justify-center gap-2.5 rounded-full border border-[color:var(--color-line)] px-3 font-medium text-ink transition-colors hover:bg-white/10 sm:ml-1 sm:px-4 lg:hidden"
+              className="ml-0.5 inline-flex h-11 min-w-11 items-center justify-center gap-2.5 rounded-full border border-[color:var(--color-line)] px-3 font-medium text-ink transition-colors hover:bg-ink/10 sm:ml-1 sm:px-4 lg:hidden"
             >
               <span aria-hidden="true" className="relative block h-3 w-5">
                 <span className={`absolute left-0 h-[2px] w-5 rounded bg-current transition-all duration-300 ${menuOpen ? 'top-[5px] rotate-45' : 'top-0'}`} />
@@ -179,7 +179,7 @@ export default function Header() {
                 <Link
                   href={`${prefix}${item.href}`}
                   aria-current={isActive(item.href) ? 'page' : undefined}
-                  className="group flex items-center justify-between gap-4 py-4 font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-extrabold leading-[1.1] tracking-[-0.02em] aria-[current=page]:text-[color:var(--color-honey)]"
+                  className="group flex items-center justify-between gap-4 py-4 font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-extrabold leading-[1.1] tracking-[-0.02em] aria-[current=page]:text-[color:var(--color-honey-text)]"
                 >
                   <span className="flex items-baseline gap-4">
                     <span className="t-small font-medium tabular text-muted">{String(i + 1).padStart(2, '0')}</span>
@@ -196,7 +196,7 @@ export default function Header() {
               <li key={item.key}>
                 <Link
                   href={`${prefix}${item.href}`}
-                  className="flex min-h-12 items-center rounded-2xl border border-[color:var(--color-line)] px-4 font-medium text-ink/90 transition-colors hover:bg-white/10"
+                  className="flex min-h-12 items-center rounded-2xl border border-[color:var(--color-line)] px-4 font-medium text-ink/90 transition-colors hover:bg-ink/10"
                 >
                   {t(item.key)}
                 </Link>
@@ -205,7 +205,7 @@ export default function Header() {
             <li>
               <button
                 type="button"
-                className="flex min-h-12 w-full items-center gap-2 rounded-2xl border border-[color:var(--color-line)] px-4 font-medium text-ink/90 transition-colors hover:bg-white/10"
+                className="flex min-h-12 w-full items-center gap-2 rounded-2xl border border-[color:var(--color-line)] px-4 font-medium text-ink/90 transition-colors hover:bg-ink/10"
                 onClick={() => {
                   setMenuOpen(false)
                   setSearchOpen(true)

@@ -1,3 +1,9 @@
+# Dopuna: svijetla, žarka paleta (zamjenjuje tamnu temu)
+
+Klijent je tamnu temu odbacio kao pretamnu i generičku. Paleta je okrenuta: topla krem podloga `#fff2cf`, tamnoplava s logotipa `#1d2048` kao boja slova i tamnih ploča, žuti med `#ffb800`, boje okusa (limun, naranča, malina) kao velike ploče. Umjesto sjaja i prozirnosti: tvrdi obrubi i sjene (gumbi, kartice, naljepnice), veliki šesterokut meda iza košnice u uvodu, obrisi ćelija, naljepnice s podacima s deklaracije, boje po sekcijama (krem, med, navy, malina) i pčelica koja lebdi za pokazivačem (samo uz miš, ne uz „smanji pokrete”).
+
+Tamni opseg (`.on-ink`, `.theme-dark`) lokalno mijenja tokene boja pa se kalkulator, podnožje, izbornik na mobitelu i dijelovi stranica proizvoda automatski prikazuju na navy ploči. Provjereno na snimkama: naslovnica, proizvod, popis, cjenik, B2B, kontakt, sport, FAQ, košarica, mobitel.
+
 # Dopuna: oznake [UPIŠI] uklonjene sa stranice (odluka vlasnika)
 
 Vlasnik nema podatke i traži da se oznake ne prikazuju. Uklonjeno je sve što je ovisilo o nepoznatim podacima, bez izmišljanja zamjena:

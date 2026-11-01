@@ -17,9 +17,9 @@ const C = 2 * Math.PI * R
 
 const COLORS: Record<ShareKey, string> = {
   honey: 'var(--color-honey)',
-  fruit: '#ffffff',
-  guarana: '#c9573a',
-  salt: '#f6f0e4',
+  fruit: '#1d2048',
+  guarana: '#8a2f1a',
+  salt: '#1d2048',
 }
 
 /** Prstenasti grafikon sastava s deklaracije; segmenti se „crtaju” kad uđu na zaslon (GSAP). */
@@ -37,7 +37,7 @@ export function CompositionDonut({ shares, fruitColor, labels, fruitLabel, cente
     <div className="flex flex-wrap items-center gap-x-10 gap-y-6" data-donut>
       <div className="relative h-[13.5rem] w-[13.5rem] shrink-0" role="img" aria-label={`${ariaLabel}: ${shares.map((s) => `${s.key === 'fruit' ? fruitLabel : labels[s.key]} ${formatPct(s.pct)}`).join(', ')}`}>
         <svg viewBox="0 0 120 120" className="h-full w-full -rotate-90" aria-hidden="true">
-          <circle cx="60" cy="60" r={R} fill="none" stroke="rgb(246 240 228 / 0.08)" strokeWidth="13" />
+          <circle cx="60" cy="60" r={R} fill="none" stroke="rgb(29 32 72 / 0.1)" strokeWidth="13" />
           {segs.map((s) => (
             <circle
               key={s.key}
@@ -55,7 +55,7 @@ export function CompositionDonut({ shares, fruitColor, labels, fruitLabel, cente
           ))}
         </svg>
         <div className="absolute inset-0 grid place-content-center text-center">
-          <p data-countup className="font-[family-name:var(--font-display)] text-[1.9rem] font-black leading-[1.1] tracking-[-0.02em] text-[color:var(--color-honey)] tabular">
+          <p data-countup className="font-[family-name:var(--font-display)] text-[1.9rem] font-black leading-[1.1] tracking-[-0.02em] text-[color:var(--color-honey-text)] tabular">
             {centerValue}
           </p>
           <p className="mx-auto mt-1 max-w-[7.5rem] t-small text-muted">{centerLabel}</p>

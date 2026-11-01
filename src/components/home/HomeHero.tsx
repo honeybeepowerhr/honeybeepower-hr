@@ -50,10 +50,11 @@ export async function HomeHero({ locale }: { locale: Locale }) {
   const tn = await getTranslations({ locale, namespace: 'nav' })
   const prefix = locale === 'hr' ? '' : `/${locale}`
 
+  // Naljepnice s deklaracije: različite boje i blagi nagibi
   const stats = [
-    { value: t('statHoneyValue'), label: t('statHoney') },
-    { value: t('statCarbsValue'), label: t('statCarbs') },
-    { value: t('statIngredientsValue'), label: t('statIngredients') },
+    { value: t('statHoneyValue'), label: t('statHoney'), cls: 'bg-[color:var(--color-honey)] text-[#1d2048]', rot: '-2deg' },
+    { value: t('statCarbsValue'), label: t('statCarbs'), cls: 'bg-white text-[#1d2048]', rot: '1.5deg' },
+    { value: t('statIngredientsValue'), label: t('statIngredients'), cls: 'bg-[#e0224f] text-white', rot: '-1deg' },
   ]
 
   return (
@@ -100,6 +101,9 @@ export async function HomeHero({ locale }: { locale: Locale }) {
                 <li key={c.slug} className="hive-cell" style={{ ['--x' as string]: c.x, ['--y' as string]: c.y, ['--i' as string]: n }}>
                   <div data-depth={c.depth} className="hive-depth">
                     <Link href={href} aria-label={`${typeLabel}: ${flavour}`} className="hive-link group">
+                      <svg className="hive-outline" viewBox="0 0 100 115.47" aria-hidden="true">
+                        <polygon points="50,1.5 98.5,29.5 98.5,86 50,114 1.5,86 1.5,29.5" fill="none" stroke="#1d2048" strokeWidth="3" strokeLinejoin="round" />
+                      </svg>
                       <span className={`hive-hex ${c.field}`} aria-hidden="true">
                         {c.kind === 'photo' && (
                           <Image src={c.src} alt="" fill sizes="(min-width: 1024px) 14vw, 30vw" className="object-contain p-[6%]" priority={n < 3} />
@@ -130,14 +134,16 @@ export async function HomeHero({ locale }: { locale: Locale }) {
 
         <dl className="order-4 col-span-12 mt-2 grid grid-cols-1 gap-3 sm:grid-cols-3 lg:mt-8">
           {stats.map((s) => (
-            <div key={s.label} className="rise rounded-[var(--radius-sm)] border border-[color:var(--color-line)] bg-[color:var(--color-surface)] px-5 py-4" style={{ ['--d' as string]: '360ms' }}>
-              <dt className="sr-only">{s.label}</dt>
-              <dd className="flex items-baseline gap-3">
-                <span className="font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-[1.1] tracking-[-0.02em] text-[color:var(--color-honey)] tabular">
-                  {s.value}
-                </span>
-                <span className="t-small text-muted" aria-hidden="true">{s.label}</span>
-              </dd>
+            <div key={s.label} className="rise" style={{ ['--d' as string]: '360ms' }}>
+              <div className={`sticker ${s.cls}`} style={{ rotate: s.rot }}>
+                <dt className="sr-only">{s.label}</dt>
+                <dd className="flex items-baseline gap-3">
+                  <span className="font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-[1.1] tracking-[-0.015em] tabular">
+                    {s.value}
+                  </span>
+                  <span className="t-small font-medium opacity-90" aria-hidden="true">{s.label}</span>
+                </dd>
+              </div>
             </div>
           ))}
         </dl>

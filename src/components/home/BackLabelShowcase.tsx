@@ -44,7 +44,7 @@ export function BackLabelShowcase({ titleStart, titleEnd, caption, stageLabels, 
   const s = STAGES[stage]
 
   return (
-    <section aria-labelledby="poledina-title" className="relative" id="poledina">
+    <section aria-labelledby="poledina-title" className="on-ink relative" id="poledina">
       <div className="relative h-[300svh]">
         {/* Nevidljive oznake koje mijenjaju kadar */}
         {[0, 1, 2].map((i) => (

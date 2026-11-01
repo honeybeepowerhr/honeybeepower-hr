@@ -17,11 +17,11 @@ export async function TrackGallery({ locale }: { locale: Locale }) {
   ] as const
 
   return (
-    <section aria-labelledby="staza-title" id="na-stazi" className="frame section">
+    <section aria-labelledby="staza-title" id="na-stazi" className="theme-raspberry frame py-20 md:py-28">
       <div className="grid-12 items-end gap-y-6">
         <h2 id="staza-title" className="t-display col-span-12 text-[length:var(--text-display)] leading-[1.04] md:col-span-7">
           <span className="block">{t('line1')}</span>
-          <span className="block text-[color:var(--color-honey)]">{t('line2')}</span>
+          <span className="block text-[color:var(--color-honey-text)]">{t('line2')}</span>
         </h2>
         <p className="col-span-12 t-body measure text-muted md:col-span-5">
           {t('sentence')}{' '}

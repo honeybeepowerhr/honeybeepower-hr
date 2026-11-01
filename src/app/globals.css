@@ -8,18 +8,19 @@
  */
 
 @theme {
-  --color-ground: #0a0806;
-  --color-surface: #15110b;
-  --color-surface-2: #1f1810;
-  --color-ink: #f6f0e4;
-  --color-muted: #b3a893;
-  --color-honey: #ffb71b;
-  --color-honey-ink: #140e02;
-  --color-lemon: #f6d92a;
-  --color-orange: #f5901f;
-  --color-raspberry: #d6264a;
-  --color-alert: #ff7b8a;
-  --color-line: rgb(246 240 228 / 0.14);
+  --color-ground: #fff2cf;
+  --color-surface: #ffffff;
+  --color-surface-2: #ffe49a;
+  --color-ink: #1d2048;
+  --color-muted: #5b5e82;
+  --color-honey: #ffb800;
+  --color-honey-text: #a35200;
+  --color-honey-ink: #1d2048;
+  --color-lemon: #ffe14a;
+  --color-orange: #ff8a1e;
+  --color-raspberry: #e0224f;
+  --color-alert: #c4122f;
+  --color-line: rgb(29 32 72 / 0.18);
 
   --font-display: var(--font-archivo), "Archivo", system-ui, sans-serif;
   --font-text: var(--font-figtree), "Figtree", system-ui, sans-serif;
@@ -59,8 +60,8 @@
   --blur-small: 2px;
 
   /* Šesterokuti s pakiranja kao tanka mreža */
-  --hex-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='98'%3E%3Cpath d='M28 0 56 16v34L28 66 0 50V16zM28 66v32M0 50 28 66M56 50 28 66M0 16V0M56 16V0' fill='none' stroke='%23ffb71b' stroke-opacity='.09' stroke-width='1.1'/%3E%3C/svg%3E");
-  color-scheme: dark;
+  --hex-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='98'%3E%3Cpath d='M28 0 56 16v34L28 66 0 50V16zM28 66v32M0 50 28 66M56 50 28 66M0 16V0M56 16V0' fill='none' stroke='%231d2048' stroke-opacity='.09' stroke-width='1.1'/%3E%3C/svg%3E");
+  color-scheme: light;
 }
 
 @layer base {
@@ -234,7 +235,7 @@ button {
   font-size: var(--text-small);
   font-weight: 650;
   letter-spacing: 0;
-  color: var(--color-honey);
+  color: var(--color-honey-text);
 }
 
 .eyebrow::before {
@@ -286,7 +287,7 @@ button {
 }
 
 .btn:hover {
-  --btn-bg: #fff9ec;
+  --btn-bg: #2f3470;
 }
 
 .btn:active {
@@ -295,13 +296,33 @@ button {
 
 .btn-honey {
   --btn-bg: var(--color-honey);
-  --btn-fg: var(--color-honey-ink);
-  box-shadow: 0 10px 40px -10px rgb(255 183 27 / 0.6);
+  --btn-fg: #1d2048;
+  border: 2px solid #1d2048;
+  box-shadow: 0 4px 0 #1d2048;
 }
 
 .btn-honey:hover {
-  --btn-bg: #ffc94d;
-  box-shadow: 0 14px 48px -10px rgb(255 183 27 / 0.8);
+  --btn-bg: #ffc933;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #1d2048;
+}
+
+.btn-honey:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #1d2048;
+}
+
+.on-ink .btn-honey {
+  border-color: #fff2cf;
+  box-shadow: 0 4px 0 #fff2cf;
+}
+
+.on-ink .btn-honey:hover {
+  box-shadow: 0 6px 0 #fff2cf;
+}
+
+.on-ink .btn-honey:active {
+  box-shadow: 0 1px 0 #fff2cf;
 }
 
 .btn-ghost {
@@ -343,24 +364,50 @@ button {
   text-decoration: underline;
   text-decoration-thickness: 1.5px;
   text-underline-offset: 0.22em;
-  text-decoration-color: rgb(246 240 228 / 0.4);
+  text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
   transition: text-decoration-color 160ms ease, color 160ms ease;
 }
 
 .link:hover {
-  text-decoration-color: var(--color-honey);
-  color: var(--color-honey);
+  text-decoration-color: var(--color-honey-text);
+  color: var(--color-honey-text);
 }
 
 /* ─── Polja i ploče ──────────────────────────────────────────────────── */
+
+/* Tamni opseg: navy ploče. Tokeni se lokalno mijenjaju pa sve unutra (tekst, linije, kartice) prati. */
+.theme-dark,
+.on-ink,
+.sticky-buy,
+.intro {
+  --color-ground: #1d2048;
+  --color-surface: #292d63;
+  --color-surface-2: #343a7c;
+  --color-ink: #fff2cf;
+  --color-muted: #c0c3e6;
+  --color-honey-text: #ffc933;
+  --color-line: rgb(255 242 207 / 0.2);
+  --hex-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='98'%3E%3Cpath d='M28 0 56 16v34L28 66 0 50V16zM28 66v32M0 50 28 66M56 50 28 66M0 16V0M56 16V0' fill='none' stroke='%23ffb800' stroke-opacity='.14' stroke-width='1.1'/%3E%3C/svg%3E");
+}
+
+/* Boja malina: ploča s bijelim tekstom */
+.theme-raspberry {
+  --color-ground: #e0224f;
+  --color-ink: #ffffff;
+  --color-muted: rgb(255 255 255 / 0.85);
+  --color-honey-text: #ffe27a;
+  --color-line: rgb(255 255 255 / 0.3);
+  background: var(--color-ground);
+  color: var(--color-ink);
+}
 
 /* Povišena ploča (kalkulator, B2B, cjenik, podnožje) */
 .on-ink {
   position: relative;
   isolation: isolate;
   background:
-    radial-gradient(60rem 30rem at 85% -10%, rgb(255 183 27 / 0.14), transparent 60%),
-    var(--color-surface);
+    radial-gradient(60rem 30rem at 85% -10%, rgb(255 184 0 / 0.2), transparent 60%),
+    var(--color-ground);
   color: var(--color-ink);
 }
 
@@ -371,7 +418,7 @@ button {
   z-index: -1;
   background-image: var(--hex-pattern);
   background-size: 56px 98px;
-  opacity: 0.55;
+  opacity: 0.9;
   mask-image: linear-gradient(to bottom, #000, transparent 70%);
   -webkit-mask-image: linear-gradient(to bottom, #000, transparent 70%);
   pointer-events: none;
@@ -385,9 +432,10 @@ button {
 /* Kartica */
 .card {
   position: relative;
-  border: 1px solid var(--color-line);
+  border: 2px solid var(--color-ink);
   border-radius: var(--radius);
   background: var(--color-surface);
+  box-shadow: 0 6px 0 var(--color-ink);
   overflow: hidden;
 }
 
@@ -410,12 +458,12 @@ button {
 
 .field-lemon {
   background: radial-gradient(circle at 50% 35%, #ffe95a, var(--color-lemon) 60%);
-  color: #140e02;
+  color: #1d2048;
 }
 
 .field-orange {
   background: radial-gradient(circle at 50% 35%, #ffb04d, var(--color-orange) 60%);
-  color: #140e02;
+  color: #1d2048;
 }
 
 .field-raspberry {
@@ -438,14 +486,40 @@ button {
 .hero {
   position: relative;
   isolation: isolate;
-  background:
-    radial-gradient(44rem 34rem at 76% 44%, rgb(255 183 27 / 0.16), rgb(255 150 20 / 0.05) 45%, transparent 70%),
-    var(--color-ground);
+  overflow: hidden;
+  background: var(--color-ground);
+}
+
+/* Veliki šesterokut meda iza košnice */
+.hero::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  right: -6%;
+  width: min(62vw, 56rem);
+  aspect-ratio: 1 / 1.1547;
+  transform: translateY(-50%) rotate(8deg);
+  background: var(--color-honey);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  box-shadow: inset 0 0 0 1px rgb(29 32 72 / 0.2);
+}
+
+@media (max-width: 1023px) {
+  .hero::after {
+    top: 38%;
+    right: auto;
+    left: 50%;
+    width: 112vw;
+    transform: translate(-50%, -50%) rotate(8deg);
+  }
 }
 
 /* Riječ ispunjena saćem */
 .honeycomb-text {
-  background-image: linear-gradient(180deg, rgb(255 183 27 / 0.2), rgb(255 183 27 / 0)), var(--honeycomb, none);
+  background-image: var(--honeycomb, none);
+  -webkit-text-stroke: 2.5px var(--color-ink);
+  paint-order: stroke fill;
   background-size: cover;
   background-position: 50% 45%;
   -webkit-background-clip: text;
@@ -562,8 +636,8 @@ button {
   white-space: nowrap;
   padding: 0.4rem 0.85rem;
   border-radius: 999px;
-  background: var(--color-ink);
-  color: var(--color-honey-ink);
+  background: #1d2048;
+  color: #fff2cf;
   font-size: var(--text-small);
   font-weight: 650;
   opacity: 0;
@@ -796,8 +870,8 @@ button {
   white-space: nowrap;
   padding: 0.3rem 0.7rem;
   border-radius: 999px;
-  background: rgb(10 8 6 / 0.78);
-  color: var(--color-ink);
+  background: rgb(29 32 72 / 0.92);
+  color: #fff2cf;
   font-size: var(--text-small);
   font-weight: 600;
 }
@@ -923,7 +997,7 @@ button {
   padding: 0.6rem 0.6rem 0.6rem 0.7rem;
   border: 1px solid var(--color-line);
   border-radius: 999px;
-  background: rgb(21 17 11 / 0.94);
+  background: rgb(29 32 72 / 0.97);
   box-shadow: 0 30px 70px -20px rgb(0 0 0 / 0.85);
   transform: translateY(170%);
   opacity: 0;
@@ -1079,6 +1153,40 @@ html.intro-seen .intro {
   }
 }
 
+/* Pčelica koja lebdi za pokazivačem */
+.bee {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 35;
+  width: 38px;
+  height: 32px;
+  margin: -16px 0 0 -19px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 400ms ease;
+  filter: drop-shadow(0 6px 5px rgb(29 32 72 / 0.25));
+}
+
+.bee[data-on='1'] {
+  opacity: 1;
+}
+
+.bee-wing {
+  transform-box: fill-box;
+  transform-origin: 70% 90%;
+  animation: bee-flap 0.11s linear infinite alternate;
+}
+
+.bee-wing:nth-of-type(2) {
+  animation-delay: -0.05s;
+}
+
+@keyframes bee-flap {
+  from { transform: rotate(0deg) scaleY(1); }
+  to { transform: rotate(-12deg) scaleY(0.4); }
+}
+
 /* Svjetlo koje prati miš */
 .cursor-glow {
   position: fixed;
@@ -1088,8 +1196,8 @@ html.intro-seen .intro {
   width: 30rem;
   height: 30rem;
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgb(255 183 27 / 0.1), transparent);
-  mix-blend-mode: screen;
+  background: radial-gradient(closest-side, rgb(255 184 0 / 0.3), transparent);
+  mix-blend-mode: multiply;
   opacity: 0;
   transition: opacity 400ms ease;
   pointer-events: none;
@@ -1120,6 +1228,56 @@ html.lenis body {
 
 html.lenis-on {
   scroll-behavior: auto;
+}
+
+/* Naljepnice s podacima: tvrdi obrub i sjena, blagi nagib */
+.sticker {
+  display: block;
+  padding: 0.9rem 1.25rem;
+  border: 2px solid #1d2048;
+  border-radius: 1rem;
+  box-shadow: 0 5px 0 #1d2048;
+  transition: transform 400ms var(--ease-out-expo), box-shadow 300ms ease;
+}
+
+.sticker:hover {
+  transform: translateY(-4px) rotate(0.6deg);
+  box-shadow: 0 9px 0 #1d2048;
+}
+
+.hive-outline {
+  position: absolute;
+  inset: 3%;
+  width: 94%;
+  height: 94%;
+  z-index: 3;
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* Naljepnice s podacima: tvrdi obrub i sjena, blagi nagib */
+.sticker {
+  display: block;
+  padding: 0.9rem 1.25rem;
+  border: 2px solid #1d2048;
+  border-radius: 1rem;
+  box-shadow: 0 5px 0 #1d2048;
+  transition: transform 400ms var(--ease-out-expo), box-shadow 300ms ease;
+}
+
+.sticker:hover {
+  transform: translateY(-4px) rotate(0.6deg);
+  box-shadow: 0 9px 0 #1d2048;
+}
+
+.hive-outline {
+  position: absolute;
+  inset: 3%;
+  width: 94%;
+  height: 94%;
+  z-index: 3;
+  pointer-events: none;
+  overflow: visible;
 }
 
 /* Traka koja klizi */
@@ -1229,13 +1387,13 @@ html.lenis-on {
 .range::-webkit-slider-runnable-track {
   height: 0.5rem;
   border-radius: 999px;
-  background: rgb(246 240 228 / 0.22);
+  background: color-mix(in srgb, var(--color-ink) 22%, transparent);
 }
 
 .range::-moz-range-track {
   height: 0.5rem;
   border-radius: 999px;
-  background: rgb(246 240 228 / 0.22);
+  background: color-mix(in srgb, var(--color-ink) 22%, transparent);
 }
 
 .range::-webkit-slider-thumb {
@@ -1407,9 +1565,9 @@ html.lenis-on {
   width: 100%;
   min-height: 3.25rem;
   padding: 0.5rem 1rem;
-  background: var(--color-surface-2);
+  background: var(--color-surface);
   color: var(--color-ink);
-  border: 1.5px solid var(--color-line);
+  border: 2px solid color-mix(in srgb, var(--color-ink) 35%, transparent);
   border-radius: var(--radius-sm);
   font-size: var(--text-body);
   transition: border-color 140ms ease, box-shadow 140ms ease;
@@ -1452,7 +1610,7 @@ html.lenis-on {
 
 /* Traka scrollbara */
 html {
-  scrollbar-color: #3a3125 var(--color-ground);
+  scrollbar-color: #c9a64f var(--color-ground);
 }
 }
 
