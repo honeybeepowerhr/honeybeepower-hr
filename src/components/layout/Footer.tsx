@@ -90,7 +90,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-auto pt-24">
-          <p className="t-body text-[color:var(--color-honey)]">{t('contactLead')}</p>
+          <p className="t-body text-[color:var(--color-honey-text)]">{t('contactLead')}</p>
           <a
             href="tel:+385977097962"
             className="mt-2 block whitespace-nowrap font-[family-name:var(--font-display)] text-[length:min(11vw,var(--text-display))] font-black leading-[1.04] tracking-[-0.02em] decoration-[0.06em] underline-offset-[0.12em] hover:underline"

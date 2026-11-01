@@ -45,7 +45,7 @@ export default async function B2BPage({ params }: { params: Promise<{ locale: Lo
           <p className="col-span-12 t-lead lg:col-span-6">{t('subtitle')}</p>
           <dl className="col-span-12 grid gap-6 sm:grid-cols-3">
             {facts.map((f) => (
-              <div key={f.label} data-reveal className="bg-white/[0.08] p-5">
+              <div key={f.label} data-reveal className="bg-ink/[0.1] p-5">
                 <dt className="t-small">{f.label}</dt>
                 <dd className="mt-2 t-body font-medium">{f.value}</dd>
               </div>

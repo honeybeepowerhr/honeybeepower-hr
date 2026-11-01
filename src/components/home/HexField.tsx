@@ -66,11 +66,11 @@ export default function HexField() {
           const near = Math.max(0, 1 - d / 240)
           const wave = ((Math.sin(t / 1700 + x * 0.011 + y * 0.009) + 1) / 2) * 0.05
           if (near > 0.03) {
-            ctx.fillStyle = `rgba(255,183,27,${(near * near * 0.2).toFixed(3)})`
+            ctx.fillStyle = `rgba(255,184,0,${(near * near * 0.55).toFixed(3)})`
             hex(x, y)
             ctx.fill()
           }
-          ctx.strokeStyle = `rgba(255,183,27,${(0.04 + wave + near * 0.5).toFixed(3)})`
+          ctx.strokeStyle = `rgba(29,32,72,${(0.05 + wave + near * 0.35).toFixed(3)})`
           hex(x, y)
           ctx.stroke()
         }

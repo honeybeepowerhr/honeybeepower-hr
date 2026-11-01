@@ -46,7 +46,7 @@ export async function ProductLinesSection({ locale }: { locale: Locale }) {
   ] as const
 
   return (
-    <section aria-labelledby="proizvodi-title" className="frame section" id="proizvodi">
+    <section aria-labelledby="proizvodi-title" className="frame bg-[color:var(--color-surface-2)] py-20 md:py-28" id="proizvodi">
       {/* Promocijski video svih proizvoda uz naslov asortimana */}
       <div className="grid-12 items-center gap-y-10">
         <div data-reveal className="col-span-12 sm:col-span-10 sm:col-start-2 lg:col-span-5 lg:col-start-1">
@@ -100,7 +100,7 @@ export async function ProductLinesSection({ locale }: { locale: Locale }) {
                     </h3>
                     <p className="mt-2 t-body text-muted">{t(`${line.key}.flavours`)}</p>
                   </div>
-                  <p data-countup className="font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-black leading-[1.04] tracking-[-0.025em] text-[color:var(--color-honey)] tabular">
+                  <p data-countup className="font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-black leading-[1.04] tracking-[-0.025em] text-[color:var(--color-honey-text)] tabular">
                     {t(`${line.key}.figure`)}
                   </p>
                 </div>

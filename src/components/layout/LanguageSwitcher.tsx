@@ -62,7 +62,7 @@ export default function LanguageSwitcher({ className, tone = 'ground', variant =
           aria-expanded={open}
           aria-haspopup="true"
           aria-label={`Jezik / Language: ${localeNames[locale]}`}
-          className="inline-flex h-11 items-center gap-1.5 rounded-full px-3.5 font-semibold text-ink transition-colors hover:bg-white/10"
+          className="inline-flex h-11 items-center gap-1.5 rounded-full px-3.5 font-semibold text-ink transition-colors hover:bg-ink/10"
         >
           <span>{locale}</span>
           <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" className={cn('transition-transform duration-300', open && 'rotate-180')}>
@@ -84,7 +84,7 @@ export default function LanguageSwitcher({ className, tone = 'ground', variant =
                   aria-current={l === locale ? 'true' : undefined}
                   className={cn(
                     'flex items-center justify-between gap-6 rounded-xl px-3.5 py-2.5 transition-colors',
-                    l === locale ? 'bg-[color:var(--color-honey)] font-semibold text-[color:var(--color-honey-ink)]' : 'text-ink hover:bg-white/10',
+                    l === locale ? 'bg-[color:var(--color-honey)] font-semibold text-[color:var(--color-honey-ink)]' : 'text-ink hover:bg-ink/10',
                   )}
                 >
                   <span>{localeNames[l]}</span>
@@ -115,7 +115,7 @@ export default function LanguageSwitcher({ className, tone = 'ground', variant =
                 ? tone === 'ink'
                   ? 'bg-[color:var(--color-honey)] text-[color:var(--color-honey-ink)]'
                   : 'bg-ink text-ground'
-                : 'border border-[color:var(--color-line)] text-ink hover:bg-white/10',
+                : 'border border-[color:var(--color-line)] text-ink hover:bg-ink/10',
             )}
           >
             {l}

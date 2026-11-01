@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server'
 import type { Locale } from '@/types'
 import { GEL_DECLARATIONS, GEL_WARNING, formatNumber } from '@/lib/declarations'
 import { SHARES } from '@/lib/gel-shares'
+import { inkOn } from '@/lib/images'
 
 /** Riječ i sličica ostaju u istom retku, s interpunkcijom iza sličice. */
 function Thumb({ word, src, position = '50% 50%', after = '' }: { word: React.ReactNode; src: string; position?: string; after?: string }) {
@@ -18,9 +19,9 @@ function Thumb({ word, src, position = '50% 50%', after = '' }: { word: React.Re
 }
 
 const SEGMENT_BG: Record<string, string> = {
-  honey: 'var(--color-honey)',
+  honey: '#ffb800',
   guarana: '#5a1d14',
-  salt: '#f6f0e4',
+  salt: '#ffffff',
 }
 
 export async function IngredientsSection({ locale }: { locale: Locale }) {
@@ -51,21 +52,22 @@ export async function IngredientsSection({ locale }: { locale: Locale }) {
               <li
                 key={d.slug}
                 data-reveal
+                data-tilt="4"
                 className="card relative flex flex-col p-6 md:p-7"
-                style={{ backgroundImage: `radial-gradient(22rem 14rem at 100% 0%, ${d.flavourColor}33, transparent 70%)` }}
+                style={{ background: d.flavourColor, color: inkOn(d.flavourColor) }}
               >
                 <p className="font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold leading-[1.1] tracking-[-0.02em]">
-                  <span aria-hidden="true" className="mr-3 inline-block h-[0.55em] w-[0.5em] align-[0.02em]" style={{ background: d.flavourColor, clipPath: 'polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)' }} />
+                  <span aria-hidden="true" className="mr-3 inline-block h-[0.55em] w-[0.5em] align-[0.02em] bg-current" style={{ clipPath: 'polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)' }} />
                   {d.flavour[locale]}
                 </p>
-                <p data-countup className="mt-6 font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-black leading-[1.04] tracking-[-0.025em] tabular" style={{ color: d.flavourColor }}>
+                <p data-countup className="mt-6 font-[family-name:var(--font-display)] text-[length:var(--text-head)] font-black leading-[1.04] tracking-[-0.025em] tabular">
                   {formatNumber(d.perServing!.carbohydrates, locale)}&nbsp;g
                 </p>
-                <p className="mt-2 t-small text-muted">
+                <p className="mt-2 t-small font-medium opacity-85">
                   {t('carbs', { value: formatNumber(d.perServing!.carbohydrates, locale) })}
                 </p>
                 <div
-                  className="mt-7 flex h-4 w-full gap-[3px] overflow-hidden rounded-full"
+                  className="mt-7 flex h-5 w-full gap-[3px] overflow-hidden rounded-full border-2 border-[#1d2048] bg-white/60"
                   role="img"
                   aria-label={shares
                     .map((s) => `${t(`part.${s.key}`)} ${formatNumber(s.pct, locale)} %`)
@@ -79,21 +81,21 @@ export async function IngredientsSection({ locale }: { locale: Locale }) {
                       style={{
                         width: `${s.pct}%`,
                         minWidth: s.pct < 2 ? '0.5rem' : undefined,
-                        background: s.key === 'fruit' ? d.flavourColor : SEGMENT_BG[s.key],
+                        background: s.key === 'fruit' ? '#1d2048' : SEGMENT_BG[s.key],
                       }}
                     />
                   ))}
                 </div>
                 <ul className="mt-5 space-y-1.5 t-small tabular" aria-hidden="true">
                   {shares.map((s) => (
-                    <li key={s.key} className="flex items-baseline justify-between gap-4 border-b border-[color:var(--color-line)] pb-1.5 last:border-0">
-                      <span className="text-muted">
+                    <li key={s.key} className="flex items-baseline justify-between gap-4 border-b border-current/25 pb-1.5 last:border-0">
+                      <span className="opacity-85">
                         {s.key === 'fruit' ? t('fruitOf', { fruit: d.flavour[locale].toLowerCase() }) : t(`part.${s.key}`)}
                       </span>
                       <span className="font-semibold">{formatNumber(s.pct, locale)} %</span>
                     </li>
                   ))}
-                  {!shares.some((s) => s.key === 'salt') && <li className="text-muted">{t('noSalt')}</li>}
+                  {!shares.some((s) => s.key === 'salt') && <li className="opacity-85">{t('noSalt')}</li>}
                 </ul>
               </li>
             )

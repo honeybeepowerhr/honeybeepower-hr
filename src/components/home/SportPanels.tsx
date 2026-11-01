@@ -31,12 +31,12 @@ export async function SportPanels({ locale }: { locale: Locale }) {
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(10_8_6/0.35),rgb(10_8_6/0.1)_40%,rgb(10_8_6/0.75))]" aria-hidden="true" />
           <div className="absolute inset-0">
             <div className="sticky top-1/2 -translate-y-1/2 px-[var(--gutter)] text-center">
-              <h2 className="t-display text-ink text-[length:var(--text-mega)] drop-shadow-[0_8px_40px_rgb(0_0_0/0.45)]" data-verb>
+              <h2 className="t-display text-[#fff9ea] text-[length:var(--text-mega)] drop-shadow-[0_8px_40px_rgb(0_0_0/0.45)]" data-verb>
                 {t(`${p.key}.verb`)}
               </h2>
             </div>
           </div>
-          <p className="absolute bottom-[var(--gutter)] left-[var(--gutter)] max-w-[36ch] rounded-[var(--radius-sm)] border border-[color:var(--color-line)] bg-ground/70 px-5 py-3 t-body text-ink">
+          <p className="absolute bottom-[var(--gutter)] left-[var(--gutter)] max-w-[36ch] rounded-[var(--radius-sm)] border border-[color:var(--color-line)] bg-[#1d2048]/80 px-5 py-3 t-body text-[#fff2cf]">
             {t(`${p.key}.caption`)}
           </p>
         </div>

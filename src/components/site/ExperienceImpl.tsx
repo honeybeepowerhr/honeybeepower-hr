@@ -90,6 +90,18 @@ export default function ExperienceImpl() {
       const gx = gsap.quickTo(glow, 'x', { duration: 0.6, ease: 'power3' })
       const gy = gsap.quickTo(glow, 'y', { duration: 0.6, ease: 'power3' })
 
+      // Pčelica kasni za pokazivačem i naginje se u smjeru kretanja
+      const bee = document.createElement('div')
+      bee.className = 'bee'
+      bee.setAttribute('aria-hidden', 'true')
+      bee.innerHTML =
+        '<svg viewBox="0 0 48 40" width="38" height="32"><g class="bee-wing"><ellipse cx="24" cy="10" rx="9" ry="6" transform="rotate(-28 24 10)" fill="#fff" fill-opacity=".9" stroke="#1d2048" stroke-width="1.6"/></g><g class="bee-wing"><ellipse cx="31" cy="9" rx="9" ry="6" transform="rotate(-8 31 9)" fill="#fff" fill-opacity=".8" stroke="#1d2048" stroke-width="1.6"/></g><clipPath id="bee-body"><ellipse cx="25" cy="24" rx="15" ry="10.5"/></clipPath><ellipse cx="25" cy="24" rx="15" ry="10.5" fill="#ffb800"/><g clip-path="url(#bee-body)" fill="#1d2048"><rect x="17" y="10" width="4.5" height="30"/><rect x="26" y="10" width="4.5" height="30"/></g><ellipse cx="25" cy="24" rx="15" ry="10.5" fill="none" stroke="#1d2048" stroke-width="2.4"/><path d="M10 24 4 24" stroke="#1d2048" stroke-width="2.6" stroke-linecap="round"/><circle cx="41" cy="22" r="6.4" fill="#1d2048"/><circle cx="43" cy="20.5" r="1.7" fill="#fff"/></svg>'
+      document.body.appendChild(bee)
+      const beeX = gsap.quickTo(bee, 'x', { duration: 1.15, ease: 'power3' })
+      const beeY = gsap.quickTo(bee, 'y', { duration: 1.15, ease: 'power3' })
+      const beeR = gsap.quickTo(bee, 'rotation', { duration: 0.8, ease: 'power2' })
+      let lastX = 0
+
       let magnet: HTMLElement | null = null
       let tilt: HTMLElement | null = null
 
@@ -104,8 +116,13 @@ export default function ExperienceImpl() {
 
       const onMove = (e: PointerEvent) => {
         glow.dataset.on = '1'
+        bee.dataset.on = '1'
         gx(e.clientX)
         gy(e.clientY)
+        beeX(e.clientX + 26)
+        beeY(e.clientY + 22)
+        beeR(Math.max(-24, Math.min(24, (e.clientX - lastX) * 1.2)))
+        lastX = e.clientX
         const target = e.target as Element | null
         if (!target?.closest) return
 
@@ -140,6 +157,7 @@ export default function ExperienceImpl() {
       }
       const onLeave = () => {
         glow.dataset.on = ''
+        bee.dataset.on = ''
         resetMagnet()
         resetTilt()
       }
@@ -149,6 +167,7 @@ export default function ExperienceImpl() {
         window.removeEventListener('pointermove', onMove)
         document.documentElement.removeEventListener('pointerleave', onLeave)
         glow.remove()
+        bee.remove()
       })
     }
 

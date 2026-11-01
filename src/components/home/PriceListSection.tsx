@@ -59,7 +59,7 @@ export async function PriceListSection({ locale }: { locale: Locale }) {
                     <td className="py-[0.4rem] pr-4 align-top">
                       {[flavour(i.okus), i.pakiranje].filter(Boolean).join(', ')}
                     </td>
-                    <td className="py-[0.4rem] text-right align-top font-semibold text-[color:var(--color-honey)]">{formatEur(i.aktualnaCijena, locale)}</td>
+                    <td className="py-[0.4rem] text-right align-top font-semibold text-[color:var(--color-honey-text)]">{formatEur(i.aktualnaCijena, locale)}</td>
                   </tr>
                 ))}
               </tbody>
