@@ -32,7 +32,7 @@ export const LEGAL_ENTITY: LegalEntityInfo = {
   drzava: 'Hrvatska',
   maticniBroj: '98662759',
   oib: '77923223955',
-  datumCjenikaBase: '10.9.2026.',
+  datumCjenikaBase: '1.10.2026.',
   referentniDatumSidrenja: '10.9.2026.',
 }
 
