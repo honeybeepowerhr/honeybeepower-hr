@@ -367,45 +367,6 @@ export const REAL_PRODUCTS: ProductSummary[] = [
     ],
   },
   {
-    _id: 'hbp-iso-duo-shaker',
-    name: {
-      hr: 'Honey Bee Power Izotonični napitci limun i naranča, sa shakerom',
-      en: 'Honey Bee Power Isotonic drinks lemon and orange, with shaker',
-      de: 'Honey Bee Power Isotonische Getränke Zitrone und Orange, mit Shaker',
-      sl: 'Honey Bee Power Izotonična napitka limona in pomaranča, s shakerjem',
-      pl: 'Honey Bee Power Napoje izotoniczne cytryna i pomarańcza, z shakerem',
-    },
-    slug: 'honey-bee-power-izotonicki-napitak-paket-limun-naranca-shaker',
-    category: 'izotonicki-napitci',
-    minQuantity: 5,
-    shortDescription: {
-      hr: 'Paket dva izotonična napitka u prahu, limun i naranča (2 × 500 g), uz Honey Bee Power shaker.',
-      en: 'Two instant isotonic drink powders, lemon and orange (2 × 500 g), with a Honey Bee Power shaker.',
-      de: 'Zwei isotonische Instant-Getränkepulver, Zitrone und Orange (2 × 500 g), mit Honey Bee Power Shaker.',
-      sl: 'Dva instant izotonična napitka v prahu, limona in pomaranča (2 × 500 g), s Honey Bee Power shakerjem.',
-      pl: 'Dwa instant napoje izotoniczne w proszku, cytryna i pomarańcza (2 × 500 g), z shakerem Honey Bee Power.',
-    },
-    basePrice: 3199,
-    mainImage: {
-      _type: 'image',
-      asset: {
-        _ref: '/images/products/paketizolimunnaranca-shaker.png',
-        _type: 'reference',
-      },
-      alt: 'Honey Bee Power Izotonični Napitak — paket Limun & Naranča + Shaker',
-    },
-    imageGallery: [
-      {
-        _type: 'image',
-        asset: { _ref: '/images/products/paketizolimunnaranca-shaker.png', _type: 'reference' },
-        alt: 'Honey Bee Power Izotonični Napitak — paket Limun & Naranča + Shaker',
-      },
-    ],
-    variants: [
-      { _key: 'v1', flavour: 'Limun & Naranča', size: '2x500g posuda + Shaker', sku: 'HBP-ISO-DUO-SHK', price: 3199, stockLevel: 40, minQuantity: 5 },
-    ],
-  },
-  {
     _id: 'hbp-whey-choc-hazelnut-700',
     name: {
       hr: 'Honey Bee Power Whey protein lješnjak-čokolada, 700 g',

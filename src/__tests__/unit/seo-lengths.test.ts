@@ -65,11 +65,11 @@ describe('SEO: naslovi do 60 znakova (sa sufiksom), opisi do 155', () => {
     }
   })
 
-  it('paket od 10 gelova košta 20,00 € (odluka vlasnika), paket izotonika sa shakerom još nema cijenu', () => {
+  it('paket od 10 gelova košta 20,00 € (odluka vlasnika), a paket izotonika sa shakerom više nije proizvod (zamijenili su ga paketi)', () => {
     for (const slug of ['limun', 'naranca', 'malina']) {
       expect(sellingPriceEur(`honey-bee-power-energy-gel-${slug}-paket-10`)).toBe(20)
     }
-    expect(sellingPriceEur('honey-bee-power-izotonicki-napitak-paket-limun-naranca-shaker')).toBeNull()
+    expect(REAL_PRODUCTS.some((p) => p.slug.includes('shaker'))).toBe(false)
     // pojedinačni proizvodi i dalje imaju cijenu iz cjenika
     expect(sellingPriceEur('honey-bee-power-energy-gel-naranca')).toBe(1.8)
   })

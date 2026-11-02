@@ -3,7 +3,7 @@ import type { Locale } from '@/types'
 
 /**
  * Cijene na stranici dolaze samo iz službenog cjenika (CJENIK_ITEMS).
- * Proizvod kojeg nema u cjeniku (paketi od 10, paket izotonika sa shakerom)
+ * Proizvod kojeg nema u cjeniku (paketi od 10 gelova)
  * nema cijenu: prikazuje se „Cijena na upit”.
  */
 const SLUG_TO_CJENIK: Record<string, { vrsta: string; okus?: string; pakiranje: string }> = {
@@ -19,7 +19,7 @@ const SLUG_TO_CJENIK: Record<string, { vrsta: string; okus?: string; pakiranje: 
 
 /**
  * Cijene koje nisu u službenom cjeniku, a vlasnik ih je odredio (PRODAJNI_PAKETI.docx):
- * paket od 10 gelova istog okusa košta 20,00 €. Paket izotonika sa shakerom još nema cijenu.
+ * paket od 10 gelova istog okusa košta 20,00 €.
  */
 const OWNER_PRICES: Record<string, number> = {
   'honey-bee-power-energy-gel-limun-paket-10': 20,

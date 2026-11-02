@@ -301,7 +301,6 @@ export function sizeLabel(size: string): string {
     'Paket 10x40g': '10 × 40 g',
     '500g posuda': '500 g',
     '700g posuda': '700 g',
-    '2x500g posuda + Shaker': '2 × 500 g + shaker',
   }
   return map[size] ?? size
 }
