@@ -39,8 +39,6 @@ export default function Footer() {
 
   const social = [
     { label: 'Instagram', href: 'https://www.instagram.com/planet__bio/' },
-    { label: 'TikTok', href: 'https://www.tiktok.com/@honeybeepowerhrvatska' },
-    { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61556227986574' },
     { label: 'WhatsApp', href: 'https://wa.me/385977097962' },
   ]
 

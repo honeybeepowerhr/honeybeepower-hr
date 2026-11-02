@@ -38,7 +38,7 @@ Gel s tri ili četiri sastojka: višecvjetni med (91–95,5 %), liofilizirano vo
 ## Brand Commitments
 
 - Ime i logotip Honey Bee Power (`public/images/logo.png`, `logo-white.png`) su proizvođačevi i ostaju.
-- Društvene mreže: Instagram @planet__bio, TikTok @honeybeepowerhrvatska, Facebook.
+- Društvene mreže: Instagram @planet__bio (TikTok i Facebook više ne postoje i nisu na stranici).
 - Stari izgled (saće, ambijentalne pozadine, kartice s ikonama) ne obvezuje i zamjenjuje se.
 
 ## Evidence on Hand
