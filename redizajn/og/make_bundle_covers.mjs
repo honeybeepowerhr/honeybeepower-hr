@@ -42,7 +42,7 @@ async function pic(file) {
 }
 
 const P = {}
-for (const f of ['gellimun-prednja', 'gelnaranca-prednja', 'gelmalina-prednja', 'isolimun-prednja', 'isonaranca-prednja', 'proteincokolada700g', 'shaker']) {
+for (const f of ['gellimun-prednja', 'gelnaranca-prednja', 'gelmalina-prednja', 'isolimun-prednja-v2', 'isonaranca-prednja-v2', 'proteincokolada700g-v2', 'shaker']) {
   P[f] = await pic(f)
 }
 
@@ -75,15 +75,16 @@ function cellContent(kind, x, y, w, id, k = 1) {
         ].join(''),
       }
     case 'iso1':
-      return { field: '#ffe14a', art: cutout(P['isolimun-prednja'], cx, cy, 0.95 * k, w, 3) }
+      return { field: '#ffe14a', art: cutout(P['isolimun-prednja-v2'], cx, cy, 0.95 * k, w, 3) }
     case 'iso2':
       return {
         field: '#ffe14a',
-        art: [cutout(P['isonaranca-prednja'], cx, cy, 0.7 * k, w, -5, -0.24), cutout(P['isolimun-prednja'], cx, cy, 0.7 * k, w, 5, 0.24)].join(''),
+        art: [cutout(P['isonaranca-prednja-v2'], cx, cy, 0.7 * k, w, -5, -0.24), cutout(P['isolimun-prednja-v2'], cx, cy, 0.7 * k, w, 5, 0.24)].join(''),
       }
     case 'whey':
+      return { field: '#6b4226', art: cutout(P['proteincokolada700g-v2'], cx, cy, 1.0 * k, w, 4) }
     case 'shaker': {
-      const p = kind === 'whey' ? P['proteincokolada700g'] : P['shaker']
+      const p = P['shaker']
       const s = w * 0.96
       return {
         field: '#ffffff',

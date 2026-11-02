@@ -1,22 +1,8 @@
-import Image from 'next/image'
 import { getTranslations } from 'next-intl/server'
 import type { Locale } from '@/types'
 import { GEL_DECLARATIONS, GEL_WARNING, formatNumber } from '@/lib/declarations'
 import { SHARES } from '@/lib/gel-shares'
 import { inkOn } from '@/lib/images'
-
-/** Riječ i sličica ostaju u istom retku, s interpunkcijom iza sličice. */
-function Thumb({ word, src, position = '50% 50%', after = '' }: { word: React.ReactNode; src: string; position?: string; after?: string }) {
-  return (
-    <span className="whitespace-nowrap">
-      {word}
-      <span className="inline-thumb" data-thumb aria-hidden="true">
-        <Image src={src} alt="" width={160} height={110} sizes="96px" style={{ objectPosition: position }} />
-      </span>
-      {after}
-    </span>
-  )
-}
 
 const SEGMENT_BG: Record<string, string> = {
   honey: '#ffb800',
@@ -35,10 +21,10 @@ export async function IngredientsSection({ locale }: { locale: Locale }) {
         </h2>
         <p data-reveal className="col-span-12 font-[family-name:var(--font-display)] text-[length:var(--text-lead)] font-semibold leading-[1.3] tracking-[-0.015em] text-muted md:col-span-7">
           {t.rich('statement', {
-            honey: (w) => <Thumb word={<b className="font-semibold text-ink">{w}</b>} src="/images/found/med-zlica.jpg" position="50% 40%" />,
-            fruit: (w) => <Thumb word={<b className="font-semibold text-ink">{w}</b>} src="/images/found/naranca.jpg" position="40% 45%" after="," />,
-            guarana: (w) => <Thumb word={<b className="font-semibold text-ink">{w}</b>} src="/images/found/guarana.jpg" position="60% 72%" />,
-            salt: (w) => <Thumb word={<b className="font-semibold text-ink">{w}</b>} src="/images/found/sol.jpg" position="20% 85%" after="." />,
+            honey: (w) => <b className="font-semibold text-ink">{w}</b>,
+            fruit: (w) => <b className="font-semibold text-ink">{w}</b>,
+            guarana: (w) => <b className="font-semibold text-ink">{w}</b>,
+            salt: (w) => <b className="font-semibold text-ink">{w}</b>,
           })}
         </p>
       </div>

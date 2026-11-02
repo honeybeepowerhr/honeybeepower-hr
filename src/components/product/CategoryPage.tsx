@@ -12,7 +12,7 @@ import { FaqList } from '@/components/site/FaqList'
 
 const T = (hr: string, en: string, de: string, sl: string, pl: string): L10n => ({ hr, en, de, sl, pl })
 
-export const CATEGORY_COPY: Record<string, { title: L10n; lead: L10n; meta: L10n; image: string; column: L10n }> = {
+export const CATEGORY_COPY: Record<string, { title: L10n; lead: L10n; meta: L10n; image: string; column: L10n; field?: string }> = {
   'energetski-gelovi': {
     title: T('Energetski gelovi', 'Energy gels', 'Energiegels', 'Energijski geli', 'Żele energetyczne'),
     lead: T(
@@ -48,7 +48,8 @@ export const CATEGORY_COPY: Record<string, { title: L10n; lead: L10n; meta: L10n
       'Izotonični napitek v prahu Honey Bee Power, limona in pomaranča: 500 g za 8,00 €, vrečka 15 g za 1,40 €. 13,5 g ogljikovih hidratov v obroku.',
       'Napój izotoniczny w proszku Honey Bee Power, cytryna i pomarańcza: 500 g za 8,00 €, saszetka 15 g za 1,40 €. 13,5 g węglowodanów w porcji.',
     ),
-    image: '/images/products-web/honeybeepoweriso_lemon.webp',
+    image: '/images/products-web/isolimun-prednja-v2.webp',
+    field: 'field-lemon',
     column: T('Ugljikohidrata u 15 g', 'Carbohydrate in 15 g', 'Kohlenhydrate in 15 g', 'Ogljikovi hidrati v 15 g', 'Węglowodany w 15 g'),
   },
   'whey-proteini': {
@@ -67,7 +68,8 @@ export const CATEGORY_COPY: Record<string, { title: L10n; lead: L10n; meta: L10n
       'Whey protein Honey Bee Power s sušenim medom in stevio: lešnik-čokolada, banana-vanilija, jagoda-smetana. 700 g za 39,00 €. Vsebuje mleko.',
       'Białko Honey Bee Power z suszonym miodem i stewią: orzech z czekoladą, banan z wanilią, truskawka ze śmietaną. 700 g za 39,00 €.',
     ),
-    image: '/images/products-web/proteincokolada700g.webp',
+    image: '/images/products-web/proteincokolada700g-v2.webp',
+    field: 'field-honey',
     column: T('Proteina u 33 g', 'Protein in 33 g', 'Protein in 33 g', 'Beljakovine v 33 g', 'Białko w 33 g'),
   },
 }
@@ -110,8 +112,8 @@ export async function CategoryPage({ category, locale }: { category: string; loc
           <h1 id="cat-title" className="t-display mt-6 max-w-[11ch]">{l(copy.title, locale)}</h1>
           <p className="mt-8 t-lead measure">{l(copy.lead, locale)}</p>
         </div>
-        <div className="relative col-span-12 aspect-square overflow-hidden rounded-[var(--radius)] bg-white sm:col-span-8 sm:col-start-5 lg:col-span-5">
-          <Image src={copy.image} alt="" fill priority sizes="(min-width: 1024px) 40vw, 70vw" className="object-cover" />
+        <div className={`relative col-span-12 aspect-square overflow-hidden rounded-[var(--radius)] border-2 border-[color:var(--color-ink)] sm:col-span-8 sm:col-start-5 lg:col-span-5 ${copy.field ?? 'bg-white'}`}>
+          <Image src={copy.image} alt="" fill priority sizes="(min-width: 1024px) 40vw, 70vw" className={copy.field ? 'object-contain p-[7%] drop-shadow-[0_24px_28px_rgb(0_0_0/0.3)]' : 'object-cover'} />
         </div>
       </section>
 

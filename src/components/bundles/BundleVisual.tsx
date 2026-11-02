@@ -28,7 +28,7 @@ function cutouts(kind: FlavourKind, selection: Selection) {
     .slice(0, 3)
   if (present.length === 0) return { items: [], color: '#ffffff' }
   const color = flavourColor(kind, present[0].f.id)
-  const big = kind === 'gel' ? 112 : 100
+  const big = kind === 'gel' ? 112 : kind === 'whey' ? 104 : 100
   const small = kind === 'gel' ? 94 : 80
   const spread = kind === 'gel' ? 0.22 : 0.24
   const items =
@@ -58,9 +58,8 @@ export function BundleVisual({ option, selection }: { option: BundleOption; sele
     <ul className="bvis" style={{ ['--cols' as string]: cols, ['--rows' as string]: rows }} aria-hidden="true">
       {slots.map((slot: BundleSlot, i) => {
         const [x, y] = pos[i]
-        const isFlavour = slot.kind === 'gel' || slot.kind === 'iso'
+        const isFlavour = slot.kind === 'gel' || slot.kind === 'iso' || slot.kind === 'whey'
         const cut = isFlavour ? cutouts(slot.kind as FlavourKind, selection) : null
-        const whey = slot.kind === 'whey' ? FLAVOURS.whey.find((f) => (selection.whey?.[f.id] ?? 0) > 0) ?? FLAVOURS.whey[0] : null
         const field = cut ? cut.color : slot.kind === 'shirt' ? '#e0224f' : '#ffffff'
 
         return (
@@ -70,7 +69,6 @@ export function BundleVisual({ option, selection }: { option: BundleOption; sele
                 <polygon points={HEX} fill="none" stroke="#1d2048" strokeWidth="3" strokeLinejoin="round" />
               </svg>
               <span className="hive-hex" style={{ background: field }}>
-                {whey && <Image key={whey.id} src={whey.image} alt="" fill sizes="220px" className="swap-in object-contain p-[6%]" />}
                 {slot.kind === 'shaker' && <Image src={SHAKER_IMAGE} alt="" fill sizes="220px" className="object-contain p-[6%]" />}
                 {slot.kind === 'shirt' && (
                   <svg viewBox="0 0 100 100" className="absolute inset-[22%] h-[56%] w-[56%]">

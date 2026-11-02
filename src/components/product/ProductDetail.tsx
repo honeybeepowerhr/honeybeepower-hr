@@ -27,7 +27,7 @@ import { KIND_LABEL, PACK_TEXT, PRODUCT_FAQ, SPORTS, SPORTS_BY_KIND, kindForCate
 import { officialPriceFor } from '@/lib/prices'
 import { FaqList } from '@/components/site/FaqList'
 import ProductAddToCartButton from '@/app/[locale]/proizvodi/[slug]/ProductAddToCartButton'
-import ProductStage, { type StageOrb } from '@/components/product/ProductStage'
+import ProductStage from '@/components/product/ProductStage'
 import ProductStickyBuy from '@/components/product/ProductStickyBuy'
 import { CompositionDonut } from '@/components/product/CompositionDonut'
 import LabelZoom from '@/components/product/LabelZoom'
@@ -74,17 +74,6 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
   const flavourWord = decl ? decl.flavour[locale] : flavourOf(product)
   const shares = kind === 'gel' ? SHARES[isPack ? singleSlugFor(product.slug) : product.slug] : undefined
 
-  // Sastojci koji lebde oko gela (fotografije sastojaka; svaki okus ima svoje voće, malina je bez soli).
-  const fruitPhoto: Record<string, string> = { limun: '/images/found/limun.jpg', naranca: '/images/found/naranca.jpg', malina: '/images/found/malina.jpg' }
-  const fruitKey = Object.keys(fruitPhoto).find((k) => product.slug.includes(k))
-  const orbs: StageOrb[] = shares
-    ? [
-        { src: '/images/found/med-zlica.jpg', label: tIng('part.honey'), x: 15, y: 24, depth: 54, size: 96, delay: 700 },
-        ...(fruitKey ? [{ src: fruitPhoto[fruitKey], label: tIng('part.fruit'), x: 85, y: 30, depth: 40, size: 86, delay: 850 }] : []),
-        { src: '/images/found/guarana.jpg', label: tIng('part.guarana'), x: 21, y: 72, depth: 64, size: 80, delay: 1000 },
-        ...(shares.some((x) => x.key === 'salt') ? [{ src: '/images/found/sol.jpg', label: tIng('part.salt'), x: 87, y: 76, depth: 46, size: 72, delay: 1150 }] : []),
-      ]
-    : []
 
   // Ostali okusi i pakiranja iste vrste.
   const siblings = REAL_PRODUCTS.filter((p) => p.category === product.category && p.slug !== product.slug)
@@ -201,7 +190,6 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
             field={field}
             ink={fieldInk}
             word={flavourWord}
-            orbs={orbs}
           />
         </div>
       </section>

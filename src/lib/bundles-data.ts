@@ -20,8 +20,8 @@ export interface Flavour {
   image: string
   /** omjer širine i visine fotografije */
   ratio: number
-  /** vrsta fotografije: izrezan proizvod strši iz ćelije, fotografija s bijelom pozadinom stoji unutar nje */
-  photo: 'cutout' | 'white'
+  /** vrsta fotografije: izrezan proizvod strši iz ćelije */
+  photo: 'cutout'
 }
 
 const img = (file: string) => `/images/products-web/${file}.webp`
@@ -34,13 +34,13 @@ export const FLAVOURS: Record<FlavourKind, Flavour[]> = {
     { id: 'malina', slug: 'honey-bee-power-energy-gel-malina', image: img('gelmalina-prednja'), ratio: ratio('gelmalina-prednja'), photo: 'cutout' },
   ],
   iso: [
-    { id: 'limun', slug: 'honey-bee-power-izotonicki-napitak-limun', image: img('isolimun-prednja'), ratio: ratio('isolimun-prednja'), photo: 'cutout' },
-    { id: 'naranca', slug: 'honey-bee-power-izotonicki-napitak-naranca', image: img('isonaranca-prednja'), ratio: ratio('isonaranca-prednja'), photo: 'cutout' },
+    { id: 'limun', slug: 'honey-bee-power-izotonicki-napitak-limun', image: img('isolimun-prednja-v2'), ratio: ratio('isolimun-prednja-v2'), photo: 'cutout' },
+    { id: 'naranca', slug: 'honey-bee-power-izotonicki-napitak-naranca', image: img('isonaranca-prednja-v2'), ratio: ratio('isonaranca-prednja-v2'), photo: 'cutout' },
   ],
   whey: [
-    { id: 'cokolada', slug: 'honey-bee-power-whey-protein-ljesnjak-cokolada-700g', image: img('proteincokolada700g'), ratio: 1, photo: 'white' },
-    { id: 'banana', slug: 'honey-bee-power-whey-protein-banana-vanilija-700g', image: img('proteinbanana700g'), ratio: 1, photo: 'white' },
-    { id: 'jagoda', slug: 'honey-bee-power-whey-protein-jagoda-slag-700g', image: img('proteinjagodaslag700g'), ratio: 1, photo: 'white' },
+    { id: 'cokolada', slug: 'honey-bee-power-whey-protein-ljesnjak-cokolada-700g', image: img('proteincokolada700g-v2'), ratio: ratio('proteincokolada700g-v2'), photo: 'cutout' },
+    { id: 'banana', slug: 'honey-bee-power-whey-protein-banana-vanilija-700g', image: img('proteinbanana700g-v2'), ratio: ratio('proteinbanana700g-v2'), photo: 'cutout' },
+    { id: 'jagoda', slug: 'honey-bee-power-whey-protein-jagoda-slag-700g', image: img('proteinjagodaslag700g-v2'), ratio: ratio('proteinjagodaslag700g-v2'), photo: 'cutout' },
   ],
 }
 

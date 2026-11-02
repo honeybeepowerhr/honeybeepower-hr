@@ -1,4 +1,5 @@
 import type { Locale } from '@/types'
+import { TEXT_MORE } from '@/lib/guides-more'
 
 /**
  * Vodiči. Autor je „Honey Bee Power” dok klijent ne potvrdi stvarnog autora.
@@ -31,14 +32,12 @@ export interface Guide {
   author: string
   isoUpdated: string
   readMinutes: number
-  image: string
-  imageAlt: string
   body: GuideBlock[]
   faq: Array<{ q: string; a: string }>
   sources: GuideSource[]
 }
 
-type GuideText = Omit<Guide, 'slug' | 'isoUpdated' | 'image' | 'readMinutes' | 'author' | 'sources'>
+export type GuideText = Omit<Guide, 'slug' | 'isoUpdated' | 'readMinutes' | 'author' | 'sources'>
 
 const SRC = {
   acsm: { label: 'Thomas DT, Erdman KA, Burke LM. Nutrition and Athletic Performance. Med Sci Sports Exerc. 2016;48(3):543–568.', url: 'https://doi.org/10.1249/MSS.0000000000000852' },
@@ -46,23 +45,28 @@ const SRC = {
   claims: { label: 'Uredba Komisije (EU) br. 432/2012 o dopuštenim zdravstvenim tvrdnjama.', url: 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32012R0432' },
   honey: { label: 'Direktiva Vijeća 2001/110/EZ o medu (sastav meda).', url: 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32001L0110' },
   caffeine: { label: 'EFSA NDA Panel. Scientific Opinion on the safety of caffeine. EFSA Journal 2015;13(5):4102.', url: 'https://doi.org/10.2903/j.efsa.2015.4102' },
+  labelling: { label: 'Uredba (EU) br. 1169/2011 o informiranju potrošača o hrani.', url: 'https://eur-lex.europa.eu/legal-content/HR/TXT/?uri=CELEX:32011R1169' },
   protein: { label: 'Jäger R i sur. ISSN Position Stand: protein and exercise. J Int Soc Sports Nutr. 2017;14:20.', url: 'https://doi.org/10.1186/s12970-017-0177-8' },
 }
 
 const META = [
-  { slug: 'kada-uzeti-energetski-gel', isoUpdated: '2026-10-26', image: '/images/events-web/event-23.jpg', sources: [SRC.claims, SRC.acsm, SRC.caffeine] },
-  { slug: 'med-ili-energetski-gel', isoUpdated: '2026-10-26', image: '/images/found/med-zlica.jpg', sources: [SRC.honey, SRC.acsm, SRC.claims] },
-  { slug: 'sto-piti-na-ljetnoj-voznji', isoUpdated: '2026-10-26', image: '/images/events-web/event-20.jpg', sources: [SRC.fluids, SRC.acsm] },
-  { slug: 'protein-nakon-treninga', isoUpdated: '2026-10-26', image: '/images/products-web/proteinbanana700g.webp', sources: [SRC.acsm, SRC.protein] },
+  { slug: 'kada-uzeti-energetski-gel', isoUpdated: '2026-10-26', sources: [SRC.claims, SRC.acsm, SRC.caffeine] },
+  { slug: 'kako-procitati-deklaraciju-gela', isoUpdated: '2026-11-02', sources: [SRC.labelling, SRC.claims] },
+  { slug: 'med-ili-energetski-gel', isoUpdated: '2026-10-26', sources: [SRC.honey, SRC.acsm, SRC.claims] },
+  { slug: 'guarana-i-kofein-u-gelu', isoUpdated: '2026-11-02', sources: [SRC.caffeine] },
+  { slug: 'oporavak-4-g-ugljikohidrata-po-kilogramu', isoUpdated: '2026-11-02', sources: [SRC.claims, SRC.acsm] },
+  { slug: 'protein-nakon-treninga', isoUpdated: '2026-10-26', sources: [SRC.acsm, SRC.protein] },
+  { slug: 'sto-piti-na-ljetnoj-voznji', isoUpdated: '2026-10-26', sources: [SRC.fluids, SRC.acsm] },
+  { slug: 'izotonicki-napitak-deklaracija', isoUpdated: '2026-11-02', sources: [SRC.fluids, SRC.acsm] },
 ] as const
 
 const TEXT: Record<string, Record<Locale, GuideText>> = {
+  ...TEXT_MORE,
   'kada-uzeti-energetski-gel': {
     hr: {
       title: 'Kada uzeti energetski gel?',
       excerpt: 'Što kaže deklaracija Honey Bee Power gela, što kažu opće smjernice za ugljikohidrate i zašto je važno upozorenje za kofein.',
       lead: 'Na pitanje „kada uzeti gel” postoje dva odgovora: što piše na pakiranju konkretnog gela i što opće smjernice kažu o ugljikohidratima u sportu. Za Honey Bee Power gel prvi odgovor je jasan.',
-      imageAlt: 'Muškarac u majici Honey Bee Power drži energetski gel',
       body: [
         { type: 'h2', text: 'Što piše na deklaraciji' },
         { type: 'p', text: 'Deklaracija Honey Bee Power gela kaže: uzeti 1 obrok (40 g) nakon vježbanja ili fizičkog napora. Proizvod je namijenjen odraslima koji su vrlo intenzivno ili dugotrajno vježbali, što je dovelo do umora mišića i trošenja zaliha glikogena.' },
@@ -82,7 +86,6 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       title: 'When to take an energy gel?',
       excerpt: 'What the Honey Bee Power gel label says, what general carbohydrate guidance says, and why the caffeine warning matters.',
       lead: 'There are two answers to “when do I take a gel”: what the pack of that particular gel says, and what general guidance says about carbohydrate in sport. For the Honey Bee Power gel, the first answer is clear.',
-      imageAlt: 'A man in a Honey Bee Power shirt holding an energy gel',
       body: [
         { type: 'h2', text: 'What the label says' },
         { type: 'p', text: 'The Honey Bee Power gel label says: take 1 serving (40 g) after exercise or physical exertion. The product is intended for adults who have done very intensive or long-lasting exercise leading to muscle fatigue and glycogen depletion.' },
@@ -102,7 +105,6 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       title: 'Wann nimmt man ein Energiegel?',
       excerpt: 'Was auf dem Etikett des Honey Bee Power Gels steht, was allgemeine Empfehlungen zu Kohlenhydraten sagen und warum der Koffeinhinweis wichtig ist.',
       lead: 'Auf die Frage „wann nimmt man ein Gel“ gibt es zwei Antworten: was auf der Packung dieses Gels steht und was allgemeine Empfehlungen zu Kohlenhydraten im Sport sagen. Für das Honey Bee Power Gel ist die erste Antwort klar.',
-      imageAlt: 'Mann im Honey Bee Power Shirt mit einem Energiegel',
       body: [
         { type: 'h2', text: 'Was auf dem Etikett steht' },
         { type: 'p', text: 'Auf dem Etikett steht: 1 Portion (40 g) nach dem Training oder der Belastung einnehmen. Das Produkt ist für Erwachsene nach sehr intensiver oder langer Belastung mit Muskelermüdung und Glykogenentleerung bestimmt.' },
@@ -122,7 +124,6 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       title: 'Kdaj vzeti energijski gel?',
       excerpt: 'Kaj piše na deklaraciji gela Honey Bee Power, kaj pravijo splošne smernice za ogljikove hidrate in zakaj je opozorilo za kofein pomembno.',
       lead: 'Na vprašanje „kdaj vzeti gel” sta dva odgovora: kaj piše na embalaži tega gela in kaj splošne smernice pravijo o ogljikovih hidratih v športu. Za gel Honey Bee Power je prvi odgovor jasen.',
-      imageAlt: 'Moški v majici Honey Bee Power drži energijski gel',
       body: [
         { type: 'h2', text: 'Kaj piše na deklaraciji' },
         { type: 'p', text: 'Deklaracija pravi: zaužijte 1 obrok (40 g) po vadbi ali telesnem naporu. Izdelek je namenjen odraslim po zelo intenzivni ali dolgotrajni vadbi, ki je privedla do utrujenosti mišic in izčrpanja glikogena.' },
@@ -142,7 +143,6 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       title: 'Kiedy przyjąć żel energetyczny?',
       excerpt: 'Co mówi etykieta żelu Honey Bee Power, co mówią ogólne wskazówki dotyczące węglowodanów i dlaczego ważne jest ostrzeżenie o kofeinie.',
       lead: 'Na pytanie „kiedy przyjąć żel” są dwie odpowiedzi: co podaje opakowanie danego żelu i co mówią ogólne wskazówki o węglowodanach w sporcie. Dla żelu Honey Bee Power pierwsza odpowiedź jest jasna.',
-      imageAlt: 'Mężczyzna w koszulce Honey Bee Power trzyma żel energetyczny',
       body: [
         { type: 'h2', text: 'Co jest na etykiecie' },
         { type: 'p', text: 'Etykieta mówi: spożyć 1 porcję (40 g) po ćwiczeniach lub wysiłku fizycznym. Produkt jest przeznaczony dla dorosłych po bardzo intensywnym lub długotrwałym wysiłku prowadzącym do zmęczenia mięśni i wyczerpania glikogenu.' },
@@ -164,7 +164,6 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       title: 'Med ili energetski gel?',
       excerpt: 'Što je u medu, što je u Honey Bee Power gelu i po čemu se razlikuju: sastav s deklaracije, pakiranje od 40 g i upozorenje za kofein.',
       lead: 'Honey Bee Power gel je 91–95,5 % višecvjetni med. Zašto onda ne ponijeti obični med? Razlika je u onome što je dodano, u pakiranju i u tome što piše na deklaraciji.',
-      imageAlt: 'Staklenka meda i drvena žlica s medom',
       body: [
         { type: 'h2', text: 'Što je u medu' },
         { type: 'p', text: 'Med je prirodni proizvod pčela i, prema europskim propisima o medu, većinom se sastoji od fruktoze i glukoze, uz vodu i male količine drugih tvari. Sastav se razlikuje od meda do meda, ovisno o cvjetovima.' },
@@ -184,7 +183,6 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       title: 'Honey or an energy gel?',
       excerpt: 'What is in honey, what is in the Honey Bee Power gel and how they differ: ingredients from the label, a 40 g pack and the caffeine warning.',
       lead: 'The Honey Bee Power gel is 91–95.5% multifloral honey. So why not just take ordinary honey? The difference lies in what is added, in the pack and in what the label says.',
-      imageAlt: 'A jar of honey and a wooden honey dipper',
       body: [
         { type: 'h2', text: 'What is in honey' },
         { type: 'p', text: 'Honey is a natural product of bees and, under the EU honey rules, consists mostly of fructose and glucose, with water and small amounts of other substances. Composition varies from honey to honey depending on the flowers.' },
@@ -204,7 +202,6 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       title: 'Honig oder Energiegel?',
       excerpt: 'Was im Honig steckt, was im Honey Bee Power Gel steckt und worin sie sich unterscheiden: Zutaten laut Etikett, 40-g-Beutel und Koffeinhinweis.',
       lead: 'Das Honey Bee Power Gel besteht zu 91–95,5 % aus Mehrblütenhonig. Warum also nicht einfach Honig mitnehmen? Der Unterschied liegt in den Zutaten, der Packung und dem Etikett.',
-      imageAlt: 'Honigglas und hölzerner Honiglöffel',
       body: [
         { type: 'h2', text: 'Was im Honig steckt' },
         { type: 'p', text: 'Honig ist ein Naturprodukt der Bienen und besteht laut EU-Honigrichtlinie überwiegend aus Fruktose und Glukose, dazu Wasser und kleine Mengen anderer Stoffe. Die Zusammensetzung hängt von den Blüten ab.' },
@@ -224,7 +221,6 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       title: 'Med ali energijski gel?',
       excerpt: 'Kaj je v medu, kaj je v gelu Honey Bee Power in v čem se razlikujeta: sestava z deklaracije, pakiranje 40 g in opozorilo za kofein.',
       lead: 'Gel Honey Bee Power je 91–95,5 % večcvetni med. Zakaj torej ne vzeti navadnega medu? Razlika je v dodanih sestavinah, embalaži in v tem, kar piše na deklaraciji.',
-      imageAlt: 'Kozarec medu in lesena žlica za med',
       body: [
         { type: 'h2', text: 'Kaj je v medu' },
         { type: 'p', text: 'Med je naravni proizvod čebel in je po evropskih predpisih o medu večinoma iz fruktoze in glukoze, z vodo in majhnimi količinami drugih snovi. Sestava je odvisna od cvetov.' },
@@ -244,7 +240,6 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       title: 'Miód czy żel energetyczny?',
       excerpt: 'Co jest w miodzie, co jest w żelu Honey Bee Power i czym się różnią: skład z etykiety, opakowanie 40 g i ostrzeżenie o kofeinie.',
       lead: 'Żel Honey Bee Power to w 91–95,5% miód wielokwiatowy. Dlaczego więc nie zabrać zwykłego miodu? Różnica tkwi w dodatkach, opakowaniu i tym, co podaje etykieta.',
-      imageAlt: 'Słoik miodu i drewniana łyżka do miodu',
       body: [
         { type: 'h2', text: 'Co jest w miodzie' },
         { type: 'p', text: 'Miód to naturalny produkt pszczół i według unijnych przepisów o miodzie składa się głównie z fruktozy i glukozy, z wodą i niewielkimi ilościami innych substancji. Skład zależy od kwiatów.' },
@@ -266,7 +261,6 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       title: 'Što piti na ljetnoj vožnji biciklom',
       excerpt: 'Koliko tekućine na vrućini, kako izmjeriti koliko gubiš znojenjem i što piše na deklaraciji Honey Bee Power izotonika.',
       lead: 'Ljeti se na biciklu znoji više nego što se čini, jer vjetar suši kožu. Količina tekućine nije ista za sve, pa je najbolje izmjeriti svoju.',
-      imageAlt: 'Trkač u majici Honey Bee Power',
       body: [
         { type: 'h2', text: 'Koliko piti' },
         { type: 'p', text: 'Smjernice za nadoknadu tekućine (Sawka i sur., 2007) ne daju jednu količinu za sve, nego preporučuju individualan plan: piti tako da se izbjegne veći gubitak tjelesne težine tijekom napora, ali ne piti više nego što se gubi.' },
@@ -285,7 +279,6 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       title: 'What to drink on a summer ride',
       excerpt: 'How much fluid in the heat, how to measure your own sweat loss and what the Honey Bee Power isotonic label says.',
       lead: 'In summer you sweat more on the bike than it seems, because the wind dries your skin. Fluid needs are not the same for everyone, so it is best to measure yours.',
-      imageAlt: 'A runner in a Honey Bee Power shirt',
       body: [
         { type: 'h2', text: 'How much to drink' },
         { type: 'p', text: 'Fluid replacement guidance (Sawka et al., 2007) does not give one amount for everyone; it recommends an individual plan: drink to avoid larger body-weight loss during exercise, but do not drink more than you lose.' },
@@ -304,7 +297,6 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       title: 'Was man auf einer Sommerausfahrt trinkt',
       excerpt: 'Wie viel Flüssigkeit bei Hitze, wie man den eigenen Schweißverlust misst und was auf dem Etikett des Honey Bee Power Isotonic steht.',
       lead: 'Im Sommer schwitzt man auf dem Rad mehr, als es scheint, weil der Fahrtwind die Haut trocknet. Der Bedarf ist nicht bei allen gleich, daher am besten selbst messen.',
-      imageAlt: 'Ein Läufer im Honey Bee Power Shirt',
       body: [
         { type: 'h2', text: 'Wie viel trinken' },
         { type: 'p', text: 'Empfehlungen zum Flüssigkeitsersatz (Sawka et al., 2007) nennen keine Menge für alle, sondern einen individuellen Plan: so trinken, dass größere Gewichtsverluste vermieden werden, aber nicht mehr, als man verliert.' },
@@ -323,7 +315,6 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       title: 'Kaj piti na poletni kolesarski vožnji',
       excerpt: 'Koliko tekočine v vročini, kako izmeriti izgubo z znojenjem in kaj piše na deklaraciji izotonika Honey Bee Power.',
       lead: 'Poleti se na kolesu potiš bolj, kot se zdi, ker veter suši kožo. Potrebe po tekočini niso pri vseh enake, zato je najbolje izmeriti svoje.',
-      imageAlt: 'Tekač v majici Honey Bee Power',
       body: [
         { type: 'h2', text: 'Koliko piti' },
         { type: 'p', text: 'Smernice za nadomeščanje tekočine (Sawka in sod., 2007) ne dajejo ene količine za vse, ampak priporočajo individualen načrt: piti tako, da se izogneš večji izgubi telesne mase, vendar ne več, kot izgubiš.' },
@@ -342,7 +333,6 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       title: 'Co pić na letniej jeździe rowerem',
       excerpt: 'Ile płynów w upale, jak zmierzyć własną utratę potu i co mówi etykieta izotoniku Honey Bee Power.',
       lead: 'Latem na rowerze pocisz się bardziej, niż się wydaje, bo wiatr osusza skórę. Zapotrzebowanie na płyny nie jest u wszystkich takie samo, więc najlepiej zmierzyć własne.',
-      imageAlt: 'Biegacz w koszulce Honey Bee Power',
       body: [
         { type: 'h2', text: 'Ile pić' },
         { type: 'p', text: 'Wskazówki dotyczące uzupełniania płynów (Sawka i in., 2007) nie podają jednej ilości dla wszystkich, lecz zalecają indywidualny plan: pić tak, by uniknąć większej utraty masy ciała, ale nie więcej, niż się traci.' },
@@ -363,7 +353,6 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       title: 'Protein nakon treninga: koliko i kada',
       excerpt: 'Opće smjernice za protein nakon treninga, primjer za osobu od 70 kg i što je u Honey Bee Power wheyju, uključujući steviju i mlijeko.',
       lead: 'Protein nakon treninga nije magija, nego dio dnevnog unosa. Važnije je koliko ga ima kroz cijeli dan nego točna minuta nakon treninga.',
-      imageAlt: 'Posuda Honey Bee Power whey proteina banana-vanilija',
       body: [
         { type: 'h2', text: 'Koliko' },
         { type: 'p', text: 'Opće smjernice za sportaše navode 1,2–2,0 g proteina po kilogramu tjelesne težine dnevno, raspoređeno u obroke od oko 0,3 g po kilogramu, nakon treninga i svakih nekoliko sati (Thomas i sur., 2016; Jäger i sur., 2017). Za osobu od 70 kg to je oko 21 g po obroku.' },
@@ -382,7 +371,6 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       title: 'Protein after training: how much and when',
       excerpt: 'General guidance for protein after training, an example for a 70 kg person and what is in Honey Bee Power whey, including stevia and milk.',
       lead: 'Protein after training is not magic but part of your daily intake. How much you get across the day matters more than the exact minute after training.',
-      imageAlt: 'A tub of Honey Bee Power banana-vanilla whey protein',
       body: [
         { type: 'h2', text: 'How much' },
         { type: 'p', text: 'General guidance for athletes lists 1.2–2.0 g of protein per kilogram of body weight per day, spread over meals of about 0.3 g per kilogram, after training and every few hours (Thomas et al., 2016; Jäger et al., 2017). For a 70 kg person that is about 21 g per meal.' },
@@ -401,7 +389,6 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       title: 'Protein nach dem Training',
       excerpt: 'Allgemeine Empfehlungen für Protein nach dem Training, ein Beispiel für 70 kg und was im Honey Bee Power Whey steckt, inklusive Stevia und Milch.',
       lead: 'Protein nach dem Training ist keine Magie, sondern Teil der täglichen Zufuhr. Die Menge über den Tag zählt mehr als die genaue Minute nach dem Training.',
-      imageAlt: 'Dose Honey Bee Power Whey Protein Banane-Vanille',
       body: [
         { type: 'h2', text: 'Wie viel' },
         { type: 'p', text: 'Allgemeine Empfehlungen für Sportler nennen 1,2–2,0 g Protein pro Kilogramm Körpergewicht täglich, verteilt auf Mahlzeiten von etwa 0,3 g pro Kilogramm, nach dem Training und alle paar Stunden (Thomas et al., 2016; Jäger et al., 2017). Bei 70 kg sind das etwa 21 g pro Mahlzeit.' },
@@ -420,7 +407,6 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       title: 'Beljakovine po treningu: koliko in kdaj',
       excerpt: 'Splošne smernice za beljakovine po treningu, primer za osebo s 70 kg in kaj je v whey proteinu Honey Bee Power, vključno s stevio in mlekom.',
       lead: 'Beljakovine po treningu niso čarovnija, ampak del dnevnega vnosa. Pomembnejše je, koliko jih zaužiješ čez dan, kot natančna minuta po treningu.',
-      imageAlt: 'Embalaža whey proteina Honey Bee Power banana-vanilija',
       body: [
         { type: 'h2', text: 'Koliko' },
         { type: 'p', text: 'Splošne smernice za športnike navajajo 1,2–2,0 g beljakovin na kilogram telesne mase dnevno, razporejeno v obroke po približno 0,3 g na kilogram, po treningu in vsakih nekaj ur (Thomas in sod., 2016; Jäger in sod., 2017). Za osebo s 70 kg je to približno 21 g na obrok.' },
@@ -439,7 +425,6 @@ const TEXT: Record<string, Record<Locale, GuideText>> = {
       title: 'Białko po treningu: ile i kiedy',
       excerpt: 'Ogólne wskazówki dotyczące białka po treningu, przykład dla osoby 70 kg i co jest w whey Honey Bee Power, w tym stewia i mleko.',
       lead: 'Białko po treningu to nie magia, lecz część dziennego spożycia. Ważniejsze jest, ile go jest w ciągu dnia, niż dokładna minuta po treningu.',
-      imageAlt: 'Opakowanie białka Honey Bee Power banan z wanilią',
       body: [
         { type: 'h2', text: 'Ile' },
         { type: 'p', text: 'Ogólne wskazówki dla sportowców podają 1,2–2,0 g białka na kilogram masy ciała dziennie, rozłożone na posiłki po około 0,3 g na kilogram, po treningu i co kilka godzin (Thomas i in., 2016; Jäger i in., 2017). Dla osoby 70 kg to około 21 g na posiłek.' },
@@ -467,7 +452,6 @@ function build(meta: (typeof META)[number], locale: Locale): Guide {
   return {
     slug: meta.slug,
     isoUpdated: meta.isoUpdated,
-    image: meta.image,
     author: 'Honey Bee Power',
     readMinutes: Math.max(1, Math.round(wordsOf(t) / 200)),
     sources: [...meta.sources],

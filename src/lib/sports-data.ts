@@ -19,9 +19,6 @@ export interface SportPage {
   metaTitle: L10n
   metaDescription: L10n
   lead: L10n
-  image: string
-  imageAlt: L10n
-  imagePosition?: string
   sections: SportSection[]
   products: ProductKind[]
   faq: Array<{ q: L10n; a: L10n }>
@@ -103,9 +100,6 @@ export const SPORT_PAGES: SportPage[] = [
       'Za 10 km se je drugače kot za maraton. Tu so splošne smernice glede na dolžino tekme, z virom, in mesto gela Honey Bee Power: po naporu, kot piše na deklaraciji.',
       'Na 10 km je się inaczej niż na maraton. Oto ogólne wskazówki według dystansu, ze źródłem, oraz miejsce żelu Honey Bee Power: po wysiłku, jak podaje etykieta.',
     ),
-    image: '/images/events-web/event-12.jpg',
-    imageAlt: T('Trkač s gelom Honey Bee Power na maratonu na Cipru', 'A runner with a Honey Bee Power gel at a marathon in Cyprus', 'Läufer mit einem Honey Bee Power Gel bei einem Marathon auf Zypern', 'Tekač z gelom Honey Bee Power na maratonu na Cipru', 'Biegacz z żelem Honey Bee Power na maratonie na Cyprze'),
-    imagePosition: '50% 30%',
     sections: [
       {
         title: T('Po duljini utrke', 'By race distance', 'Nach Distanz', 'Glede na dolžino', 'Według dystansu'),
@@ -141,8 +135,6 @@ export const SPORT_PAGES: SportPage[] = [
       'Vožnja treh ali štirih ur porabi več, kot pojeste dan prej. Načrt na uro vožnje, tekočina v vročini in obnova zvečer.',
       'Jazda trwająca trzy lub cztery godziny zużywa więcej, niż zjadłeś dzień wcześniej. Plan na każdą godzinę jazdy, płyny w upale i regeneracja wieczorem.',
     ),
-    image: '/images/hero/product-showcase-poster.jpg',
-    imageAlt: T('Tri energetska gela Honey Bee Power: malina, limun i naranča', 'Three Honey Bee Power energy gels: raspberry, lemon and orange', 'Drei Honey Bee Power Energiegels: Himbeere, Zitrone und Orange', 'Trije energijski geli Honey Bee Power: malina, limona in pomaranča', 'Trzy żele energetyczne Honey Bee Power: malina, cytryna i pomarańcza'),
     sections: [
       {
         title: T('Plan po satu vožnje', 'A plan per hour of riding', 'Plan pro Fahrstunde', 'Načrt na uro vožnje', 'Plan na godzinę jazdy'),
@@ -187,8 +179,6 @@ export const SPORT_PAGES: SportPage[] = [
       'Med plavanjem se ne je, na kolesu je najlažje, med tekom najtežje. Zato se prehrana za triatlon načrtuje po disciplinah.',
       'W pływaniu się nie je, na rowerze najłatwiej, w biegu najtrudniej. Dlatego odżywianie w triathlonie planuje się według dyscyplin.',
     ),
-    image: '/images/found/triatlon.jpg',
-    imageAlt: T('Gledatelji na plaži na startu plivanja triatlona', 'Spectators on the beach at a triathlon swim start', 'Zuschauer am Strand beim Schwimmstart eines Triathlons', 'Gledalci na plaži ob startu plavanja na triatlonu', 'Widzowie na plaży przy starcie pływania w triathlonie'),
     sections: [
       {
         title: T('Prije plivanja i na biciklu', 'Before the swim and on the bike', 'Vor dem Schwimmen und auf dem Rad', 'Pred plavanjem in na kolesu', 'Przed pływaniem i na rowerze'),
@@ -224,8 +214,6 @@ export const SPORT_PAGES: SportPage[] = [
       'Vzpon na Velebit ali Papuk traja ure, hrano pa nosiš na hrbtu. Majhni, lahki obroki in dovolj vode so pomembnejši od velikega obroka na vrhu.',
       'Wejście na Velebit czy Papuk trwa godzinami, a jedzenie niesiesz na plecach. Małe, lekkie porcje i dość wody liczą się bardziej niż duży posiłek na szczycie.',
     ),
-    image: '/images/found/velebit.jpg',
-    imageAlt: T('Vrhovi Sjevernog Velebita: Kuk od Rujica, Crni vrh i Orlov kuk', 'Peaks of Northern Velebit: Kuk od Rujica, Crni vrh and Orlov kuk', 'Gipfel des Nördlichen Velebit: Kuk od Rujica, Crni vrh und Orlov kuk', 'Vrhovi Severnega Velebita: Kuk od Rujica, Crni vrh in Orlov kuk', 'Szczyty Północnego Velebitu: Kuk od Rujica, Crni vrh i Orlov kuk'),
     sections: [
       {
         title: T('Što spakirati', 'What to pack', 'Was einpacken', 'Kaj vzeti', 'Co spakować'),
@@ -260,8 +248,6 @@ export const SPORT_PAGES: SportPage[] = [
       'Po treningu moči mišice potrebujejo beljakovine, razporejene čez dan. En 33-gramski obrok whey proteina Honey Bee Power ima približno 22 g beljakovin.',
       'Po treningu siłowym mięśnie potrzebują białka rozłożonego w ciągu dnia. Jedna porcja 33 g whey Honey Bee Power ma około 22 g białka.',
     ),
-    image: '/images/events-web/event-5.jpg',
-    imageAlt: T('Grupa sportaša na treningu u dvorani', 'A group of athletes training in a gym', 'Eine Gruppe Sportler beim Training in der Halle', 'Skupina športnikov na treningu v dvorani', 'Grupa sportowców na treningu na sali'),
     sections: [
       {
         title: T('Koliko proteina i kada', 'How much protein and when', 'Wie viel Protein und wann', 'Koliko beljakovin in kdaj', 'Ile białka i kiedy'),
@@ -310,9 +296,6 @@ export const SPORT_PAGES: SportPage[] = [
       'Turnir z dvema ali tremi tekmami na dan izprazni zaloge hitreje kot en trening. Med tekmami in po njih so ogljikovi hidrati in tekočina pomembni kot taktika.',
       'Turniej z dwoma lub trzema meczami dziennie opróżnia zapasy szybciej niż jeden trening. Między meczami i po nich węglowodany i płyny są tak ważne jak taktyka.',
     ),
-    image: '/images/events-web/event-24.jpg',
-    imageAlt: T('Rukometna ekipa u dresovima Honey Bee Power', 'A handball team in Honey Bee Power shirts', 'Eine Handballmannschaft in Honey Bee Power Trikots', 'Rokometna ekipa v dresih Honey Bee Power', 'Drużyna piłki ręcznej w koszulkach Honey Bee Power'),
-    imagePosition: '50% 40%',
     sections: [
       {
         title: T('Između utakmica', 'Between games', 'Zwischen den Spielen', 'Med tekmami', 'Między meczami'),

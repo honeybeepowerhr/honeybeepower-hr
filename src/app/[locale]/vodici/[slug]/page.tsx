@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { JsonLd } from '@/components/seo/JsonLd'
@@ -70,7 +69,7 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
     '@type': 'Article',
     headline: guide.title,
     description: guide.excerpt,
-    image: guide.image.startsWith('http') ? guide.image : absoluteUrl(guide.image),
+    image: absoluteUrl('/images/og/vodici.jpg'),
     dateModified: guide.isoUpdated,
     datePublished: guide.isoUpdated,
     inLanguage: locale,
@@ -91,19 +90,20 @@ export default async function GuidePage({ params }: { params: Promise<{ locale: 
       <JsonLd schema={buildFAQPageSchema(guide.faq.map((f, i) => ({ _key: String(i), question: { hr: f.q, en: f.q, de: f.q }, answer: { hr: f.a, en: f.a, de: f.a } })), 'hr')} />
       <SectionMotion />
 
-      <header className="frame grid-12 gap-y-8 pb-12 pt-10 md:pb-16">
-        <h1 className="t-head col-span-12 lg:col-span-10">{guide.title}</h1>
-        <p className="col-span-12 t-lead measure lg:col-span-8">{guide.lead}</p>
-        <dl className="col-span-12 flex flex-wrap gap-x-8 gap-y-2 t-small">
-          <div className="flex gap-2"><dt>{L.author[locale]}:</dt><dd className="font-medium">{guide.author}</dd></div>
-          <div className="flex gap-2"><dt>{L.updated[locale]}:</dt><dd className="font-medium"><time dateTime={guide.isoUpdated}>{date}</time></dd></div>
-          <div><dd>{guide.readMinutes} {L.read[locale]}</dd></div>
-        </dl>
+      <header className="field-honey border-b-2 border-ink">
+        <div className="frame grid-12 gap-y-8 pb-12 pt-10 md:pb-16 md:pt-14">
+          <p className="col-span-12 t-small font-medium">
+            <Link href={`${prefix}/vodici`} className="link">← {L.guides[locale]}</Link>
+          </p>
+          <h1 className="t-head col-span-12 lg:col-span-10">{guide.title}</h1>
+          <p className="col-span-12 t-lead measure lg:col-span-8">{guide.lead}</p>
+          <dl className="col-span-12 flex flex-wrap gap-x-8 gap-y-2 t-small">
+            <div className="flex gap-2"><dt>{L.author[locale]}:</dt><dd className="font-medium">{guide.author}</dd></div>
+            <div className="flex gap-2"><dt>{L.updated[locale]}:</dt><dd className="font-medium"><time dateTime={guide.isoUpdated}>{date}</time></dd></div>
+            <div><dd>{guide.readMinutes} {L.read[locale]}</dd></div>
+          </dl>
+        </div>
       </header>
-
-      <div className="relative mx-[var(--gutter)] aspect-[21/9] overflow-hidden bg-surface">
-        <Image src={guide.image} alt={guide.imageAlt} fill priority sizes="100vw" className="object-cover" data-product-image />
-      </div>
 
       <div className="frame grid-12 py-16 md:py-24">
         <div className="col-span-12 t-body md:col-span-8 md:col-start-3 lg:col-span-6 lg:col-start-4">

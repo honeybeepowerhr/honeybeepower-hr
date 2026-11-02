@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import type { Locale } from '@/types'
@@ -62,21 +61,9 @@ export default async function SportPage({ params }: { params: Promise<{ locale: 
       <SectionMotion />
 
       <header className="grid-12 items-stretch">
-        <div className="frame col-span-12 flex flex-col justify-end gap-8 py-12 md:col-span-6 md:py-16">
+        <div className="frame col-span-12 flex flex-col justify-end gap-8 py-14 md:col-span-9 md:py-20">
           <h1 className="t-display">{title}</h1>
           <p className="t-lead measure">{l(page.lead, locale)}</p>
-        </div>
-        <div className="relative col-span-12 min-h-[56svh] overflow-hidden bg-surface md:col-span-6 md:min-h-[calc(100svh-var(--header-h))]">
-          <Image
-            src={page.image}
-            alt={l(page.imageAlt, locale)}
-            fill
-            priority
-            sizes="(min-width: 768px) 50vw, 100vw"
-            className="object-cover"
-            style={{ objectPosition: page.imagePosition ?? '50% 50%' }}
-            data-product-image
-          />
         </div>
       </header>
 
