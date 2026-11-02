@@ -374,6 +374,7 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
                       src={webImage(p.mainImage.asset._ref)}
                       alt=""
                       fill
+                      quality={90}
                       sizes="(min-width: 768px) 22vw, 45vw"
                       className="object-contain p-[10%] transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:scale-[1.04]"
                     />
