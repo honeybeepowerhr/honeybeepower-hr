@@ -21,7 +21,7 @@ import {
   photoFieldFor,
   sizeLabel,
 } from '@/lib/declarations'
-import { formatEur, officialPriceEur } from '@/lib/prices'
+import { formatEur, officialPriceEur, sellingPriceEur } from '@/lib/prices'
 import { webImage, inkOn } from '@/lib/images'
 import { KIND_LABEL, PACK_TEXT, PRODUCT_FAQ, SPORTS, SPORTS_BY_KIND, kindForCategory, l } from '@/lib/product-content'
 import { officialPriceFor } from '@/lib/prices'
@@ -53,7 +53,7 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
   const variant = product.variants[0]
 
   // Cijena samo iz službenog cjenika; paketi bez cijene u cjeniku dobivaju [UPIŠI].
-  const price = officialPriceEur(product.slug)
+  const price = sellingPriceEur(product.slug)
   const unitPriceCents = price !== null ? Math.round(price * 100) : 0
 
   // Glavna brojka po porciji.
@@ -179,7 +179,7 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
             {price !== null ? (
               <div className="flex flex-wrap items-baseline gap-x-3">
                 <p className="font-[family-name:var(--font-display)] text-[length:var(--text-sub)] font-extrabold tabular">{formatEur(price, locale)}</p>
-                <p className="t-body">{t('priceFromList')}</p>
+                <p className="t-body">{officialPriceEur(product.slug) !== null ? t('priceFromList') : t('pricePerPack')}</p>
               </div>
             ) : (
               <p className="t-body">{t('pricePending')}</p>

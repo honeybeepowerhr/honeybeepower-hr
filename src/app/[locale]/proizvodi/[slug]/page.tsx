@@ -5,7 +5,7 @@ import type { Locale } from '@/types'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { buildProductSchema, buildBreadcrumbSchema, buildFAQPageSchema } from '@/lib/seo/schemas'
 import { pageMetadata, localeUrl } from '@/lib/seo/site'
-import { officialPriceEur } from '@/lib/prices'
+import { sellingPriceEur } from '@/lib/prices'
 import { PRODUCT_FAQ, kindForCategory, l } from '@/lib/product-content'
 import { getDeclaration, formatNumber } from '@/lib/declarations'
 import { ProductDetail } from '@/components/product/ProductDetail'
@@ -92,7 +92,7 @@ export default async function ProductOrCategoryPage({ params }: PageProps) {
 
   const kind = kindForCategory(product.category)
   const name = product.name[locale] ?? product.name.hr
-  const price = officialPriceEur(product.slug)
+  const price = sellingPriceEur(product.slug)
   const productSchema = buildProductSchema(product, locale, { priceEur: price, url: localeUrl(locale, `/proizvodi/${slug}`) })
   const faqSchema = buildFAQPageSchema(
     PRODUCT_FAQ[kind].map((f, i) => ({ _key: String(i), question: f.q, answer: f.a })),

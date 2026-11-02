@@ -668,7 +668,7 @@
         "whey": "Whey Protein",
         "shaker": "Shaker"
       },
-      "note": "10er-Pakete und das Isotonic-Set mit Shaker stehen nicht in der Preisliste; den Preis bestätigen wir auf Anfrage.",
+      "note": "Eine Schachtel mit 10 Gels einer Sorte kostet 20,00 €. Das Isotonic-Paket mit Shaker ist nicht in der Preisliste; den Preis bestätigen wir auf Anfrage.",
       "more": "Vollständige Preisliste mit Barcodes"
     },
     "clubs": {
@@ -768,7 +768,8 @@
     "zoomHint": "Mit der Maus vergrößern, klicken für das ganze Etikett",
     "zoomOpen": "Etikett in voller Größe öffnen",
     "zoomClose": "Schließen",
-    "compositionLabel": "Zusammensetzung nach Anteil"
+    "compositionLabel": "Zusammensetzung nach Anteil",
+    "pricePerPack": "pro Schachtel mit 10 Gels"
   },
   "bundles": {
     "title": "Pakete",

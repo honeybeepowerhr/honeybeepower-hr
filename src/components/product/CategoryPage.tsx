@@ -5,7 +5,7 @@ import type { Locale } from '@/types'
 import type { L10n } from '@/lib/declarations'
 import { REAL_PRODUCTS } from '@/lib/products-data'
 import { formatNumber, getDeclaration, isGelPack, photoFieldFor, WHEY_PROTEIN_PER_33G } from '@/lib/declarations'
-import { formatEur, officialPriceEur, officialPriceFor } from '@/lib/prices'
+import { formatEur, officialPriceEur, officialPriceFor, sellingPriceEur } from '@/lib/prices'
 import { webImage, inkOn } from '@/lib/images'
 import { PRODUCT_FAQ, SPORTS, SPORTS_BY_KIND, kindForCategory, l } from '@/lib/product-content'
 import { FaqList } from '@/components/site/FaqList'
@@ -119,7 +119,7 @@ export async function CategoryPage({ category, locale }: { category: string; loc
         {products.map((p) => {
           const d = getDeclaration(p.slug)
           const color = photoFieldFor(d)
-          const price = officialPriceEur(p.slug)
+          const price = sellingPriceEur(p.slug)
           const pack = isGelPack(p.slug) || p.slug.includes('shaker')
           return (
             <li key={p.slug} data-reveal>

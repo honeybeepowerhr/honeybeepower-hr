@@ -6,7 +6,7 @@ import { JsonLd } from '@/components/seo/JsonLd'
 import { buildBreadcrumbSchema } from '@/lib/seo/schemas'
 import { pageMetadata, localeUrl } from '@/lib/seo/site'
 import { formatNumber, getDeclaration, isGelPack, photoFieldFor, WHEY_PROTEIN_PER_33G } from '@/lib/declarations'
-import { formatEur, officialPriceEur } from '@/lib/prices'
+import { formatEur, sellingPriceEur } from '@/lib/prices'
 import { inkOn, webImage } from '@/lib/images'
 import { KIND_LABEL, SPORTS, SPORTS_BY_KIND, kindForCategory, l } from '@/lib/product-content'
 import { CatalogueList, type CatalogueItem } from '@/components/product/CatalogueList'
@@ -51,7 +51,7 @@ export default async function ProizvodiPage({ params }: { params: Promise<{ loca
     const kind = kindForCategory(p.category)
     const d = getDeclaration(p.slug)
     const field = photoFieldFor(d)
-    const price = officialPriceEur(p.slug)
+    const price = sellingPriceEur(p.slug)
     const figure =
       kind === 'gel' && d?.perServing
         ? `${formatNumber(d.perServing.carbohydrates, locale)} g`

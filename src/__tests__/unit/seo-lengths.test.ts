@@ -5,7 +5,7 @@ import { getGuides } from '@/lib/guides-data'
 import { getLegalDoc, type LegalSlug } from '@/lib/legal-data'
 import { CATEGORY_COPY } from '@/components/product/CategoryPage'
 import { REAL_PRODUCTS } from '@/lib/products-data'
-import { officialPriceEur } from '@/lib/prices'
+import { officialPriceEur, sellingPriceEur } from '@/lib/prices'
 
 const SUFFIX = ' | Honey Bee Power'
 
@@ -60,7 +60,17 @@ describe('SEO: naslovi do 60 znakova (sa sufiksom), opisi do 155', () => {
 
   it('paketi bez cijene u cjeniku nemaju službenu cijenu', () => {
     for (const p of REAL_PRODUCTS.filter((x) => x.slug.endsWith('paket-10') || x.slug.endsWith('shaker'))) {
+      // nisu u službenom cjeniku
       expect(officialPriceEur(p.slug)).toBeNull()
     }
+  })
+
+  it('paket od 10 gelova košta 20,00 € (odluka vlasnika), paket izotonika sa shakerom još nema cijenu', () => {
+    for (const slug of ['limun', 'naranca', 'malina']) {
+      expect(sellingPriceEur(`honey-bee-power-energy-gel-${slug}-paket-10`)).toBe(20)
+    }
+    expect(sellingPriceEur('honey-bee-power-izotonicki-napitak-paket-limun-naranca-shaker')).toBeNull()
+    // pojedinačni proizvodi i dalje imaju cijenu iz cjenika
+    expect(sellingPriceEur('honey-bee-power-energy-gel-naranca')).toBe(1.8)
   })
 })

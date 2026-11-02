@@ -17,6 +17,16 @@ const SLUG_TO_CJENIK: Record<string, { vrsta: string; okus?: string; pakiranje: 
   'honey-bee-power-whey-protein-jagoda-slag-700g': { vrsta: 'Proteinski prah', okus: 'JAGODA-ŠLAG', pakiranje: '700 g' },
 }
 
+/**
+ * Cijene koje nisu u službenom cjeniku, a vlasnik ih je odredio (PRODAJNI_PAKETI.docx):
+ * paket od 10 gelova istog okusa košta 20,00 €. Paket izotonika sa shakerom još nema cijenu.
+ */
+const OWNER_PRICES: Record<string, number> = {
+  'honey-bee-power-energy-gel-limun-paket-10': 20,
+  'honey-bee-power-energy-gel-naranca-paket-10': 20,
+  'honey-bee-power-energy-gel-malina-paket-10': 20,
+}
+
 /** Cijena iz cjenika u eurima ili null ako je proizvod nema. */
 export function officialPriceEur(slug: string): number | null {
   const key = SLUG_TO_CJENIK[slug]
@@ -31,6 +41,14 @@ export function officialPriceEur(slug: string): number | null {
 export function officialPriceFor(vrsta: string, okus: string, pakiranje: string): number | null {
   const item = CJENIK_ITEMS.find((i) => i.vrsta === vrsta && i.okus === okus && i.pakiranje === pakiranje)
   return item ? item.aktualnaCijena : null
+}
+
+/**
+ * Cijena po kojoj se proizvod prodaje: iz službenog cjenika, a za pakete od 10 gelova cijena vlasnika.
+ * Vraća null (prikazuje se „Cijena na upit”) ako proizvod nema ni jednu ni drugu.
+ */
+export function sellingPriceEur(slug: string): number | null {
+  return officialPriceEur(slug) ?? OWNER_PRICES[slug] ?? null
 }
 
 export function formatEur(value: number, locale: Locale): string {

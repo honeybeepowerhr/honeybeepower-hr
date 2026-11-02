@@ -667,7 +667,7 @@
         "whey": "Whey protein",
         "shaker": "Shaker"
       },
-      "note": "Paketi od 10 gelova i paket izotonika sa shakerom nisu u cjeniku; cijenu potvrđujemo na upit.",
+      "note": "Paket od 10 gelova istog okusa košta 20,00 €. Paket izotonika sa shakerom nije u cjeniku; cijenu potvrđujemo na upit.",
       "more": "Cijeli cjenik s barkodovima"
     },
     "clubs": {
@@ -767,7 +767,8 @@
     "zoomHint": "Pređi mišem za povećalo, klikni za cijelu deklaraciju",
     "zoomOpen": "Otvori deklaraciju u punoj veličini",
     "zoomClose": "Zatvori",
-    "compositionLabel": "Sastav po udjelu"
+    "compositionLabel": "Sastav po udjelu",
+    "pricePerPack": "po kutiji od 10 gelova"
   },
   "bundles": {
     "title": "Paketi",

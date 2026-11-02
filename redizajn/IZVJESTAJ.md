@@ -1,3 +1,7 @@
+# Dopuna: cijena paketa od 10 gelova
+
+Paket od 10 gelova istog okusa (limun, naranča, malina) prikazuje **20,00 €** (odluka vlasnika, PRODAJNI_PAKETI.docx; nije u službenom cjeniku). Cijena je u `OWNER_PRICES` u `src/lib/prices.ts`; na stranici, u popisu, kategoriji, košarici i strukturiranim podacima. **Napomena:** 10 pojedinačnih gelova po 1,80 € je 18,00 €, pa je kutija od 10 za 2,00 € skuplja. **Paket izotonika sa shakerom** (1 limun + 1 naranča + šejker) i dalje je „Cijena na upit”; po dokumentu odgovara Malom paketu od 25,00 € ako se želi isti iznos.
+
 # Dopuna: prodajni paketi (iz PRODAJNI_PAKETI.docx)
 
 Napravljeno: nova stranica **/paketi** (popis) i **/paketi/[slug]** (odabir okusa i dodavanje u upit), 6 paketa, traka s paketima na vrhu popisa proizvoda, odjeljak „Gotovi paketi” na naslovnici, „Paketi” u izborniku i podnožju, sitemap, strukturirani podaci (Product + Offer, za paket iznenađenja AggregateOffer), 5 jezika (prijevodi čekaju provjeru). Kupnja je i dalje **na upit** (WhatsApp ili e-mail); u košarici i u poruci upita navode se točno odabrani okusi.
