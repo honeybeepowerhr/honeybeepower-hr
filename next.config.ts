@@ -12,6 +12,8 @@ const MOVED: Array<[string, string]> = [
   ['/vodici/kako-sprijeciti-grceve-u-misicima-tijekom-ljetnih-voznji', '/vodici/sto-piti-na-ljetnoj-voznji'],
   ['/vodici/uloga-bjelancevina-i-meda-u-brzem-oporavku-nakon-treninga', '/vodici/protein-nakon-treninga'],
   ['/koliko-gelova-trebam', '/oporavak-nakon-treninga'],
+  // paket izotonika sa shakerom zamijenjen je paketima (isti sadržaj: 2 izotonika + šejker)
+  ['/proizvodi/honey-bee-power-izotonicki-napitak-paket-limun-naranca-shaker', '/paketi/mali-paket'],
 ]
 
 const nextConfig: NextConfig = {

@@ -1,3 +1,7 @@
+# Dopuna: uklonjen proizvod „Izotonični napitci limun i naranča, sa shakerom”
+
+Na zahtjev vlasnika: pojedinačni proizvod (2 × 500 g izotonika + šejker) uklonjen je iz kataloga jer ga pokrivaju paketi (Mali paket: izotonik × 2 + šejker, 25,00 €). Uklonjen je zapis u `src/lib/products-data.ts`; fotografija `paketizolimunnaranca-shaker.png/.webp` ostaje u datotekama. Adresa `/proizvodi/honey-bee-power-izotonicki-napitak-paket-limun-naranca-shaker` trajno se preusmjerava (301) na `/paketi/mali-paket` na svim jezicima. Popis proizvoda sada ima 11 stavki, a sitemap više ne sadrži staru adresu. Ako je netko imao taj proizvod u košarici (spremljeno u pregledniku), redak ostaje dok ga ne ukloni.
+
 # Dopuna: cijena paketa od 10 gelova
 
 Paket od 10 gelova istog okusa (limun, naranča, malina) prikazuje **20,00 €** (odluka vlasnika, PRODAJNI_PAKETI.docx; nije u službenom cjeniku). Cijena je u `OWNER_PRICES` u `src/lib/prices.ts`; na stranici, u popisu, kategoriji, košarici i strukturiranim podacima. **Napomena:** 10 pojedinačnih gelova po 1,80 € je 18,00 €, pa je kutija od 10 za 2,00 € skuplja. **Paket izotonika sa shakerom** (1 limun + 1 naranča + šejker) i dalje je „Cijena na upit”; po dokumentu odgovara Malom paketu od 25,00 € ako se želi isti iznos.
