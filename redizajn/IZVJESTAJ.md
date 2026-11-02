@@ -1,3 +1,11 @@
+# Dopuna: stranica se više ne može odzumirati pri ulasku
+
+Uzrok: na zaslonu od 360 px telefonski broj u podnožju (i na stranici Kontakt) bio je širok 368 px, pa je raspored bio 8 px širi od zaslona i preglednik je dopuštao odzumiranje. Broj je smanjen na `min(9,4vw, …)`, a dodani su i `minimumScale: 1` (najmanje povećanje 100 %; približavanje prstima i dalje radi) i `overflow-x: clip` na `html`. Provjereno na 320, 360, 375, 390 i 430 px, na 7 stranica, 150 ms, 600 ms i 2,5 s nakon ulaska: širina rasporeda jednaka je širini zaslona.
+
+# Dopuna: uklonjena uvodna animacija (loader)
+
+Na zahtjev vlasnika uklonjena je uvodna animacija pri učitavanju (šesterokut koji se puni medom). Obrisano: `src/components/site/SiteIntro.tsx`, skripta u zaglavlju stranice (`sessionStorage` oznaka) i stilovi `.intro*`. Stranica se prikazuje odmah. Zadržano: tanka žuta traka napretka skrolanja na vrhu (nije loader) i animacije ulaska elemenata.
+
 # Dopuna: uklonjen proizvod „Izotonični napitci limun i naranča, sa shakerom”
 
 Na zahtjev vlasnika: pojedinačni proizvod (2 × 500 g izotonika + šejker) uklonjen je iz kataloga jer ga pokrivaju paketi (Mali paket: izotonik × 2 + šejker, 25,00 €). Uklonjen je zapis u `src/lib/products-data.ts`; fotografija `paketizolimunnaranca-shaker.png/.webp` ostaje u datotekama. Adresa `/proizvodi/honey-bee-power-izotonicki-napitak-paket-limun-naranca-shaker` trajno se preusmjerava (301) na `/paketi/mali-paket` na svim jezicima. Popis proizvoda sada ima 11 stavki, a sitemap više ne sadrži staru adresu. Ako je netko imao taj proizvod u košarici (spremljeno u pregledniku), redak ostaje dok ga ne ukloni.

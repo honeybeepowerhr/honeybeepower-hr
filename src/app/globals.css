@@ -68,6 +68,7 @@
 /* ─── Osnova ─────────────────────────────────────────────────────────── */
 
 html {
+  overflow-x: clip;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -378,8 +379,7 @@ button {
 /* Tamni opseg: navy ploče. Tokeni se lokalno mijenjaju pa sve unutra (tekst, linije, kartice) prati. */
 .theme-dark,
 .on-ink,
-.sticky-buy,
-.intro {
+.sticky-buy {
   --color-ground: #1d2048;
   --color-surface: #292d63;
   --color-surface-2: #343a7c;
@@ -1042,55 +1042,6 @@ body:has(.sticky-buy[data-show='1']) .hive-top {
   border-color: var(--color-honey);
   color: var(--color-honey-ink);
   transform: translateY(-3px);
-}
-
-/* Uvodna animacija: šesterokut se puni medom, zastor se podiže */
-.intro {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  display: grid;
-  place-items: center;
-  background: var(--color-ground);
-  color: var(--color-ink);
-  pointer-events: none;
-  animation: intro-out 0.85s var(--ease-out-expo) 1.5s both;
-}
-
-.intro-inner {
-  display: grid;
-  justify-items: center;
-  gap: 1.5rem;
-}
-
-.intro-fill {
-  fill: var(--color-honey);
-  transform-box: fill-box;
-  transform-origin: 50% 100%;
-  animation: intro-fill 1.2s var(--ease-out-expo) 0.2s both;
-}
-
-.intro-logo {
-  animation: rise 0.9s var(--ease-out-expo) 0.35s both;
-}
-
-@keyframes intro-fill {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
-}
-
-@keyframes intro-out {
-  to { transform: translateY(-101%); visibility: hidden; }
-}
-
-html.intro-seen .intro {
-  display: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .intro {
-    display: none;
-  }
 }
 
 /* Šesterokut-gumb: puni se medom uz skrol, vraća na vrh */

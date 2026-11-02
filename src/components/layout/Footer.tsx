@@ -94,7 +94,7 @@ export default function Footer() {
           <p className="t-body text-[color:var(--color-honey-text)]">{t('contactLead')}</p>
           <a
             href="tel:+385977097962"
-            className="mt-2 block whitespace-nowrap font-[family-name:var(--font-display)] text-[length:min(11vw,var(--text-display))] font-black leading-[1.04] tracking-[-0.02em] decoration-[0.06em] underline-offset-[0.12em] hover:underline"
+            className="mt-2 block whitespace-nowrap font-[family-name:var(--font-display)] text-[length:min(9.4vw,var(--text-display))] font-black leading-[1.04] tracking-[-0.02em] decoration-[0.06em] underline-offset-[0.12em] hover:underline"
           >
             +385 97 709 7962
           </a>
