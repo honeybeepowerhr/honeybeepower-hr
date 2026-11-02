@@ -801,6 +801,10 @@
     "metaDescription": "Gotowe zestawy Honey Bee Power: mały, średni i duży zestaw, zestaw 30 żeli i zestaw niespodzianka. Smaki wybierasz sam, zamówienie przez zapytanie.",
     "stripLead": "Gotowe zestawy z żelami, izotonikiem, białkiem whey i shakerem. Smaki wybierasz sam.",
     "stripCta": "Zobacz zestawy",
-    "priceNote": "Cena zestawu, zamówienie przez zapytanie."
+    "priceNote": "Cena zestawu, zamówienie przez zapytanie.",
+    "boxNote": "Żele są w pudełkach po 10 sztuk jednego smaku. Wybierz smak dla każdego pudełka.",
+    "chosenBoxes": "Wybrano {count} z {total, plural, one {# pudełka} few {# pudełek} many {# pudełek} other {# pudełek}}",
+    "remainingBoxes": "Wybierz jeszcze {count, plural, one {# pudełko} few {# pudełka} many {# pudełek} other {# pudełka}}",
+    "gelsCount": "{count} żeli"
   }
 }

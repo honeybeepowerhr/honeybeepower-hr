@@ -10,6 +10,7 @@ import { inkOn } from '@/lib/images'
 import {
   FLAVOURS,
   KIND_LABEL,
+  KIND_UNIT,
   defaultSelection,
   detailLines,
   evenSplit,
@@ -68,12 +69,13 @@ export default function BundleConfigurator({ slug }: { slug: string }) {
   }
 
   const step = (kind: FlavourKind, id: string, delta: number, count: number) => {
+    const unit = KIND_UNIT[kind]
     const cur = selection[kind] ?? {}
     const total = selectedCount(selection, kind)
     const n = cur[id] ?? 0
-    if (delta > 0 && total >= count) return
-    if (delta < 0 && n <= 0) return
-    setKind(kind, { ...cur, [id]: n + delta })
+    if (delta > 0 && total + unit > count) return
+    if (delta < 0 && n - unit < 0) return
+    setKind(kind, { ...cur, [id]: n + delta * unit })
   }
 
   const add = () => {
@@ -135,8 +137,15 @@ export default function BundleConfigurator({ slug }: { slug: string }) {
             )
           }
           const kind = slot.kind as FlavourKind
+          const unit = KIND_UNIT[kind]
+          const boxed = unit > 1
           const total = selectedCount(selection, kind)
           const left = slot.count - total
+          const boxesTotal = slot.count / unit
+          const boxesLeft = left / unit
+          const boxesChosen = total / unit
+          // jedan komad ili jedna kutija: bira se samo okus
+          const single = slot.count === unit
           return (
             <section key={slot.kind} className="card px-5 py-5" aria-labelledby={`slot-${slot.kind}`}>
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
@@ -144,22 +153,29 @@ export default function BundleConfigurator({ slug }: { slug: string }) {
                   {label}
                   {slot.count > 1 && <span className="ml-2 text-[color:var(--color-honey-text)]">× {slot.count}</span>}
                 </h3>
-                {slot.count > 1 && (
+                {!single && (
                   <p className={`t-small font-semibold tabular ${left === 0 ? 'text-muted' : 'text-[color:var(--color-alert)]'}`} aria-live="polite">
-                    {left === 0 ? t('complete') : left > 0 ? t('remaining', { count: left }) : ''} · {t('chosen', { count: total, total: slot.count })}
+                    {left === 0
+                      ? t('complete')
+                      : boxed
+                        ? t('remainingBoxes', { count: boxesLeft })
+                        : t('remaining', { count: left })}
+                    {' · '}
+                    {boxed ? t('chosenBoxes', { count: boxesChosen, total: boxesTotal }) : t('chosen', { count: total, total: slot.count })}
                   </p>
                 )}
               </div>
+              {boxed && <p className="mt-2 t-small text-muted">{t('boxNote')}</p>}
 
-              {slot.count === 1 ? (
+              {single ? (
                 <div role="radiogroup" aria-labelledby={`slot-${slot.kind}`} className="mt-4 flex flex-wrap gap-2.5">
                   {FLAVOURS[kind].map((f) => (
                     <button
                       key={f.id}
                       type="button"
                       role="radio"
-                      aria-checked={(selection[kind]?.[f.id] ?? 0) === 1}
-                      onClick={() => setKind(kind, Object.fromEntries(FLAVOURS[kind].map((x) => [x.id, x.id === f.id ? 1 : 0])))}
+                      aria-checked={(selection[kind]?.[f.id] ?? 0) === unit}
+                      onClick={() => setKind(kind, Object.fromEntries(FLAVOURS[kind].map((x) => [x.id, x.id === f.id ? unit : 0])))}
                       className="flavour-chip"
                       style={{ ['--chip' as string]: flavourColor(kind, f.id), ['--chip-ink' as string]: inkOn(flavourColor(kind, f.id)) }}
                     >
@@ -172,13 +188,15 @@ export default function BundleConfigurator({ slug }: { slug: string }) {
                 <>
                   <ul className="mt-4 divide-y divide-[color:var(--color-line)]">
                     {FLAVOURS[kind].map((f) => {
-                      const n = selection[kind]?.[f.id] ?? 0
+                      const pieces = selection[kind]?.[f.id] ?? 0
+                      const n = pieces / unit
                       const name = flavourName(kind, f.id, locale)
                       return (
                         <li key={f.id} className="flex items-center justify-between gap-3 py-2.5">
                           <span className="flex items-center gap-3 font-semibold">
                             <span className="flavour-dot" style={{ ['--chip' as string]: flavourColor(kind, f.id) }} aria-hidden="true" />
                             {name}
+                            {boxed && <span className="t-small font-normal text-muted tabular">{t('gelsCount', { count: pieces })}</span>}
                           </span>
                           <span className="flex items-center gap-2" role="group" aria-label={name}>
                             <button type="button" className="step-btn" onClick={() => step(kind, f.id, -1, slot.count)} disabled={n <= 0} aria-label={t('decrease', { name })}>
@@ -187,7 +205,7 @@ export default function BundleConfigurator({ slug }: { slug: string }) {
                             <output className="min-w-[2.5ch] text-center font-[family-name:var(--font-display)] text-[length:var(--text-lead)] font-extrabold tabular" aria-live="polite">
                               <span key={n} className="number-pop">{n}</span>
                             </output>
-                            <button type="button" className="step-btn" onClick={() => step(kind, f.id, 1, slot.count)} disabled={total >= slot.count} aria-label={t('increase', { name })}>
+                            <button type="button" className="step-btn" onClick={() => step(kind, f.id, 1, slot.count)} disabled={total + unit > slot.count} aria-label={t('increase', { name })}>
                               +
                             </button>
                           </span>

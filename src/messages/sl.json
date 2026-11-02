@@ -802,6 +802,10 @@
     "metaDescription": "Pripravljeni paketi Honey Bee Power: majhen, srednji in veliki paket, gel paket 30 in paket presenečenja. Okuse izbereš sam, naročilo s povpraševanjem.",
     "stripLead": "Pripravljeni paketi z geli, izotonikom, wheyjem in šejkerjem. Okuse izbereš sam.",
     "stripCta": "Poglej pakete",
-    "priceNote": "Cena paketa, naročilo s povpraševanjem."
+    "priceNote": "Cena paketa, naročilo s povpraševanjem.",
+    "boxNote": "Geli so v škatlah po 10 kosov istega okusa. Za vsako škatlo izberi okus.",
+    "chosenBoxes": "Izbrano {count} od {total, plural, one {# škatle} two {# škatel} few {# škatel} other {# škatel}}",
+    "remainingBoxes": "Izberi še {count, plural, one {# škatlo} two {# škatli} few {# škatle} other {# škatel}}",
+    "gelsCount": "{count} gelov"
   }
 }

@@ -801,6 +801,10 @@
     "metaDescription": "Gotovi paketi Honey Bee Power: mali, srednji i veliki paket, gel paket 30 i paket iznenađenja. Okuse biraš sam, kupnja na upit.",
     "stripLead": "Gotovi paketi s gelovima, izotonikom, wheyjem i šejkerom. Okuse biraš sam.",
     "stripCta": "Pogledaj pakete",
-    "priceNote": "Cijena paketa, kupnja na upit."
+    "priceNote": "Cijena paketa, kupnja na upit.",
+    "boxNote": "Gelovi dolaze u kutijama od 10 komada istog okusa. Odaberi okus za svaku kutiju.",
+    "chosenBoxes": "Odabrano {count} od {total, plural, one {# kutije} few {# kutije} other {# kutija}}",
+    "remainingBoxes": "Još odaberi {count, plural, one {# kutiju} few {# kutije} other {# kutija}}",
+    "gelsCount": "{count} gelova"
   }
 }
