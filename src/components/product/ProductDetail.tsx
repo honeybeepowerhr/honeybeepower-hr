@@ -304,7 +304,7 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
 
           {back && (
             <div className="col-span-12 sm:col-span-8 sm:col-start-3 lg:col-span-4 lg:col-start-9">
-              <LabelZoom src={back} alt={t('backAlt', { name: shortName })} hint={t('zoomHint')} openLabel={t('zoomOpen')} closeLabel={t('zoomClose')} />
+              <LabelZoom src={webImage(back)} zoomSrc={webImage(back).replace('.webp', '-xl.webp')} ratio={IMAGE_RATIOS[webImage(back)] ?? 0.49} alt={t('backAlt', { name: shortName })} hint={t('zoomHint')} openLabel={t('zoomOpen')} closeLabel={t('zoomClose')} />
             </div>
           )}
         </div>

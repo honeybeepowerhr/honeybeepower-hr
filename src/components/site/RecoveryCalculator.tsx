@@ -15,7 +15,7 @@ import {
 import { REAL_PRODUCTS } from '@/lib/products-data'
 import { officialPriceEur } from '@/lib/prices'
 import { useCartStore } from '@/features/cart'
-import { inkOn } from '@/lib/images'
+import { inkOn, webImage } from '@/lib/images'
 
 interface Props {
   /** id naslova sekcije, za aria-labelledby */
@@ -63,7 +63,7 @@ export function RecoveryCalculator({ headingId, heading, headingLevel = 'h2', he
       variantId: variant._key,
       name: product.name[locale] ?? product.name.hr,
       slug: product.slug,
-      imageSrc: product.mainImage.asset._ref,
+      imageSrc: webImage(product.mainImage.asset._ref),
       variantLabel: `${gel.flavour[locale]} · 40 g`,
       unitPrice: price !== null ? Math.round(price * 100) : 0,
       quantity: 1,

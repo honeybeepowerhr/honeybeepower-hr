@@ -998,6 +998,7 @@ button {
   border: 1px solid var(--color-line);
   border-radius: 999px;
   background: rgb(29 32 72 / 0.97);
+  color: var(--color-ink);
   box-shadow: 0 30px 70px -20px rgb(0 0 0 / 0.85);
   transform: translateY(170%);
   opacity: 0;
@@ -1051,6 +1052,7 @@ body:has(.sticky-buy[data-show='1']) .hive-top {
   display: grid;
   place-items: center;
   background: var(--color-ground);
+  color: var(--color-ink);
   pointer-events: none;
   animation: intro-out 0.85s var(--ease-out-expo) 1.5s both;
 }
