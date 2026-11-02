@@ -668,7 +668,7 @@
         "whey": "Whey protein",
         "shaker": "Shaker"
       },
-      "note": "Paketov po 10 gelov in kompleta izotonikov s shakerjem ni v ceniku; ceno potrdimo na povpraševanje.",
+      "note": "Škatla z 10 geli enakega okusa stane 20,00 €. Paket izotonika s šejkerjem ni v ceniku; ceno potrdimo na povpraševanje.",
       "more": "Celoten cenik s črtnimi kodami"
     },
     "clubs": {
@@ -768,7 +768,8 @@
     "zoomHint": "Z miško povečaj, klikni za celotno deklaracijo",
     "zoomOpen": "Odpri deklaracijo v polni velikosti",
     "zoomClose": "Zapri",
-    "compositionLabel": "Sestava po deležu"
+    "compositionLabel": "Sestava po deležu",
+    "pricePerPack": "za škatlo z 10 geli"
   },
   "bundles": {
     "title": "Paketi",

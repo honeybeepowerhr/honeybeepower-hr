@@ -668,7 +668,7 @@
         "whey": "Whey protein",
         "shaker": "Shaker"
       },
-      "note": "Packs of 10 gels and the isotonic set with shaker are not in the price list; we confirm their price on enquiry.",
+      "note": "A box of 10 gels of one flavour costs €20.00. The isotonic pack with a shaker is not in the price list; we confirm its price on enquiry.",
       "more": "Full price list with barcodes"
     },
     "clubs": {
@@ -768,7 +768,8 @@
     "zoomHint": "Hover for a magnifier, click for the full label",
     "zoomOpen": "Open the label at full size",
     "zoomClose": "Close",
-    "compositionLabel": "Composition by share"
+    "compositionLabel": "Composition by share",
+    "pricePerPack": "per box of 10 gels"
   },
   "bundles": {
     "title": "Packs",

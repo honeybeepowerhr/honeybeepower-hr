@@ -667,7 +667,7 @@
         "whey": "Białko serwatkowe",
         "shaker": "Shaker"
       },
-      "note": "Zestawów 10 żeli i zestawu izotoników z shakerem nie ma w cenniku; cenę potwierdzamy w odpowiedzi na zapytanie.",
+      "note": "Pudełko z 10 żelami jednego smaku kosztuje 20,00 €. Zestawu izotoników z shakerem nie ma w cenniku; cenę potwierdzamy na zapytanie.",
       "more": "Pełny cennik z kodami kreskowymi"
     },
     "clubs": {
@@ -767,7 +767,8 @@
     "zoomHint": "Najedź myszą, aby powiększyć, kliknij, aby zobaczyć całą etykietę",
     "zoomOpen": "Otwórz etykietę w pełnym rozmiarze",
     "zoomClose": "Zamknij",
-    "compositionLabel": "Skład według udziału"
+    "compositionLabel": "Skład według udziału",
+    "pricePerPack": "za pudełko z 10 żelami"
   },
   "bundles": {
     "title": "Zestawy",
