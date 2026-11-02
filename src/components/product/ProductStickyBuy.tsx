@@ -61,7 +61,7 @@ export default function ProductStickyBuy({ product, variant, unitPrice, variantL
         <Image src={imageSrc} alt="" fill sizes="48px" className="object-contain p-1" />
       </span>
       <div className="min-w-0 flex-1">
-        <p className="truncate font-semibold leading-tight">{title}</p>
+        <p className="line-clamp-2 font-semibold leading-tight">{title}</p>
         {priceLabel && <p className="t-small text-muted tabular">{priceLabel}</p>}
       </div>
       <button type="button" onClick={add} tabIndex={show ? 0 : -1} className="btn btn-honey min-h-11 shrink-0 px-5">

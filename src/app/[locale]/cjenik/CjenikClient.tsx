@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import { SectionMotion } from '@/components/site/SectionMotion'
+import { webImage } from '@/lib/images'
 import { LEGAL_ENTITY, CJENIK_ITEMS, getLatestUpdateTimestamp, get30DayArchiveList } from '@/lib/cjenik-data'
 
 /**
@@ -115,7 +116,7 @@ export function CjenikClient() {
                     <td className="py-3 pr-3">{item.rb}</td>
                     <td className="py-3 pr-3 font-medium">{item.naziv}</td>
                     <td className="py-2 pr-3 print:hidden">
-                      <Image src={item.slika} alt="" width={44} height={44} className="h-11 w-11 object-contain" />
+                      <Image src={webImage(item.slika)} alt="" width={44} height={44} className="h-11 w-11 object-contain" />
                     </td>
                     <td className="py-3 pr-3">{item.vrsta}</td>
                     <td className="py-3 pr-3">{item.okus}</td>

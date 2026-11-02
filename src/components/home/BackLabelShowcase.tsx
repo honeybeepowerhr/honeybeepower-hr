@@ -70,7 +70,7 @@ export function BackLabelShowcase({ titleStart, titleEnd, caption, stageLabels, 
             <div className="hidden md:block" />
             <div className="relative mx-auto aspect-[4/5] w-[70vw] overflow-hidden rounded-[var(--radius)] border border-[color:var(--color-line)] bg-surface shadow-[0_40px_120px_-30px_rgb(255_183_27/0.35)] md:w-[min(30vw,46svh)]">
               <Image
-                src="/images/products/gelnaranca-zadnja.png"
+                src="/images/products-web/gelnaranca-zadnja-xl.webp"
                 alt={imageAlt}
                 fill
                 sizes="(min-width: 768px) 60vw, 100vw"
