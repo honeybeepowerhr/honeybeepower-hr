@@ -154,8 +154,6 @@ export function buildOrganizationSchema(
     },
     sameAs: [
       'https://www.instagram.com/planet__bio/',
-      'https://www.facebook.com/profile.php?id=61556227986574',
-      'https://www.tiktok.com/@honeybeepowerhrvatska',
     ],
   }
 }

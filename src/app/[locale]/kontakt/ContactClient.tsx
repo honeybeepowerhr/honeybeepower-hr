@@ -28,8 +28,6 @@ export default function ContactClient() {
           <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 t-body">
             <li><a className="link" href="https://wa.me/385977097962" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
             <li><a className="link" href="https://www.instagram.com/planet__bio/" target="_blank" rel="noopener noreferrer">Instagram @planet__bio</a></li>
-            <li><a className="link" href="https://www.tiktok.com/@honeybeepowerhrvatska" target="_blank" rel="noopener noreferrer">TikTok @honeybeepowerhrvatska</a></li>
-            <li><a className="link" href="https://www.facebook.com/profile.php?id=61556227986574" target="_blank" rel="noopener noreferrer">Facebook</a></li>
           </ul>
         </div>
       </section>
