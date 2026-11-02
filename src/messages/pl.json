@@ -23,7 +23,8 @@
     "close": "Zamknij",
     "events": "Wydarzenia",
     "faq": "Częste pytania",
-    "sport": "Sport"
+    "sport": "Sport",
+    "bundles": "Zestawy"
   },
   "cjenik": {
     "badge": "Oficjalny cennik cyfrowy",
@@ -169,7 +170,7 @@
     "emailBtn": "Wyślij e-mailem",
     "inquiryHint": "Na stronie nic się nie płaci. Odpowiadamy z potwierdzeniem, kosztem dostawy i formą płatności (za pobraniem lub przelewem).",
     "close": "Zamknij",
-    "subtotal": "Suma według cennika",
+    "subtotal": "Suma częściowa",
     "partialSubtotal": "Pozycje bez ceny w cenniku nie są wliczone; cenę potwierdzimy w odpowiedzi.",
     "priceOnEnquiry": "cena na zapytanie",
     "quantityFor": "Ilość: {name}",
@@ -767,5 +768,39 @@
     "zoomOpen": "Otwórz etykietę w pełnym rozmiarze",
     "zoomClose": "Zamknij",
     "compositionLabel": "Skład według udziału"
+  },
+  "bundles": {
+    "title": "Zestawy",
+    "lead": "Gotowe zestawy żeli, izotoników, białka whey i shakera. Smaki wybierasz sam, a zestaw dodajesz do zapytania.",
+    "price": "Cena zestawu",
+    "from": "od",
+    "cta": "Wybierz smaki",
+    "contents": "W zestawie",
+    "chooseTitle": "Wybierz smaki",
+    "optionTitle": "Wybierz wersję",
+    "chosen": "Wybrano {count} z {total}",
+    "remaining": "Wybierz jeszcze {count}",
+    "complete": "Wszystko wybrane",
+    "mix": "Mix",
+    "mixTitle": "Rozłóż równomiernie na smaki",
+    "decrease": "Mniej: {name}",
+    "increase": "Więcej: {name}",
+    "packQty": "Liczba zestawów",
+    "addToCart": "Dodaj zestaw do zapytania",
+    "incomplete": "Wybierz wszystkie smaki przed dodaniem.",
+    "added": "Zestaw dodany do zapytania.",
+    "included": "W zestawie",
+    "wheyNote": "Białko whey zawiera mleko (alergen) i stewię.",
+    "others": "Inne zestawy",
+    "back": "Wszystkie zestawy",
+    "homeTitle": "Gotowe zestawy.",
+    "homeLead": "Żele, izotonik, białko whey i shaker w gotowych zestawach. Smaki wybierasz sam.",
+    "all": "Wszystkie zestawy",
+    "coverAlt": "{name}: zawartość zestawu",
+    "metaTitle": "Zestawy: żele, izotonik, whey i shaker",
+    "metaDescription": "Gotowe zestawy Honey Bee Power: mały, średni i duży zestaw, zestaw 30 żeli i zestaw niespodzianka. Smaki wybierasz sam, zamówienie przez zapytanie.",
+    "stripLead": "Gotowe zestawy z żelami, izotonikiem, białkiem whey i shakerem. Smaki wybierasz sam.",
+    "stripCta": "Zobacz zestawy",
+    "priceNote": "Cena zestawu, zamówienie przez zapytanie."
   }
 }

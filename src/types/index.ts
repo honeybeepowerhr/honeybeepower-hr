@@ -151,6 +151,8 @@ export interface CartItem {
   unitPrice: number            // in cents
   quantity: number
   minQuantity?: number         // MOQ if applicable
+  /** Redci opisa sadržaja (npr. odabrani okusi u paketu); prikazuju se u košarici i šalju u upitu. */
+  details?: string[]
 }
 
 export interface CartStore {
@@ -277,6 +279,8 @@ export interface InquiryItem {
   quantity: number
   unitPrice: number             // in cents — indicative only, owner reference
   imageSrc: string
+  /** Redci opisa sadržaja paketa (odabrani okusi). */
+  details?: string[]
 }
 
 /** Payload sent to POST /api/inquiry. */

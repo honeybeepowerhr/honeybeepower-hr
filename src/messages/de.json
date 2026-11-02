@@ -23,7 +23,8 @@
     "close": "Schließen",
     "events": "Veranstaltungen",
     "faq": "Häufige Fragen",
-    "sport": "Sport"
+    "sport": "Sport",
+    "bundles": "Pakete"
   },
   "cjenik": {
     "badge": "Offizielle digitale Preisliste",
@@ -169,7 +170,7 @@
     "emailBtn": "Per E-Mail senden",
     "inquiryHint": "Auf der Website wird nichts bezahlt. Wir antworten mit Bestätigung, Versandkosten und Zahlungsart (Nachnahme oder Überweisung).",
     "close": "Schließen",
-    "subtotal": "Zwischensumme laut Preisliste",
+    "subtotal": "Zwischensumme",
     "partialSubtotal": "Artikel ohne Listenpreis sind nicht enthalten; den Preis bestätigen wir in der Antwort.",
     "priceOnEnquiry": "Preis auf Anfrage",
     "quantityFor": "Menge: {name}",
@@ -768,5 +769,39 @@
     "zoomOpen": "Etikett in voller Größe öffnen",
     "zoomClose": "Schließen",
     "compositionLabel": "Zusammensetzung nach Anteil"
+  },
+  "bundles": {
+    "title": "Pakete",
+    "lead": "Fertige Kombinationen aus Gels, isotonischen Getränken, Whey und Shaker. Die Sorten wählst du selbst, das Paket legst du in die Anfrage.",
+    "price": "Paketpreis",
+    "from": "ab",
+    "cta": "Sorten wählen",
+    "contents": "Im Paket",
+    "chooseTitle": "Sorten wählen",
+    "optionTitle": "Ausführung wählen",
+    "chosen": "{count} von {total} gewählt",
+    "remaining": "Noch {count} wählen",
+    "complete": "Alles gewählt",
+    "mix": "Gemischt",
+    "mixTitle": "Gleichmäßig auf die Sorten verteilen",
+    "decrease": "Weniger: {name}",
+    "increase": "Mehr: {name}",
+    "packQty": "Anzahl der Pakete",
+    "addToCart": "Paket in die Anfrage legen",
+    "incomplete": "Wähle alle Sorten, bevor du hinzufügst.",
+    "added": "Paket zur Anfrage hinzugefügt.",
+    "included": "Im Paket enthalten",
+    "wheyNote": "Whey Protein enthält Milch (Allergen) und Stevia.",
+    "others": "Weitere Pakete",
+    "back": "Alle Pakete",
+    "homeTitle": "Fertige Pakete.",
+    "homeLead": "Gels, isotonisches Getränk, Whey und Shaker in fertigen Paketen. Die Sorten wählst du selbst.",
+    "all": "Alle Pakete",
+    "coverAlt": "{name}: Paketinhalt",
+    "metaTitle": "Pakete: Gels, Isotonic, Whey und Shaker",
+    "metaDescription": "Fertige Honey Bee Power Pakete: kleines, mittleres und großes Paket, Gel-Paket 30 und Überraschungspaket. Sorten selbst wählen, Bestellung per Anfrage.",
+    "stripLead": "Fertige Pakete mit Gels, isotonischem Getränk, Whey und Shaker. Die Sorten wählst du selbst.",
+    "stripCta": "Pakete ansehen",
+    "priceNote": "Paketpreis, Bestellung per Anfrage."
   }
 }

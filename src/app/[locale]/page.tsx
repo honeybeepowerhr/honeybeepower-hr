@@ -9,6 +9,7 @@ import { IngredientTicker } from '@/components/home/IngredientTicker'
 import { IngredientsSection } from '@/components/home/IngredientsSection'
 import { BackLabelShowcase } from '@/components/home/BackLabelShowcase'
 import { ProductLinesSection } from '@/components/home/ProductLinesSection'
+import { BundlesSection } from '@/components/home/BundlesSection'
 import { SportPanels } from '@/components/home/SportPanels'
 import { StorySection } from '@/components/home/StorySection'
 import { TrackGallery } from '@/components/home/TrackGallery'
@@ -113,6 +114,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         imageAlt={t('back.imageAlt')}
       />
       <ProductLinesSection locale={locale} />
+      <BundlesSection locale={locale} />
       <SportPanels locale={locale} />
       <section id="oporavak" aria-labelledby="oporavak-title" className="frame section">
         <div className="on-ink overflow-hidden rounded-[2rem] border border-[color:var(--color-line)] px-5 py-12 md:px-12 md:py-16">

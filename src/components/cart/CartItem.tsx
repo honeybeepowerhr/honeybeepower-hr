@@ -25,7 +25,14 @@ export function CartItem({ item, locale, onRemove, onUpdateQuantity }: CartItemP
       </div>
       <div className="min-w-0">
         <p className="t-body font-medium leading-tight">{name}</p>
-        <p className="t-small">{item.variantLabel}</p>
+        {item.variantLabel && <p className="t-small">{item.variantLabel}</p>}
+        {item.details && item.details.length > 0 && (
+          <ul className="mt-1 space-y-0.5 t-small text-muted">
+            {item.details.map((line) => (
+              <li key={line}>{line}</li>
+            ))}
+          </ul>
+        )}
         <div className="mt-2 flex items-center justify-between gap-3">
           <div className="flex items-center" role="group" aria-label={t('quantityFor', { name })}>
             <button

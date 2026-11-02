@@ -18,8 +18,15 @@ function isInquiryItem(value: unknown): value is InquiryItem {
     obj.quantity > 0 &&
     typeof obj.unitPrice === 'number' &&
     obj.unitPrice >= 0 &&
-    typeof obj.imageSrc === 'string'
+    typeof obj.imageSrc === 'string' &&
+    (obj.details === undefined ||
+      (Array.isArray(obj.details) && obj.details.length <= 12 && obj.details.every((d) => typeof d === 'string' && d.length <= 300)))
   )
+}
+
+/** Tekst iz upita ulazi u HTML e-mail, pa se posebni znakovi izbjegavaju. */
+function esc(value: string): string {
+  return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 }
 
 function validateBody(raw: unknown): { data: InquiryRequestBody } | { error: string } {
@@ -108,6 +115,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     quantity: item.quantity,
     unitPrice: item.unitPrice,
     imageSrc: item.imageSrc,
+    ...(item.details?.length ? { details: item.details } : {}),
   }))
 
   // Best-effort: save to Sanity (acts as the admin panel), but don't let a
@@ -137,7 +145,10 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   }
 
   const itemsHtml = items
-    .map((item) => `<li>${item.name} — ${item.variantLabel} × ${item.quantity}</li>`)
+    .map((item) => {
+      const details = (item.details ?? []).map((d) => `<li>${esc(d)}</li>`).join('')
+      return `<li>${esc(item.name)}${item.variantLabel ? ` — ${esc(item.variantLabel)}` : ''} × ${item.quantity}${details ? `<ul>${details}</ul>` : ''}</li>`
+    })
     .join('')
 
   const ownerEmailResult = await sendEmail({
@@ -146,11 +157,11 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     html: `
       <h2>Novi upit za ponudu (e-mail)</h2>
       <p><strong>Broj upita:</strong> ${orderNumber}</p>
-      <p><strong>Ime i prezime:</strong> ${customer.fullName}</p>
-      <p><strong>Telefon:</strong> ${customer.phone}</p>
+      <p><strong>Ime i prezime:</strong> ${esc(customer.fullName)}</p>
+      <p><strong>Telefon:</strong> ${esc(customer.phone)}</p>
       <p><strong>Stavke:</strong></p>
       <ul>${itemsHtml}</ul>
-      ${notes ? `<p><strong>Napomena:</strong></p><blockquote style="background:#f9f9f9;padding:12px;border-left:4px solid #f59e0b;">${notes}</blockquote>` : ''}
+      ${notes ? `<p><strong>Napomena:</strong></p><blockquote style="background:#f9f9f9;padding:12px;border-left:4px solid #f59e0b;">${esc(notes)}</blockquote>` : ''}
     `,
   })
 

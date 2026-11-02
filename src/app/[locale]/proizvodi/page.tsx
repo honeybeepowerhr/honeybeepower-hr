@@ -11,6 +11,7 @@ import { inkOn, webImage } from '@/lib/images'
 import { KIND_LABEL, SPORTS, SPORTS_BY_KIND, kindForCategory, l } from '@/lib/product-content'
 import { CatalogueList, type CatalogueItem } from '@/components/product/CatalogueList'
 import { SectionMotion } from '@/components/site/SectionMotion'
+import { BundlesStrip } from '@/components/bundles/BundlesStrip'
 
 export const revalidate = 3600
 
@@ -86,6 +87,7 @@ export default async function ProizvodiPage({ params }: { params: Promise<{ loca
         <h1 id="catalogue-title" className="t-display col-span-12 lg:col-span-6">{t('catalogueTitle')}</h1>
         <p className="col-span-12 self-end t-lead lg:col-span-6">{t('catalogueLead')}</p>
       </section>
+      <BundlesStrip locale={locale} />
       <CatalogueList
         items={items}
         kinds={(['gel', 'isotonic', 'whey'] as const).map((k) => ({ id: k, label: l(KIND_LABEL[k], locale) }))}

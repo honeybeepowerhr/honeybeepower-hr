@@ -5,6 +5,7 @@ import { localeUrl } from '@/lib/seo/site'
 import { REAL_PRODUCTS, PRODUCT_CATEGORIES } from '@/lib/products-data'
 import { GUIDES } from '@/lib/guides-data'
 import { SPORT_PAGES } from '@/lib/sports-data'
+import { BUNDLES } from '@/lib/bundles-data'
 
 interface RouteDef {
   path: string
@@ -36,9 +37,16 @@ const sportRoutes: RouteDef[] = SPORT_PAGES.map((s) => ({
   priority: 0.7,
 }))
 
+const bundleRoutes: RouteDef[] = BUNDLES.map((b) => ({
+  path: `/paketi/${b.slug}`,
+  changeFrequency: 'weekly',
+  priority: 0.8,
+}))
+
 const staticRoutes: RouteDef[] = [
   { path: '', changeFrequency: 'daily', priority: 1.0 },
   { path: '/proizvodi', changeFrequency: 'daily', priority: 0.9 },
+  { path: '/paketi', changeFrequency: 'weekly', priority: 0.85 },
   { path: '/vodici', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/gdje-kupiti', changeFrequency: 'weekly', priority: 0.6 },
   { path: '/b2b', changeFrequency: 'monthly', priority: 0.6 },
@@ -59,6 +67,7 @@ const allRoutes: RouteDef[] = [
   ...staticRoutes,
   ...categoryRoutes,
   ...productRoutes,
+  ...bundleRoutes,
   ...guideRoutes,
   ...sportRoutes,
 ]

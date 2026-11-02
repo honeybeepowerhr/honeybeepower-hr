@@ -1,3 +1,42 @@
+# Dopuna: prodajni paketi (iz PRODAJNI_PAKETI.docx)
+
+Napravljeno: nova stranica **/paketi** (popis) i **/paketi/[slug]** (odabir okusa i dodavanje u upit), 6 paketa, traka s paketima na vrhu popisa proizvoda, odjeljak „Gotovi paketi” na naslovnici, „Paketi” u izborniku i podnožju, sitemap, strukturirani podaci (Product + Offer, za paket iznenađenja AggregateOffer), 5 jezika (prijevodi čekaju provjeru). Kupnja je i dalje **na upit** (WhatsApp ili e-mail); u košarici i u poruci upita navode se točno odabrani okusi.
+
+| Paket | Sadržaj | Cijena |
+|---|---|---|
+| Mali paket | izotonik × 2 (sortirano), šejker | 25,00 € |
+| Protein paket | whey protein, šejker | 48,00 € |
+| Srednji paket | izotonik, whey protein, šejker | 56,00 € |
+| Gel paket 30 | gel × 30 (sortirano) | 60,00 € |
+| Veliki paket | gel × 10 (sortirano), izotonik, whey protein, šejker | 76,00 € |
+| Paket iznenađenja | whey protein, šejker, majica + 20 gelova **ili** 2 izotonika | 88,00 € / 64,00 € |
+
+Okusi: gel (limun, naranča, malina), izotonik (limun, naranča), whey 700 g (lješnjak-čokolada, banana-vanilija, jagoda-šlag). Gel i izotonik mogu biti „sortirani”: kupac sam raspoređuje komade po okusima (zbroj mora odgovarati paketu), a gumb „Asortiman” dijeli ravnomjerno.
+
+**Što u dokumentu nije bilo jasno i kako je riješeno (potvrditi):**
+1. „SREDNJI 2” u dokumentu ima „Šejker – 48,00”, a 39 + 9 = 48. Shvaćeno kao paket **whey + šejker za 48,00 €** (48 je zbroj, ne cijena šejkera).
+2. Imena „VELIKI 2”, „SREDNJI 2”, „MALI 1” su brojevi iz dokumenta; na stranici su nazvani po sadržaju (Gel paket 30, Protein paket, Mali paket). Mogu se preimenovati u `src/lib/bundles-data.ts`.
+3. **Majica** (paket iznenađenja): nema fotografije ni veličina, prikazana je ikonom i bez odabira veličine. Treba odluka: biraju li se veličine i kako.
+4. **Cijene paketa nisu manje od zbroja cijena iz službenog cjenika** (gel 1,80 €, izotonik 8,00 €, whey 38,00 €, šejker 9,00 €). Dokument računa gel po 2,00 € i whey po 39,00 €:
+
+| Paket | Cijena paketa | Zbroj po cjeniku | Razlika |
+|---|---|---|---|
+| Mali | 25,00 € | 25,00 € | 0,00 € |
+| Protein | 48,00 € | 47,00 € | +1,00 € |
+| Srednji | 56,00 € | 55,00 € | +1,00 € |
+| Gel paket 30 | 60,00 € | 54,00 € | +6,00 € |
+| Veliki | 76,00 € | 73,00 € | +3,00 € |
+| Iznenađenja (gel) | 88,00 € | 83,00 € + majica | +5,00 € bez majice |
+| Iznenađenja (izotonik) | 64,00 € | 63,00 € + majica | +1,00 € bez majice |
+
+Zbog toga stranica **ne navodi uštedu ni popust** (niti pojedinačne cijene stavki) i postoji test koji to čuva. Ako su pojedinačne cijene u dokumentu novi cjenik, treba ažurirati službeni cjenik; ako nisu, paketi su skuplji od kupnje zasebno pa kupac može primijetiti.
+5. Paketi **nisu u službenom cjeniku** (`cjenik.xml`/`.csv`/stranica Cjenik) i nisu dodani. To je odluka vlasnika (cjenik je pravni dokument obrta).
+6. „Shop” je shvaćen kao katalog na ovoj stranici (Proizvodi). Shopify trgovina nije dirana.
+
+Uz paket se prikazuju upozorenje za kofein (gelovi) i napomena da whey sadrži mlijeko i steviju.
+
+Usput: košarica i upit sada podržavaju opis sadržaja stavke (`details`), e-mail upita izbjegava posebne znakove (prije se tekst ubacivao u HTML), a oznaka „Međuzbroj po cjeniku” je postala „Međuzbroj” jer su u košarici i cijene paketa.
+
 # Dopuna: svijetla, žarka paleta (zamjenjuje tamnu temu)
 
 Klijent je tamnu temu odbacio kao pretamnu i generičku. Paleta je okrenuta: topla krem podloga `#fff2cf`, tamnoplava s logotipa `#1d2048` kao boja slova i tamnih ploča, žuti med `#ffb800`, boje okusa (limun, naranča, malina) kao velike ploče. Umjesto sjaja i prozirnosti: tvrdi obrubi i sjene (gumbi, kartice, naljepnice), veliki šesterokut meda iza košnice u uvodu, obrisi ćelija, naljepnice s podacima s deklaracije, boje po sekcijama (krem, med, navy, malina) i pčelica koja lebdi za pokazivačem (samo uz miš, ne uz „smanji pokrete”).

@@ -93,6 +93,7 @@ export const inquiryType = defineType({
             defineField({ name: 'quantity', title: 'Količina', type: 'number' }),
             defineField({ name: 'unitPrice', title: 'Okvirna cijena (u centima)', type: 'number' }),
             defineField({ name: 'imageSrc', title: 'Slika (URL)', type: 'string' }),
+            defineField({ name: 'details', title: 'Sadržaj paketa (odabrani okusi)', type: 'array', of: [{ type: 'string' }] }),
           ],
           preview: {
             select: { title: 'name', subtitle: 'variantLabel', quantity: 'quantity' },
