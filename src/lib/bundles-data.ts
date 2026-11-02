@@ -46,6 +46,12 @@ export const FLAVOURS: Record<FlavourKind, Flavour[]> = {
 
 export const SHAKER_IMAGE = img('shaker')
 
+/**
+ * Najmanja jedinica koja se bira po okusu. Gelovi dolaze isključivo u kutijama od 10 komada istog okusa
+ * (pa je moguće 10, 20 ili 30 jednog okusa, ali ne 15 ni 4 + 3 + 3); izotonik i whey su pojedinačni komadi.
+ */
+export const KIND_UNIT: Record<FlavourKind, number> = { gel: 10, iso: 1, whey: 1 }
+
 /** Naziv stavke u paketu (kratko, s veličinom pakiranja s deklaracije i cjenika). */
 export const KIND_LABEL: Record<BundleKind, L10n> = {
   gel: { hr: 'Energetski gel 40 g', en: 'Energy gel 40 g', de: 'Energiegel 40 g', sl: 'Energijski gel 40 g', pl: 'Żel energetyczny 40 g' },
@@ -176,11 +182,14 @@ export function defaultSelection(option: BundleOption): Selection {
   return out
 }
 
+/** Ravnomjerna raspodjela po okusima u jedinicama (kutije gelova, komadi izotonika); jedna jedinica ide prvom okusu. */
 export function evenSplit(kind: FlavourKind, count: number): Record<string, number> {
   const flavours = FLAVOURS[kind]
+  const unit = KIND_UNIT[kind]
+  const units = Math.round(count / unit)
   const out: Record<string, number> = {}
   flavours.forEach((f, i) => {
-    out[f.id] = count === 1 ? (i === 0 ? 1 : 0) : Math.floor(count / flavours.length) + (i < count % flavours.length ? 1 : 0)
+    out[f.id] = units === 1 ? (i === 0 ? unit : 0) : (Math.floor(units / flavours.length) + (i < units % flavours.length ? 1 : 0)) * unit
   })
   return out
 }
@@ -189,9 +198,13 @@ export function selectedCount(selection: Selection, kind: FlavourKind): number {
   return Object.values(selection[kind] ?? {}).reduce((a, b) => a + b, 0)
 }
 
-/** Ispunjen je kad za svaku vrstu zbroj odabranih komada odgovara paketu. */
+/** Ispunjen je kad za svaku vrstu zbroj odabranih komada odgovara paketu, a svaki okus je u cijelim jedinicama (kutije gelova). */
 export function isSelectionComplete(option: BundleOption, selection: Selection): boolean {
-  return flavourKinds(option).every((kind) => selectedCount(selection, kind) === slotCount(option, kind))
+  return flavourKinds(option).every(
+    (kind) =>
+      selectedCount(selection, kind) === slotCount(option, kind) &&
+      Object.values(selection[kind] ?? {}).every((n) => Number.isInteger(n) && n >= 0 && n % KIND_UNIT[kind] === 0),
+  )
 }
 
 /** Šifra varijante u košarici: isti paket s istim okusima spaja se u jedan redak. */

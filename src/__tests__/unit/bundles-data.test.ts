@@ -13,6 +13,7 @@ import {
   getBundle,
   getOption,
   isSelectionComplete,
+  KIND_UNIT,
   selectedCount,
   variantId,
 } from '@/lib/bundles-data'
@@ -67,10 +68,32 @@ describe('Paketi: odabir okusa', () => {
     }
   })
 
-  it('asortiman dijeli komade ravnomjerno, ostatak ide prvim okusima', () => {
-    expect(evenSplit('gel', 10)).toEqual({ limun: 4, naranca: 3, malina: 3 })
+  it('gelovi se biraju isključivo u kutijama od 10 komada istog okusa', () => {
+    expect(KIND_UNIT.gel).toBe(10)
+    expect(evenSplit('gel', 10)).toEqual({ limun: 10, naranca: 0, malina: 0 })
+    expect(evenSplit('gel', 20)).toEqual({ limun: 10, naranca: 10, malina: 0 })
     expect(evenSplit('gel', 30)).toEqual({ limun: 10, naranca: 10, malina: 10 })
-    expect(evenSplit('gel', 20)).toEqual({ limun: 7, naranca: 7, malina: 6 })
+    for (const count of [10, 20, 30]) {
+      for (const n of Object.values(evenSplit('gel', count))) expect(n % 10).toBe(0)
+    }
+  })
+
+  it('15 gelova jednog okusa ni 4 + 3 + 3 nisu valjani odabir', () => {
+    const o = getOption(getBundle('gel-paket-30')!)
+    const valid = (gel: Record<string, number>) => isSelectionComplete(o, { gel })
+    expect(valid({ limun: 10, naranca: 10, malina: 10 })).toBe(true)
+    expect(valid({ limun: 30, naranca: 0, malina: 0 })).toBe(true)
+    expect(valid({ limun: 20, naranca: 0, malina: 10 })).toBe(true)
+    expect(valid({ limun: 15, naranca: 15, malina: 0 })).toBe(false)
+    expect(valid({ limun: 12, naranca: 9, malina: 9 })).toBe(false)
+    const v10 = getOption(getBundle('veliki-paket')!)
+    expect(isSelectionComplete(v10, { ...defaultSelection(v10), gel: { limun: 4, naranca: 3, malina: 3 } })).toBe(false)
+    expect(isSelectionComplete(v10, { ...defaultSelection(v10), gel: { limun: 0, naranca: 10, malina: 0 } })).toBe(true)
+  })
+
+  it('izotonik i whey ostaju pojedinačni komadi', () => {
+    expect(KIND_UNIT.iso).toBe(1)
+    expect(KIND_UNIT.whey).toBe(1)
     expect(evenSplit('iso', 2)).toEqual({ limun: 1, naranca: 1 })
     expect(evenSplit('whey', 1)).toEqual({ cokolada: 1, banana: 0, jagoda: 0 })
   })
@@ -78,8 +101,8 @@ describe('Paketi: odabir okusa', () => {
   it('nepotpun odabir se prepoznaje', () => {
     const o = getOption(getBundle('veliki-paket')!)
     const sel = defaultSelection(o)
-    sel.gel = { limun: 4, naranca: 3, malina: 2 }
-    expect(selectedCount(sel, 'gel')).toBe(9)
+    sel.gel = { limun: 0, naranca: 0, malina: 0 }
+    expect(selectedCount(sel, 'gel')).toBe(0)
     expect(isSelectionComplete(o, sel)).toBe(false)
   })
 
@@ -97,7 +120,7 @@ describe('Paketi: odabir okusa', () => {
   it('opis za upit navodi okuse i količine na svim jezicima', () => {
     const o = getOption(getBundle('veliki-paket')!)
     const lines = detailLines(o, defaultSelection(o), 'hr')
-    expect(lines[0]).toBe('Energetski gel 40 g × 10: Limun × 4, Naranča × 3, Malina × 3')
+    expect(lines[0]).toBe('Energetski gel 40 g × 10: Limun × 10')
     expect(lines).toContain('Šejker 700 ml')
     for (const l of locales) expect(detailLines(o, defaultSelection(o), l).length).toBe(o.slots.length)
   })

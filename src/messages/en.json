@@ -802,6 +802,10 @@
     "metaDescription": "Honey Bee Power ready-made packs: small, medium and large pack, gel pack 30 and a surprise pack. Choose your flavours, order by enquiry.",
     "stripLead": "Ready-made packs with gels, isotonic drink, whey and a shaker. You choose the flavours.",
     "stripCta": "See the packs",
-    "priceNote": "Pack price, order by enquiry."
+    "priceNote": "Pack price, order by enquiry.",
+    "boxNote": "Gels come in boxes of 10 of the same flavour. Choose a flavour for each box.",
+    "chosenBoxes": "Chosen {count} of {total, plural, one {# box} other {# boxes}}",
+    "remainingBoxes": "Choose {count, plural, one {# more box} other {# more boxes}}",
+    "gelsCount": "{count} gels"
   }
 }

@@ -802,6 +802,10 @@
     "metaDescription": "Fertige Honey Bee Power Pakete: kleines, mittleres und großes Paket, Gel-Paket 30 und Überraschungspaket. Sorten selbst wählen, Bestellung per Anfrage.",
     "stripLead": "Fertige Pakete mit Gels, isotonischem Getränk, Whey und Shaker. Die Sorten wählst du selbst.",
     "stripCta": "Pakete ansehen",
-    "priceNote": "Paketpreis, Bestellung per Anfrage."
+    "priceNote": "Paketpreis, Bestellung per Anfrage.",
+    "boxNote": "Gels gibt es in Schachteln zu 10 Stück derselben Sorte. Wähle für jede Schachtel eine Sorte.",
+    "chosenBoxes": "{count} von {total, plural, one {# Schachtel} other {# Schachteln}} gewählt",
+    "remainingBoxes": "Noch {count, plural, one {# Schachtel} other {# Schachteln}} wählen",
+    "gelsCount": "{count} Gels"
   }
 }

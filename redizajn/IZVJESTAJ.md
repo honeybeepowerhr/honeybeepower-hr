@@ -4,14 +4,14 @@ Napravljeno: nova stranica **/paketi** (popis) i **/paketi/[slug]** (odabir okus
 
 | Paket | Sadržaj | Cijena |
 |---|---|---|
-| Mali paket | izotonik × 2 (sortirano), šejker | 25,00 € |
+| Mali paket | izotonik × 2 (bilo koji okusi), šejker | 25,00 € |
 | Protein paket | whey protein, šejker | 48,00 € |
 | Srednji paket | izotonik, whey protein, šejker | 56,00 € |
-| Gel paket 30 | gel × 30 (sortirano) | 60,00 € |
-| Veliki paket | gel × 10 (sortirano), izotonik, whey protein, šejker | 76,00 € |
+| Gel paket 30 | 3 kutije po 10 gelova (okus po kutiji) | 60,00 € |
+| Veliki paket | 1 kutija od 10 gelova (jedan okus), izotonik, whey protein, šejker | 76,00 € |
 | Paket iznenađenja | whey protein, šejker, majica + 20 gelova **ili** 2 izotonika | 88,00 € / 64,00 € |
 
-Okusi: gel (limun, naranča, malina), izotonik (limun, naranča), whey 700 g (lješnjak-čokolada, banana-vanilija, jagoda-šlag). Gel i izotonik mogu biti „sortirani”: kupac sam raspoređuje komade po okusima (zbroj mora odgovarati paketu), a gumb „Asortiman” dijeli ravnomjerno.
+Okusi: gel (limun, naranča, malina), izotonik (limun, naranča), whey 700 g (lješnjak-čokolada, banana-vanilija, jagoda-šlag). **Gelovi dolaze isključivo u kutijama od 10 komada istog okusa** (10, 20 ili 30 jednog okusa je moguće; 15 ili 4 + 3 + 3 nije): Veliki paket ima jednu kutiju (bira se okus), Gel paket 30 tri kutije, paket iznenađenja s gelovima dvije. Izotonik × 2 u Malom paketu bira se po komadu, a gumb „Asortiman” dijeli kutije (ili komade) ravnomjerno. Zbroj mora odgovarati paketu, inače se „Dodaj” ne otključava.
 
 **Što u dokumentu nije bilo jasno i kako je riješeno (potvrditi):**
 1. „SREDNJI 2” u dokumentu ima „Šejker – 48,00”, a 39 + 9 = 48. Shvaćeno kao paket **whey + šejker za 48,00 €** (48 je zbroj, ne cijena šejkera).
