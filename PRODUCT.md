@@ -32,7 +32,7 @@ Gel s tri ili četiri sastojka: višecvjetni med (91–95,5 %), liofilizirano vo
 
 - Postojeći kod zadržava: košaricu (zustand), upit preko WhatsAppa i e-maila, B2B obrazac, cjenik s CSV i XML izvozom, privolu za kolačiće i analitiku, next-intl prijevode, objavu na Cloudflareu (OpenNext).
 - Model kupnje je otvorena odluka: A (plaćanje online; Stripe je u kodu, ali nije dovršen), B (upit, kao sada) ili C (kombinacija).
-- Otvoreno: cijene (cjenik 1,80 € po gelu, kod 2,49 €), smije li se gel preporučivati tijekom napora, količina kofeina, puni sastav izotonika, deklaracija wheyja.
+- Cijene (ispravio vlasnik 2. 11. 2026.): gel 2,00 €, izotonik 500 g 8,00 €, izotonik 15 g 1,40 €, whey 700 g 39,00 €, šejker 9,00 €; vrećice wheya od 33 g više nisu u ponudi. Otvoreno: smije li se gel preporučivati tijekom napora, količina kofeina, puni sastav izotonika, deklaracija wheyja.
 - Postojeće rute ostaju; promijenjene dobivaju preusmjeravanje 301.
 
 ## Brand Commitments

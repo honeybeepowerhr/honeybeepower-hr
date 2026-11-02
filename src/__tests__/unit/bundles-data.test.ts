@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest'
 import fs from 'fs'
 import path from 'path'
 import { locales } from '@/features/i18n/config'
-import { officialPriceFor } from '@/lib/prices'
+import { officialPriceFor, sellingPriceEur } from '@/lib/prices'
 import {
   BUNDLES,
   FLAVOURS,
@@ -141,9 +141,24 @@ describe('Paketi: poštenje cijena', () => {
     }
   })
 
-  it('zbroj pojedinačnih cijena iz cjenika postoji za sve stavke (za izvještaj vlasniku)', () => {
-    expect(officialPriceFor('Energetski gel', 'LIMUN', '40 g')).toBe(1.8)
-    expect(officialPriceFor('Instant izotonik', 'LIMUN', '500 g')).toBe(8)
-    expect(officialPriceFor('Proteinski prah', 'LJEŠNJAK-ČOKOLADA', '700 g')).toBe(38)
+  it('cijena svakog paketa jednaka je zbroju cijena stavki iz službenog cjenika (majica je uključena)', () => {
+    const unit = {
+      gel: officialPriceFor('Energetski gel', 'LIMUN', '40 g')!,
+      iso: officialPriceFor('Instant izotonik', 'LIMUN', '500 g')!,
+      whey: officialPriceFor('Proteinski prah', 'LJEŠNJAK-ČOKOLADA', '700 g')!,
+      shaker: officialPriceFor('Shaker', '-', '700 ml')!,
+      shirt: 0,
+    }
+    expect(unit).toEqual({ gel: 2, iso: 8, whey: 39, shaker: 9, shirt: 0 })
+    for (const b of BUNDLES) {
+      for (const o of b.options) {
+        const sum = o.slots.reduce((s, slot) => s + unit[slot.kind] * slot.count, 0)
+        expect(o.priceEur, `${b.slug}/${o.id}`).toBe(sum)
+      }
+    }
+  })
+
+  it('paket od 10 gelova košta deset puta cijena gela iz cjenika', () => {
+    expect(sellingPriceEur('honey-bee-power-energy-gel-naranca-paket-10')).toBe(10 * officialPriceFor('Energetski gel', 'NARANČA', '40 g')!)
   })
 })

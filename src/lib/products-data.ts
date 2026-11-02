@@ -45,7 +45,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       sl: 'Energijski gel 40 g, okus limona: večcvetni med (94,5 %), liofiliziran plod limone, izvleček semen guarane in morska sol. 29 g ogljikovih hidratov v eni vrečki.',
       pl: 'Żel energetyczny 40 g, smak cytryna: miód wielokwiatowy (94.5%), liofilizowany owoc cytryny, ekstrakt z nasion guarany i sól morska. 29 g węglowodanów w jednej saszetce.',
     },
-    basePrice: 180,
+    basePrice: 200,
     mainImage: {
       _type: 'image',
       asset: {
@@ -67,8 +67,8 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Limun', size: '40g sachet', sku: 'HBP-GEL-LIM-40', price: 180, stockLevel: 100, minQuantity: 50 },
-      { _key: 'v2', flavour: 'Limun', size: 'Paket 10x40g', sku: 'HBP-GEL-LIM-10', price: 2999, stockLevel: 45, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Limun', size: '40g sachet', sku: 'HBP-GEL-LIM-40', price: 200, stockLevel: 100, minQuantity: 50 },
+      { _key: 'v2', flavour: 'Limun', size: 'Paket 10x40g', sku: 'HBP-GEL-LIM-10', price: 2000, stockLevel: 45, minQuantity: 5 },
     ],
   },
   {
@@ -90,7 +90,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       sl: 'Paket 10 gelov po 40 g, okus limona: večcvetni med (94,5 %), liofiliziran plod limone, izvleček semen guarane in morska sol. 29 g ogljikovih hidratov v eni vrečki.',
       pl: 'Zestaw 10 żeli po 40 g, smak cytryna: miód wielokwiatowy (94.5%), liofilizowany owoc cytryny, ekstrakt z nasion guarany i sól morska. 29 g węglowodanów w jednej saszetce.',
     },
-    basePrice: 2999,
+    basePrice: 2000,
     mainImage: {
       _type: 'image',
       asset: {
@@ -107,7 +107,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Limun', size: 'Paket 10x40g', sku: 'HBP-GEL-LIM-10P', price: 2999, stockLevel: 80, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Limun', size: 'Paket 10x40g', sku: 'HBP-GEL-LIM-10P', price: 2000, stockLevel: 80, minQuantity: 5 },
     ],
   },
   {
@@ -129,7 +129,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       sl: 'Energijski gel 40 g, okus pomaranča: večcvetni med (95,5 %), liofiliziran plod pomaranče, izvleček semen guarane in morska sol. 31,2 g ogljikovih hidratov v eni vrečki.',
       pl: 'Żel energetyczny 40 g, smak pomarańcza: miód wielokwiatowy (95.5%), liofilizowany owoc pomarańczy, ekstrakt z nasion guarany i sól morska. 31,2 g węglowodanów w jednej saszetce.',
     },
-    basePrice: 180,
+    basePrice: 200,
     mainImage: {
       _type: 'image',
       asset: {
@@ -151,8 +151,8 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Naranča', size: '40g sachet', sku: 'HBP-GEL-NAR-40', price: 180, stockLevel: 120, minQuantity: 50 },
-      { _key: 'v2', flavour: 'Naranča', size: 'Paket 10x40g', sku: 'HBP-GEL-NAR-10', price: 2999, stockLevel: 50, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Naranča', size: '40g sachet', sku: 'HBP-GEL-NAR-40', price: 200, stockLevel: 120, minQuantity: 50 },
+      { _key: 'v2', flavour: 'Naranča', size: 'Paket 10x40g', sku: 'HBP-GEL-NAR-10', price: 2000, stockLevel: 50, minQuantity: 5 },
     ],
   },
   {
@@ -174,7 +174,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       sl: 'Paket 10 gelov po 40 g, okus pomaranča: večcvetni med (95,5 %), liofiliziran plod pomaranče, izvleček semen guarane in morska sol. 31,2 g ogljikovih hidratov v eni vrečki.',
       pl: 'Zestaw 10 żeli po 40 g, smak pomarańcza: miód wielokwiatowy (95.5%), liofilizowany owoc pomarańczy, ekstrakt z nasion guarany i sól morska. 31,2 g węglowodanów w jednej saszetce.',
     },
-    basePrice: 2999,
+    basePrice: 2000,
     mainImage: {
       _type: 'image',
       asset: {
@@ -191,7 +191,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Naranča', size: 'Paket 10x40g', sku: 'HBP-GEL-NAR-10P', price: 2999, stockLevel: 80, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Naranča', size: 'Paket 10x40g', sku: 'HBP-GEL-NAR-10P', price: 2000, stockLevel: 80, minQuantity: 5 },
     ],
   },
   {
@@ -213,7 +213,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       sl: 'Energijski gel 40 g, okus malina: večcvetni med (91 %), liofiliziran plod maline, izvleček semen guarane. 32,8 g ogljikovih hidratov v eni vrečki.',
       pl: 'Żel energetyczny 40 g, smak malina: miód wielokwiatowy (91%), liofilizowany owoc maliny, ekstrakt z nasion guarany. 32,8 g węglowodanów w jednej saszetce.',
     },
-    basePrice: 180,
+    basePrice: 200,
     mainImage: {
       _type: 'image',
       asset: {
@@ -235,8 +235,8 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Malina', size: '40g sachet', sku: 'HBP-GEL-MAL-40', price: 180, stockLevel: 90, minQuantity: 50 },
-      { _key: 'v2', flavour: 'Malina', size: 'Paket 10x40g', sku: 'HBP-GEL-MAL-10', price: 2999, stockLevel: 40, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Malina', size: '40g sachet', sku: 'HBP-GEL-MAL-40', price: 200, stockLevel: 90, minQuantity: 50 },
+      { _key: 'v2', flavour: 'Malina', size: 'Paket 10x40g', sku: 'HBP-GEL-MAL-10', price: 2000, stockLevel: 40, minQuantity: 5 },
     ],
   },
   {
@@ -258,7 +258,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       sl: 'Paket 10 gelov po 40 g, okus malina: večcvetni med (91 %), liofiliziran plod maline, izvleček semen guarane. 32,8 g ogljikovih hidratov v eni vrečki.',
       pl: 'Zestaw 10 żeli po 40 g, smak malina: miód wielokwiatowy (91%), liofilizowany owoc maliny, ekstrakt z nasion guarany. 32,8 g węglowodanów w jednej saszetce.',
     },
-    basePrice: 2999,
+    basePrice: 2000,
     mainImage: {
       _type: 'image',
       asset: {
@@ -275,7 +275,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Malina', size: 'Paket 10x40g', sku: 'HBP-GEL-MAL-10P', price: 2999, stockLevel: 80, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Malina', size: 'Paket 10x40g', sku: 'HBP-GEL-MAL-10P', price: 2000, stockLevel: 80, minQuantity: 5 },
     ],
   },
   {
@@ -385,7 +385,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       sl: 'Whey protein s sušenim medom (6 %) in stevio, okus lešnik-čokolada. Embalaža 700 g; približno 22,1 g beljakovin v 33-gramskem obroku. Vsebuje mleko.',
       pl: 'Białko serwatkowe z suszonym miodem (6%) i stewią, smak orzech laskowy z czekoladą. Opakowanie 700 g; około 22.1 g białka w porcji 33 g. Zawiera mleko.',
     },
-    basePrice: 3800,
+    basePrice: 3900,
     mainImage: {
       _type: 'image',
       asset: {
@@ -402,7 +402,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Lješnjak-čokolada', size: '700g posuda', sku: 'HBP-WHY-COK-700', gtin: '5904966072352', price: 3800, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Lješnjak-čokolada', size: '700g posuda', sku: 'HBP-WHY-COK-700', gtin: '5904966072352', price: 3900, minQuantity: 5 },
     ],
   },
   {
@@ -424,7 +424,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       sl: 'Whey protein s sušenim medom (6 %) in stevio, okus banana-vanilija. Embalaža 700 g; približno 22,1 g beljakovin v 33-gramskem obroku. Vsebuje mleko.',
       pl: 'Białko serwatkowe z suszonym miodem (6%) i stewią, smak banan z wanilią. Opakowanie 700 g; około 22.1 g białka w porcji 33 g. Zawiera mleko.',
     },
-    basePrice: 3800,
+    basePrice: 3900,
     mainImage: {
       _type: 'image',
       asset: {
@@ -441,7 +441,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Banana-vanilija', size: '700g posuda', sku: 'HBP-WHY-BAN-700', gtin: '5904966072345', price: 3800, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Banana-vanilija', size: '700g posuda', sku: 'HBP-WHY-BAN-700', gtin: '5904966072345', price: 3900, minQuantity: 5 },
     ],
   },
   {
@@ -463,7 +463,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       sl: 'Whey protein s sušenim medom (6 %) in stevio, okus jagoda-smetana. Embalaža 700 g; približno 22,7 g beljakovin v 33-gramskem obroku. Vsebuje mleko.',
       pl: 'Białko serwatkowe z suszonym miodem (6%) i stewią, smak truskawka ze śmietaną. Opakowanie 700 g; około 22.7 g białka w porcji 33 g. Zawiera mleko.',
     },
-    basePrice: 3800,
+    basePrice: 3900,
     mainImage: {
       _type: 'image',
       asset: {
@@ -480,7 +480,7 @@ export const REAL_PRODUCTS: ProductSummary[] = [
       },
     ],
     variants: [
-      { _key: 'v1', flavour: 'Jagoda-šlag', size: '700g posuda', sku: 'HBP-WHY-JAG-700', gtin: '5904966072369', price: 3800, minQuantity: 5 },
+      { _key: 'v1', flavour: 'Jagoda-šlag', size: '700g posuda', sku: 'HBP-WHY-JAG-700', gtin: '5904966072369', price: 3900, minQuantity: 5 },
     ],
   },
 ]

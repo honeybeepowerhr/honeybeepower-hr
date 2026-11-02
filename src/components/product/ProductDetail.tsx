@@ -136,9 +136,7 @@ export async function ProductDetail({ product, locale }: { product: ProductSumma
     const smallPrice =
       kind === 'isotonic'
         ? officialPriceFor('Instant izotonik', flavourOf(product).toUpperCase().includes('NARAN') ? 'NARANČA' : 'LIMUN', '15 g')
-        : kind === 'whey'
-          ? officialPriceFor('Proteinski prah', 'LJEŠNJAK-ČOKOLADA', '33 g')
-          : null
+        : null
     const answer = l(f.a, locale).replace('{price}', smallPrice !== null ? formatEur(smallPrice, locale) : '')
     return { q: l(f.q, locale), a: <>{withTodo(answer)}</> }
   })

@@ -171,16 +171,6 @@ export const PRODUCT_FAQ: Record<ProductKind, FaqItem[]> = {
         'Około 22 g w porcji 33 g (67–69 g na 100 g, zależnie od smaku). Dane z prezentacji producenta; etykietę weryfikujemy.',
       ),
     },
-    {
-      q: T('Postoji li manje pakiranje?', 'Is there a smaller pack?', 'Gibt es eine kleinere Packung?', 'Ali obstaja manjše pakiranje?', 'Czy jest mniejsze opakowanie?'),
-      a: T(
-        'Da, vrećica od 33 g, u službenom cjeniku po {price}.',
-        'Yes, a 33 g sachet, listed at {price} in the official price list.',
-        'Ja, ein 33-g-Beutel, laut offizieller Preisliste {price}.',
-        'Da, vrečka 33 g, v uradnem ceniku po {price}.',
-        'Tak, saszetka 33 g, w oficjalnym cenniku {price}.',
-      ),
-    },
   ],
 }
 
