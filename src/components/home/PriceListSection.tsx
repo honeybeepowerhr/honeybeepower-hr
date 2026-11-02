@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { getTranslations } from 'next-intl/server'
 import type { Locale } from '@/types'
 import { CJENIK_ITEMS } from '@/lib/cjenik-data'
@@ -27,19 +26,7 @@ export async function PriceListSection({ locale }: { locale: Locale }) {
       </h2>
 
       <div className="mt-16 grid-12 gap-y-10 md:mt-24">
-        <div className="relative order-last col-span-12 aspect-[4/5] self-end overflow-hidden rounded-[var(--radius)] bg-white sm:col-span-8 sm:col-start-5 md:order-none md:col-span-4 md:col-start-1">
-          <Image
-            src="/images/products-web/paketgelnaranca-new.webp"
-            alt={t('photoAlt')}
-            fill
-            sizes="(min-width: 768px) 30vw, 70vw"
-            className="object-contain p-[6%]"
-          />
-        </div>
-
-        <p className="col-span-12 t-small md:col-span-1 md:col-start-7 md:pt-1">{t('tableLabel')}</p>
-
-        <div className="card col-span-12 p-6 md:col-span-6 md:col-start-7 md:p-8 lg:col-span-5 lg:col-start-8">
+        <div className="card col-span-12 p-6 md:col-span-10 md:col-start-2 md:p-8 lg:col-span-8 lg:col-start-5">
           <table className="w-full text-left t-body tabular">
             <caption className="sr-only">{t('caption')}</caption>
             <thead className="sr-only">

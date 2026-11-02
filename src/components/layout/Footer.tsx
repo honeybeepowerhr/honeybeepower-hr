@@ -4,7 +4,6 @@ import { useLocale, useTranslations } from 'next-intl'
 import type { Locale } from '@/types'
 import { CookieSettingsLink } from '@/components/analytics/CookieSettingsLink'
 import { LEGAL_ENTITY } from '@/lib/cjenik-data'
-import { PHOTO_CREDITS } from '@/lib/photo-credits'
 
 /** Podnožje: kontakt je glavni redak (smjer: „Contact as the headline”). */
 export default function Footer() {
@@ -22,6 +21,7 @@ export default function Footer() {
     { label: tNav('guides'), href: '/vodici' },
     { label: tNav('about'), href: '/o-nama' },
     { label: tNav('events'), href: '/dogadaji' },
+    { label: tNav('gallery'), href: '/galerija' },
     { label: tNav('clubs'), href: '/b2b' },
     { label: tNav('whereToBuy'), href: '/gdje-kupiti' },
     { label: tNav('faq'), href: '/faq' },
@@ -46,19 +46,6 @@ export default function Footer() {
 
   return (
     <footer className="on-ink" id="kontakt-podnozje">
-      <Link href={`${prefix}/dogadaji`} className="group grid grid-cols-3 gap-px sm:grid-cols-6" aria-label={t('photoStrip')}>
-        {[11, 24, 12, 4, 20, 9].map((n) => (
-          <span key={n} className="relative aspect-square overflow-hidden">
-            <Image
-              src={`/images/events-web/event-${n}.jpg`}
-              alt=""
-              fill
-              sizes="(min-width: 640px) 17vw, 33vw"
-              className="object-cover grayscale transition-[filter,transform] duration-500 ease-[var(--ease-out-expo)] group-hover:scale-[1.03] group-hover:grayscale-0"
-            />
-          </span>
-        ))}
-      </Link>
       <div className="frame flex min-h-[70svh] flex-col pb-8 pt-10">
         <div className="grid-12 gap-y-8">
           <div className="col-span-12 md:col-span-4">
@@ -115,7 +102,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="mt-14 grid gap-6 t-small md:grid-cols-3 md:items-start">
+        <div className="mt-14 grid gap-6 t-small md:grid-cols-2 md:items-start">
           <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
             {legalLinks.map((l) => (
               <li key={l.href}>
@@ -128,22 +115,6 @@ export default function Footer() {
               <CookieSettingsLink label={t('cookieSettings')} className="hover:underline" />
             </li>
           </ul>
-          <details className="md:text-center">
-            <summary className="cursor-pointer hover:underline">{t('photoCredits')}</summary>
-            <ul className="mt-3 space-y-1 text-left">
-              {PHOTO_CREDITS.map((c) => (
-                <li key={c.file}>
-                  <a href={c.page} className="underline" rel="noopener" target="_blank">
-                    {c.title}
-                  </a>
-                  {c.creator ? `, ${c.creator}` : ''},{' '}
-                  <a href={c.licenseUrl} className="underline" rel="noopener license" target="_blank">
-                    {c.license}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </details>
           <p className="md:text-right">
             {LEGAL_ENTITY.grad} {year} · {t('distributor')}
           </p>

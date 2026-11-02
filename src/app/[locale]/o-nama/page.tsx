@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import type { Locale } from '@/types'
 import { pageMetadata, localeUrl } from '@/lib/seo/site'
 import { buildBreadcrumbSchema } from '@/lib/seo/schemas'
@@ -54,8 +53,6 @@ const C = {
     pl: 'Na stronie nie ma płatności. Składasz zapytanie, wysyłasz je przez WhatsApp lub e-mail, a my odpowiadamy z potwierdzeniem, kosztem dostawy i formą płatności (za pobraniem lub przelewem). Kluby i sklepy wysyłają zapytanie B2B.',
   },
   archive: { hr: 'Arhivske slike poljskih pčelinjaka: slika Aleksandra Augustynowicza „Na pčelinjaku” (1905.) i fotografija pčelinjaka u Łomiankama kraj Varšave (1939.).', en: 'Archive images of Polish apiaries: Aleksander Augustynowicz’s painting “At the apiary” (1905) and a photograph of an apiary in Łomianki near Warsaw (1939).', de: 'Archivbilder polnischer Bienenstände: Aleksander Augustynowicz’ Gemälde „Am Bienenstand“ (1905) und ein Foto aus Łomianki bei Warschau (1939).', sl: 'Arhivski podobi poljskih čebelnjakov: slika Aleksandra Augustynowicza „Na čebelnjaku” (1905) in fotografija čebelnjaka v Łomiankih pri Varšavi (1939).', pl: 'Archiwalne obrazy polskich pasiek: obraz Aleksandra Augustynowicza „Na pasiece” (1905) i zdjęcie pasieki w Łomiankach pod Warszawą (1939).' },
-  paintingAlt: { hr: 'Slika drvenih košnica u cvjetnom vrtu', en: 'Painting of wooden hives in a flowering garden', de: 'Gemälde von Holzbeuten in einem blühenden Garten', sl: 'Slika lesenih panjev v cvetočem vrtu', pl: 'Obraz drewnianych uli w kwitnącym ogrodzie' },
-  photoAlt: { hr: 'Crno-bijela fotografija košnica u voćnjaku', en: 'Black-and-white photograph of hives in an orchard', de: 'Schwarzweißfoto von Bienenstöcken im Obstgarten', sl: 'Črno-bela fotografija panjev v sadovnjaku', pl: 'Czarno-białe zdjęcie uli w sadzie' },
   products: { hr: 'Pogledaj proizvode', en: 'See the products', de: 'Produkte ansehen', sl: 'Oglej si izdelke', pl: 'Zobacz produkty' },
   b2b: { hr: 'Za klubove i trgovine', en: 'For clubs and shops', de: 'Für Vereine und Geschäfte', sl: 'Za klube in trgovine', pl: 'Dla klubów i sklepów' },
 } satisfies Record<string, T5>
@@ -82,10 +79,6 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         <p className="col-span-12 self-end t-lead lg:col-span-5">{C.lead[locale]}</p>
       </section>
 
-      <div className="relative mx-[var(--gutter)] aspect-[16/9] overflow-hidden bg-surface md:aspect-[21/9]">
-        <Image src="/images/found/na-pcelinjaku-1905.jpg" alt={C.paintingAlt[locale]} fill priority sizes="100vw" className="object-cover" data-product-image />
-      </div>
-
       <section className="frame section" aria-labelledby="proizvodac-title">
         <div className="grid-12 gap-y-6">
           <h2 id="proizvodac-title" data-reveal className="t-head col-span-12 lg:col-span-5">{C.makerTitle[locale]}</h2>
@@ -98,10 +91,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
       <section className="on-ink" aria-labelledby="distributer-title">
         <div className="frame grid-12 gap-y-8 py-20 md:py-28">
-          <div className="relative col-span-12 aspect-square md:col-span-4">
-            <Image src="/images/found/pcelinjak-1939.jpg" alt={C.photoAlt[locale]} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover grayscale" />
-          </div>
-          <div className="col-span-12 md:col-span-7 md:col-start-6">
+          <div className="col-span-12 md:col-span-8">
             <h2 id="distributer-title" data-reveal className="t-head">{C.usTitle[locale]}</h2>
             <p data-reveal className="mt-8 text-[length:var(--text-lead)] leading-[1.3]">{C.usText[locale]}</p>
             <p className="mt-6 t-small">{LEGAL_ENTITY.nazivTvrtke} · {LEGAL_ENTITY.adresa}, {LEGAL_ENTITY.postanskiBroj} {LEGAL_ENTITY.grad}</p>

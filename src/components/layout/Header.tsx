@@ -23,6 +23,7 @@ const NAV = [
 const MORE = [
   { key: 'about', href: '/o-nama' },
   { key: 'events', href: '/dogadaji' },
+  { key: 'gallery', href: '/galerija' },
   { key: 'whereToBuy', href: '/gdje-kupiti' },
   { key: 'faq', href: '/faq' },
   { key: 'contact', href: '/kontakt' },

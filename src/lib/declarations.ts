@@ -213,7 +213,6 @@ export const DECLARATIONS: Declaration[] = [
   {
     slug: 'honey-bee-power-whey-protein-ljesnjak-cokolada-700g',
     kind: 'whey',
-    photoField: '#ffffff',
     flavour: { hr: 'Lješnjak-čokolada', en: 'Hazelnut-chocolate', de: 'Haselnuss-Schokolade', sl: 'Lešnik-čokolada', pl: 'Orzech laskowy z czekoladą' },
     flavourColor: '#6b4226',
     backImage: null,
@@ -227,7 +226,6 @@ export const DECLARATIONS: Declaration[] = [
   {
     slug: 'honey-bee-power-whey-protein-banana-vanilija-700g',
     kind: 'whey',
-    photoField: '#ffffff',
     flavour: { hr: 'Banana-vanilija', en: 'Banana-vanilla', de: 'Banane-Vanille', sl: 'Banana-vanilija', pl: 'Banan z wanilią' },
     flavourColor: '#e8c547',
     backImage: null,
@@ -241,7 +239,6 @@ export const DECLARATIONS: Declaration[] = [
   {
     slug: 'honey-bee-power-whey-protein-jagoda-slag-700g',
     kind: 'whey',
-    photoField: '#ffffff',
     flavour: { hr: 'Jagoda-šlag', en: 'Strawberry-cream', de: 'Erdbeere-Sahne', sl: 'Jagoda-smetana', pl: 'Truskawka ze śmietaną' },
     flavourColor: '#e0607e',
     backImage: null,

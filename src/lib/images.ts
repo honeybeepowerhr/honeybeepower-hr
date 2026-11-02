@@ -2,9 +2,12 @@
  * Lagane kopije fotografija proizvoda (public/images/products-web/*.webp),
  * izrađene iz izvornika u public/images/products. Izvornici ostaju.
  */
+/** Slike zamijenjene novim izrezima (2. 11. 2026.): novi naziv datoteke zaobilazi stare spremljene inačice u preglednicima i predmemoriji. */
+const REVISED = new Set(['proteinbanana700g', 'proteincokolada700g', 'proteinjagodaslag700g', 'isolimun-prednja', 'isonaranca-prednja'])
+
 export function webImage(ref: string): string {
   const m = ref.match(/^\/images\/products\/([^/]+)\.(png|jpe?g)$/i)
-  return m ? `/images/products-web/${m[1]}.webp` : ref
+  return m ? `/images/products-web/${m[1]}${REVISED.has(m[1]) ? '-v2' : ''}.webp` : ref
 }
 
 /** Tamna ili svijetla slova na polju boje okusa (WCAG kontrast). */

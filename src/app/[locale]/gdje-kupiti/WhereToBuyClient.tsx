@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
 import { SectionMotion } from '@/components/site/SectionMotion'
 
@@ -14,12 +13,9 @@ export default function WhereToBuyClient() {
     <>
       <SectionMotion />
       <section className="grid-12 items-stretch" aria-labelledby="gdje-title">
-        <div className="frame col-span-12 flex flex-col justify-end gap-6 py-12 md:col-span-6">
+        <div className="frame col-span-12 flex flex-col justify-end gap-6 py-14 md:col-span-9 md:py-20">
           <h1 id="gdje-title" className="t-display">{t('title')}</h1>
           <p className="t-lead measure">{t('subtitle')}</p>
-        </div>
-        <div className="relative col-span-12 min-h-[50svh] bg-white md:col-span-6">
-          <Image src="/images/products-web/paketgelnaranca-new.webp" alt={t('photoAlt')} fill priority sizes="(min-width: 768px) 50vw, 100vw" className="object-contain p-[8%]" data-product-image />
         </div>
       </section>
 

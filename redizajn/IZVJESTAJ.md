@@ -1,3 +1,27 @@
+# Dopuna: nove fotografije proizvoda, galerija i vodiči bez slika (2. 11. 2026.)
+
+**Nove fotografije proteina i izotonika.** Vlasnik je poslao 5 boljih fotografija (whey banana-vanilija, lješnjak-čokolada, jagoda-šlag; izotonik limun i naranča). Izrezane su i stavljene umjesto starih prljavih kantica na naslovnici, kategorijama, stranicama proizvoda, paketima i košarici. Nazivi datoteka dobili su nastavak `-v2` (`public/images/products-web/*-v2.webp`, `public/images/products/*.png`) da se na Cloudflareu i u pregledniku ne prikaže stara slika iz predmemorije; mapiranje je u `src/lib/images.ts`. Whey više nema bijelo polje nego boju okusa (čokolada, banana, jagoda).
+
+**Upozorenje o kvaliteti:** poslane fotografije su male (kantica oko 160 × 300 px, izotonik oko 217 × 320 px). Povećane su 3 × uz izoštravanje, pa na velikim prikazima izgledaju malo mekano. **Treba pitati vlasnika za izvorne datoteke u većoj razlučivosti** (barem 1500 px po visini) i zamijeniti ih istim imenima.
+
+**Uklonjene dekorativne fotografije** (na zahtjev vlasnika: „svugdje si bezveze dodavao slike”). Ostale su samo slike koje nešto pokazuju (proizvodi, poleđine s deklaracijama, košarica, paketi, logotip):
+- naslovnica: fotografija meda iza naslova, fotografije u odjeljcima Sastojci, Cjenik i Priča (s opisom fotografije iz 1939.), pločice sporta, traka fotografija „Događaji”
+- stranice: Događaji, Gdje kupiti, O nama, Sport (pojedinačne stranice), fotografije sastojaka i „orbovi” na stranici proizvoda
+- podnožje: traka fotografija i popis autora fotografija (impresum i dalje navodi izvore)
+- vodiči: naslovne slike na popisu i na članku
+Obrisani su i nekorišteni stilovi (`.inline-thumb`, `.honeycomb-text`, `.stage-orb*`) te 17 nekorištenih tekstova sučelja u svih 5 jezika. **Nijedna datoteka fotografije nije obrisana s diska** (osim zamijenjenih starih verzija proteina i izotonika).
+
+**Nova stranica Galerija (`/galerija`, u izborniku „Više”, u podnožju i sitemapu).** Dvije kartice: **Događaji** (25 fotografija s promo pultova, utrka i treninga) i **Proizvodi** (14: tri gela, izotonici, whey, šejker i poleđine s deklaracijama). Klik otvara povećani prikaz: strelice na tipkovnici, Esc, povlačenje prstom na mobitelu, fokus se vraća na pločicu. Tekstovi uz slike u 5 jezika (`src/lib/gallery-data.ts`). Stranica Događaji sada je samo tekst s vezom na galeriju.
+
+**Treba potvrditi:** na fotografijama s događaja prepoznaju se ljudi (sportaši, volonteri, djeca u dvorani). Prije objave vlasnik treba potvrditi da ima dopuštenje za objavu (za maloljetnike pristanak roditelja). Autor fotografija nije poznat.
+
+**Vodiči: sada 8 tekstova bez ijedne slike** (bilo 4). Novi: *Kako pročitati deklaraciju gela*, *Guarana i kofein u gelu*, *Oporavak: 4 g ugljikohidrata po kilogramu*, *Izotonik: što piše na deklaraciji*; postojeća četiri ostala su (bez slika). Popis je numerirana lista, članak ima žuto zaglavlje s naslovom, izvore i pitanja. Sve brojke dolaze s deklaracija (`redizajn/podaci-deklaracije.json`), uz izvore: Uredba (EU) 1169/2011 i 432/2012, EFSA 2015., Sawka 2007., Thomas 2016. Bez usporedbi i neodobrenih tvrdnji; ne preporučuje se gel tijekom utrke; količina kofeina i sastav izotonika navedeni su kao „potvrđujemo s proizvođačem”. Svi tekstovi imaju prijevode na en, de, sl i pl **koji čekaju provjeru izvornih govornika**, a tekstove treba pregledati nutricionist. Dodan je test `src/__tests__/unit/guides.test.ts`. Adrese starih vodiča i dalje se preusmjeravaju (301).
+
+**Poznato, nije mijenjano:**
+- Slike za dijeljenje (Open Graph, `public/images/og/*`) nisu ponovno izrađene; neke još prikazuju stare kantice i fotografije s događaja.
+- Fotografije paketa (`public/images/bundles/*.webp`) ponovno su izrađene s novim proizvodima (`redizajn/og/make_bundle_covers.mjs`).
+- Cijene sidrenog cjenika i dalje čekaju potvrdu (vidi gore).
+
 # Dopuna: ispravljen službeni cjenik (po vlasniku, 2. 11. 2026.)
 
 Nove aktualne cijene: **gel 2,00 €** (bilo 1,80), **whey 700 g 39,00 €** (bilo 38,00), **izotonik 15 g 1,40 €** (bilo 1,60), izotonik 500 g 8,00 € i šejker 9,00 € ostaju. **Vrećice proteina od 33 g uklonjene** iz cjenika (3 stavke), s pitanjem o manjem pakiranju wheyja, tekstovima kategorije i B2B popisa; redni brojevi su ponovno uzastopni (1 do 11, šejker je sad 11). Prilagođeni su `src/lib/cjenik-data.ts`, cijene u `src/lib/products-data.ts`, opisi kategorija (5 jezika), `redizajn/podaci-deklaracije.json`, `PRODUCT.md` i testovi (cjenik, zbroj paketa). Izvoz `cjenik.xml`, `cjenik.csv` i stranica Cjenik koriste iste podatke i već pokazuju nove cijene. Fotografije malih proteina ostaju u datotekama (nisu brisane).

@@ -24,7 +24,7 @@ export async function ProductLinesSection({ locale }: { locale: Locale }) {
     {
       key: 'iso',
       href: '/proizvodi/izotonicki-napitci',
-      image: '/images/products-web/isolimun-prednja.webp',
+      image: '/images/products-web/isolimun-prednja-v2.webp',
       imageW: 1024,
       imageH: 1600,
       field: 'field-lemon',
@@ -35,12 +35,12 @@ export async function ProductLinesSection({ locale }: { locale: Locale }) {
     {
       key: 'whey',
       href: '/proizvodi/whey-proteini',
-      image: '/images/products-web/proteincokolada700g.webp',
+      image: '/images/products-web/proteincokolada700g-v2.webp',
       imageW: 1080,
       imageH: 1080,
-      field: 'bg-white',
+      field: 'field-honey',
       price: officialPriceEur('honey-bee-power-whey-protein-ljesnjak-cokolada-700g'),
-      fit: 'object-contain',
+      fit: 'object-contain p-[8%]',
       span: 'md:col-span-4',
     },
   ] as const

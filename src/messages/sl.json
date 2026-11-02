@@ -24,7 +24,8 @@
     "events": "Dogodki",
     "faq": "Pogosta vprašanja",
     "sport": "Šport",
-    "bundles": "Paketi"
+    "bundles": "Paketi",
+    "gallery": "Galerija"
   },
   "cjenik": {
     "badge": "Uradni digitalni cenik",
@@ -206,9 +207,7 @@
     "siteNav": "Strani",
     "backToTop": "Na vrh",
     "contactLead": "Vprašanja in naročila",
-    "photoCredits": "Avtorji fotografij",
-    "distributor": "distributer za Hrvaško",
-    "photoStrip": "Fotografije z dogodkov: oglej si vse"
+    "distributor": "distributer za Hrvaško"
   },
   "contactPage": {
     "badge": "Kontaktirajte nas",
@@ -348,7 +347,6 @@
     "mapTitle": "Zemljevid Lokacij",
     "mapSelectNotice": "Izberite prodajno mesto s seznama za podrobnosti",
     "b2bNotice": "* Če želite postati partner ali uvrstiti vaše prodajno mesto, nas kontaktirajte na info@planetbio.hr",
-    "photoAlt": "Škatla z 10 geli Honey Bee Power pomaranča",
     "howTitle": "Kako poteka naročilo",
     "step1": "Izdelke dodaj v povpraševanje na strani.",
     "step2": "Povpraševanje pošlji prek WhatsAppa ali e-pošte.",
@@ -609,18 +607,15 @@
       "label": "Šport",
       "run": {
         "verb": "Teci.",
-        "caption": "Tekač z gelom Honey Bee Power na maratonu na Cipru.",
-        "alt": "Tekač v majici maratona na Cipru drži gel Honey Bee Power"
+        "caption": "Tekač z gelom Honey Bee Power na maratonu na Cipru."
       },
       "fight": {
         "verb": "Bori se.",
-        "caption": "Trening borilnih športov.",
-        "alt": "Trening kickboksa v dvorani"
+        "caption": "Trening borilnih športov."
       },
       "play": {
         "verb": "Igraj.",
-        "caption": "Rokometna ekipa v dresih Honey Bee Power.",
-        "alt": "Rokometašice v dresih z napisom Honey Bee Power"
+        "caption": "Rokometna ekipa v dresih Honey Bee Power."
       }
     },
     "recovery": {
@@ -636,28 +631,17 @@
       "fact2": "Krndijska 4, Našice",
       "fact3Label": "Dostava",
       "fact3": "1–3 delovne dni",
-      "photoAlt": "Črno-bela fotografija čebelnjaka z lesenimi panji v sadovnjaku",
-      "photoCaption": "Fotografija: čebelnjak v Łomiankih pri Varšavi, 1939 (arhiv).",
       "more": "Vsa zgodba"
     },
     "track": {
       "line1": "Na",
       "line2": "progi",
-      "photo1": "Promocijska stojnica Honey Bee Power v Vukovarju z geli in izotoniki na mizi",
-      "caption1": "Stojnica v Vukovarju.",
-      "photo2": "Tekač v majici Honey Bee Power",
-      "caption2": "Na startu.",
-      "photo3": "Športnice z nahrbtniki Honey Bee Power v dvorani",
-      "photo4": "Rokometna ekipa z nahrbtniki Honey Bee Power",
-      "photo5": "Stojnica Honey Bee Power na mestnem trgu v Vukovarju",
       "sentence": "Promocijska stojnica na vukovarskem maratonu, treningi in tekme.",
       "more": "Dogodki",
       "moreLabel": "Več fotografij z dogodkov"
     },
     "prices": {
       "title": "Cene iz uradnega cenika",
-      "photoAlt": "Škatla z 10 geli Honey Bee Power pomaranča",
-      "tableLabel": "Cene",
       "caption": "Cene izdelkov iz uradnega cenika",
       "colType": "Vrsta",
       "colItem": "Okus in pakiranje",
@@ -808,5 +792,18 @@
     "chosenBoxes": "Izbrano {count} od {total, plural, one {# škatle} two {# škatel} few {# škatel} other {# škatel}}",
     "remainingBoxes": "Izberi še {count, plural, one {# škatlo} two {# škatli} few {# škatle} other {# škatel}}",
     "gelsCount": "{count} gelov"
+  },
+  "gallery": {
+    "title": "Galerija",
+    "lead": "Fotografije s tekmovanj, treningov in promocijskih stojnic ter naši izdelki. Klikni na sliko za povečavo.",
+    "events": "Dogodki",
+    "products": "Izdelki",
+    "open": "Odpri galerijo",
+    "view": "Odpri sliko",
+    "close": "Zapri",
+    "prev": "Prejšnja slika",
+    "next": "Naslednja slika",
+    "metaTitle": "Galerija fotografij",
+    "metaDescription": "Fotografije Honey Bee Power s tekmovanj, treningov in promocijskih stojnic ter fotografije izdelkov: geli, izotonik, whey in deklaracije."
   }
 }

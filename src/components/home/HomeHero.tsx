@@ -35,10 +35,10 @@ const CELLS: Cell[] = [
   { slug: 'honey-bee-power-energy-gel-naranca', type: 'gel', x: 1, y: 0.866, src: '/images/products-web/gelnaranca-prednja.webp', w: 795, h: 1600, kind: 'cutout', field: 'field-orange', rot: '-3deg', size: 112, depth: 1.5 },
   { slug: 'honey-bee-power-energy-gel-malina', type: 'gel', x: 0, y: 0.866, src: '/images/products-web/gelmalina-prednja.webp', w: 778, h: 1600, kind: 'cutout', field: 'field-raspberry', rot: '-11deg', size: 100, depth: 0.9 },
   { slug: 'honey-bee-power-energy-gel-limun', type: 'gel', x: 2, y: 0.866, src: '/images/products-web/gellimun-prednja.webp', w: 748, h: 1600, kind: 'cutout', field: 'field-lemon', rot: '9deg', size: 100, depth: 0.9 },
-  { slug: 'honey-bee-power-izotonicki-napitak-naranca', type: 'iso', x: 0.5, y: 0, src: '/images/products-web/isonaranca-prednja.webp', w: 1004, h: 1600, kind: 'cutout', field: 'field-orange', rot: '-5deg', size: 96, depth: 0.6 },
-  { slug: 'honey-bee-power-whey-protein-ljesnjak-cokolada-700g', type: 'whey', x: 1.5, y: 0, src: '/images/products-web/proteincokolada700g.webp', w: 1080, h: 1080, kind: 'photo', field: 'bg-white', rot: '0deg', size: 100, depth: 0.5 },
-  { slug: 'honey-bee-power-izotonicki-napitak-limun', type: 'iso', x: 0.5, y: 1.732, src: '/images/products-web/isolimun-prednja.webp', w: 1024, h: 1600, kind: 'cutout', field: 'field-lemon', rot: '5deg', size: 96, depth: 0.7 },
-  { slug: 'honey-bee-power-whey-protein-jagoda-slag-700g', type: 'whey', x: 1.5, y: 1.732, src: '/images/products-web/proteinjagodaslag700g.webp', w: 1080, h: 1080, kind: 'photo', field: 'bg-white', rot: '0deg', size: 100, depth: 0.8 },
+  { slug: 'honey-bee-power-izotonicki-napitak-naranca', type: 'iso', x: 0.5, y: 0, src: '/images/products-web/isonaranca-prednja-v2.webp', w: 1004, h: 1600, kind: 'cutout', field: 'field-orange', rot: '-5deg', size: 96, depth: 0.6 },
+  { slug: 'honey-bee-power-whey-protein-ljesnjak-cokolada-700g', type: 'whey', x: 1.5, y: 0, src: '/images/products-web/proteincokolada700g-v2.webp', w: 557, h: 1000, kind: 'cutout', field: '', rot: '4deg', size: 100, depth: 0.5 },
+  { slug: 'honey-bee-power-izotonicki-napitak-limun', type: 'iso', x: 0.5, y: 1.732, src: '/images/products-web/isolimun-prednja-v2.webp', w: 1024, h: 1600, kind: 'cutout', field: 'field-lemon', rot: '5deg', size: 96, depth: 0.7 },
+  { slug: 'honey-bee-power-whey-protein-jagoda-slag-700g', type: 'whey', x: 1.5, y: 1.732, src: '/images/products-web/proteinjagodaslag700g-v2.webp', w: 555, h: 1000, kind: 'cutout', field: '', rot: '-4deg', size: 100, depth: 0.8 },
 ]
 
 /**
@@ -67,10 +67,7 @@ export async function HomeHero({ locale }: { locale: Locale }) {
           className="t-display col-span-12 text-[length:clamp(2.75rem,0.9rem+7vw,6.6rem)] leading-[1.04] text-center lg:col-span-7 lg:row-start-1 lg:self-end lg:text-left"
         >
           <span className="rise block">{t('before')}</span>
-          <span
-            className="rise honeycomb-text block pb-[0.08em]"
-            style={{ ['--honeycomb' as string]: 'url(/images/found/sace-tekst.webp)', ['--d' as string]: '90ms' }}
-          >
+          <span className="rise hero-accent block pb-[0.08em]" style={{ ['--d' as string]: '90ms' }}>
             {t('after')}
           </span>
         </h1>
@@ -104,7 +101,7 @@ export async function HomeHero({ locale }: { locale: Locale }) {
                       <svg className="hive-outline" viewBox="0 0 100 115.47" aria-hidden="true">
                         <polygon points="50,1.5 98.5,29.5 98.5,86 50,114 1.5,86 1.5,29.5" fill="none" stroke="#1d2048" strokeWidth="3" strokeLinejoin="round" />
                       </svg>
-                      <span className={`hive-hex ${c.field}`} aria-hidden="true">
+                      <span className={`hive-hex ${c.field}`} style={c.field ? undefined : { background: d?.flavourColor }} aria-hidden="true">
                         {c.kind === 'photo' && (
                           <Image src={c.src} alt="" fill sizes="(min-width: 1024px) 14vw, 30vw" className="object-contain p-[6%]" priority={n < 3} />
                         )}

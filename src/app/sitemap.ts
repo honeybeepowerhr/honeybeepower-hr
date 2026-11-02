@@ -53,6 +53,7 @@ const staticRoutes: RouteDef[] = [
   { path: '/kontakt', changeFrequency: 'monthly', priority: 0.5 },
   { path: '/faq', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/dogadaji', changeFrequency: 'weekly', priority: 0.5 },
+  { path: '/galerija', changeFrequency: 'weekly', priority: 0.5 },
   { path: '/o-nama', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/oporavak-nakon-treninga', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/dostava-i-placanje', changeFrequency: 'monthly', priority: 0.4 },

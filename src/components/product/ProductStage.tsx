@@ -3,19 +3,6 @@
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 
-export interface StageOrb {
-  src: string
-  label: string
-  /** položaj u postocima pozornice */
-  x: number
-  y: number
-  /** dubina paralakse u pikselima */
-  depth: number
-  /** promjer u pikselima */
-  size: number
-  delay: number
-}
-
 interface Props {
   src: string
   alt: string
@@ -24,15 +11,13 @@ interface Props {
   field: string
   ink: string
   word: string
-  orbs: StageOrb[]
 }
 
 /**
- * Pozornica proizvoda: boja okusa, golem naziv okusa iza proizvoda, šesterokuti i sastojci koji lebde
- * na različitim dubinama. Pomicanjem miša slojevi se razmiču, a proizvod se 3D nagiba.
+ * Pozornica proizvoda: boja okusa, golem naziv okusa iza proizvoda i šesterokuti na različitim dubinama. Pomicanjem miša slojevi se razmiču, a proizvod se 3D nagiba.
  * Bez miša (mobitel) pozornica se sama lagano njiše. Uz „smanji pokrete” sve miruje.
  */
-export default function ProductStage({ src, alt, ratio, field, ink, word, orbs }: Props) {
+export default function ProductStage({ src, alt, ratio, field, ink, word }: Props) {
   const root = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -120,16 +105,6 @@ export default function ProductStage({ src, alt, ratio, field, ink, word, orbs }
         </div>
       </div>
 
-      {orbs.map((o) => (
-        <div key={o.label} className="stage-pos" style={{ left: `${o.x}%`, top: `${o.y}%`, ['--d' as string]: `${o.depth}px` }} aria-hidden="true">
-          <div className="stage-orb-enter" style={{ animationDelay: `${o.delay}ms` }}>
-            <div className="stage-orb" style={{ ['--s' as string]: `${o.size}px`, animationDuration: `${6 + (o.size % 5)}s` }}>
-              <Image src={o.src} alt="" width={200} height={200} sizes="120px" className="stage-orb-img" />
-              <span className="stage-orb-label">{o.label}</span>
-            </div>
-          </div>
-        </div>
-      ))}
     </div>
   )
 }

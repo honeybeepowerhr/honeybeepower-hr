@@ -24,7 +24,8 @@
     "events": "Wydarzenia",
     "faq": "Częste pytania",
     "sport": "Sport",
-    "bundles": "Zestawy"
+    "bundles": "Zestawy",
+    "gallery": "Galeria"
   },
   "cjenik": {
     "badge": "Oficjalny cennik cyfrowy",
@@ -206,9 +207,7 @@
     "siteNav": "Strony",
     "backToTop": "Do góry",
     "contactLead": "Pytania i zamówienia",
-    "photoCredits": "Autorzy zdjęć",
-    "distributor": "dystrybutor w Chorwacji",
-    "photoStrip": "Zdjęcia z wydarzeń: zobacz wszystkie"
+    "distributor": "dystrybutor w Chorwacji"
   },
   "contactPage": {
     "badge": "Skontaktuj się z nami",
@@ -285,7 +284,6 @@
     "mapTitle": "Mapa Lokalizacji",
     "mapSelectNotice": "Wybierz punkt sprzedaży z listy, aby zobaczyć szczegóły",
     "b2bNotice": "* Aby zostać partnerem lub dodać Twój sklep, skontaktuj się z nami pod adresem info@planetbio.hr",
-    "photoAlt": "Kartonik z 10 żelami Honey Bee Power pomarańcza",
     "howTitle": "Jak wygląda zamówienie",
     "step1": "Dodaj produkty do zapytania na stronie.",
     "step2": "Wyślij zapytanie przez WhatsApp lub e-mail.",
@@ -608,18 +606,15 @@
       "label": "Sport",
       "run": {
         "verb": "Biegnij.",
-        "caption": "Biegacz z żelem Honey Bee Power na maratonie na Cyprze.",
-        "alt": "Biegacz w koszulce maratonu na Cyprze trzyma żel Honey Bee Power"
+        "caption": "Biegacz z żelem Honey Bee Power na maratonie na Cyprze."
       },
       "fight": {
         "verb": "Walcz.",
-        "caption": "Trening sportów walki.",
-        "alt": "Trening kickboxingu na sali"
+        "caption": "Trening sportów walki."
       },
       "play": {
         "verb": "Graj.",
-        "caption": "Drużyna piłki ręcznej w koszulkach Honey Bee Power.",
-        "alt": "Piłkarki ręczne w koszulkach z napisem Honey Bee Power"
+        "caption": "Drużyna piłki ręcznej w koszulkach Honey Bee Power."
       }
     },
     "recovery": {
@@ -635,28 +630,17 @@
       "fact2": "Krndijska 4, Našice",
       "fact3Label": "Dostawa",
       "fact3": "1–3 dni robocze",
-      "photoAlt": "Czarno-białe zdjęcie pasieki z drewnianymi ulami w sadzie",
-      "photoCaption": "Zdjęcie: pasieka w Łomiankach pod Warszawą, 1939 (archiwum).",
       "more": "Cała historia"
     },
     "track": {
       "line1": "Na",
       "line2": "trasie",
-      "photo1": "Stoisko promocyjne Honey Bee Power w Vukovarze z żelami i izotonikami na stole",
-      "caption1": "Stoisko w Vukovarze.",
-      "photo2": "Biegacz w koszulce Honey Bee Power",
-      "caption2": "Na starcie.",
-      "photo3": "Sportsmenki z workami Honey Bee Power na sali",
-      "photo4": "Drużyna piłki ręcznej z workami Honey Bee Power",
-      "photo5": "Stoisko Honey Bee Power na rynku w Vukovarze",
       "sentence": "Stoisko na maratonie w Vukovarze, treningi i mecze.",
       "more": "Wydarzenia",
       "moreLabel": "Więcej zdjęć z wydarzeń"
     },
     "prices": {
       "title": "Ceny z oficjalnego cennika",
-      "photoAlt": "Kartonik z 10 żelami Honey Bee Power pomarańcza",
-      "tableLabel": "Ceny",
       "caption": "Ceny produktów z oficjalnego cennika",
       "colType": "Rodzaj",
       "colItem": "Smak i opakowanie",
@@ -807,5 +791,18 @@
     "chosenBoxes": "Wybrano {count} z {total, plural, one {# pudełka} few {# pudełek} many {# pudełek} other {# pudełek}}",
     "remainingBoxes": "Wybierz jeszcze {count, plural, one {# pudełko} few {# pudełka} many {# pudełek} other {# pudełka}}",
     "gelsCount": "{count} żeli"
+  },
+  "gallery": {
+    "title": "Galeria",
+    "lead": "Zdjęcia z zawodów, treningów i stoisk promocyjnych oraz nasze produkty. Kliknij zdjęcie, aby je powiększyć.",
+    "events": "Wydarzenia",
+    "products": "Produkty",
+    "open": "Otwórz galerię",
+    "view": "Otwórz zdjęcie",
+    "close": "Zamknij",
+    "prev": "Poprzednie zdjęcie",
+    "next": "Następne zdjęcie",
+    "metaTitle": "Galeria zdjęć",
+    "metaDescription": "Zdjęcia Honey Bee Power z zawodów, treningów i stoisk promocyjnych oraz zdjęcia produktów: żele, izotoniki, białko whey i etykiety."
   }
 }

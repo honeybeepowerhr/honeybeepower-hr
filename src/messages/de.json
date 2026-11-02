@@ -24,7 +24,8 @@
     "events": "Veranstaltungen",
     "faq": "Häufige Fragen",
     "sport": "Sport",
-    "bundles": "Pakete"
+    "bundles": "Pakete",
+    "gallery": "Galerie"
   },
   "cjenik": {
     "badge": "Offizielle digitale Preisliste",
@@ -206,9 +207,7 @@
     "siteNav": "Seiten",
     "backToTop": "Nach oben",
     "contactLead": "Fragen und Bestellungen",
-    "photoCredits": "Bildnachweise",
-    "distributor": "Vertrieb in Kroatien",
-    "photoStrip": "Fotos von Veranstaltungen: alle ansehen"
+    "distributor": "Vertrieb in Kroatien"
   },
   "contactPage": {
     "badge": "Kontaktieren Sie uns",
@@ -348,7 +347,6 @@
     "mapTitle": "Standortkarte",
     "mapSelectNotice": "Wählen Sie eine Verkaufsstelle aus der Liste für Details",
     "b2bNotice": "* Um Partner zu werden oder Ihr Geschäft zu listen, kontaktieren Sie uns unter info@planetbio.hr",
-    "photoAlt": "Karton mit 10 Honey Bee Power Orangengels",
     "howTitle": "So läuft die Bestellung",
     "step1": "Produkte auf der Website zur Anfrage hinzufügen.",
     "step2": "Anfrage per WhatsApp oder E-Mail senden.",
@@ -609,18 +607,15 @@
       "label": "Sport",
       "run": {
         "verb": "Lauf.",
-        "caption": "Ein Läufer mit einem Honey Bee Power Gel bei einem Marathon auf Zypern.",
-        "alt": "Läufer im Shirt eines Zypern-Marathons mit einem Honey Bee Power Gel"
+        "caption": "Ein Läufer mit einem Honey Bee Power Gel bei einem Marathon auf Zypern."
       },
       "fight": {
         "verb": "Kämpf.",
-        "caption": "Kampfsporttraining.",
-        "alt": "Kickboxtraining in einer Halle"
+        "caption": "Kampfsporttraining."
       },
       "play": {
         "verb": "Spiel.",
-        "caption": "Eine Handballmannschaft in Honey Bee Power Trikots.",
-        "alt": "Handballerinnen in Trikots mit Honey Bee Power Aufdruck"
+        "caption": "Eine Handballmannschaft in Honey Bee Power Trikots."
       }
     },
     "recovery": {
@@ -636,28 +631,17 @@
       "fact2": "Krndijska 4, Našice",
       "fact3Label": "Versand",
       "fact3": "1–3 Werktage",
-      "photoAlt": "Schwarzweißfoto eines Bienenstands mit Holzbeuten in einem Obstgarten",
-      "photoCaption": "Foto: Bienenstand in Łomianki bei Warschau, 1939 (Archiv).",
       "more": "Die ganze Geschichte"
     },
     "track": {
       "line1": "Auf der",
       "line2": "Strecke",
-      "photo1": "Honey Bee Power Promostand in Vukovar mit Gels und isotonischen Getränken",
-      "caption1": "Promostand in Vukovar.",
-      "photo2": "Ein Läufer im Honey Bee Power Shirt",
-      "caption2": "Am Start.",
-      "photo3": "Sportlerinnen mit Honey Bee Power Beuteln in einer Halle",
-      "photo4": "Eine Handballmannschaft mit Honey Bee Power Beuteln",
-      "photo5": "Honey Bee Power Stand auf dem Stadtplatz in Vukovar",
       "sentence": "Ein Promostand beim Vukovar-Marathon, Trainings und Spiele.",
       "more": "Veranstaltungen",
       "moreLabel": "Weitere Fotos von Veranstaltungen"
     },
     "prices": {
       "title": "Preise aus der offiziellen Preisliste",
-      "photoAlt": "Karton mit 10 Honey Bee Power Orangengels",
-      "tableLabel": "Preise",
       "caption": "Produktpreise aus der offiziellen Preisliste",
       "colType": "Art",
       "colItem": "Sorte und Packung",
@@ -808,5 +792,18 @@
     "chosenBoxes": "{count} von {total, plural, one {# Schachtel} other {# Schachteln}} gewählt",
     "remainingBoxes": "Noch {count, plural, one {# Schachtel} other {# Schachteln}} wählen",
     "gelsCount": "{count} Gels"
+  },
+  "gallery": {
+    "title": "Galerie",
+    "lead": "Fotos von Rennen, Trainings und Promoständen sowie unsere Produkte. Klicke auf ein Bild, um es zu vergrößern.",
+    "events": "Veranstaltungen",
+    "products": "Produkte",
+    "open": "Galerie öffnen",
+    "view": "Bild öffnen",
+    "close": "Schließen",
+    "prev": "Vorheriges Bild",
+    "next": "Nächstes Bild",
+    "metaTitle": "Fotogalerie",
+    "metaDescription": "Honey Bee Power Fotos von Rennen, Trainings und Promoständen sowie Produktfotos: Gels, Isotonic, Whey und Etiketten."
   }
 }

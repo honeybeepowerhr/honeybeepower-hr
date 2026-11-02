@@ -24,7 +24,8 @@
     "events": "Events",
     "faq": "FAQ",
     "sport": "Sport",
-    "bundles": "Packs"
+    "bundles": "Packs",
+    "gallery": "Gallery"
   },
   "cjenik": {
     "badge": "Official digital price list",
@@ -206,9 +207,7 @@
     "siteNav": "Pages",
     "backToTop": "Back to top",
     "contactLead": "Questions and orders",
-    "photoCredits": "Photo credits",
-    "distributor": "distributor for Croatia",
-    "photoStrip": "Photos from events: see all"
+    "distributor": "distributor for Croatia"
   },
   "contactPage": {
     "badge": "Get in touch",
@@ -348,7 +347,6 @@
     "mapTitle": "Location Map",
     "mapSelectNotice": "Select a store location from the list for details",
     "b2bNotice": "* To become a partner or list your store, contact us at info@planetbio.hr",
-    "photoAlt": "Box of 10 Honey Bee Power orange gels",
     "howTitle": "How ordering works",
     "step1": "Add products to the enquiry on the website.",
     "step2": "Send the enquiry by WhatsApp or e-mail.",
@@ -609,18 +607,15 @@
       "label": "Sport",
       "run": {
         "verb": "Run.",
-        "caption": "A runner with a Honey Bee Power gel at a marathon in Cyprus.",
-        "alt": "A runner in a Cyprus marathon shirt holding a Honey Bee Power gel"
+        "caption": "A runner with a Honey Bee Power gel at a marathon in Cyprus."
       },
       "fight": {
         "verb": "Fight.",
-        "caption": "Combat sports training.",
-        "alt": "Kickboxing training in a gym"
+        "caption": "Combat sports training."
       },
       "play": {
         "verb": "Play.",
-        "caption": "A handball team in Honey Bee Power shirts.",
-        "alt": "Handball players in shirts printed with Honey Bee Power"
+        "caption": "A handball team in Honey Bee Power shirts."
       }
     },
     "recovery": {
@@ -636,28 +631,17 @@
       "fact2": "Krndijska 4, Našice",
       "fact3Label": "Shipping",
       "fact3": "1–3 working days",
-      "photoAlt": "Black-and-white photograph of an apiary with wooden hives in an orchard",
-      "photoCaption": "Photograph: an apiary in Łomianki near Warsaw, 1939 (archive).",
       "more": "The whole story"
     },
     "track": {
       "line1": "On the",
       "line2": "course",
-      "photo1": "Honey Bee Power promo stand in Vukovar with gels and isotonic drinks on the table",
-      "caption1": "Promo stand in Vukovar.",
-      "photo2": "A runner in a Honey Bee Power shirt",
-      "caption2": "At the start.",
-      "photo3": "Athletes with Honey Bee Power bags in a sports hall",
-      "photo4": "A handball team with Honey Bee Power bags",
-      "photo5": "Honey Bee Power stand on the town square in Vukovar",
       "sentence": "A promo stand at the Vukovar marathon, training sessions and matches.",
       "more": "Events",
       "moreLabel": "More photos from events"
     },
     "prices": {
       "title": "Prices from the official price list",
-      "photoAlt": "Box of 10 Honey Bee Power orange gels",
-      "tableLabel": "Prices",
       "caption": "Product prices from the official price list",
       "colType": "Type",
       "colItem": "Flavour and pack",
@@ -808,5 +792,18 @@
     "chosenBoxes": "Chosen {count} of {total, plural, one {# box} other {# boxes}}",
     "remainingBoxes": "Choose {count, plural, one {# more box} other {# more boxes}}",
     "gelsCount": "{count} gels"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "lead": "Photos from races, training sessions and promo stands, and our products. Click a picture to enlarge it.",
+    "events": "Events",
+    "products": "Products",
+    "open": "Open the gallery",
+    "view": "Open picture",
+    "close": "Close",
+    "prev": "Previous picture",
+    "next": "Next picture",
+    "metaTitle": "Photo gallery",
+    "metaDescription": "Honey Bee Power photos from races, training sessions and promo stands, plus product photos: gels, isotonic drinks, whey and labels."
   }
 }
