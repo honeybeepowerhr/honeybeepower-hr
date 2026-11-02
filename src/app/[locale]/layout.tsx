@@ -12,7 +12,6 @@ import { ConsentBanner } from '@/components/analytics/ConsentBanner'
 import { CONSENT_INLINE_SCRIPT } from '@/lib/consent'
 import { ConsentGatedScripts } from '@/components/analytics/ConsentGatedScripts'
 import { Experience } from '@/components/site/Experience'
-import { SiteIntro } from '@/components/site/SiteIntro'
 import { HiveTop } from '@/components/site/HiveTop'
 import '../globals.css'
 
@@ -34,11 +33,10 @@ const figtree = Figtree({
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
+  // najmanje povećanje 100 %: stranica se ne može odzumirati (pinch-zoom prema većem i dalje radi)
+  minimumScale: 1,
   maximumScale: 5,
 }
-
-// Uvodna animacija prikazuje se jednom po posjetu (sessionStorage); ovdje se samo bilježi je li već viđena.
-const INTRO_INLINE_SCRIPT = "try{if(sessionStorage.getItem('hbp-intro'))document.documentElement.classList.add('intro-seen');else sessionStorage.setItem('hbp-intro','1')}catch(e){}"
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://honeybeepowerhr.com'
 const DEFAULT_DESCRIPTION =
@@ -98,13 +96,11 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
     <html lang={locale} suppressHydrationWarning className={`${archivo.variable} ${figtree.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: CONSENT_INLINE_SCRIPT }} />
-        <script dangerouslySetInnerHTML={{ __html: INTRO_INLINE_SCRIPT }} />
       </head>
       <body>
         <a href="#main-content" className="skip-to-content">
           {locale === 'hr' ? 'Preskoči na sadržaj' : locale === 'de' ? 'Zum Inhalt springen' : locale === 'sl' ? 'Preskoči na vsebino' : locale === 'pl' ? 'Przejdź do treści' : 'Skip to content'}
         </a>
-        <SiteIntro />
         <div className="scroll-progress" aria-hidden="true" />
         <HiveTop label={tFooter('backToTop')} />
         <NextIntlClientProvider messages={messages}>
