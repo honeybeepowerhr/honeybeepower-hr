@@ -46,7 +46,7 @@ export const CJENIK_ITEMS: CjenikItem[] = [
     pakiranje: '40 g',
     barkod: '5908312873334',
     aktualnaCijena: 2.00,
-    sidrenaCijena: 1.50,
+    sidrenaCijena: 2.00,
   },
   {
     rb: 2,
@@ -57,7 +57,7 @@ export const CJENIK_ITEMS: CjenikItem[] = [
     pakiranje: '40 g',
     barkod: '5908312873419',
     aktualnaCijena: 2.00,
-    sidrenaCijena: 1.50,
+    sidrenaCijena: 2.00,
   },
   {
     rb: 3,
@@ -68,7 +68,7 @@ export const CJENIK_ITEMS: CjenikItem[] = [
     pakiranje: '40 g',
     barkod: '5908312873402',
     aktualnaCijena: 2.00,
-    sidrenaCijena: 1.50,
+    sidrenaCijena: 2.00,
   },
   {
     rb: 4,
@@ -123,7 +123,7 @@ export const CJENIK_ITEMS: CjenikItem[] = [
     pakiranje: '700 g',
     barkod: '5904966072352',
     aktualnaCijena: 39.00,
-    sidrenaCijena: 38.00,
+    sidrenaCijena: 39.00,
   },
   {
     rb: 9,
@@ -134,7 +134,7 @@ export const CJENIK_ITEMS: CjenikItem[] = [
     pakiranje: '700 g',
     barkod: '5904966072345',
     aktualnaCijena: 39.00,
-    sidrenaCijena: 38.00,
+    sidrenaCijena: 39.00,
   },
   {
     rb: 10,
@@ -145,7 +145,7 @@ export const CJENIK_ITEMS: CjenikItem[] = [
     pakiranje: '700 g',
     barkod: '5904966072369',
     aktualnaCijena: 39.00,
-    sidrenaCijena: 38.00,
+    sidrenaCijena: 39.00,
   },
   {
     rb: 11,

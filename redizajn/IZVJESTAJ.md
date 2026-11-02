@@ -13,20 +13,19 @@ Obrisani su i nekorišteni stilovi (`.inline-thumb`, `.honeycomb-text`, `.stage-
 
 **Nova stranica Galerija (`/galerija`, u izborniku „Više”, u podnožju i sitemapu).** Dvije kartice: **Događaji** (25 fotografija s promo pultova, utrka i treninga) i **Proizvodi** (14: tri gela, izotonici, whey, šejker i poleđine s deklaracijama). Klik otvara povećani prikaz: strelice na tipkovnici, Esc, povlačenje prstom na mobitelu, fokus se vraća na pločicu. Tekstovi uz slike u 5 jezika (`src/lib/gallery-data.ts`). Stranica Događaji sada je samo tekst s vezom na galeriju.
 
-**Treba potvrditi:** na fotografijama s događaja prepoznaju se ljudi (sportaši, volonteri, djeca u dvorani). Prije objave vlasnik treba potvrditi da ima dopuštenje za objavu (za maloljetnike pristanak roditelja). Autor fotografija nije poznat.
+**Dopuštenja za fotografije:** vlasnik je potvrdio da ima sva dopuštenja za objavu fotografija (događaji, proizvodi); dodatna potvrda nije potrebna.
 
 **Vodiči: sada 8 tekstova bez ijedne slike** (bilo 4). Novi: *Kako pročitati deklaraciju gela*, *Guarana i kofein u gelu*, *Oporavak: 4 g ugljikohidrata po kilogramu*, *Izotonik: što piše na deklaraciji*; postojeća četiri ostala su (bez slika). Popis je numerirana lista, članak ima žuto zaglavlje s naslovom, izvore i pitanja. Sve brojke dolaze s deklaracija (`redizajn/podaci-deklaracije.json`), uz izvore: Uredba (EU) 1169/2011 i 432/2012, EFSA 2015., Sawka 2007., Thomas 2016. Bez usporedbi i neodobrenih tvrdnji; ne preporučuje se gel tijekom utrke; količina kofeina i sastav izotonika navedeni su kao „potvrđujemo s proizvođačem”. Svi tekstovi imaju prijevode na en, de, sl i pl **koji čekaju provjeru izvornih govornika**, a tekstove treba pregledati nutricionist. Dodan je test `src/__tests__/unit/guides.test.ts`. Adrese starih vodiča i dalje se preusmjeravaju (301).
 
 **Poznato, nije mijenjano:**
 - Slike za dijeljenje (Open Graph, `public/images/og/*`) nisu ponovno izrađene; neke još prikazuju stare kantice i fotografije s događaja.
 - Fotografije paketa (`public/images/bundles/*.webp`) ponovno su izrađene s novim proizvodima (`redizajn/og/make_bundle_covers.mjs`).
-- Cijene sidrenog cjenika i dalje čekaju potvrdu (vidi gore).
 
 # Dopuna: ispravljen službeni cjenik (po vlasniku, 2. 11. 2026.)
 
 Nove aktualne cijene: **gel 2,00 €** (bilo 1,80), **whey 700 g 39,00 €** (bilo 38,00), **izotonik 15 g 1,40 €** (bilo 1,60), izotonik 500 g 8,00 € i šejker 9,00 € ostaju. **Vrećice proteina od 33 g uklonjene** iz cjenika (3 stavke), s pitanjem o manjem pakiranju wheyja, tekstovima kategorije i B2B popisa; redni brojevi su ponovno uzastopni (1 do 11, šejker je sad 11). Prilagođeni su `src/lib/cjenik-data.ts`, cijene u `src/lib/products-data.ts`, opisi kategorija (5 jezika), `redizajn/podaci-deklaracije.json`, `PRODUCT.md` i testovi (cjenik, zbroj paketa). Izvoz `cjenik.xml`, `cjenik.csv` i stranica Cjenik koriste iste podatke i već pokazuju nove cijene. Fotografije malih proteina ostaju u datotekama (nisu brisane).
 
-**Treba potvrditi: sidrene cijene** (stupac „Sidrena cijena 10.9.2026.”) nisam mijenjao: gel 1,50 €, whey 38,00 €, izotonik 15 g 1,40 €. Zato cjenik za gelove sada piše „Povećanje (+0,50 €)”, a za whey „Povećanje (+1,00 €)”. Ako su stare cijene bile pogreška i sidrene trebaju biti jednake aktualnima (2,00 € i 39,00 €), to se mijenja u `sidrenaCijena` u istoj datoteci. Datum izdanja cjenika (10.9.2026.) također je ostao.
+**Sidrene cijene (cjenik):** na zahtjev vlasnika („stavi samo cijene koje sam ti rekao”) stupac „Sidrena cijena” sada je jednak aktualnim cijenama: gel 2,00 €, whey 700 g 39,00 €, izotonik 500 g 8,00 €, izotonik 15 g 1,40 €, šejker 9,00 €. Nestali su natpisi „Povećanje (+0,50 €)” i „Povećanje (+1,00 €)”. Stupac i datum izdanja (10.9.2026.) ostaju jer ih traži obveza isticanja sidrene cijene; vrijednosti su u `sidrenaCijena` u `src/lib/cjenik-data.ts`.
 
 # Dopuna: stranica se više ne može odzumirati pri ulasku
 
