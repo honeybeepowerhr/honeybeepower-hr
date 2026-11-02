@@ -23,6 +23,9 @@ const nextConfig: NextConfig = {
     )
   },
   images: {
+    // Dopuštene kvalitete za next/image. Cloudflare (OpenNext) odbija svaku kvalitetu koja nije na popisu,
+    // pa se `quality={90}` na fotografijama proizvoda smije koristiti samo uz 90 na ovom popisu.
+    qualities: [75, 90],
     remotePatterns: [
       {
         protocol: 'https',
