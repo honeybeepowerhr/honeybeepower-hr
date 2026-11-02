@@ -35,7 +35,7 @@
       "sastav": "višecvjetni med 95,5 %, liofilizirani plod naranče 3 %, ekstrakt sjemenki guarane 1 %, morska sol 0,5 %",
       "na_100g": { "energija": "1330 kJ / 318 kcal", "masti_g": 0, "ugljikohidrati_g": 78, "seceri_g": 75, "vlakna_g": 0, "bjelancevine_g": 0, "sol_g": 0.25 },
       "na_40g": { "energija": "532 kJ / 127 kcal", "masti_g": 0, "ugljikohidrati_g": 31.2, "seceri_g": 30, "vlakna_g": 0, "bjelancevine_g": 0, "sol_g": 0.1 },
-      "cijena_cjenik_eur": 1.8,
+      "cijena_cjenik_eur": 2.0,
       "cijena_u_kodu_eur": 2.49
     },
     {
@@ -45,7 +45,7 @@
       "sastav": "višecvjetni med 94,5 %, liofilizirani plod limuna 4 %, ekstrakt sjemenki guarane 1 %, morska sol 0,5 %",
       "na_100g": { "energija": "1330 kJ / 313 kcal", "masti_g": 0, "ugljikohidrati_g": 72.5, "seceri_g": 60, "vlakna_g": 0, "bjelancevine_g": 0, "sol_g": 0.25 },
       "na_40g": { "energija": "532 kJ / 125 kcal", "masti_g": 0, "ugljikohidrati_g": 29, "seceri_g": 24, "vlakna_g": 0, "bjelancevine_g": 0, "sol_g": 0.1 },
-      "cijena_cjenik_eur": 1.8,
+      "cijena_cjenik_eur": 2.0,
       "cijena_u_kodu_eur": 2.49,
       "napomena": "na deklaraciji 1330 kJ = 313 kcal (kod naranče isti kJ = 318 kcal); prepisati točno kako piše"
     },
@@ -56,7 +56,7 @@
       "sastav": "višecvjetni med 91 %, liofilizirani plod maline 8 %, ekstrakt sjemenki guarane 1 %",
       "na_100g": { "energija": "1390 kJ / 328 kcal", "masti_g": 0, "ugljikohidrati_g": 82, "seceri_g": 77.5, "vlakna_g": 0, "bjelancevine_g": 0, "sol_g": 0 },
       "na_40g": { "energija": "556 kJ / 131 kcal", "masti_g": 0, "ugljikohidrati_g": 32.8, "seceri_g": 31, "vlakna_g": 0, "bjelancevine_g": 0, "sol_g": 0 },
-      "cijena_cjenik_eur": 1.8,
+      "cijena_cjenik_eur": 2.0,
       "cijena_u_kodu_eur": 2.49,
       "napomena": "tri sastojka, bez morske soli; vrijednosti u PDF prezentaciji su pogrešne"
     },
@@ -72,7 +72,7 @@
       "na_15g": { "energija": "233 kJ / 55 kcal", "masti_g": 0, "ugljikohidrati_g": 13.5, "seceri_g": 0.83, "bjelancevine_g": 0.06, "sol_g": 0, "magnezij_mg": 5.12, "kalij_mg": 6.83, "natrij_mg": 1.14 },
       "sastav": null,
       "priprema": null,
-      "cijena_cjenik_eur": { "500 g": 8.0, "15 g": 1.6 },
+      "cijena_cjenik_eur": { "500 g": 8.0, "15 g": 1.4 },
       "cijena_u_kodu_eur": { "500 g": 11.99 },
       "napomena": "90 g ugljikohidrata, samo 5,5 g šećera: ugljikohidrati su većinom ne-šećerni (vjerojatno maltodekstrin), provjeriti sastav. Vrlo malo natrija: ne isticati 'nadoknadu elektrolita'."
     },
@@ -85,7 +85,7 @@
       "na_15g": { "energija": "231 kJ / 54 kcal", "ostalo": "stupac za porciju na fotografiji nije čitljiv; izračunati iz vrijednosti na 100 g ili pročitati s pakiranja" },
       "sastav": null,
       "priprema": null,
-      "cijena_cjenik_eur": { "500 g": 8.0, "15 g": 1.6 },
+      "cijena_cjenik_eur": { "500 g": 8.0, "15 g": 1.4 },
       "cijena_u_kodu_eur": { "500 g": 11.99 }
     },
     { "slug": "honey-bee-power-izotonicki-napitak-paket-limun-naranca-shaker", "naziv": "Paket izotonika limun i naranča sa shakerom", "pakiranje": "2 × 500 g + shaker (prema kodu)", "cijena_cjenik_eur": null, "cijena_u_kodu_eur": 31.99 },
@@ -93,34 +93,34 @@
       "slug": "honey-bee-power-whey-protein-ljesnjak-cokolada-700g",
       "naziv": "Whey protein lješnjak-čokolada",
       "izvor": "PDF prezentacija; deklaracija nije pregledana",
-      "pakiranja": ["700 g", "vrećica 33 g"],
+      "pakiranja": ["700 g"],
       "na_100g": { "energija": "1660 kJ / 399 kcal", "masti_g": 7.1, "ugljikohidrati_g": 16.26, "seceri_g": 5.79, "bjelancevine_g": 67.07, "sol_g": 0.61 },
       "bjelancevine_na_33g": 22.13,
       "sastav": "whey protein (91–92 %), sušeni med (6 %), stevija, guma arabika",
       "alergeni": ["mlijeko"],
-      "cijena_cjenik_eur": { "700 g": 38.0, "33 g": 3.0 }
+      "cijena_cjenik_eur": { "700 g": 39.0 }
     },
     {
       "slug": "honey-bee-power-whey-protein-banana-vanilija-700g",
       "naziv": "Whey protein banana-vanilija",
       "izvor": "PDF prezentacija; deklaracija nije pregledana",
-      "pakiranja": ["700 g", "vrećica 33 g"],
+      "pakiranja": ["700 g"],
       "na_100g": { "energija": "1660 kJ / 399 kcal", "masti_g": 7.1, "ugljikohidrati_g": 16.26, "seceri_g": 5.79, "bjelancevine_g": 67.07, "sol_g": 0.61 },
       "bjelancevine_na_33g": 22.13,
       "sastav": "whey protein (91–92 %), sušeni med (6 %), stevija, guma arabika",
       "alergeni": ["mlijeko"],
-      "cijena_cjenik_eur": { "700 g": 38.0, "33 g": 3.0 }
+      "cijena_cjenik_eur": { "700 g": 39.0 }
     },
     {
       "slug": "honey-bee-power-whey-protein-jagoda-slag-700g",
       "naziv": "Whey protein jagoda-šlag",
       "izvor": "PDF prezentacija; deklaracija nije pregledana",
-      "pakiranja": ["700 g", "vrećica 33 g"],
+      "pakiranja": ["700 g"],
       "na_100g": { "energija": "1666 kJ / 400 kcal", "masti_g": 6.7, "ugljikohidrati_g": 16.43, "seceri_g": 5.95, "bjelancevine_g": 68.69, "sol_g": 0.61 },
       "bjelancevine_na_33g": 22.66,
       "sastav": "whey protein (91–92 %), sušeni med (6 %), stevija, guma arabika",
       "alergeni": ["mlijeko"],
-      "cijena_cjenik_eur": { "700 g": 38.0, "33 g": 3.0 }
+      "cijena_cjenik_eur": { "700 g": 39.0 }
     }
   ],
   "otvorene_odluke": [

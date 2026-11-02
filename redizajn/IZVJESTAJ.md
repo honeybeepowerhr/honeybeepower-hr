@@ -1,3 +1,9 @@
+# Dopuna: ispravljen službeni cjenik (po vlasniku, 2. 11. 2026.)
+
+Nove aktualne cijene: **gel 2,00 €** (bilo 1,80), **whey 700 g 39,00 €** (bilo 38,00), **izotonik 15 g 1,40 €** (bilo 1,60), izotonik 500 g 8,00 € i šejker 9,00 € ostaju. **Vrećice proteina od 33 g uklonjene** iz cjenika (3 stavke), s pitanjem o manjem pakiranju wheyja, tekstovima kategorije i B2B popisa; redni brojevi su ponovno uzastopni (1 do 11, šejker je sad 11). Prilagođeni su `src/lib/cjenik-data.ts`, cijene u `src/lib/products-data.ts`, opisi kategorija (5 jezika), `redizajn/podaci-deklaracije.json`, `PRODUCT.md` i testovi (cjenik, zbroj paketa). Izvoz `cjenik.xml`, `cjenik.csv` i stranica Cjenik koriste iste podatke i već pokazuju nove cijene. Fotografije malih proteina ostaju u datotekama (nisu brisane).
+
+**Treba potvrditi: sidrene cijene** (stupac „Sidrena cijena 10.9.2026.”) nisam mijenjao: gel 1,50 €, whey 38,00 €, izotonik 15 g 1,40 €. Zato cjenik za gelove sada piše „Povećanje (+0,50 €)”, a za whey „Povećanje (+1,00 €)”. Ako su stare cijene bile pogreška i sidrene trebaju biti jednake aktualnima (2,00 € i 39,00 €), to se mijenja u `sidrenaCijena` u istoj datoteci. Datum izdanja cjenika (10.9.2026.) također je ostao.
+
 # Dopuna: stranica se više ne može odzumirati pri ulasku
 
 Uzrok: na zaslonu od 360 px telefonski broj u podnožju (i na stranici Kontakt) bio je širok 368 px, pa je raspored bio 8 px širi od zaslona i preglednik je dopuštao odzumiranje. Broj je smanjen na `min(9,4vw, …)`, a dodani su i `minimumScale: 1` (najmanje povećanje 100 %; približavanje prstima i dalje radi) i `overflow-x: clip` na `html`. Provjereno na 320, 360, 375, 390 i 430 px, na 7 stranica, 150 ms, 600 ms i 2,5 s nakon ulaska: širina rasporeda jednaka je širini zaslona.
@@ -12,7 +18,7 @@ Na zahtjev vlasnika: pojedinačni proizvod (2 × 500 g izotonika + šejker) uklo
 
 # Dopuna: cijena paketa od 10 gelova
 
-Paket od 10 gelova istog okusa (limun, naranča, malina) prikazuje **20,00 €** (odluka vlasnika, PRODAJNI_PAKETI.docx; nije u službenom cjeniku). Cijena je u `OWNER_PRICES` u `src/lib/prices.ts`; na stranici, u popisu, kategoriji, košarici i strukturiranim podacima. **Napomena:** 10 pojedinačnih gelova po 1,80 € je 18,00 €, pa je kutija od 10 za 2,00 € skuplja. **Paket izotonika sa shakerom** (1 limun + 1 naranča + šejker) i dalje je „Cijena na upit”; po dokumentu odgovara Malom paketu od 25,00 € ako se želi isti iznos.
+Paket od 10 gelova istog okusa (limun, naranča, malina) prikazuje **20,00 €** (odluka vlasnika, PRODAJNI_PAKETI.docx; nije u službenom cjeniku). Cijena je u `OWNER_PRICES` u `src/lib/prices.ts`; na stranici, u popisu, kategoriji, košarici i strukturiranim podacima. Jednako je 10 × 2,00 € (cijena gela iz ispravljenog cjenika). Paket izotonika sa shakerom kasnije je uklonjen (vidi dolje).
 
 # Dopuna: prodajni paketi (iz PRODAJNI_PAKETI.docx)
 
@@ -33,19 +39,7 @@ Okusi: gel (limun, naranča, malina), izotonik (limun, naranča), whey 700 g (lj
 1. „SREDNJI 2” u dokumentu ima „Šejker – 48,00”, a 39 + 9 = 48. Shvaćeno kao paket **whey + šejker za 48,00 €** (48 je zbroj, ne cijena šejkera).
 2. Imena „VELIKI 2”, „SREDNJI 2”, „MALI 1” su brojevi iz dokumenta; na stranici su nazvani po sadržaju (Gel paket 30, Protein paket, Mali paket). Mogu se preimenovati u `src/lib/bundles-data.ts`.
 3. **Majica** (paket iznenađenja): nema fotografije ni veličina, prikazana je ikonom i bez odabira veličine. Treba odluka: biraju li se veličine i kako.
-4. **Cijene paketa nisu manje od zbroja cijena iz službenog cjenika** (gel 1,80 €, izotonik 8,00 €, whey 38,00 €, šejker 9,00 €). Dokument računa gel po 2,00 € i whey po 39,00 €:
-
-| Paket | Cijena paketa | Zbroj po cjeniku | Razlika |
-|---|---|---|---|
-| Mali | 25,00 € | 25,00 € | 0,00 € |
-| Protein | 48,00 € | 47,00 € | +1,00 € |
-| Srednji | 56,00 € | 55,00 € | +1,00 € |
-| Gel paket 30 | 60,00 € | 54,00 € | +6,00 € |
-| Veliki | 76,00 € | 73,00 € | +3,00 € |
-| Iznenađenja (gel) | 88,00 € | 83,00 € + majica | +5,00 € bez majice |
-| Iznenađenja (izotonik) | 64,00 € | 63,00 € + majica | +1,00 € bez majice |
-
-Zbog toga stranica **ne navodi uštedu ni popust** (niti pojedinačne cijene stavki) i postoji test koji to čuva. Ako su pojedinačne cijene u dokumentu novi cjenik, treba ažurirati službeni cjenik; ako nisu, paketi su skuplji od kupnje zasebno pa kupac može primijetiti.
+4. **Cijene paketa** jednake su zbroju cijena stavki iz ispravljenog službenog cjenika (gel 2,00 €, izotonik 500 g 8,00 €, whey 700 g 39,00 €, šejker 9,00 €; majica je uključena), što čuva test. Stranica ne navodi uštedu ni popust jer ih nema.
 5. Paketi **nisu u službenom cjeniku** (`cjenik.xml`/`.csv`/stranica Cjenik) i nisu dodani. To je odluka vlasnika (cjenik je pravni dokument obrta).
 6. „Shop” je shvaćen kao katalog na ovoj stranici (Proizvodi). Shopify trgovina nije dirana.
 
@@ -162,7 +156,7 @@ Izvorne fotografije nisu brisane; dodane su lagane kopije `public/images/events-
 | Događaji | **popis događaja s datumima** (sad je iskreno prazno stanje) |
 | Vodiči | stvarni autor (sad „Honey Bee Power”) |
 
-**Cijene:** prikazane su samo cijene iz službenog cjenika (gel 1,80 €, izotonik 500 g 8,00 €, 15 g 1,60 €, whey 700 g 38,00 €, 33 g 3,00 €, shaker 9,00 €). Kod je imao gel 2,49 € i izotonik 11,99 €; to je usklađeno s cjenikom.
+**Cijene (zastarjelo, vidi dopunu o ispravljenom cjeniku na vrhu):** prikazane su samo cijene iz službenog cjenika (gel 1,80 €, izotonik 500 g 8,00 €, 15 g 1,60 €, whey 700 g 38,00 €, 33 g 3,00 €, shaker 9,00 €). Kod je imao gel 2,49 € i izotonik 11,99 €; to je usklađeno s cjenikom.
 
 ## 6. Tuđe fotografije (izvor i licenca)
 

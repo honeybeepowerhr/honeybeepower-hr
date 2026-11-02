@@ -49,13 +49,13 @@ describe('SEO: naslovi do 60 znakova (sa sufiksom), opisi do 155', () => {
     }
   })
 
-  it('cijene u kategorijama i cjeniku se slažu (gel 1,80 €, izotonik 8,00 €, whey 38,00 €)', () => {
-    expect(officialPriceEur('honey-bee-power-energy-gel-naranca')).toBe(1.8)
+  it('cijene u kategorijama i cjeniku se slažu (gel 2,00 €, izotonik 8,00 €, whey 39,00 €)', () => {
+    expect(officialPriceEur('honey-bee-power-energy-gel-naranca')).toBe(2)
     expect(officialPriceEur('honey-bee-power-izotonicki-napitak-limun')).toBe(8)
-    expect(officialPriceEur('honey-bee-power-whey-protein-banana-vanilija-700g')).toBe(38)
-    expect(CATEGORY_COPY['energetski-gelovi'].meta.hr).toContain('1,80 €')
+    expect(officialPriceEur('honey-bee-power-whey-protein-banana-vanilija-700g')).toBe(39)
+    expect(CATEGORY_COPY['energetski-gelovi'].meta.hr).toContain('2,00 €')
     expect(CATEGORY_COPY['izotonicki-napitci'].meta.hr).toContain('8,00 €')
-    expect(CATEGORY_COPY['whey-proteini'].meta.hr).toContain('38,00 €')
+    expect(CATEGORY_COPY['whey-proteini'].meta.hr).toContain('39,00 €')
   })
 
   it('paketi bez cijene u cjeniku nemaju službenu cijenu', () => {
@@ -71,6 +71,6 @@ describe('SEO: naslovi do 60 znakova (sa sufiksom), opisi do 155', () => {
     }
     expect(REAL_PRODUCTS.some((p) => p.slug.includes('shaker'))).toBe(false)
     // pojedinačni proizvodi i dalje imaju cijenu iz cjenika
-    expect(sellingPriceEur('honey-bee-power-energy-gel-naranca')).toBe(1.8)
+    expect(sellingPriceEur('honey-bee-power-energy-gel-naranca')).toBe(2)
   })
 })

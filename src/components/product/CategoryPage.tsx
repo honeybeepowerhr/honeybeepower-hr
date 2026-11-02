@@ -23,11 +23,11 @@ export const CATEGORY_COPY: Record<string, { title: L10n; lead: L10n; meta: L10n
       'Trzy smaki, żel 40 g. Miód wielokwiatowy (91–95,5%), liofilizowane owoce, ekstrakt z nasion guarany i, w cytrynowym i pomarańczowym, sól morska. Według etykiety 1 porcja po ćwiczeniach lub wysiłku.',
     ),
     meta: T(
-      'Energetski gelovi od 40 g od višecvjetnog meda i liofiliziranog voća: limun, naranča, malina. 29–32,8 g ugljikohidrata, 1,80 € po vrećici.',
-      '40 g energy gels made from multifloral honey and freeze-dried fruit: lemon, orange, raspberry. 29–32.8 g carbohydrate, €1.80 per sachet.',
-      'Energiegels à 40 g aus Mehrblütenhonig und gefriergetrockneten Früchten: Zitrone, Orange, Himbeere. 29–32,8 g Kohlenhydrate, 1,80 € pro Beutel.',
-      'Energijski geli 40 g iz večcvetnega medu in liofiliziranega sadja: limona, pomaranča, malina. 29–32,8 g ogljikovih hidratov, 1,80 € na vrečko.',
-      'Żele energetyczne 40 g z miodu wielokwiatowego i liofilizowanych owoców: cytryna, pomarańcza, malina. 29–32,8 g węglowodanów, 1,80 € za saszetkę.',
+      'Energetski gelovi od 40 g od višecvjetnog meda i liofiliziranog voća: limun, naranča, malina. 29–32,8 g ugljikohidrata, 2,00 € po vrećici.',
+      '40 g energy gels made from multifloral honey and freeze-dried fruit: lemon, orange, raspberry. 29–32.8 g carbohydrate, €2.00 per sachet.',
+      'Energiegels à 40 g aus Mehrblütenhonig und gefriergetrockneten Früchten: Zitrone, Orange, Himbeere. 29–32,8 g Kohlenhydrate, 2,00 € pro Beutel.',
+      'Energijski geli 40 g iz večcvetnega medu in liofiliziranega sadja: limona, pomaranča, malina. 29–32,8 g ogljikovih hidratov, 2,00 € na vrečko.',
+      'Żele energetyczne 40 g z miodu wielokwiatowego i liofilizowanych owoców: cytryna, pomarańcza, malina. 29–32,8 g węglowodanów, 2,00 € za saszetkę.',
     ),
     image: '/images/hero/product-showcase-poster.jpg',
     column: T('Ugljikohidrata u 40 g', 'Carbohydrate in 40 g', 'Kohlenhydrate in 40 g', 'Ogljikovi hidrati v 40 g', 'Węglowodany w 40 g'),
@@ -42,11 +42,11 @@ export const CATEGORY_COPY: Record<string, { title: L10n; lead: L10n; meta: L10n
       'Proszek do napoju w opakowaniu 500 g lub saszetce 15 g, cytryna i pomarańcza. Na 100 g proszku 90 g węglowodanów, w tym 5,5 g cukrów.',
     ),
     meta: T(
-      'Izotonični napitak u prahu Honey Bee Power, limun i naranča: 500 g za 8,00 €, vrećica od 15 g za 1,60 €. 13,5 g ugljikohidrata u porciji.',
-      'Honey Bee Power isotonic drink powder, lemon and orange: 500 g for €8.00, 15 g sachet for €1.60. 13.5 g carbohydrate per serving.',
-      'Honey Bee Power isotonisches Getränkepulver, Zitrone und Orange: 500 g für 8,00 €, 15-g-Beutel für 1,60 €. 13,5 g Kohlenhydrate pro Portion.',
-      'Izotonični napitek v prahu Honey Bee Power, limona in pomaranča: 500 g za 8,00 €, vrečka 15 g za 1,60 €. 13,5 g ogljikovih hidratov v obroku.',
-      'Napój izotoniczny w proszku Honey Bee Power, cytryna i pomarańcza: 500 g za 8,00 €, saszetka 15 g za 1,60 €. 13,5 g węglowodanów w porcji.',
+      'Izotonični napitak u prahu Honey Bee Power, limun i naranča: 500 g za 8,00 €, vrećica od 15 g za 1,40 €. 13,5 g ugljikohidrata u porciji.',
+      'Honey Bee Power isotonic drink powder, lemon and orange: 500 g for €8.00, 15 g sachet for €1.40. 13.5 g carbohydrate per serving.',
+      'Honey Bee Power isotonisches Getränkepulver, Zitrone und Orange: 500 g für 8,00 €, 15-g-Beutel für 1,40 €. 13,5 g Kohlenhydrate pro Portion.',
+      'Izotonični napitek v prahu Honey Bee Power, limona in pomaranča: 500 g za 8,00 €, vrečka 15 g za 1,40 €. 13,5 g ogljikovih hidratov v obroku.',
+      'Napój izotoniczny w proszku Honey Bee Power, cytryna i pomarańcza: 500 g za 8,00 €, saszetka 15 g za 1,40 €. 13,5 g węglowodanów w porcji.',
     ),
     image: '/images/products-web/honeybeepoweriso_lemon.webp',
     column: T('Ugljikohidrata u 15 g', 'Carbohydrate in 15 g', 'Kohlenhydrate in 15 g', 'Ogljikovi hidrati v 15 g', 'Węglowodany w 15 g'),
@@ -54,18 +54,18 @@ export const CATEGORY_COPY: Record<string, { title: L10n; lead: L10n; meta: L10n
   'whey-proteini': {
     title: T('Whey proteini', 'Whey protein', 'Whey Protein', 'Whey beljakovine', 'Białko serwatkowe'),
     lead: T(
-      'Whey protein sa sušenim medom (6 %) i stevijom, tri okusa, posuda od 700 g ili vrećica od 33 g. Oko 22 g proteina u porciji. Sadrži mlijeko.',
-      'Whey protein with dried honey (6%) and stevia, three flavours, 700 g tub or 33 g sachet. About 22 g of protein per serving. Contains milk.',
-      'Whey Protein mit getrocknetem Honig (6 %) und Stevia, drei Sorten, 700-g-Dose oder 33-g-Beutel. Etwa 22 g Protein pro Portion. Enthält Milch.',
-      'Whey protein s sušenim medom (6 %) in stevio, trije okusi, embalaža 700 g ali vrečka 33 g. Približno 22 g beljakovin v obroku. Vsebuje mleko.',
-      'Białko serwatkowe z suszonym miodem (6%) i stewią, trzy smaki, opakowanie 700 g lub saszetka 33 g. Około 22 g białka w porcji. Zawiera mleko.',
+      'Whey protein sa sušenim medom (6 %) i stevijom, tri okusa, posuda od 700 g. Oko 22 g proteina u porciji. Sadrži mlijeko.',
+      'Whey protein with dried honey (6%) and stevia, three flavours, 700 g tub. About 22 g of protein per serving. Contains milk.',
+      'Whey Protein mit getrocknetem Honig (6 %) und Stevia, drei Sorten, 700-g-Dose. Etwa 22 g Protein pro Portion. Enthält Milch.',
+      'Whey protein s sušenim medom (6 %) in stevio, trije okusi, embalaža 700 g. Približno 22 g beljakovin v obroku. Vsebuje mleko.',
+      'Białko serwatkowe z suszonym miodem (6%) i stewią, trzy smaki, opakowanie 700 g. Około 22 g białka w porcji. Zawiera mleko.',
     ),
     meta: T(
-      'Whey protein Honey Bee Power sa sušenim medom i stevijom: lješnjak-čokolada, banana-vanilija, jagoda-šlag. 700 g za 38,00 €. Sadrži mlijeko.',
-      'Honey Bee Power whey protein with dried honey and stevia: hazelnut-chocolate, banana-vanilla, strawberry-cream. 700 g for €38.00. Contains milk.',
-      'Honey Bee Power Whey Protein mit getrocknetem Honig und Stevia: Haselnuss-Schokolade, Banane-Vanille, Erdbeere-Sahne. 700 g für 38,00 €.',
-      'Whey protein Honey Bee Power s sušenim medom in stevio: lešnik-čokolada, banana-vanilija, jagoda-smetana. 700 g za 38,00 €. Vsebuje mleko.',
-      'Białko Honey Bee Power z suszonym miodem i stewią: orzech z czekoladą, banan z wanilią, truskawka ze śmietaną. 700 g za 38,00 €.',
+      'Whey protein Honey Bee Power sa sušenim medom i stevijom: lješnjak-čokolada, banana-vanilija, jagoda-šlag. 700 g za 39,00 €. Sadrži mlijeko.',
+      'Honey Bee Power whey protein with dried honey and stevia: hazelnut-chocolate, banana-vanilla, strawberry-cream. 700 g for €39.00. Contains milk.',
+      'Honey Bee Power Whey Protein mit getrocknetem Honig und Stevia: Haselnuss-Schokolade, Banane-Vanille, Erdbeere-Sahne. 700 g für 39,00 €.',
+      'Whey protein Honey Bee Power s sušenim medom in stevio: lešnik-čokolada, banana-vanilija, jagoda-smetana. 700 g za 39,00 €. Vsebuje mleko.',
+      'Białko Honey Bee Power z suszonym miodem i stewią: orzech z czekoladą, banan z wanilią, truskawka ze śmietaną. 700 g za 39,00 €.',
     ),
     image: '/images/products-web/proteincokolada700g.webp',
     column: T('Proteina u 33 g', 'Protein in 33 g', 'Protein in 33 g', 'Beljakovine v 33 g', 'Białko w 33 g'),
@@ -207,7 +207,7 @@ export async function CategoryPage({ category, locale }: { category: string; loc
           items={PRODUCT_FAQ[kind].slice(0, 4).map((f) => ({
             q: l(f.q, locale),
             a: l(f.a, locale)
-              .replace('{price}', formatEur((kind === 'isotonic' ? officialPriceFor('Instant izotonik', 'LIMUN', '15 g') : officialPriceFor('Proteinski prah', 'LJEŠNJAK-ČOKOLADA', '33 g')) ?? 0, locale)),
+              .replace('{price}', formatEur(officialPriceFor('Instant izotonik', 'LIMUN', '15 g') ?? 0, locale)),
           }))}
         />
       </section>

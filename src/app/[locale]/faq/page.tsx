@@ -39,7 +39,6 @@ export default async function FaqPage({ params }: { params: Promise<{ locale: Lo
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'home.faq' })
   const isoPrice = officialPriceFor('Instant izotonik', 'LIMUN', '15 g')
-  const wheyPrice = officialPriceFor('Proteinski prah', 'LJEŠNJAK-ČOKOLADA', '33 g')
 
   const general = [4, 5, 6].map((i) => ({ q: t(`q${i}`), a: t.markup(`a${i}`, { todo: (c) => c }) }))
   const groups = [
@@ -48,7 +47,7 @@ export default async function FaqPage({ params }: { params: Promise<{ locale: Lo
       id: `faq-${k}`,
       title: C[k === 'isotonic' ? 'iso' : k][locale],
       items: PRODUCT_FAQ[k].map((f) => {
-        const a = l(f.a, locale).replace('{price}', formatEur((k === 'isotonic' ? isoPrice : wheyPrice) ?? 0, locale))
+        const a = l(f.a, locale).replace('{price}', formatEur((k === 'isotonic' ? isoPrice : null) ?? 0, locale))
         return { q: l(f.q, locale), a: <>{todo(a)}</>, plain: a }
       }),
     })),

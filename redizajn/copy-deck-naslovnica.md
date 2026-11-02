@@ -32,7 +32,7 @@ Honey Bee Power (logotip) · Proizvodi · Oporavak · Vodiči · Cjenik · Za kl
 
 ## 4. Proizvodi (tvrdnja: tri proizvoda s jasnim brojkama; dokaz: fotografije, vrijednosti po porciji, cijena iz cjenika)
 **H2:** Gel, izotonik i whey
-- **Energetski gel, 40 g** — 29–32,8 g ugljikohidrata u vrećici · limun, naranča, malina · 1,80 € · [Gelovi]
+- **Energetski gel, 40 g** — 29–32,8 g ugljikohidrata u vrećici · limun, naranča, malina · 2,00 € · [Gelovi]
 - **Izotonični napitak, 500 g** — 13,5 g ugljikohidrata u porciji od 15 g · limun, naranča · 8,00 € · [Izotonici]
 - **Whey protein, 700 g** — oko 22 g proteina u porciji od 33 g · lješnjak-čokolada, banana-vanilija, jagoda-šlag · sadrži mlijeko · 38,00 € · [Whey]
 
