@@ -95,6 +95,7 @@ export default function ProductStage({ src, alt, ratio, field, ink, word }: Prop
                 width={Math.round(1000 * ratio)}
                 height={1000}
                 priority
+                quality={90}
                 sizes="(min-width: 768px) 40vw, 80vw"
                 className="stage-img"
                 style={{ aspectRatio: String(ratio) }}
