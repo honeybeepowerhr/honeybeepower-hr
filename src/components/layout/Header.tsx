@@ -13,6 +13,7 @@ import { SearchOverlay } from '@/features/search/SearchOverlay'
 
 const NAV = [
   { key: 'products', href: '/proizvodi' },
+  { key: 'bundles', href: '/paketi' },
   { key: 'recovery', href: '/oporavak-nakon-treninga' },
   { key: 'guides', href: '/vodici' },
   { key: 'priceList', href: '/cjenik' },

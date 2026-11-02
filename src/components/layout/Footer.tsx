@@ -16,6 +16,7 @@ export default function Footer() {
 
   const siteLinks = [
     { label: tNav('products'), href: '/proizvodi' },
+    { label: tNav('bundles'), href: '/paketi' },
     { label: tNav('recovery'), href: '/oporavak-nakon-treninga' },
     { label: tNav('sport'), href: '/sport/trcanje' },
     { label: tNav('guides'), href: '/vodici' },

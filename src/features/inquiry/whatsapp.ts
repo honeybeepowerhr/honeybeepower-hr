@@ -12,12 +12,16 @@ export const WHATSAPP_NUMBER = '385977097962'
 interface WhatsAppMessageInput {
   fullName: string
   phone: string
-  items: Pick<InquiryItem, 'name' | 'variantLabel' | 'quantity'>[]
+  items: Pick<InquiryItem, 'name' | 'variantLabel' | 'quantity' | 'details'>[]
 }
 
 export function buildWhatsAppMessage({ fullName, phone, items }: WhatsAppMessageInput): string {
   const itemLines = items
-    .map((item) => `• ${item.name}${item.variantLabel ? ` (${item.variantLabel})` : ''} × ${item.quantity}`)
+    .map((item) => {
+      const head = `• ${item.name}${item.variantLabel ? ` (${item.variantLabel})` : ''} × ${item.quantity}`
+      const details = (item.details ?? []).map((d) => `   - ${d}`)
+      return [head, ...details].join('\n')
+    })
     .join('\n')
 
   return [

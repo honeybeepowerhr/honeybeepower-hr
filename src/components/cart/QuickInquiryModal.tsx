@@ -73,6 +73,7 @@ export function QuickInquiryModal({ open, channel, items, onClose, onSuccess }: 
           quantity: item.quantity,
           unitPrice: item.unitPrice,
           imageSrc: item.imageSrc,
+          ...(item.details?.length ? { details: item.details } : {}),
         })),
       }
 

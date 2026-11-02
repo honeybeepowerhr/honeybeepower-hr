@@ -23,7 +23,8 @@
     "close": "Zatvori",
     "events": "Događaji",
     "faq": "Česta pitanja",
-    "sport": "Sport"
+    "sport": "Sport",
+    "bundles": "Paketi"
   },
   "cjenik": {
     "badge": "Službeni digitalni cjenik",
@@ -169,7 +170,7 @@
     "emailBtn": "Pošalji e-mailom",
     "inquiryHint": "Ništa se ne plaća na stranici. Javljamo se s potvrdom, cijenom dostave i načinom plaćanja (pouzeće ili virman).",
     "close": "Zatvori",
-    "subtotal": "Međuzbroj po cjeniku",
+    "subtotal": "Međuzbroj",
     "partialSubtotal": "Proizvodi bez cijene u cjeniku nisu uračunati; cijenu potvrđujemo u odgovoru.",
     "priceOnEnquiry": "cijena na upit",
     "quantityFor": "Količina: {name}",
@@ -767,5 +768,39 @@
     "zoomOpen": "Otvori deklaraciju u punoj veličini",
     "zoomClose": "Zatvori",
     "compositionLabel": "Sastav po udjelu"
+  },
+  "bundles": {
+    "title": "Paketi",
+    "lead": "Gotove kombinacije gelova, izotonika, wheyja i šejkera. Okuse biraš sam, a paket dodaješ u upit.",
+    "price": "Cijena paketa",
+    "from": "od",
+    "cta": "Odaberi okuse",
+    "contents": "U paketu",
+    "chooseTitle": "Odaberi okuse",
+    "optionTitle": "Odaberi izvedbu",
+    "chosen": "Odabrano {count} od {total}",
+    "remaining": "Još odaberi {count}",
+    "complete": "Sve je odabrano",
+    "mix": "Asortiman",
+    "mixTitle": "Ravnomjerno rasporedi po okusima",
+    "decrease": "Smanji: {name}",
+    "increase": "Povećaj: {name}",
+    "packQty": "Količina paketa",
+    "addToCart": "Dodaj paket u upit",
+    "incomplete": "Odaberi sve okuse prije dodavanja.",
+    "added": "Paket je dodan u upit.",
+    "included": "Uključeno u paket",
+    "wheyNote": "Whey protein sadrži mlijeko (alergen) i steviju.",
+    "others": "Ostali paketi",
+    "back": "Svi paketi",
+    "homeTitle": "Gotovi paketi.",
+    "homeLead": "Gelovi, izotonik, whey i šejker u gotovim paketima. Okuse biraš sam.",
+    "all": "Svi paketi",
+    "coverAlt": "{name}: sadržaj paketa",
+    "metaTitle": "Paketi: gelovi, izotonik, whey i šejker",
+    "metaDescription": "Gotovi paketi Honey Bee Power: mali, srednji i veliki paket, gel paket 30 i paket iznenađenja. Okuse biraš sam, kupnja na upit.",
+    "stripLead": "Gotovi paketi s gelovima, izotonikom, wheyjem i šejkerom. Okuse biraš sam.",
+    "stripCta": "Pogledaj pakete",
+    "priceNote": "Cijena paketa, kupnja na upit."
   }
 }

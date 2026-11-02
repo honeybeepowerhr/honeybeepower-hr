@@ -23,7 +23,8 @@
     "close": "Close",
     "events": "Events",
     "faq": "FAQ",
-    "sport": "Sport"
+    "sport": "Sport",
+    "bundles": "Packs"
   },
   "cjenik": {
     "badge": "Official digital price list",
@@ -169,7 +170,7 @@
     "emailBtn": "Send by e-mail",
     "inquiryHint": "Nothing is paid on the website. We reply with a confirmation, the shipping cost and payment options (cash on delivery or bank transfer).",
     "close": "Close",
-    "subtotal": "Subtotal at list prices",
+    "subtotal": "Subtotal",
     "partialSubtotal": "Items without a list price are not included; we confirm their price in our reply.",
     "priceOnEnquiry": "price on enquiry",
     "quantityFor": "Quantity: {name}",
@@ -768,5 +769,39 @@
     "zoomOpen": "Open the label at full size",
     "zoomClose": "Close",
     "compositionLabel": "Composition by share"
+  },
+  "bundles": {
+    "title": "Packs",
+    "lead": "Ready-made combinations of gels, isotonic drinks, whey and a shaker. You choose the flavours and add the pack to your enquiry.",
+    "price": "Pack price",
+    "from": "from",
+    "cta": "Choose flavours",
+    "contents": "In the pack",
+    "chooseTitle": "Choose flavours",
+    "optionTitle": "Choose a version",
+    "chosen": "Chosen {count} of {total}",
+    "remaining": "Choose {count} more",
+    "complete": "All chosen",
+    "mix": "Assorted",
+    "mixTitle": "Spread evenly across flavours",
+    "decrease": "Decrease: {name}",
+    "increase": "Increase: {name}",
+    "packQty": "Number of packs",
+    "addToCart": "Add pack to enquiry",
+    "incomplete": "Choose all flavours before adding.",
+    "added": "Pack added to your enquiry.",
+    "included": "Included in the pack",
+    "wheyNote": "Whey protein contains milk (allergen) and stevia.",
+    "others": "Other packs",
+    "back": "All packs",
+    "homeTitle": "Ready-made packs.",
+    "homeLead": "Gels, isotonic drink, whey and a shaker in ready-made packs. You choose the flavours.",
+    "all": "All packs",
+    "coverAlt": "{name}: pack contents",
+    "metaTitle": "Packs: gels, isotonic, whey and shaker",
+    "metaDescription": "Honey Bee Power ready-made packs: small, medium and large pack, gel pack 30 and a surprise pack. Choose your flavours, order by enquiry.",
+    "stripLead": "Ready-made packs with gels, isotonic drink, whey and a shaker. You choose the flavours.",
+    "stripCta": "See the packs",
+    "priceNote": "Pack price, order by enquiry."
   }
 }
